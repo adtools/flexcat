@@ -5,23 +5,39 @@
 
             The ultimate catalog processor and source generator
 
-                   by Jochen Wiedmann and Marcin Orlowski
-
+              by Jochen Wiedmann and Marcin Orlowski (c)1993
             e-mail: carlos@amiga.com.pl or marcin@orlowski.com
                   WWW: http://amiga.com.pl/flexcat/
+                 
+  ========================================================================
+  
+     After 26. November 2002 the FlexCat become the SourceForge project
+         The project maintainer: Ondrej Zima <amiandrew@volny.cz>
+     
+                 WWW: http://flexcat.sourceforge.net/
+         WWW Project Info: http://sourceforge.net/projects/flexcat
+           CVS Info: http://sourceforge.net/cvs/?group_id=68010
+    CVS Browser: http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/flexcat
+    
+  ========================================================================
+
+  NOTE: Unfortunately I am unable to provide examples for any programming
+        language that FlexCat now supports, so if you think you could
+        write some well-commented (english please) HelloWorld examples you
+        would be gladly welcomed. Tutorials and other add-ons are also
+        highly needed!
 
   ========================================================================
-  [THIS INFORMATION IS OBSOLETE NOW, WAIT FOR UPDATE]
+  
+2002-12-03 Ondrej Zima <amiandrew@volny.cz>
 
-  NOTE: Since release 2.4, FlexCat comes with some examples (FlexCat_Demos)
-        of how-to-make-localized-stuff. Unfortunately I am unable to 
-        provide examples for any programming language that FlexCat now
-        supports, so if you think you could write some well-commented
-        (english please) HelloWorld examples you would be gladly welcomed.
-        Tutorials and other add-ons are also highly needed!
+        * To all sources and headers are added licence header.
 
-  ========================================================================
+2002-11.28 Ondrej Zima <amiandrew@volny.cz>
 
+        * New public release 2.6.3
+        ==========================
+        
   * v2.6.3 (28.11.02)
                     - Now ignoring lines in .cd which starts with #ifdef and #endif
                       which are used for creating C headers and sources from .cd file.

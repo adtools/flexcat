@@ -1,32 +1,29 @@
-
-/******************************************************************
- **                                                              **
+/* $Id$
+ * 
+ * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
+ * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
+ * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or (at
+ * your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
+ ******************************************************************
  ** If you use GoldED or any other text editor featuring folding **
  ** you may want to set up "///" as fold opening phrase, and     **
  ** "//|" as closing one, as this source is using it.            **
- **                                                              **
  **                                                Marcin        **
- **                                                              **
- ******************************************************************/
-
-/* $Id$ */
-
-/*
- *  FlexCat.c:  The flexible catalog creator
-
- *	This program is distributed in the hope that it will be useful,
- *	but WITHOUT ANY WARRANTY; without even the implied warranty of
- *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- *	Ok, this is nothing special. It grabs a catalog translation and a
- *	catalog description file and produces catalogs and the source to
- *	handle them. What is it else than lots of other programs?
- *
- *	The difference is, that YOU determine what source FlexCat produces.
- *	Another file is scanned by FlexCat to produce code. This file contains
- *	some c-string like special characters (%v for version for example)
- *	You can edit this file and modify it as you want. So FlexCat can produce
- *	C source as well as Assembler, Oberon, Modula 2, E, ...
+ ******************************************************************
  */
 
 #include "flexcat.h"

@@ -1,8 +1,8 @@
 /* $Id$
  * 
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
+ * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
+ * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
