@@ -23,8 +23,12 @@
 #ifndef  FLEXCAT_H
 #define  FLEXCAT_H
 
-// undef if not on Amiga
-#undef __amigados
+// Amiga enviroment?
+#ifdef __AMIGA__
+#define __amigaos
+#else
+#undef __amigaos
+#endif
 
 #define VERSION 2
 #define REVISION 6
