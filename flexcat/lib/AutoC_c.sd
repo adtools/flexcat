@@ -48,9 +48,14 @@ typedef struct LocaleBase LocaleBase_t;
 #error "Don't know how to handle your compiler."
 #endif
 
-#if defined(__SASC) || defined(__GNUC__)
+#if defined(__SASC)
 #define __autoinit
 #define __autoexit
+#endif
+
+#if defined(__GNUC__)
+#define __autoinit __attribute__ ((constructor))
+#define __autoexit __attribute__ ((destructor))
 #endif
 
 
@@ -115,8 +120,3 @@ STRPTR GetString(struct FC_Type *fcstr)
     return(%b_Catalog ? GetCatalogStr(%b_Catalog, strnum, defaultstr) :
 			defaultstr);
   }
-
-#if defined(__GNUC__)
-asm ("  .text;  .stabs \\\"___CTOR_LIST__\\\",22,0,0,__STIOpenCatalog");
-asm ("  .text;  .stabs \\\"___DTOR_LIST__\\\",22,0,0,__STDCloseCatalog");
-#endif

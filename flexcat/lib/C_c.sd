@@ -65,7 +65,7 @@ STATIC __autoexit VOID _STDClose%bCatalog(VOID)
 #elif defined(__SASC)
 VOID _STDClose%bCatalog(VOID)
 #elif defined(__GNUC__)
-STATIC VOID _STDClose%bCatalog(VOID)
+STATIC VOID __attribute__ ((destructor)) _STDClose%bCatalog(VOID)
 #else
 VOID Close%bCatalog(VOID)
 #endif
@@ -87,7 +87,7 @@ STATIC __autoinit VOID _STIOpen%bCatalog(VOID)
 #elif defined(__SASC)
 VOID _STIOpen%bCatalog(VOID)
 #elif defined(__GNUC__)
-VOID _STIOpen%bCatalog(VOID)
+VOID __attribute__ ((constructor)) _STIOpen%bCatalog(VOID)
 #else
 VOID Open%bCatalog(VOID)
 #endif
@@ -108,10 +108,6 @@ VOID Open%bCatalog(VOID)
     }
 }
 
-#if defined(__GNUC__)
-__asm ("  .text;  .stabs \\\"___CTOR_LIST__\\\",22,0,0,__STIOpen%bCatalog");
-__asm ("  .text;  .stabs \\\"___DTOR_LIST__\\\",22,0,0,__STDClose%bCatalog");
-#endif
 
 
 

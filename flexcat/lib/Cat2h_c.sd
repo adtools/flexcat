@@ -39,6 +39,9 @@ static struct Catalog   *Catalog;
 __autoinit
 #endif
 VOID
+#ifdef __GNUC__
+__attribute__ ((constructor))
+#endif
 #ifdef __SASC
 _STI_19000_GetCatalog( VOID )
 #else
@@ -56,6 +59,9 @@ GetCatalog( VOID )
 __autoexit
 #endif
 VOID
+#ifdef __GNUC__
+__attribute__ ((destructor))
+#endif
 #ifdef __SASC
 _STD_19000_FreeCatalog( VOID )
 #else

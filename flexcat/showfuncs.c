@@ -30,12 +30,14 @@
 /* This shows an error message and terminates */
 void ShowError ( const char *msg, ... )
 {
-    char          **ptr = ( char ** )&msg;
+    va_list args;
 
 //  if(!Quiet)
     {
-        fprintf ( stderr, ptr[0], ptr[1], ptr[2], ptr[3], ptr[4] );
+        va_start ( args, msg );
+        vfprintf ( stderr, msg, args );
         putc ( '\n', stderr );
+	va_end ( args );
     }
 
 #ifdef __amigados
@@ -62,13 +64,15 @@ void MemError ( void )
 /* This shows a warning */
 void ShowWarn ( const char *msg, ... )
 {
-    char          **ptr = ( char ** )&msg;
+    va_list args;
 
     if ( !Quiet )
     {
+        va_start ( args, msg );
         fprintf ( stderr, ( char * )msgWarning, ScanFile, ScanLine );
-        fprintf ( stderr, ptr[0], ptr[1], ptr[2], ptr[3], ptr[4] );
+        vfprintf ( stderr, msg, args );
         putc ( '\n', stderr );
+	va_end ( args );
     }
 
     NumberOfWarnings++;
