@@ -5,12 +5,15 @@ TITLE
 
 VERSION
 
-    2.5b
+    2.6.4
 
 AUTHOR
 
-    Jochen Wiedmann and Marcin Orlowski
+    Ondrej Zima <amiandrew@volny.cz>
+    SourceForge project: http://www.sourceforge.net/projects/flexcat
 
+    Original authors:
+    Jochen Wiedmann and Marcin Orlowski
     e-mail: carlos@amiga.com.pl or marcin@orlowski.com
     WWW   : http://wfmh.org.pl/~carlos/
 
@@ -34,7 +37,7 @@ FEATURES
 
     FlexCat features include:
 
-    * Runs on any computer
+    * Runs on any computer (I hope)
     * Localized of course ;-) (Amiga OS versions only)
     * Can produce catalog handling source code for any language
       (templates for Assembler, C, C++, E, Oberon and Modula-2 included)
@@ -50,14 +53,9 @@ SPECIAL REQUIREMENTS
 
 AVAILABILITY
 
-    FlexCat is available on its support site:
+    FlexCat is available on SourceForge project page:
 
-    http://amiga.com.pl/flexcat/
-    ftp://ftp.amiga.com.pl/pub/flexcat/
-
-    and naturally on Aminet mirrors, eg.
- 
-    ftp://ftp.wustl.edu/pub/aminet/dev/misc/
+    http://www.sourceforge.net/projects/flexcat/
 
 
 ARCHIVES
@@ -68,34 +66,31 @@ ARCHIVES
     FlexCat.lha          - Latest FlexCat, user contribitions, english manual
                            and foreign catalog files
 
-    FlexCat_0x0.lha      - patches for 020, 040 and 060 versions of FlexCat
-                           (PPC makes no sense here. I checked that).
-
-    FlexCat_XtraDocs.lha - FlexCat's guide in non english languages. Currently
-                           Svenska, Espanol and Deutsch are provided
-
-    FlexCat_CatSrc.lha   - #?.cd and #?.ct files for existing translations and
-                           #?.texinfo documents
-
-    FlexCat_Src.lha      - C source code for the FlexCat itself
-
-    FlexCat_Demos.lha    - example source codes -> shows how to make localized
-                            programs using FlexCat (C/HSPascal/ARexx/etc)
-
-
-    If you just want to use FlexCat, the 1st archive is all you need.
-    If you want to have CPU optimised binaries, take both 1st and 2nd
-    and patch the original release.  If you want to read translated manual,
-    get the 3rd one.  If you want to make the translation take the 4th one
-    (but I suggesto to join the Amiga Translators' Organisation
-    <http://ato.vapor.com/ato> first!)
-
-    
 PRICE
 
     Freeware
 
 CHANGES
+  * v2.6.4 (07.01.03)
+                    - Fixed creating all files: all files now not have a execute bit
+		      (on Amiga only)
+		    - If .cd description have some #ifdef/#endif directives, are
+		      inserted to .ct as comment
+
+  * v2.6.3 (28.11.02)
+                    - Now ignoring lines in .cd which starts with #ifdef and #endif
+                      which are used for creating C headers and sources from .cd file.
+
+  * v2.6.2 (20.11.02)
+                    - Added new parameter NOAUTODATE which prevent FlexCat
+                      to use a current date in $VER: for catalog. The date
+                      specified in .ct is used.
+
+  * v2.6.1 (18.11.02)
+                    - FlexCat now recognize the 'codeset' parameter in .ct
+		      which is needed for Amiga OS4 translating process.
+					    
+  * v2.6.x          - Moved to SourceForge
 
   * v2.5b (19.03.02)- Added GG patchfile, thanks to Martin Blom <martin@blom.org>
 

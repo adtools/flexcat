@@ -38,13 +38,11 @@ char            EString[] =
 /// FUNC: MyExit
 void MyExit ( int Code )
 {
-#if defined(__amigados)
-
+#ifdef __amigados
     if ( ( ( NumberOfWarnings > 0 ) || ( Code != 0 ) ) && ( !NoBeep ) )
         DisplayBeep ( NULL );
 
 #endif
-
     CloseFlexCatCatalog (  );
     exit ( Code );
 }
@@ -324,9 +322,7 @@ void OverSpace ( char **strptr )
 
 void Expunge ( void )
 {
-#if defined(__amigados)
-
-
+#ifdef __amigados
     if ( DoExpunge )
     {
 #ifdef __EXPUNGE_ALL__
@@ -335,7 +331,6 @@ void Expunge ( void )
         if ( Memory = AllocMem ( -1, NULL ) )
             FreeMem ( Memory, -1 );     // just in case ;-)
 #else
-
 #ifdef __GNUC__
 #define localeExpunge() \
 	((BPTR (*)(struct Library * __asm("a6"))) \
@@ -525,7 +520,7 @@ char           *AddFileName ( char *pathname, char *filename )
         MyExit ( 10 );
     }
 
-#if defined(__amigados)
+#ifdef __amigados
     strcpy ( buffer, pathname );
     AddPart ( ( char * )buffer, ( char * )filename, size );
 #else

@@ -69,7 +69,7 @@ int main ( int argc, char *argv[] )
         fprintf ( stderr, "It's neither Little nor Big Endian?!.\n" );
         exit ( 5 );
     }
-#if defined(__amigados)
+#ifdef __amigados
     ReadPrefs (  );
 #endif
 
@@ -184,7 +184,7 @@ int main ( int argc, char *argv[] )
         }
     }
 
-#if defined(__amigados)
+#ifdef __amigados
     if ( Modified )
     {
         if ( cdfile && ctfile && catalog )

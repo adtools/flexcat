@@ -140,6 +140,10 @@ int ScanCDFile ( char *cdfile )
             {
                 continue;
             }
+            else if ( strnicmp ( line + 1, "#", 1 ) == 0 )
+            {
+                continue;
+            }
             else
             {
                 ShowWarn ( msgUnknownCDCommand );

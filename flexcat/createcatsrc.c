@@ -1,5 +1,6 @@
+
 /* $Id$
- * 
+
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
  * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
  * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
@@ -30,7 +31,6 @@
 #include "createcat.h"
 #include "globals.h"
 #include "utils.h"
-
 enum StringTypes
 {
     TYPE_C,                     /* Produce C strings */
@@ -40,21 +40,22 @@ enum StringTypes
                                    it allows only 32 bit integers? ;-) */
     TYPE_NONE                   /* Simple strings */
 };
-
 enum OutputModes
 {
     OutputMode_None,            /* Nothing written yet */
     OutputMode_Bin,             /* Last character written was binary */
     OutputMode_Ascii            /* Last character written was Ascii */
 };
-
 int             OutputMode = OutputMode_None;
 int             OutputType = TYPE_C;
+
 FILE           *OutputFile;
 int             OutputLen;
 int             LongStrings = TRUE;     /* Generate long or short strings */
 
+
 /// FUNC: CalcRealLength
+
 
 /* This function measures the real (binary) length of source
    string. It correctly process 'slash chars' (\n, \000 etc),
@@ -62,7 +63,6 @@ int             LongStrings = TRUE;     /* Generate long or short strings */
 
    Inputs: source - pointer to null terminated source string
    Result: real length */
-
 int CalcRealLength ( char *source )
 {
     int             count = 0;
@@ -70,31 +70,37 @@ int CalcRealLength ( char *source )
     char            bytes[10];
 
     while ( *src )
+
     {
         count += ReadChar ( &src, bytes );
+
     }
+
 // printf("%ld: '%s'\n", count, source);
     return ( count );
+
 }
+
 
 //|
 
 /// FUNC: InitCatStringOutput
 
+
 /* InitCatStringOutput gets called before writing a catalog string as source.
    Inputs: fp   = file pointer to the output file
-   		   type = one of   TYPE_C          create C strings
-   						   TYPE_ASSEMBLER  create Assembler strings
-   						   TYPE_OBERON     create Oberon strings
-						   TYPE_E          create E strings
-						   TYPE_NONE       create simple strings */
-
+   type = one of   TYPE_C          create C strings
+   TYPE_ASSEMBLER  create Assembler strings
+   TYPE_OBERON     create Oberon strings
+   TYPE_E          create E strings
+   TYPE_NONE       create simple strings */
 void InitCatStringOutput ( FILE * fp )
 {
     OutputLen = 0;
     OutputFile = fp;
     OutputMode = OutputMode_None;
     switch ( OutputType )
+
     {
         case TYPE_C:
         case TYPE_OBERON:
@@ -106,66 +112,86 @@ void InitCatStringOutput ( FILE * fp )
         case TYPE_ASSEMBLER:
         case TYPE_NONE:
             break;
+
     }
+
 }
+
 
 //|
 
 /// FUNC: SeparateCatStringOutput
 
+
 /* SeparateCatStringOutput gets called to split a catalog into separate lines. */
 void SeparateCatStringOutput ( void )
 {
     switch ( OutputType )
+
     {
         case TYPE_C:
             if ( !LongStrings )
+
             {
                 fputs ( "\"\\\n\t\"", OutputFile );
+
             }
             break;
         case TYPE_E:
             if ( !LongStrings )
+
             {
                 fputs ( "\' +\n\t\'", OutputFile );
+
             }
             break;
         case TYPE_OBERON:
             if ( !LongStrings )
+
             {
                 fputs ( "\"\n\t\"", OutputFile );
+
             }
             break;
         case TYPE_ASSEMBLER:
             if ( !LongStrings )
+
             {
                 if ( OutputMode == OutputMode_Ascii )
+
                 {
                     putc ( '\'', OutputFile );
+
                 }
                 putc ( '\n', OutputFile );
                 OutputMode = OutputMode_None;
+
             }
             break;
         case TYPE_NONE:
             break;
+
     }
+
 }
+
 
 //|
 
 /// FUNC: WriteBinChar
 
+
 /* WriteBinChar writes one binary character into the source file */
 void WriteBinChar ( int c )
 {
-
     switch ( OutputType )
+
     {
         case TYPE_C:
         case TYPE_E:
         case TYPE_OBERON:
             switch ( c )
+
             {
                 case '\b':
                     fputs ( "\\b", OutputFile );
@@ -187,22 +213,28 @@ void WriteBinChar ( int c )
                     break;
                 default:
                     if ( OutputType == TYPE_E && c == '\033' )
+
                     {
                         fputs ( "\\e", OutputFile );
+
                     }
+
                     else
                     {
                         fprintf ( OutputFile, "\\%c%c%c",
                                   ( ( c >> 6 ) & 3 ) + '0',
                                   ( ( c >> 3 ) & 7 ) + '0', ( c & 7 ) + '0' );
+
                     }
                     break;
+
             }
             ++OutputLen;
             OutputMode = OutputMode_Bin;
             break;
         case TYPE_ASSEMBLER:
             switch ( OutputMode )
+
             {
                 case OutputMode_None:
                     fprintf ( OutputFile, "\tdc.b\t$%02x", c & 0xff );
@@ -212,6 +244,7 @@ void WriteBinChar ( int c )
                 case OutputMode_Bin:
                     fprintf ( OutputFile, ",$%02x", c & 0xff );
                     break;
+
             }
             ++OutputLen;
             OutputMode = OutputMode_Bin;
@@ -219,22 +252,27 @@ void WriteBinChar ( int c )
         case TYPE_NONE:
             ShowWarn ( msgNoBinChars );
             break;
+
     }
+
 }
+
 
 //|
 
 /// FUNC: WriteAsciiChar
 
+
 /* WriteAsciiChar writes one ascii character into the source file. */
 void WriteAsciiChar ( int c )
 {
-
     switch ( OutputType )
+
     {
         case TYPE_C:
         case TYPE_OBERON:
             switch ( c )
+
             {
                 case '\"':
                     fputs ( "\\\"", OutputFile );
@@ -242,12 +280,14 @@ void WriteAsciiChar ( int c )
                 default:
                     putc ( c, OutputFile );
                     break;
+
             }
             ++OutputLen;
             OutputMode = OutputMode_Ascii;
             break;
         case TYPE_E:
             switch ( c )
+
             {
                 case '\'':
                     fputs ( "''", OutputFile );
@@ -255,18 +295,23 @@ void WriteAsciiChar ( int c )
                 default:
                     putc ( c, OutputFile );
                     break;
+
             }
             ++OutputLen;
             OutputMode = OutputMode_Ascii;
             break;
         case TYPE_ASSEMBLER:
             if ( c == '\'' )
+
             {
                 WriteBinChar ( c );
+
             }
+
             else
             {
                 switch ( OutputMode )
+
                 {
                     case OutputMode_None:
                         fprintf ( OutputFile, "\tdc.b\t\'%c", c );
@@ -277,25 +322,32 @@ void WriteAsciiChar ( int c )
                     case OutputMode_Bin:
                         fprintf ( OutputFile, ",\'%c", c );
                         break;
+
                 }
                 ++OutputLen;
                 OutputMode = OutputMode_Ascii;
+
             }
             break;
         case TYPE_NONE:
             putc ( c, OutputFile );
             break;
+
     }
+
 }
+
 
 //|
 
 /// FUNC: TerminateCatStringOutput
 
+
 /* TerminateCatStringOutput finishs the output of a catalog string. */
 void TerminateCatStringOutput ( void )
 {
     switch ( OutputType )
+
     {
         case TYPE_C:
         case TYPE_OBERON:
@@ -306,6 +358,7 @@ void TerminateCatStringOutput ( void )
             break;
         case TYPE_ASSEMBLER:
             switch ( OutputMode )
+
             {
                 case OutputMode_Ascii:
                     putc ( '\'', OutputFile );
@@ -313,15 +366,20 @@ void TerminateCatStringOutput ( void )
                     break;
                 case OutputMode_None:
                     break;
+
             }
         case TYPE_NONE:
             break;
+
     }
+
 }
+
 
 //|
 
 /// FUNC: WriteString
+
 
 /* This writes a sourcestring. */
 void WriteString ( FILE * fpout, char *str, long Len )
@@ -332,109 +390,139 @@ void WriteString ( FILE * fpout, char *str, long Len )
 
     InitCatStringOutput ( fpout );
     if ( Len >= 0 )
+
     {
         register int    i;
 
         for ( i = LengthBytes; i >= 1; i-- )
+
         {
             WriteBinChar ( ( int )( ( char * )&Len )[sizeof ( Len ) - i] );
-        }
-    }
 
+        }
+
+    }
     while ( *str )
+
     {
         bytesread = ReadChar ( &str, bytes );
         if ( bytesread )
+
         {
             unsigned char   c;
 
             if ( needseparate )
+
             {
                 SeparateCatStringOutput (  );
                 needseparate = FALSE;
-            }
 
+            }
             c = bytes[bytesread - 1];
             if ( ( c >= 0x20 && c < 0x7f ) || c >= 0xa0 )
+
             {
                 WriteAsciiChar ( ( int )c );
+
             }
+
             else
             {
                 WriteBinChar ( ( int )c );
+
             }
+
         }
+
         else
         {
             needseparate = TRUE;
+
         }
+
     }
     TerminateCatStringOutput (  );
+
 }
+
 
 //|
 
 /// FUNC: CreateSourceFile
 
+
 /* Finally the source creation. */
 void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 {
-
     FILE           *fpin, *fpout;
     char           *line;
     char           *OrigTemplateFile = TemplateFile;
 
     ScanFile = SourceFile;
     ScanLine = 0;
+
 // Open the source file. This may be found in various places */
     if ( !( fpin = fopen ( TemplateFile, "r" ) ) )
+
     {
+
 #ifdef __amigados
         if ( *prefs_sddir != 0 )
+
         {
             TemplateFile = AddFileName ( prefs_sddir, OrigTemplateFile );
             fpin = fopen ( TemplateFile, "r" );
+
         }
+
 #endif
     }
-
     if ( !fpin )
     {
+#ifdef __amigados
+        char            sddir[80];
+
+        if ( GetVar ( FLEXCAT_SDDIR, sddir, 80, NULL ) != 0 )
+#else
         char           *sddir;
 
-        if ( ( sddir = getenv ( FLEXCAT_SDDIR ) ) )
+        if ( ( sddir = getenv ( FLEXCAT_SDDIR ) ) != NULL )
+#endif
         {
             TemplateFile = AddFileName ( sddir, OrigTemplateFile );
             fpin = fopen ( TemplateFile, "r" );
-        }
-    }
 
+        }
+
+    }
     if ( !fpin )
+
     {
         TemplateFile =
             AddFileName ( DEFAULT_FLEXCAT_SDDIR, OrigTemplateFile );
         fpin = fopen ( TemplateFile, "r" );
-    }
 
+    }
     if ( !fpin )
+
     {
         ShowError ( msgNoSourceDescription, OrigTemplateFile );
         return;
-    }
 
+    }
     if ( !( fpout = fopen ( SourceFile, "w" ) ) )
+
     {
         ShowError ( msgNoSource, SourceFile );
         return;
-    }
 
+    }
     if ( !NoBufferedIO )
         setvbuf ( fpin, NULL, _IOFBF, buffer_size );
     if ( !NoBufferedIO )
         setvbuf ( fpout, NULL, _IOFBF, buffer_size );
-
-
     while ( !feof ( fpin ) && ( line = ReadLine ( fpin, FALSE ) ) )
+
     {
         struct CatString *cs;
         int             NeedRepeat;
@@ -442,88 +530,120 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
         int             bytesread;
 
         cs = FirstCatString;
+
         do
+
         {
             char           *currentline = line;
 
             NeedRepeat = FALSE;
-
             if ( *currentline == '#' && *( ++currentline ) == '#' )
+
             {
                 ++currentline;
                 OverSpace ( &currentline );
-
                 if ( strnicmp ( currentline, "rem", 3 ) == 0 )
+
                 {
+
                 // we just skip this line
                     continue;
-                }
 
+                }
                 if ( strnicmp ( currentline, "stringtype", 10 ) == 0 )
+
                 {
                     currentline += 10;
                     OverSpace ( &currentline );
                     if ( strnicmp ( currentline, "c", 1 ) == 0 )
+
                     {
                         OutputType = TYPE_C;
                         ++currentline;
+
                     }
+
                     else if ( strnicmp ( currentline, "assembler", 9 ) == 0 )
+
                     {
                         OutputType = TYPE_ASSEMBLER;
                         currentline += 9;
+
                     }
+
                     else if ( strnicmp ( currentline, "oberon", 6 ) == 0 )
+
                     {
                         OutputType = TYPE_OBERON;
                         currentline += 6;
+
                     }
+
                     else if ( strnicmp ( currentline, "e", 1 ) == 0 )
+
                     {
                         OutputType = TYPE_E;
                         ++currentline;
+
                     }
+
                     else if ( strnicmp ( currentline, "none", 4 ) == 0 )
+
                     {
                         OutputType = TYPE_NONE;
                         currentline += 4;
+
                     }
+
                     else
                     {
                         ShowWarn ( msgUnknownStringType );
                         currentline += strlen ( currentline );
+
                     }
                     OverSpace ( &currentline );
                     if ( *currentline )
+
                     {
                         ShowWarn ( msgExtraCharacters );
+
                     }
                     continue;
+
                 }
+
                 else if ( strnicmp ( currentline, "shortstrings", 12 ) == 0 )
+
                 {
                     currentline += 12;
                     LongStrings = FALSE;
                     OverSpace ( &currentline );
                     if ( *currentline )
+
                     {
                         ShowWarn ( msgExtraCharacters );
+
                     }
                     continue;
-                }
-            }
 
+                }
+
+            }
             currentline = line;
             while ( *currentline )
+
             {
                 bytesread = ReadChar ( &currentline, bytes );
                 if ( bytesread )
+
                 {
                     if ( *bytes == '%' )
+
                     {
                         char            c;
 
                         switch ( c = *( currentline++ ) )
+
                         {
                             case 'b':
                                 fputs ( BaseName, fpout );
@@ -538,30 +658,38 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 WriteString ( fpout, Language, -1 );
                                 break;
                             case 'f':
+
                                 {
                                     char           *tempstr;
 
                                     if ( ( c = *currentline++ ) == 'v' )
+
                                     {
                                         fputs ( VERS, fpout );
+
                                     }
+
                                     else
                                     {
                                         tempstr =
                                             AllocFileName ( CDFile, c - '0' );
                                         fputs ( tempstr, fpout );
+
                                     }
+
                                 }
                                 break;
                             case 'o':
+
                                 {
                                     char           *tempstr;
 
                                     tempstr =
                                         AllocFileName ( SourceFile,
-                                                        *currentline++ -
-                                                        '0' );
+                                                        *currentline++
+                                                        - '0' );
                                     fputs ( tempstr, fpout );
+
                                 }
                                 break;
                             case 'i':
@@ -569,10 +697,8 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 if ( cs )
                                     fputs ( cs->ID_Str, fpout );
                                 break;
-
                             case 'a':
                             case 't':
-
                             case 'd':
                             case 'x':
                             case 'c':
@@ -586,17 +712,19 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                             case '7':
                             case '8':
                             case '9':
+
                                 {
                                     int             len = 0;
 
                                     while ( c >= '0' && c <= '9' )
+
                                     {
                                         len = ( c - '0' ) + len * 10;
                                         c = *currentline++;
+
                                     }
-
-
                                     if ( c == 'a' )
+
                                     {
                                         int             _len = len ? len : 4;
                                         char           *start;
@@ -604,18 +732,20 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                                         sprintf ( _StrLen, "%020lx",
                                                   ( unsigned long )cs->ID );
-
                                         start = &_StrLen[20 - _len * 2];
                                         while ( _len > 0 )
+
                                         {
                                             fprintf ( fpout, "\\x%.2s",
                                                       start );
                                             start += 2;
                                             _len--;
-                                        }
-                                    }
 
+                                        }
+
+                                    }
                                     if ( c == 't' )
+
                                     {
                                         int             _len = len ? len : 4;
                                         char           *start;
@@ -627,39 +757,39 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                                               ( cs->CD_Str ) +
                                                               1 ) &
                                                             0xfffffe ) );
-
                                         start = &_StrLen[20 - _len * 2];
                                         while ( _len > 0 )
+
                                         {
                                             fprintf ( fpout, "\\x%.2s",
                                                       start );
                                             start += 2;
                                             _len--;
-                                        }
-                                    }
 
+                                        }
+
+                                    }
                                     if ( c == 'c' || c == 'd' || c == 'x' )
+
                                     {
                                         char            buffer[20];
 
                                         if ( c == 'c' )
                                             c = 'o';
-
                                         if ( len )
-                                            sprintf ( buffer, "%%0%d%c", len,
-                                                      c );
+                                            sprintf ( buffer, "%%0%d%c",
+                                                      len, c );
+
                                         else
                                             sprintf ( buffer, "%%%c", c );
-
                                         if ( cs )
                                             fprintf ( fpout, buffer, cs->ID );
+
                                     }
-
-
                                     NeedRepeat = TRUE;
+
                                 }
                                 break;
-
                             case 'e':
                                 NeedRepeat = TRUE;
                                 if ( cs )
@@ -668,95 +798,120 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                             case 's':
                                 NeedRepeat = TRUE;
                                 if ( cs )
+
                                 {
                                     char           *idstr;
                                     unsigned long   len = 0;
 
                                     if ( LengthBytes )
+
                                     {
                                         idstr = cs->CD_Str;
                                         while ( *idstr )
+
                                         {
                                             bytesread =
                                                 ReadChar ( &idstr, bytes );
                                             if ( bytesread )
+
                                             {
                                                 ++len;
+
                                             }
+
                                         }
+
                                     }
                                     WriteString ( fpout, cs->CD_Str,
                                                   LengthBytes ? len : -1 );
+
                                 }
                                 break;
                             case '(':
                                 NeedRepeat = TRUE;
                                 while ( *currentline && *currentline != ')' )
+
                                 {
                                     bytesread =
                                         ReadChar ( &currentline, bytes );
                                     if ( bytesread && cs && cs->Next )
+
                                     {
-                                        putc ( ( int )bytes[bytesread - 1],
-                                               fpout );
+                                        putc ( ( int )
+                                               bytes[bytesread - 1], fpout );
+
                                     }
+
                                 }
                                 if ( !*currentline )
+
                                 {
                                     ShowWarn ( msgNoTerminateBracket );
+
                                 }
+
                                 else
                                 {
                                     ++currentline;
+
                                 }
                                 break;
 
                             // !!!! FIX !!!!
-
                             case 'z':
+
                                 {
                                     int             diff =
                                         ( ( ( CalcRealLength ( cs->CD_Str ) +
                                               1 ) & 0xfffffe ) -
                                           ( CalcRealLength ( cs->CD_Str ) ) );
-
                                     NeedRepeat = TRUE;
-
                                     while ( diff > 0 )
+
                                     {
                                         fprintf ( fpout, "\\x00" );
                                         diff--;
+
                                     }
-
                                     break;
-                                }
 
+                                }
                             default:
+
                                 {
                                     int             c = *currentline++;
 
                                     putc ( c, fpout );
+
                                 }
+
                         }
+
                     }
+
                     else
                     {
                         putc ( ( int )bytes[bytesread - 1], fpout );
+
                     }
+
                 }
+
             }
             putc ( '\n', fpout );
+
         }
         while ( NeedRepeat && cs && ( cs = cs->Next ) );
-
         free ( line );
-    }
 
+    }
     fclose ( fpin );
     fclose ( fpout );
+
 #ifdef __amigados
     SetProtection ( SourceFile, FILE_MASK );
 #endif
 }
+
 
 //|

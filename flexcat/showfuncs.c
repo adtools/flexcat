@@ -39,7 +39,7 @@ void ShowError ( const char *msg, ... )
         putc ( '\n', stderr );
     }
 
-#if defined(__amigados)
+#ifdef __amigados
     NumberOfWarnings++;
 #endif
 

@@ -28,7 +28,7 @@
 
 #define VERSION 2
 #define REVISION 6
-#define VERS       "FlexCat 2.6.3"
+#define VERS       "FlexCat 2.6.4"
 
 #ifdef __amigados
 

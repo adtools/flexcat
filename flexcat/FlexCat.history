@@ -29,6 +29,14 @@
 
   ========================================================================
 
+        * New public release 2.6.4
+        ==========================
+  * v2.6.4 (07.01.03)
+                    - Fixed creating all files: all files now not have a execute bit
+                      (on Amiga only)
+                    - If .cd description have some #ifdef/#endif directives, are
+                      inserted to .ct as comment
+
 2003-01-06 Ondrej Zima <amiandrew@volny.cz>
 
         * Added Magyar translation, thanks to Marton Dosa
@@ -41,7 +49,6 @@
 
         * New public release 2.6.3
         ==========================
-        
   * v2.6.3 (28.11.02)
                     - Now ignoring lines in .cd which starts with #ifdef and #endif
                       which are used for creating C headers and sources from .cd file.

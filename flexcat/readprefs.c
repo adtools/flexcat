@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -64,7 +65,7 @@ char ReadPrefs ( void )
 {
     char            result = FALSE;
 
-#if defined(__amigados)
+#ifdef __amigados
 
 #define MAX_PREFS_LEN 512
 #define FLEXCAT_PREFS "flexcat.prefs"
@@ -95,65 +96,67 @@ char ReadPrefs ( void )
     struct RDArgs  *rda;
     struct RDArgs  *rdargs;
 
-    if ( ( prefs = getenv ( FLEXCAT_PREFS ) ) != NULL )
+    if ( ( prefs = malloc ( 2048 ) ) != NULL )
     {
-        prefs = realloc ( prefs, strlen ( prefs ) + 1 );
-        strcat ( prefs, "\n" );
-
-        if ( ( rda = AllocDosObject ( DOS_RDARGS, TAG_DONE ) ) != NULL )
+        if ( GetVar ( FLEXCAT_PREFS, prefs, 80, NULL ) != 0 )
         {
-            rda->RDA_Source.CS_Buffer = prefs;
-            rda->RDA_Source.CS_Length = strlen ( prefs );
-            rda->RDA_Source.CS_CurChr = 0;
-            rda->RDA_Flags |= RDAF_NOPROMPT;
+            prefs = realloc ( prefs, strlen ( prefs ) + 1 );
+            strcat ( prefs, "\n" );
 
-            if ( ( rdargs = ReadArgs ( template, Results, rda ) ) != NULL )
+            if ( ( rda = AllocDosObject ( DOS_RDARGS, TAG_DONE ) ) != NULL )
             {
-                if ( Results[SDDIR] )
-                    strncpy ( prefs_sddir, ( char * )Results[SDDIR],
-                              MAXPATHLEN );
+                rda->RDA_Source.CS_Buffer = prefs;
+                rda->RDA_Source.CS_Length = strlen ( prefs );
+                rda->RDA_Source.CS_CurChr = 0;
+                rda->RDA_Flags |= RDAF_NOPROMPT;
 
-                if ( Results[MSG_NEW] )
-                    strncpy ( Msg_New, ( char * )Results[MSG_NEW],
-                              MAX_NEW_STR_LEN );
+                if ( ( rdargs =
+                       ReadArgs ( template, Results, rda ) ) != NULL )
+                {
+                    if ( Results[SDDIR] )
+                        strncpy ( prefs_sddir, ( char * )Results[SDDIR],
+                                  MAXPATHLEN );
 
-                WarnCTGaps = Results[WARNCTGAPS];
-                NoOptim = Results[NOOPTIM];
-                Fill = Results[FILL];
-                DoExpunge = Results[FLUSH];
-                NoBeep = Results[NOBEEP];
-                Quiet = Results[QUIET];
-                LANGToLower = Results[NOLANGTOLOWER];
-                Modified = Results[MODIFIED];
-                NoBufferedIO = Results[NOBUFFEREDIO];
-                CopyNEWs = Results[COPYMSGNEW];
-                NoSpace = Results[NOSPACE];
-                NoAutoDate = Results[NOAUTODATE];
-                if ( Results[OLDMSGNEW] )
-                    sprintf ( Old_Msg_New, "; %s",
-                              ( char * )Results[OLDMSGNEW] );
+                    if ( Results[MSG_NEW] )
+                        strncpy ( Msg_New, ( char * )Results[MSG_NEW],
+                                  MAX_NEW_STR_LEN );
 
-                FreeArgs ( rdargs );
+                    WarnCTGaps = Results[WARNCTGAPS];
+                    NoOptim = Results[NOOPTIM];
+                    Fill = Results[FILL];
+                    DoExpunge = Results[FLUSH];
+                    NoBeep = Results[NOBEEP];
+                    Quiet = Results[QUIET];
+                    LANGToLower = Results[NOLANGTOLOWER];
+                    Modified = Results[MODIFIED];
+                    NoBufferedIO = Results[NOBUFFEREDIO];
+                    CopyNEWs = Results[COPYMSGNEW];
+                    NoSpace = Results[NOSPACE];
+                    NoAutoDate = Results[NOAUTODATE];
+                    if ( Results[OLDMSGNEW] )
+                        sprintf ( Old_Msg_New, "; %s",
+                                  ( char * )Results[OLDMSGNEW] );
 
-                result = TRUE;
+                    FreeArgs ( rdargs );
+
+                    result = TRUE;
+                }
+                else
+                {
+                    fputs ( ( char * )msgPrefsError, stderr );
+                    fputs ( ( char * )template, stderr );
+                    fputs ( ( char * )"\n", stderr );
+                    DisplayBeep ( NULL );
+                }
+                FreeDosObject ( DOS_RDARGS, rda );
             }
             else
             {
-                fputs ( ( char * )msgPrefsError, stderr );
-                fputs ( ( char * )template, stderr );
-                fputs ( ( char * )"\n", stderr );
-                DisplayBeep ( NULL );
+                fputs ( "Error processing prefs.\nCan't AllocDosObject()\n",
+                        stderr );
             }
-
-            FreeDosObject ( DOS_RDARGS, rda );
+            free ( prefs );
         }
-        else
-        {
-            fputs ( "Error processing prefs.\nCan't AllocDosObject()\n",
-                    stderr );
-        }
-
-        free ( prefs );
     }
 #endif
     return ( result );

@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -115,15 +116,8 @@ void CreateCTFile ( char *NewCTFile )
                 }
                 CatLanguage = lang;
             }
-            if ( lang )
-            {
-                free ( lang );
-                CatLanguage = NULL;
-            }
-
 #endif
         }
-
         fprintf ( fp, "## language %s\n## codeset %d\n;\n",
                   CatLanguage ? CatLanguage : "X", CodeSet );
     }
@@ -143,12 +137,11 @@ void CreateCTFile ( char *NewCTFile )
         switch ( *cd->Line )
         {
             case '#':
+                fprintf ( fp, ";%s\n", cd->Line );
                 break;
-
             case ';':
                 fprintf ( fp, "%s\n", cd->Line );
                 break;
-
             default:
                 if ( cs )
                 {
