@@ -40,6 +40,54 @@
 #include "globals.h"
 #include "createcatsrc.h"
 
+
+int isParam ( char *input_string )
+{
+    if ( stricmp ( input_string, "catalog" ) == 0 )
+        return TRUE;
+    if ( strnicmp ( input_string, "catalog=", 8 ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "nooptim" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "fill" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "quiet" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "flush" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "nobeep" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "nobufferedio" ) == 0 )
+        return TRUE;
+    if ( strnicmp ( input_string, "newctfile=", 10 ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "newctfile" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "nolangtolower" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "modified" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "warnctgaps" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "copymsgnew" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "nospace" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "noautodate" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "oldmsgnew" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "?" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "-h" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "help" ) == 0 )
+        return TRUE;
+    if ( stricmp ( input_string, "--help" ) == 0 )
+        return TRUE;
+    return FALSE;
+}
+
 /// FUNC: main
 
 /* Finally the main function. Does nothing special except for scanning
@@ -88,8 +136,26 @@ int main ( int argc, char *argv[] )
         }
         else if ( stricmp ( argv[i], "catalog" ) == 0 )
         {
-            catalog = NULL;
-            makecatalog = TRUE;
+            if ( i == argc - 1 )
+            {
+                catalog = NULL;
+                makecatalog = TRUE;
+            }
+            else if ( i < argc - 1 )
+            {
+                if ( isParam ( argv[i + 1] ) != TRUE )
+                {
+                    catalog = argv[i + 1];
+                    i++;
+                    makecatalog = TRUE;
+                }
+
+                else
+                {
+                    catalog = NULL;
+                    makecatalog = TRUE;
+                }
+            }
         }
         else if ( stricmp ( argv[i], "nooptim" ) == 0 )
         {
@@ -120,10 +186,28 @@ int main ( int argc, char *argv[] )
             newctfile = argv[i] + 10;
             makenewct = TRUE;
         }
-        else if ( strnicmp ( argv[i], "newctfile", 10 ) == 0 )
+        else if ( stricmp ( argv[i], "newctfile" ) == 0 )
         {
-            newctfile = NULL;
-            makenewct = TRUE;
+            if ( i == argc - 1 )
+            {
+                newctfile = NULL;
+                makenewct = TRUE;
+            }
+            else if ( i < argc - 1 )
+            {
+                if ( isParam ( argv[i + 1] ) != TRUE )
+                {
+                    newctfile = argv[i + 1];
+                    i++;
+                    makenewct = TRUE;
+                }
+
+                else
+                {
+                    newctfile = NULL;
+                    makenewct = TRUE;
+                }
+            }
         }
         else if ( stricmp ( argv[i], "nolangtolower" ) == 0 )
         {

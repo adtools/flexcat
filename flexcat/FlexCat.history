@@ -29,6 +29,13 @@
 
   ========================================================================
 
+2003-01-27 Ondrej Zima <amiandrew@volny.cz>
+
+        * Fixed nasty bug for compatibility to CatComp about this
+          arguments
+          FlexCat test.cd test.ct CATALOG test.catalog
+
+
         * New public release 2.6.5
         ==========================
   * v2.6.5 (23.01.03)
