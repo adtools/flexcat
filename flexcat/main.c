@@ -28,7 +28,7 @@
  */
 
 #include "flexcat.h"
-#include "flexcat_cat.h"
+#include FLEXCAT_CATALOG_H
 #include "readprefs.h"
 #include "showfuncs.h"
 #include "swapfuncs.h"
@@ -43,47 +43,47 @@
 
 int isParam ( char *input_string )
 {
-    if ( stricmp ( input_string, "catalog" ) == 0 )
+    if ( Stricmp ( input_string, "catalog" ) == 0 )
         return TRUE;
-    if ( strnicmp ( input_string, "catalog=", 8 ) == 0 )
+    if ( Strnicmp ( input_string, "catalog=", 8 ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "nooptim" ) == 0 )
+    if ( Stricmp ( input_string, "nooptim" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "fill" ) == 0 )
+    if ( Stricmp ( input_string, "fill" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "quiet" ) == 0 )
+    if ( Stricmp ( input_string, "quiet" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "flush" ) == 0 )
+    if ( Stricmp ( input_string, "flush" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "nobeep" ) == 0 )
+    if ( Stricmp ( input_string, "nobeep" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "nobufferedio" ) == 0 )
+    if ( Stricmp ( input_string, "nobufferedio" ) == 0 )
         return TRUE;
-    if ( strnicmp ( input_string, "newctfile=", 10 ) == 0 )
+    if ( Strnicmp ( input_string, "newctfile=", 10 ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "newctfile" ) == 0 )
+    if ( Stricmp ( input_string, "newctfile" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "nolangtolower" ) == 0 )
+    if ( Stricmp ( input_string, "nolangtolower" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "modified" ) == 0 )
+    if ( Stricmp ( input_string, "modified" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "warnctgaps" ) == 0 )
+    if ( Stricmp ( input_string, "warnctgaps" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "copymsgnew" ) == 0 )
+    if ( Stricmp ( input_string, "copymsgnew" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "nospace" ) == 0 )
+    if ( Stricmp ( input_string, "nospace" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "noautodate" ) == 0 )
+    if ( Stricmp ( input_string, "noautodate" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "oldmsgnew" ) == 0 )
+    if ( Stricmp ( input_string, "oldmsgnew" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "?" ) == 0 )
+    if ( Stricmp ( input_string, "?" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "-h" ) == 0 )
+    if ( Stricmp ( input_string, "-h" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "help" ) == 0 )
+    if ( Stricmp ( input_string, "help" ) == 0 )
         return TRUE;
-    if ( stricmp ( input_string, "--help" ) == 0 )
+    if ( Stricmp ( input_string, "--help" ) == 0 )
         return TRUE;
     return FALSE;
 }
@@ -129,12 +129,12 @@ int main ( int argc, char *argv[] )
 
     for ( i = 1; i < argc; i++ )
     {
-        if ( strnicmp ( argv[i], "catalog=", 8 ) == 0 )
+        if ( Strnicmp ( argv[i], "catalog=", 8 ) == 0 )
         {
             catalog = argv[i] + 8;
             makecatalog = TRUE;
         }
-        else if ( stricmp ( argv[i], "catalog" ) == 0 )
+        else if ( Stricmp ( argv[i], "catalog" ) == 0 )
         {
             if ( i == argc - 1 )
             {
@@ -157,36 +157,36 @@ int main ( int argc, char *argv[] )
                 }
             }
         }
-        else if ( stricmp ( argv[i], "nooptim" ) == 0 )
+        else if ( Stricmp ( argv[i], "nooptim" ) == 0 )
         {
             NoOptim = TRUE;
         }
-        else if ( stricmp ( argv[i], "fill" ) == 0 )
+        else if ( Stricmp ( argv[i], "fill" ) == 0 )
         {
             Fill = TRUE;
         }
-        else if ( stricmp ( argv[i], "quiet" ) == 0 )
+        else if ( Stricmp ( argv[i], "quiet" ) == 0 )
         {
             Quiet = TRUE;
         }
-        else if ( stricmp ( argv[i], "flush" ) == 0 )
+        else if ( Stricmp ( argv[i], "flush" ) == 0 )
         {
             DoExpunge = TRUE;
         }
-        else if ( stricmp ( argv[i], "nobeep" ) == 0 )
+        else if ( Stricmp ( argv[i], "nobeep" ) == 0 )
         {
             NoBeep = TRUE;
         }
-        else if ( stricmp ( argv[i], "nobufferedio" ) == 0 )
+        else if ( Stricmp ( argv[i], "nobufferedio" ) == 0 )
         {
             NoBufferedIO = TRUE;
         }
-        else if ( strnicmp ( argv[i], "newctfile=", 10 ) == 0 )
+        else if ( Strnicmp ( argv[i], "newctfile=", 10 ) == 0 )
         {
             newctfile = argv[i] + 10;
             makenewct = TRUE;
         }
-        else if ( stricmp ( argv[i], "newctfile" ) == 0 )
+        else if ( Stricmp ( argv[i], "newctfile" ) == 0 )
         {
             if ( i == argc - 1 )
             {
@@ -209,40 +209,40 @@ int main ( int argc, char *argv[] )
                 }
             }
         }
-        else if ( stricmp ( argv[i], "nolangtolower" ) == 0 )
+        else if ( Stricmp ( argv[i], "nolangtolower" ) == 0 )
         {
             LANGToLower = FALSE;
         }
-        else if ( stricmp ( argv[i], "modified" ) == 0 )
+        else if ( Stricmp ( argv[i], "modified" ) == 0 )
         {
             Modified = TRUE;
         }
-        else if ( stricmp ( argv[i], "warnctgaps" ) == 0 )
+        else if ( Stricmp ( argv[i], "warnctgaps" ) == 0 )
         {
             WarnCTGaps = TRUE;
         }
-        else if ( stricmp ( argv[i], "copymsgnew" ) == 0 )
+        else if ( Stricmp ( argv[i], "copymsgnew" ) == 0 )
         {
             CopyNEWs = TRUE;
         }
-        else if ( stricmp ( argv[i], "nospace" ) == 0 )
+        else if ( Stricmp ( argv[i], "nospace" ) == 0 )
         {
             NoSpace = TRUE;
         }
-        else if ( stricmp ( argv[i], "noautodate" ) == 0 )
+        else if ( Stricmp ( argv[i], "noautodate" ) == 0 )
         {
             NoAutoDate = TRUE;
         }
-        else if ( stricmp ( argv[i], "oldmsgnew" ) == 0 )
+        else if ( Stricmp ( argv[i], "oldmsgnew" ) == 0 )
         {
             sprintf ( Old_Msg_New, "; %s", argv[++i] );
         }
         else if ( cdfile == NULL )
         {
-            if ( stricmp ( argv[i], "?" ) == 0 ||
-                 stricmp ( argv[i], "-h" ) == 0 ||
-                 stricmp ( argv[i], "help" ) == 0 ||
-                 stricmp ( argv[i], "--help" ) == 0 )
+            if ( Stricmp ( argv[i], "?" ) == 0 ||
+                 Stricmp ( argv[i], "-h" ) == 0 ||
+                 Stricmp ( argv[i], "help" ) == 0 ||
+                 Stricmp ( argv[i], "--help" ) == 0 )
             {
                 Usage (  );
             }

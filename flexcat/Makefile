@@ -1,4 +1,4 @@
-CC=colorgcc
+CC=gcc
 
 # Specify path to gd library for include files
 INCLUDES=
@@ -6,7 +6,7 @@ INCLUDES=
 #specify paths for support libraries
 LIBDIRS=
 LIBS=
-CFLAGS=-ggdb
+CFLAGS=-g
 OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
       scancd.o scanct.o showfuncs.o swapfuncs.o utils.o locale_other.o 
 

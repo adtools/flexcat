@@ -9,8 +9,9 @@
 /* Include files */
 #include <libraries/gadtools.h>
 #include <proto/locale.h>
+#include "flexcat.h"
 
-#include "FlexCat_Cat.h"
+#include FLEXCAT_CATALOG_H
 
 /* Variables */
 struct FC_String FlexCat_Strings[] = {

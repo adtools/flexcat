@@ -22,7 +22,7 @@
  */
 
 #include "flexcat.h"
-#include "flexcat_cat.h"
+#include FLEXCAT_CATALOG_H
 
 int             WarnCTGaps = FALSE;     /* Warn missing symbols in CT file. */
 int             NoOptim = FALSE;        /*  Put string into catalog even

@@ -32,3 +32,8 @@ extern int      ReadChar ( char **strptr, char *dest );
 extern char    *AllocFileName ( char *filename, int howto );
 extern char    *AddFileName ( char *pathname, char *filename );
 extern void     Usage ( void );
+
+#ifndef __amigados
+extern int      Stricmp ( const char *str1, const char *str2 );
+extern int      Strnicmp ( const char *str1, const char *str2, register int len );
+#endif

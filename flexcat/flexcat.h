@@ -26,8 +26,10 @@
 // Amiga enviroment?
 #ifdef __AMIGA__
 #define __amigaos
+#define FLEXCAT_CATALOG_H "flexcat_cat_amiga.h"
 #else
 #undef __amigaos
+#define FLEXCAT_CATALOG_H "flexcat_cat_other.h"
 #endif
 
 #define VERSION 2
@@ -97,8 +99,8 @@
 #undef tolower
 #endif
 #define tolower         ToLower
-#define stricmp(s,t)    Stricmp((char *) (s), (char *) (t))
-#define strnicmp(s,t,l) Strnicmp((char *) (s), (char *) (t), l)
+//#define stricmp(s,t)    Stricmp((char *) (s), (char *) (t))
+//#define strnicmp(s,t,l) Strnicmp((char *) (s), (char *) (t), l)
 
 #endif
 

@@ -22,7 +22,7 @@
  */
 
 #include "flexcat.h"
-#include "flexcat_cat.h"
+#include FLEXCAT_CATALOG_H
 #include "readprefs.h"
 #include "swapfuncs.h"
 #include "showfuncs.h"
@@ -47,8 +47,6 @@ void CreateCTFile ( char *NewCTFile )
     char           *line;
     char           *ctlanguage = NULL;
 
-    printf("BASE=%s\nLANG=%s\n", BaseName, ctlanguage);
-    printf("CTFILE=%s\n", NewCTFile);
     if ( !CatVersionString && !CatRcsId )
     {
         ScanLine = 1;
@@ -86,6 +84,9 @@ void CreateCTFile ( char *NewCTFile )
     }
     else
         ctlanguage = CatLanguage;
+        
+    if ( ctlanguage == NULL )
+        ctlanguage = "nolanguage";
 
     if ( NewCTFile == NULL )
     {
