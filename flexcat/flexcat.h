@@ -26,10 +26,10 @@
 
 // Amiga enviroment?
 #ifdef AMIGA
-#define __amigaos
+#define __amigados
 #include "flexcat_cat_amiga.h"
 #else
-#undef __amigaos
+#undef __amigados
 #include "flexcat_cat_other.h"
 #endif
 
