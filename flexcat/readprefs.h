@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,6 +21,13 @@
  *
  */
 
+#ifndef FLEXCAT_READPREFS_H
+#define FLEXCAT_READPREFS_H
+
+// Functions
+char            ReadPrefs ( void );
+
+// Variables
 extern char    *prefs_sddir;
 extern int      WarnCTGaps;
 extern int      NoOptim;
@@ -36,4 +44,4 @@ extern char     Old_Msg_New[MAX_NEW_STR_LEN];
 extern int      NoSpace;
 extern int      NoAutoDate;
 
-extern char     ReadPrefs ( void );
+#endif

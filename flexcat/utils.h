@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,20 +21,27 @@
  *
  */
 
-extern void     MyExit ( int Code );
-extern char    *AllocString ( const char *str );
-extern char    *AddCatalogChunk ( char *ID, const char *string );
-extern int      gethex ( int c );
-extern int      getoctal ( int c );
-extern char    *ReadLine ( FILE * fp, int AllowComment );
-extern void     OverSpace ( char **strptr );
-extern void     Expunge ( void );
-extern int      ReadChar ( char **strptr, char *dest );
-extern char    *AllocFileName ( char *filename, int howto );
-extern char    *AddFileName ( char *pathname, char *filename );
-extern void     Usage ( void );
+#ifndef FLEXCAT_UTILS_H
+#define FLEXCAT_UTILS_H
+
+// Functions
+void            MyExit ( int Code );
+char           *AllocString ( const char *str );
+char           *AddCatalogChunk ( char *ID, const char *string );
+int             gethex ( int c );
+int             getoctal ( int c );
+char           *ReadLine ( FILE * fp, int AllowComment );
+void            OverSpace ( char **strptr );
+void            Expunge ( void );
+int             ReadChar ( char **strptr, char *dest );
+char           *AllocFileName ( char *filename, int howto );
+char           *AddFileName ( char *pathname, char *filename );
+void            Usage ( void );
 
 #ifndef __amigados
-extern int      Stricmp ( const char *str1, const char *str2 );
-extern int      Strnicmp ( const char *str1, const char *str2, register int len );
+int             Stricmp ( const char *str1, const char *str2 );
+int             Strnicmp ( const char *str1, const char *str2,
+                           register int len );
+#endif
+
 #endif

@@ -11,8 +11,6 @@
 #include <proto/locale.h>
 #include "flexcat.h"
 
-#include FLEXCAT_CATALOG_H
-
 /* Variables */
 struct FC_String FlexCat_Strings[] = {
     {"Out of memory!", 0},
@@ -37,8 +35,7 @@ struct FC_String FlexCat_Strings[] = {
     {"Cannot open catalog translation file %s.", 19},
     {"Missing catalog translation command. (Expected second '#'.)", 20},
     {"Unknown catalog translation command.", 21},
-    {"Missing catalog translation version; use either ##version\n"
-     "or ##rcsid and ##name.", 22},
+    {"Missing catalog translation version; use either ##version\nor ##rcsid and ##name.", 22},
     {"Missing catalog translation language.", 23},
     {"Cannot open catalog file %s.", 24},
     {"Cannot create catalog translation file %s.", 25},
@@ -51,9 +48,7 @@ struct FC_String FlexCat_Strings[] = {
     {"  CTFILE        Catalog translation file to scan", 32},
     {"  CATALOG       Catalog file to create", 33},
     {"  NEWCTFILE     Catalog translation file to create", 34},
-    {"  SOURCES       Sources to create; must be something like sfile=sdfile,\n"
-     "                where sfile is a sourcefile and sdfile is a source\n"
-     "                description file", 35},
+    {"  SOURCES       Sources to create; must be something like sfile=sdfile,\n                where sfile is a sourcefile and sdfile is a source\n                description file", 35},
     {"  WARNCTGAPS    Warn symbols missing in CT file", 36},
     {"  NOOPTIM       Do not skip unchanged strings (equal in both #?.cd and #?.ct)", 37},
     {"  FILL          Use descriptor texts if translation are missing", 38},
@@ -66,11 +61,9 @@ struct FC_String FlexCat_Strings[] = {
     {"ID %s missing in CT file.", 44},
     {"Catalog language declared twice.", 45},
     {"Catalog version declared twice.", 46},
-    {"Incorrect rcs ID (must be similar to\n"
-     "'$Date$ $Revision$')", 47},
+    {"Incorrect rcs ID (must be similar to\n'$Date$ $Revision$')", 47},
     {"Usage", 48},
-    {"Error processing FlexCat.prefs variable, falling back to defaults.\n"
-     "Preferences template: ", 49},
+    {"Error processing FlexCat.prefs variable, falling back to defaults.\nPreferences template: ", 49},
     {"  NOLANGTOLOWER Prevents #language name from being lowercased", 50},
     {"  NOBUFFEREDIO  Disables IO buffers", 51},
     {"  MODIFIED      Creates the catalog only when #?.c(d|t) files were changed", 52},
@@ -81,8 +74,7 @@ struct FC_String FlexCat_Strings[] = {
     {"Original string has a trailing ellipsis (...)", 57},
     {"Original string has a trailing spaces", 58},
     {"  NOSPACE       Removes the space being usually put between ';' and the comment", 59},
-    {"  NOAUTODATE    Do not use current date in version string. Use from\n"
-     "                .ct instead", 60},
+    {"  NOAUTODATE    Do not use current date in version string. Use from\n                .ct instead", 60},
     {"Catalog translation file name not specified at command-line or as base name in description.", 61},
     {"Catalog file name not specified at command-line or as base name in description.", 62},
     {NULL, 0}
@@ -117,28 +109,6 @@ void CloseFlexCatCatalog (  )
         CloseCatalog ( FlexCatCatalog );
     }
 }
-
-/*
-void LocalizeNewMenu(struct NewMenu *nm)
-{
-   while(nm->nm_Type != NM_END)
-   {
-      if (nm->nm_Label != NM_BARLABEL)
-      {
-         nm->nm_CommKey = ML_Support_Strings[(int)nm->nm_Label].Str;
-         nm->nm_CommKey[1] = '\0';
-         nm->nm_Label = nm->nm_CommKey + 2;
-
-         if (nm->nm_CommKey[0] == ' ')
-         {
-            nm->nm_CommKey = NULL;
-         }
-      }
-
-      nm++;
-   }
-}
-*/
 
 void LocalizeStringArray ( STRPTR * Array )
 {

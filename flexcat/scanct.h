@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,10 +21,18 @@
  *
  */
 
+#ifndef FLEXCAT_SCANCT_H
+#define FLEXCAT_SCANCT_H
+
+// Functions
+int             ScanCTFile ( char *ctfile );
+
+// Variables
 extern char    *CatVersionString;
 extern char    *CatLanguage;
 extern char    *CatRcsId;
 extern char    *CatName;
 extern int      CodeSet;
 extern int      CT_Scanned;
-extern int      ScanCTFile ( char *ctfile );
+
+#endif

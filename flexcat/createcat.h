@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,7 +21,14 @@
  *
  */
 
+#ifndef FLEXCAT_CREATECAT_H
+#define FLEXCAT_CREATECAT_H
+
+// Functions
+void            CreateCat ( char *CatFile );
+
+// Variables
 extern struct CatString *FirstCatString;
 extern struct CatalogChunk *FirstChunk;
 
-extern void     CreateCat ( char *CatFile );
+#endif

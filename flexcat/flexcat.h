@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -24,47 +25,18 @@
 #define  FLEXCAT_H
 
 // Amiga enviroment?
-#ifdef __AMIGA__
+#ifdef AMIGA
 #define __amigaos
-#define FLEXCAT_CATALOG_H "flexcat_cat_amiga.h"
+#include "flexcat_cat_amiga.h"
 #else
 #undef __amigaos
-#define FLEXCAT_CATALOG_H "flexcat_cat_other.h"
+#include "flexcat_cat_other.h"
 #endif
 
 #define VERSION 2
 #define REVISION 6
 #define VERS       "FlexCat 2.6.6"
-
-#ifdef __amigados
-
-#if (defined(_M68060) || defined(__mc68060))
-#define _CPU "[68060]"
-#else
-#if (defined(_M68040) || defined(__mc68040))
-#define _CPU "[68040]"
-#else
-#if (defined(_M68030) || defined(__mc68030))
-#define _CPU "[68030]"
-#else
-#if (defined(_M68020) || defined(__mc68020))
-#define _CPU "[68020]"
-#else
-#if (defined(_M68010) || defined(__mc68010))
-#define _CPU "[68010]"
-#else
-#define _CPU "[680x0]"
-#endif
-#endif
-#endif
-#endif
-#endif
-
-#define VSTRING  VERS " " _CPU " " __DATE__
-#else
-#define VSTRING  VERS
-#endif
-
+#define VSTRING  VERS " (" __DATE__ ") (c) 2003 Ondrej Zima"
 #define VERSTAG  "$VER: " VSTRING
 
 #include <stdlib.h>

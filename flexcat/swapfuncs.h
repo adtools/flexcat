@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,9 +21,16 @@
  *
  */
 
-extern unsigned long ( *SwapLong ) ( unsigned long r );
-extern unsigned short SwapWord21 ( unsigned short r );
-extern unsigned short SwapWord12 ( unsigned short r );
-extern unsigned long SwapLong4321 ( unsigned long r );
-extern unsigned long SwapLong1234 ( unsigned long r );
-extern int      SwapChoose ( void );
+#ifndef FLEXCAT_SWAPFUNCS_H
+#define FLEXCAT_SWAPFUNCS_H
+
+// Functions
+extern unsigned long   ( *SwapLong ) ( unsigned long r );
+extern unsigned short  ( *SwapWord ) ( unsigned short r );
+unsigned short  SwapWord21 ( unsigned short r );
+unsigned short  SwapWord12 ( unsigned short r );
+unsigned long   SwapLong4321 ( unsigned long r );
+unsigned long   SwapLong1234 ( unsigned long r );
+int             SwapChoose ( void );
+
+#endif  /* FLEXCAT_SWAPFUNCS_H */

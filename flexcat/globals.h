@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,6 +21,10 @@
  *
  */
 
+#ifndef FLEXCAT_GLOBALS_H
+#define FLEXCAT_GLOBALS_H
+
+// Variables
 extern int      buffer_size;
 extern char    *ScanFile;
 extern int      ScanLine;
@@ -30,3 +35,5 @@ extern char    *Language;
 extern int      CatVersion;
 extern int      GlobalReturnCode;
 extern int      NumberOfWarnings;
+
+#endif

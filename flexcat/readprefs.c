@@ -22,19 +22,18 @@
  */
 
 #include "flexcat.h"
-#include FLEXCAT_CATALOG_H
 
 int             WarnCTGaps = FALSE;     /* Warn missing symbols in CT file. */
-int             NoOptim = FALSE;        /*  Put string into catalog even
+int             NoOptim = FALSE;        /* Put string into catalog even
                                            if translation is equal to
                                            description. */
 int             Fill = FALSE;   /* It translation of given string
                                    is missing or it's empty, write
                                    string descriptor from #?.cd
                                    file instead. */
-int             DoExpunge = FALSE;      /*  If TRUE FlexCat will do AVAIL
+int             DoExpunge = FALSE;      /* If TRUE FlexCat will do AVAIL
                                            FLUSH alike after catalog save */
-int             NoBeep = FALSE; /*  if TRUE, FlexCat won't call
+int             NoBeep = FALSE; /* If TRUE, FlexCat won't call
                                    DisplayBeep() any longer */
 int             Quiet = FALSE;  /*  Forces FlexCat to shut up */
 int             LANGToLower = TRUE;     /* Shall we do ToLower() on lang's 
@@ -44,16 +43,16 @@ int             NoBufferedIO = FALSE;   /* Shall we do buffered ID */
 int             Modified = FALSE;       /* Shall we write the catalog ONLY 
                                            if #?.catalog is younger than
                                            #?.c(d|t) files? */
-char            Msg_New[MAX_NEW_STR_LEN] = "***NEW***"; /* new strings in updated #?.ct */
+char            Msg_New[MAX_NEW_STR_LEN] = "***NEW***"; /* New strings in updated #?.ct */
 int             CopyNEWs = FALSE;       /* Shall we write the Msg_New into new strings? */
-char            Old_Msg_New[MAX_NEW_STR_LEN] = "; ***NEW***";   /* old newstring (above) used in old
+char            Old_Msg_New[MAX_NEW_STR_LEN] = "; ***NEW***";   /* Old newstring (above) used in old
                                                                    CT file. Now we look if it's present
                                                                    and copy it into new CT if user does
                                                                    upgrade (flexcat CD CT newctfile CT */
-int             NoSpace = FALSE;        /* do want to strip the space usually 
+int             NoSpace = FALSE;        /* Do want to strip the space usually
                                            placed between ';' and original 
                                            string? */
-int             NoAutoDate = FALSE;     /* to catalog date will be written
+int             NoAutoDate = FALSE;     /* To catalog date will be written
                                            from translation or current date */
 
 char            prefs_sddir[MAXPATHLEN] = "\0";

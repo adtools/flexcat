@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,5 +21,14 @@
  *
  */
 
+#ifndef FLEXCAT_SCANCD_H
+#define FLEXCAT_SCANCD_H
+
+// Functions
+int             ScanCDFile ( char *cdfile );
+
+// Variables
+extern char    *HeaderName;
 extern struct CDLine *FirstCDLine;
-extern int      ScanCDFile ( char *cdfile );
+
+#endif

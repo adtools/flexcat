@@ -22,7 +22,6 @@
 
 #include <proto/exec.h>
 #include <proto/dos.h>
-#include <debug.h>
 
 /// getft
 
@@ -42,7 +41,6 @@ long getft ( char *filename )
             timestamp = p_fib->fib_Date.ds_Days * 86400;        // days
             timestamp += p_fib->fib_Date.ds_Minute * 60;        // minutes
             timestamp += p_fib->fib_Date.ds_Tick / TICKS_PER_SECOND;    // seconds
-            DEBUG ( kprintf ( "getft() = %ld\n", timestamp ) );
             UnLock ( p_flock );
         }
         FreeDosObject ( DOS_FIB, p_fib );

@@ -22,7 +22,6 @@
  */
 
 #include "flexcat.h"
-#include FLEXCAT_CATALOG_H
 #include "scanct.h"
 #include "showfuncs.h"
 #include "readprefs.h"
@@ -245,7 +244,6 @@ void CreateCat ( char *CatFile )
 
         cc.ID = SwapLong ( cc.ID );
         CatLen += PutCatalogChunk ( fp, &cc );
-
         free ( cc.ChunkStr );
     }
     else
@@ -292,6 +290,7 @@ void CreateCat ( char *CatFile )
                 name[len] = '\0';
             }
         }
+
         if ( CatName )
         {
             name = CatName;

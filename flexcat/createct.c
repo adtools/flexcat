@@ -22,9 +22,7 @@
  */
 
 #include "flexcat.h"
-#include FLEXCAT_CATALOG_H
 #include "readprefs.h"
-#include "swapfuncs.h"
 #include "showfuncs.h"
 #include "scancd.h"
 #include "scanct.h"

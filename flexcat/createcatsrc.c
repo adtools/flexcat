@@ -22,7 +22,6 @@
  */
 
 #include "flexcat.h"
-#include FLEXCAT_CATALOG_H
 #include "readprefs.h"
 #include "swapfuncs.h"
 #include "showfuncs.h"
@@ -31,6 +30,7 @@
 #include "createcat.h"
 #include "globals.h"
 #include "utils.h"
+
 enum StringTypes
 {
     TYPE_C,                     /* Produce C strings */

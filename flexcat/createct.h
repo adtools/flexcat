@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,4 +21,10 @@
  *
  */
 
-extern void     CreateCTFile ( char *NewCTFile );
+#ifndef FLEXCAT_CREATECT_H
+#define FLEXCAT_CREATECT_H
+
+// Functions
+void            CreateCTFile ( char *NewCTFile );
+
+#endif

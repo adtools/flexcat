@@ -22,7 +22,6 @@
  */
 
 #include "flexcat.h"
-#include FLEXCAT_CATALOG_H
 #include "showfuncs.h"
 #include "readprefs.h"
 #include "globals.h"
@@ -30,6 +29,7 @@
 #include "createcat.h"
 
 struct CDLine  *FirstCDLine = NULL;     /* First catalog description line  */
+char           *HeaderName = NULL;
 
 /// FUNC: ScanCDFile
 
@@ -122,6 +122,7 @@ int ScanCDFile ( char *cdfile )
                 free ( BaseName );
                 BaseName = AllocString ( line );
                 CheckExtra = FALSE;
+
             }
             else if ( Strnicmp ( line + 1, "ifdef", 5 ) == 0 )
             {
@@ -133,7 +134,12 @@ int ScanCDFile ( char *cdfile )
             }
             else if ( Strnicmp ( line + 1, "header", 6 ) == 0 )
             {
-                continue;
+                line += 7;
+                OverSpace ( &line );
+                free ( HeaderName );
+                HeaderName = AllocString ( line );
+                CheckExtra = FALSE;
+
             }
             else if ( Strnicmp ( line + 1, "lengthbytes", 11 ) == 0 ||
                       Strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )

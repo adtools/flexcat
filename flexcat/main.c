@@ -28,7 +28,6 @@
  */
 
 #include "flexcat.h"
-#include FLEXCAT_CATALOG_H
 #include "readprefs.h"
 #include "showfuncs.h"
 #include "swapfuncs.h"
@@ -253,6 +252,23 @@ int main ( int argc, char *argv[] )
         }
         else if ( strchr ( argv[i], '=' ) )
         {
+// Determine basename
+            if ( BaseName == NULL && cdfile != NULL )
+            {
+                char           *lslash = strrchr ( cdfile, '/' );
+                char           *ldot = strrchr ( cdfile, '.' );
+
+                if ( lslash == NULL )
+                    lslash = cdfile;
+                if ( ldot == NULL )
+                    ldot = cdfile + strlen ( cdfile );
+                if ( ldot - lslash > 0 )
+                {
+                    BaseName = calloc ( ldot - lslash + 3, 1 );
+                    strncpy ( BaseName, lslash, ldot - lslash );
+                }
+            }
+
             source = ( char * )AllocString ( argv[i] );
             *( template = strchr ( source, '=' ) ) = '\0';
             ++template;
@@ -337,6 +353,7 @@ int main ( int argc, char *argv[] )
         CreateCTFile ( newctfile );
     }
     MyExit ( GlobalReturnCode );
+    return 0;
 }
 
 //|

@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,5 +21,11 @@
  *
  */
 
-extern void     CreateSourceFile ( char *SourceFile, char *TemplateFile,
+#ifndef FLEXCAT_CREATECATSRC_H
+#define FLEXCAT_CREATECATSRC_H
+
+// Functions
+void            CreateSourceFile ( char *SourceFile, char *TemplateFile,
                                    char *CDFile );
+
+#endif

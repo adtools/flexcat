@@ -22,7 +22,6 @@
  */
 
 #include "flexcat.h"
-#include FLEXCAT_CATALOG_H
 #include "showfuncs.h"
 #include "readprefs.h"
 #include "globals.h"

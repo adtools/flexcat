@@ -28,8 +28,19 @@
         highly needed!
 
   ========================================================================
+	* New public release 2.6.6 *
+	============================
+  * v2.6.6 (2003-02-15)
+	* Revised the compatibility for non-Amiga systems.
+	* Cleanup sources and make the sources more sexy.
+	* Removed some obsolete code.
+	* If FlexCat is used to generate any source, the basename is
+	  needed but sometimes is not defined. Now is determined only
+	  for this sort of operation.
+	* More binaries: Amiga m68k, Amiga ppc, Linux i386, linux m68k,
+	  Linux ppc, Windows.
   
-2003-02-12 Ondrej Zima <amiandrew@volny.cz>
+2003-02-12 Ondrej Zima
 
 	* Changed behaviour of #version in catalog description. Only
 	  version number can be specified, no revision or other numbers
@@ -43,7 +54,7 @@
 	* Changed default localization to macro which is defined in
 	  flexcat.h.
 
-2003-01-27 Ondrej Zima <amiandrew@volny.cz>
+2003-01-27 Ondrej Zima
 
         * Fixed nasty bug for compatibility to CatComp about this
           arguments

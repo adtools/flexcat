@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -20,6 +21,12 @@
  *
  */
 
-extern void     ShowError ( const char *msg, ... );
-extern void     MemError ( void );
-extern void     ShowWarn ( const char *msg, ... );
+#ifndef FLEXCAT_SHOWFUNCS_H
+#define FLEXCAT_SHOWFUNCS_H
+
+// Functions
+void            ShowError ( const char *msg, ... );
+void            MemError ( void );
+void            ShowWarn ( const char *msg, ... );
+
+#endif
