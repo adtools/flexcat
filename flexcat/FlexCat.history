@@ -11,6 +11,7 @@
                   WWW: http://amiga.com.pl/flexcat/
 
   ========================================================================
+  [THIS INFORMATION IS OBSOLETE NOW, WAIT FOR UPDATE]
 
   NOTE: Since release 2.4, FlexCat comes with some examples (FlexCat_Demos)
         of how-to-make-localized-stuff. Unfortunately I am unable to 
@@ -20,6 +21,19 @@
         Tutorials and other add-ons are also highly needed!
 
   ========================================================================
+
+  * v2.6.3 (28.11.02)
+                    - Now ignoring lines in .cd which starts with #ifdef and #endif
+                      which are used for creating C headers and sources from .cd file.
+
+  * v2.6.2 (20.11.02)
+                    - Added new parameter NOAUTODATE which prevent FlexCat
+                      to use a current date in $VER: for catalog. The date
+                      specified in .ct is used.
+
+  * v2.6.1 (18.11.02)
+                    - FlexCat now recognize the 'codeset' parameter in .ct
+                      which is needed for Amiga OS4 translating process.
 
   * v2.6 (06.08.02) - FlexCat now updates the Date when creating the .catalog
                       file from the .ct, no need for $TODAY anymore
