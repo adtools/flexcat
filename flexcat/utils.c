@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -30,9 +31,11 @@
 #include "createcat.h"
 #include "globals.h"
 
-char            VString[] = VSTRING " by Jochen Wiedmann and Marcin Orlowski";
+char            VString[] =
+    VSTRING
+    " by Ondrej Zima (original idea: Jochen Wiedmann and Marcin Orlowski)";
 char            EString[] =
-    "E-mail: carlos@amiga.com.pl or marcin@orlowski.com WWW: http://amiga.com.pl/flexcat/";
+    "E-mail: amiandrew@volny.cz WWW: http://sourceforge.net/projects/flexcat/";
 
 
 /// FUNC: MyExit

@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -156,16 +157,19 @@ int ScanCTFile ( char *ctfile )
                     OverSpace ( &line );
                     CatName = AllocString ( line );
                 }
-                else if ( strnicmp ( line + 1, "lengthbytes", 11 ) == 0 )
-                {
-                    line += 12;
-                    if ( ( LengthBytes = strtol ( line, &line, 0 ) )
-                         > sizeof ( long ) )
-                    {
-                        ShowWarn ( msgNoLengthBytes, sizeof ( long ) );
-                        LengthBytes = sizeof ( long );
-                    }
-                }
+            /*
+               This directive cannot be in .ct file
+               else if ( strnicmp ( line + 1, "lengthbytes", 11 ) == 0 )
+               {
+               line += 12;
+               if ( ( LengthBytes = strtol ( line, &line, 0 ) )
+               > sizeof ( long ) )
+               {
+               ShowWarn ( msgNoLengthBytes, sizeof ( long ) );
+               LengthBytes = sizeof ( long );
+               }
+               }
+             */
                 else
                 {
                     ShowWarn ( msgUnknownCTCommand );

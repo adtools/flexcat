@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -46,8 +47,8 @@
 int main ( int argc, char *argv[] )
 {
     char           *cdfile, *ctfile, *newctfile, *catalog;
-    char           *source, *template;
-    register int    i;
+    char           *source, *template, makenewct = FALSE, makecatalog = FALSE;
+    int             i;
 
     if ( argc == 0 )            // Aztec's entry point for workbench programs
     {
@@ -83,12 +84,12 @@ int main ( int argc, char *argv[] )
         if ( strnicmp ( argv[i], "catalog=", 8 ) == 0 )
         {
             catalog = argv[i] + 8;
+            makecatalog = TRUE;
         }
         else if ( stricmp ( argv[i], "catalog" ) == 0 )
         {
-            if ( i + 1 == argc )
-                Usage (  );
-            catalog = argv[++i];
+            catalog = NULL;
+            makecatalog = TRUE;
         }
         else if ( stricmp ( argv[i], "nooptim" ) == 0 )
         {
@@ -117,12 +118,12 @@ int main ( int argc, char *argv[] )
         else if ( strnicmp ( argv[i], "newctfile=", 10 ) == 0 )
         {
             newctfile = argv[i] + 10;
+            makenewct = TRUE;
         }
         else if ( strnicmp ( argv[i], "newctfile", 10 ) == 0 )
         {
-            if ( i + 1 == argc )
-                Usage (  );
-            newctfile = argv[++i];
+            newctfile = NULL;
+            makenewct = TRUE;
         }
         else if ( stricmp ( argv[i], "nolangtolower" ) == 0 )
         {
@@ -237,7 +238,7 @@ int main ( int argc, char *argv[] )
             MyExit ( 10 );
     }
 
-    if ( catalog )
+    if ( makecatalog == TRUE )
     {
         if ( !ctfile )
         {
@@ -247,7 +248,7 @@ int main ( int argc, char *argv[] )
         CreateCat ( catalog );
     }
 
-    if ( newctfile )
+    if ( makenewct == TRUE )
     {
         CreateCTFile ( newctfile );
     }

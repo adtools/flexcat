@@ -28,7 +28,7 @@
 
 #define VERSION 2
 #define REVISION 6
-#define VERS       "FlexCat 2.6.4"
+#define VERS       "FlexCat 2.6.5"
 
 #ifdef __amigados
 
@@ -140,7 +140,7 @@ struct CatString
     char           *CD_Str;
     char           *CT_Str;
     char           *ID_Str;
-    int             MinLen, MaxLen, ID, Nr;
+    int             MinLen, MaxLen, ID, Nr, LenBytes;
     int             NotInCT;    /* If string is not present we write NEW
                                    while updating CT file, for easier work. */
 

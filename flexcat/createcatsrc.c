@@ -382,7 +382,7 @@ void TerminateCatStringOutput ( void )
 
 
 /* This writes a sourcestring. */
-void WriteString ( FILE * fpout, char *str, long Len )
+void WriteString ( FILE * fpout, char *str, long Len, int lenbytes )
 {
     char            bytes[10];
     int             bytesread;
@@ -394,7 +394,7 @@ void WriteString ( FILE * fpout, char *str, long Len )
     {
         register int    i;
 
-        for ( i = LengthBytes; i >= 1; i-- )
+        for ( i = lenbytes; i >= 1; i-- )
 
         {
             WriteBinChar ( ( int )( ( char * )&Len )[sizeof ( Len ) - i] );
@@ -652,10 +652,11 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 fprintf ( fpout, "%d", NumStrings );
                                 break;
                             case 'v':
-                                fprintf ( fpout, "%d", CatVersion );
+                                fprintf ( fpout, "%s", CatVersion );
                                 break;
                             case 'l':
-                                WriteString ( fpout, Language, -1 );
+                                WriteString ( fpout, Language, -1,
+                                              cs->LenBytes );
                                 break;
                             case 'f':
 
@@ -803,7 +804,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                     char           *idstr;
                                     unsigned long   len = 0;
 
-                                    if ( LengthBytes )
+                                    if ( cs->LenBytes )
 
                                     {
                                         idstr = cs->CD_Str;
@@ -823,7 +824,8 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                                     }
                                     WriteString ( fpout, cs->CD_Str,
-                                                  LengthBytes ? len : -1 );
+                                                  cs->LenBytes ? len : -1,
+                                                  cs->LenBytes );
 
                                 }
                                 break;

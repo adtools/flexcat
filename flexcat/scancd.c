@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -41,9 +42,9 @@ int ScanCDFile ( char *cdfile )
     struct CDLine  *cdline, **cdptr = &FirstCDLine;
     struct CatString *cs, **csptr = &FirstCatString;
     char           *line, *newline;
-    char           *ptr;
-    int             NextID = 0, len;
+    int             NextID = 0;
     int             Result = TRUE;
+    int             lenbytes = 0;
 
     ScanFile = cdfile;
     ScanLine = 0;
@@ -55,30 +56,6 @@ int ScanCDFile ( char *cdfile )
 
     if ( !NoBufferedIO )
         setvbuf ( fp, NULL, _IOFBF, buffer_size );
-
-// Get the basename
-    if ( ( ptr = strchr ( cdfile, ':' ) ) )
-    {
-        cdfile = ptr + 1;
-    }
-    if ( ( ptr = strrchr ( cdfile, '/' ) ) )
-    {
-        cdfile = ptr + 1;
-    }
-    if ( ( ptr = strrchr ( cdfile, '.' ) ) )
-    {
-        len = ptr - cdfile;
-    }
-    else
-    {
-        len = strlen ( cdfile );
-    }
-    if ( !( BaseName = malloc ( len + 1 ) ) )
-    {
-        MemError (  );
-    }
-    strncpy ( BaseName, cdfile, len );
-    BaseName[len] = '\0';
 
     while ( !feof ( fp ) && ( line = newline = ReadLine ( fp, TRUE ) ) )
     {
@@ -102,14 +79,17 @@ int ScanCDFile ( char *cdfile )
         {
             int             CheckExtra = TRUE;
 
-            if ( strnicmp ( line + 1, "language", 8 ) == 0 )
+            if ( strnicmp ( line + 1, "language", 8 ) == 0 ||
+                 strnicmp ( line + 1, "#language", 9 ) == 0 )
             {
                 char           *ptr;
 
-                line += 9;
+                if ( strnicmp ( line + 1, "language", 8 ) == 0 )
+                    line += 9;
+                else
+                    line += 10;
                 OverSpace ( &line );
                 Language = AllocString ( line );
-
                 if ( LANGToLower )
                 {
                     for ( ptr = Language; *ptr; ptr++ )
@@ -120,13 +100,24 @@ int ScanCDFile ( char *cdfile )
                 }
 
             }
-            else if ( strnicmp ( line + 1, "version", 7 ) == 0 )
+            else if ( strnicmp ( line + 1, "version", 7 ) == 0 ||
+                      strnicmp ( line + 1, "#version", 8 ) == 0 )
             {
-                CatVersion = strtol ( line + 8, &line, 0 );
+                if ( strnicmp ( line + 1, "#version", 8 ) == 0 )
+                    line += 9;
+                else
+                    line += 8;
+                OverSpace ( &line );
+                CatVersion = AllocString ( line );
+                CheckExtra = FALSE;
             }
-            else if ( strnicmp ( line + 1, "basename", 8 ) == 0 )
+            else if ( strnicmp ( line + 1, "basename", 8 ) == 0 ||
+                      strnicmp ( line + 1, "#basename", 9 ) == 0 )
             {
-                line += 9;
+                if ( strnicmp ( line + 1, "#basename", 9 ) == 0 )
+                    line += 10;
+                else
+                    line += 9;
                 OverSpace ( &line );
                 free ( BaseName );
                 BaseName = AllocString ( line );
@@ -139,6 +130,21 @@ int ScanCDFile ( char *cdfile )
             else if ( strnicmp ( line + 1, "endif", 5 ) == 0 )
             {
                 continue;
+            }
+            else if ( strnicmp ( line + 1, "header", 6 ) == 0 )
+            {
+                continue;
+            }
+            else if ( strnicmp ( line + 1, "lengthbytes", 11 ) == 0 ||
+                      strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )
+            {
+                if ( strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )
+                    line += 13;
+                else
+                    line += 12;
+                OverSpace ( &line );
+                lenbytes = atoi ( line );
+                CheckExtra = FALSE;
             }
             else if ( strnicmp ( line + 1, "#", 1 ) == 0 )
             {
@@ -211,7 +217,6 @@ int ScanCDFile ( char *cdfile )
                     }
                 }
                 while ( !found );
-
                 cs->Next = NULL;
                 cs->ID = NextID;
                 cs->MinLen = 0;
@@ -219,16 +224,13 @@ int ScanCDFile ( char *cdfile )
                 cs->CD_Str = "";
                 cs->CT_Str = NULL;
                 cs->NotInCT = TRUE;
-
                 if ( !( cs->ID_Str = malloc ( ( line - idstr ) + 1 ) ) )
                 {
                     MemError (  );
                 }
                 strncpy ( cs->ID_Str, idstr, line - idstr );
                 cs->ID_Str[line - idstr] = '\0';
-
                 OverSpace ( &line );
-
             // Next char in line is '('? (//)
                 if ( *line != '(' )
                 {
@@ -252,11 +254,15 @@ int ScanCDFile ( char *cdfile )
                             NextID = cs->ID =
                                 NextID + strtol ( line, &line, 0 );
                         }
+                        else if ( *line == '$' )
+                        {
+                            line++;
+                            cs->ID = NextID = strtol ( line, &line, 16 );
+                        }
                         else
                         {
                             cs->ID = NextID = strtol ( line, &line, 0 );
                         }
-
                         OverSpace ( &line );
                     }
 
@@ -359,7 +365,7 @@ int ScanCDFile ( char *cdfile )
                     }
 
                     cs->Nr = NumStrings;
-
+                    cs->LenBytes = lenbytes;
                     *csptr = cs;
                     csptr = &cs->Next;
                     ++NumStrings;

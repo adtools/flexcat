@@ -31,6 +31,10 @@
 #include "createcat.h"
 #include "globals.h"
 
+#ifdef __amigados
+#include <proto/locale.h>
+#endif
+
 /// FUNC: CreateCTFile
 
 /* This creates a new catalog translation file. */
@@ -41,6 +45,7 @@ void CreateCTFile ( char *NewCTFile )
     struct CatString *cs;
     struct CatalogChunk *cc;
     char           *line;
+    char           *ctlanguage = NULL;
 
     if ( !CatVersionString && !CatRcsId )
     {
@@ -49,6 +54,48 @@ void CreateCTFile ( char *NewCTFile )
     // ShowWarn(msgNoCTVersion);
     }
 
+    if ( CatLanguage == NULL )
+    {
+#ifdef __amigados
+        char            lang[80];
+
+        if ( GetVar ( "language", lang, 80, NULL ) != 0 )
+        {
+            ctlanguage = lang;
+        }
+#else
+        char           *lang = NULL;
+
+        if ( ( lang = getenv ( "ENV:Language" ) ) != NULL )
+        {
+            register int    i;
+
+            for ( i = 0; i < strlen ( lang ); i++ )
+            {
+                if ( lang[i] == '\n' )
+                {
+                    lang[i] = 0;
+                    break;
+                }
+            }
+            ctlanguage = lang;
+        }
+#endif
+    }
+    else
+        ctlanguage = CatLanguage;
+
+    if ( NewCTFile == NULL )
+    {
+        if ( BaseName == NULL )
+            ShowError ( msgNoCTFileName );
+        else
+        {
+            NewCTFile =
+                malloc ( strlen ( BaseName ) + strlen ( ctlanguage ) + 5 );
+            sprintf ( NewCTFile, "%s_%s.ct", BaseName, ctlanguage );
+        }
+    }
     if ( !( fp = fopen ( NewCTFile, "w" ) ) )
     {
         ShowError ( msgNoNewCTFile );
@@ -57,71 +104,81 @@ void CreateCTFile ( char *NewCTFile )
     if ( !NoBufferedIO )
         setvbuf ( fp, NULL, _IOFBF, buffer_size );
 
-    if ( CatRcsId )
     {
-        fprintf ( fp, "## rcsid %s\n", CatRcsId ? CatRcsId : "" );
-        if ( CatName )
-            fprintf ( fp, "## name %s\n", CatName );
-    }
-    else
-    {
-        if ( CatVersionString )
-            fprintf ( fp, "## version %s\n", CatVersionString );
+        if ( CatRcsId )
+        {
+            fprintf ( fp, "## rcsid %s\n", CatRcsId ? CatRcsId : "" );
+            if ( CatName )
+                fprintf ( fp, "## name %s\n", CatName );
+        }
         else
         {
-            char            dateStr[10];
-
-            long            tim;
-            struct tm      *t;
-
-            time ( &tim );
-            t = localtime ( &tim );
-
-            strftime ( dateStr, sizeof ( dateStr ), "%d.%m.%y", t );
-
-            fprintf ( fp, "## version $V" );
-            fprintf ( fp, "%c", 50 + 19 );      // E
-            if ( CatVersion )
-                fprintf ( fp, "R: <name>.ct %d.0 (%s)\n", CatVersion,
-                          dateStr );
+            if ( CatVersionString )
+                fprintf ( fp, "## version %s\n", CatVersionString );
             else
-                fprintf ( fp, "R: <name>.ct <ver>.0 (%s)\n", dateStr );
-        }
-    }
-
-    {
-        if ( CatLanguage == NULL )
-        {
-#ifdef __amigados
-            char            lang[80];
-
-            if ( GetVar ( "language", lang, 80, NULL ) != 0 )
             {
-                CatLanguage = lang;
-            }
-#else
-            char           *lang = NULL;
+                char           *dateStr;
+                long            tim;
+                struct tm      *t;
 
-            if ( ( lang = getenv ( "ENV:Language" ) ) != NULL )
-            {
-                register int    i;
-
-                for ( i = 0; i < strlen ( lang ); i++ )
+                dateStr = calloc ( 15, 1 );
+                time ( &tim );
+                t = localtime ( &tim );
+                strftime ( dateStr, 10, "%d.%m.%y", t );
+                fprintf ( fp, "## version $V" );
+                fprintf ( fp, "%c", 50 + 19 );  // E
+                if ( CatVersion )
                 {
-                    if ( lang[i] == '\n' )
+                    if ( BaseName )
                     {
-                        lang[i] = 0;
-                        break;
+                        fprintf ( fp, "R: %s.ct %s (%s)\n", BaseName,
+                                  CatVersion, dateStr );
+                    }
+                    else
+                    {
+                        fprintf ( fp, "R: <name>.ct %s (%s)\n", CatVersion,
+                                  dateStr );
                     }
                 }
-                CatLanguage = lang;
+                else
+                {
+                    if ( BaseName )
+                    {
+                        fprintf ( fp, "R: %s.ct <ver>.0 (%s)\n", BaseName,
+                                  dateStr );
+                    }
+                    else
+                    {
+                        fprintf ( fp, "R: <name>.ct <ver>.0 (%s)\n",
+                                  dateStr );
+                    }
+                }
+                free ( dateStr );
             }
-#endif
         }
-        fprintf ( fp, "## language %s\n## codeset %d\n;\n",
-                  CatLanguage ? CatLanguage : "X", CodeSet );
     }
 
+#ifdef __amigados
+    if ( CodeSet == 0 )
+    {
+        struct LocaleBase *LocaleBase;
+        struct Locale  *my_locale;
+
+        if ( ( LocaleBase =
+               ( struct LocaleBase * )OpenLibrary ( "locale.library",
+                                                    47L ) ) != NULL )
+        {
+            if ( ( my_locale = OpenLocale ( NULL ) ) != NULL )
+            {
+                CodeSet = my_locale->loc_CodeSet;
+                CloseLocale ( my_locale );
+            }
+            CloseLibrary ( ( struct Library * )LocaleBase );
+        }
+    }
+#endif
+    fprintf ( fp, "## language %s\n## codeset %d\n;\n",
+              ctlanguage ? ctlanguage : "X", CodeSet );
     for ( cc = FirstChunk; cc != NULL; cc = cc->Next )
     {
         if ( cc->ChunkStr != CatLanguage )
@@ -154,12 +211,8 @@ void CreateCTFile ( char *NewCTFile )
                  */
                     fprintf ( fp, "%s\n%s\n;", cs->ID_Str,
                               cs->CT_Str ? cs->CT_Str : "" );
-
                     if ( !NoSpace )
                         putc ( ' ', fp );
-
-
-
                     for ( line = cs->CD_Str; *line; ++line )
                     {
                         putc ( ( int )*line, fp );
@@ -171,10 +224,8 @@ void CreateCTFile ( char *NewCTFile )
                         }
                     }
                     putc ( '\n', fp );
-
                     if ( cs->NotInCT && CT_Scanned )
                         fprintf ( fp, ";\n; %s\n", Msg_New );
-
                     cs = cs->Next;
                 }
         }

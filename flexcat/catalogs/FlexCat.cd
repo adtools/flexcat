@@ -1,12 +1,10 @@
-;#language english
-;#version 2
-;
+#basename flexcat
+#version 2.6.5
+; ----------------------------------------------------------------------------
 ;
 ;   $Id$
 ;
-;
 ;   FlexCat.cd
-;
 ;
 ;   FlexCat:                 The flexible catalog generator
 ;   Copyright (C) 1993-1998  Jochen Wiedmann and Marcin Orlowski
@@ -18,7 +16,6 @@
 ;   text
 ;
 ;   where:
-;
 ;   MSG_STRING_NAME is the name of the macro-definition, that will be used
 ;                   to get the string.
 ;   num             is the number, which MSG_STRING_NAME will stand for
@@ -29,8 +26,7 @@
 ;
 ;   Each definition is preceded by a remark, which tells what the string
 ;   is used for.
-;
-;
+; ----------------------------------------------------------------------------
 ;   Error message: Out of memory.
 msgMemoryError (//)
 Out of memory!
@@ -281,4 +277,14 @@ msgUsage_17 (//)
 msgUsage_18 (//)
   NOAUTODATE    Do not use current date in version string. Use from\n\
                 .ct instead
+;
+; NEW IN 2.4.5
+;
+;
+msgNoCTFileName (//)
+Catalog translation file name not specified at command-line or as base name in description.
+;
+; 
+msgNoCatFileName (//)
+Catalog file name not specified at command-line or as base name in description.
 ;

@@ -5,7 +5,7 @@ TITLE
 
 VERSION
 
-    2.6.4
+    2.6.5
 
 AUTHOR
 
@@ -44,12 +44,11 @@ FEATURES
     * Written by the people who use it daily (so it should cover all
       your needs)
 
-
 SPECIAL REQUIREMENTS
 
     FlexCat works on any Amiga, however you need OS2.04 or higher
-    to make it using the localization for own purposes.
-
+    to make it using the localization for own purposes. Also processor
+    better or equal to 68020.
 
 AVAILABILITY
 
@@ -63,14 +62,22 @@ ARCHIVES
     Since release 2.0, the FlexCat distribiution is splitted into the
     smaller archives. They are (in order of importance):
 
-    FlexCat.lha          - Latest FlexCat, user contribitions, english manual
-                           and foreign catalog files
+    FlexCat.lha          - Latest FlexCat with licence and history file
 
 PRICE
 
     Freeware
 
 CHANGES
+  * v2.6.5 (23.01.03)
+                    - Added support for #version and #basename (see history file)
+                    - Added support for automatic codeset fetching if locale is
+                      v47 and more
+                    - Added #header as not faulty directive
+                    - Added #lengthbytes support
+                    - Added support for hexa numbering as stringID
+     catalog change : added two new strings
+
   * v2.6.4 (07.01.03)
                     - Fixed creating all files: all files now not have a execute bit
 		      (on Amiga only)
@@ -94,11 +101,9 @@ CHANGES
 
   * v2.5b (19.03.02)- Added GG patchfile, thanks to Martin Blom <martin@blom.org>
 
-
   * v2.5 (14.02.02) - Fixed the problem, if using $TODAY, that the date was
                       one day ahead (tomorrow ;). Replaced gmtime() with
                       localtime() (DMX).
-
 
   * v2.4 (28.11.99) - FlexCat is now portable! Thanks to Hardcode.sd{tm}
                       unique technology you can now try to compile FlexCat

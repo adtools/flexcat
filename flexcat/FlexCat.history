@@ -29,6 +29,35 @@
 
   ========================================================================
 
+        * New public release 2.6.5
+        ==========================
+  * v2.6.5 (23.01.03)
+    - Static definition of string inside the function createct() totaly
+      damage some other strings.
+    - Added support for #version and #basename directives. It means if .cd
+      file conatins the #basename, the .ct file and .catalog can be
+      generated automaticaly. Simply by no definition at command-line.
+      #basename is base name of catalog, if basename is defined as
+      "MyProg1", the translation "MyProg1.ct" can be easly created such as
+      "MyProg1.catalog" as translated catalog.
+      #version is string representing the version number which is inserted
+      to .ct file.
+    - If #basename defined in .cd file, there can be this actions:
+      - FlexCat test.cd newctfile
+        generates the file as <#basename>_<$language>.ct
+        added to this file at ## version tag the name of catalog ("$VER:
+        <#basename>.ct)
+      - FlexCat test.cd test.ct catalog
+        generates the file <#basename>.catalog
+    - If #version defined in .ct file and creating new .ct file, the
+      #version is inserted to ## version tag as version string
+    - Added support for AmigaOS4.0 codeset fetching from locale structure of
+      default locale if locale.library > 47.
+    - Added #header in catalog description as not faulty directive.
+    - Added support for #lenghtbytes directive.
+    - Added support for hexa numbering of stringID
+    - Added two new strings to catalog.
+
         * New public release 2.6.4
         ==========================
   * v2.6.4 (07.01.03)

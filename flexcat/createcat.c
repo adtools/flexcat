@@ -1,3 +1,4 @@
+
 /* $Id$
  * 
  * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
@@ -39,7 +40,7 @@ struct CatalogChunk *FirstChunk = NULL; /* List of catalog chunks */
    boundary or longword boundary, depending on the argument padbytes.)
    The arguments countnul should be TRUE if the NUL byte at the end of
    the string should be counted. */
-int CatPuts ( FILE * fp, char *str, int padbytes, int countnul )
+int CatPuts ( FILE * fp, char *str, int padbytes, int countnul, int lenbytes )
 {
     unsigned long   reallen, virtuallen, chunklen, swapped_long;
     int             bytesread;
@@ -61,7 +62,7 @@ int CatPuts ( FILE * fp, char *str, int padbytes, int countnul )
         reallen += bytesread;
     }
 
-    virtuallen = chunklen = reallen + LengthBytes;
+    virtuallen = chunklen = reallen + lenbytes;
     if ( countnul || chunklen % padbytes == 0 )
     {
         virtuallen++;
@@ -70,10 +71,10 @@ int CatPuts ( FILE * fp, char *str, int padbytes, int countnul )
     swapped_long = SwapLong ( virtuallen );
 
     fwrite ( &swapped_long, sizeof ( virtuallen ), 1, fp );
-    if ( LengthBytes )
+    if ( lenbytes )
     {
-        fwrite ( ( ( char * )&reallen ) + sizeof ( reallen ) - LengthBytes,
-                 LengthBytes, 1, fp );
+        fwrite ( ( ( char * )&reallen ) + sizeof ( reallen ) - lenbytes,
+                 lenbytes, 1, fp );
     }
 
     while ( *str )
@@ -102,7 +103,7 @@ int CatPuts ( FILE * fp, char *str, int padbytes, int countnul )
 int PutCatalogChunk ( FILE * fp, struct CatalogChunk *cc )
 {
     fwrite ( &cc->ID, sizeof ( cc->ID ), 1, fp );
-    return ( 4 + CatPuts ( fp, cc->ChunkStr, 2, TRUE ) );
+    return ( 4 + CatPuts ( fp, cc->ChunkStr, 2, TRUE, 0 ) );
 }
 
 //|
@@ -131,6 +132,17 @@ void CreateCat ( char *CatFile )
     if ( strlen ( CatLanguage ) == 0 )
     {
         ShowError ( msgNoCTLanguage );
+    }
+
+    if ( CatFile == NULL )
+    {
+        if ( BaseName == NULL )
+            ShowError ( msgNoCatFileName );
+        else
+        {
+            CatFile = malloc ( strlen ( BaseName ) + 10 );
+            sprintf ( CatFile, "%s.catalog", BaseName );
+        }
     }
 
     if ( !( fp = fopen ( CatFile, "w" ) ) )
@@ -343,14 +355,17 @@ void CreateCat ( char *CatFile )
                 if ( strlen ( cs->CT_Str ) == 0 )
                 {
                     fwrite ( &tmp_ID, sizeof ( tmp_ID ), 1, fp );
-                    CatLen += 4 + CatPuts ( fp, cs->CD_Str, 4, FALSE );
+                    CatLen +=
+                        4 + CatPuts ( fp, cs->CD_Str, 4, FALSE,
+                                      cs->LenBytes );
                     FillUsed = TRUE;
                 }
             }
             else
             {
                 fwrite ( &tmp_ID, sizeof ( cs->ID ), 1, fp );
-                CatLen += 4 + CatPuts ( fp, cs->CD_Str, 4, FALSE );
+                CatLen +=
+                    4 + CatPuts ( fp, cs->CD_Str, 4, FALSE, cs->LenBytes );
                 FillUsed = TRUE;
             }
         }
@@ -359,8 +374,9 @@ void CreateCat ( char *CatFile )
              ( NoOptim ? TRUE : strcmp ( cs->CT_Str, cs->CD_Str ) ) )
         {
             fwrite ( &tmp_ID, sizeof ( tmp_ID ), 1, fp );
-            CatLen += 4 + CatPuts ( fp, cs->CT_Str, 4, FALSE );
+            CatLen += 4 + CatPuts ( fp, cs->CT_Str, 4, FALSE, cs->LenBytes );
         }
+    //printf("LB=%d\n", cs->LenBytes);
     }
     {
         int             tmp_Len;
