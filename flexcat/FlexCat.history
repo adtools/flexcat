@@ -28,7 +28,22 @@
         highly needed!
 
   ========================================================================
-	* New public release 2.6.6 *
+2005-03-08 Pavel Fedin
+
+	* Improved source code portability
+        * Makefile improved to work on every system (both Amiga and non-Amiga)
+        * Added MorphOS compatibility
+        * Added greek and turkish localization
+        * Added Storm C compatibility
+        * Localization files revised and brought up to date
+        * Added "Hardcode_c.sd" template
+        * Fixed bug: "Extra characters" was always reported at "#language" line
+          with NOLANGTOLOWER option
+        * Fixed bug: missing preferences file led to incorrect settings due to a
+          bug in preferences loading routine
+
+	
+        * New public release 2.6.6 *
 	============================
   * v2.6.6 (2003-02-15)
 	* Revised the compatibility for non-Amiga systems.

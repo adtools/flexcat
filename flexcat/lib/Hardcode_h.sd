@@ -22,12 +22,10 @@
 #ifndef %b_CAT_H
 #define %b_CAT_H
 
+extern char *%b_Strings[];
+
 void Open%bCatalog( void );
 void Close%bCatalog( void );
-
-char * %b_Strings[%n] = {
-    (char *)%s%(,)
-};
 
 #define %i %b_Strings[%e]
 

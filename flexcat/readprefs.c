@@ -97,7 +97,7 @@ char ReadPrefs ( void )
 
     if ( ( prefs = malloc ( 2048 ) ) != NULL )
     {
-        if ( GetVar ( FLEXCAT_PREFS, prefs, 80, NULL ) != 0 )
+        if ( GetVar ( FLEXCAT_PREFS, prefs, 80, NULL ) != -1 )
         {
             prefs = realloc ( prefs, strlen ( prefs ) + 1 );
             strcat ( prefs, "\n" );
@@ -126,7 +126,7 @@ char ReadPrefs ( void )
                     DoExpunge = Results[FLUSH];
                     NoBeep = Results[NOBEEP];
                     Quiet = Results[QUIET];
-                    LANGToLower = Results[NOLANGTOLOWER];
+                    LANGToLower = !Results[NOLANGTOLOWER];
                     Modified = Results[MODIFIED];
                     NoBufferedIO = Results[NOBUFFEREDIO];
                     CopyNEWs = Results[COPYMSGNEW];
@@ -142,7 +142,7 @@ char ReadPrefs ( void )
                 }
                 else
                 {
-                    fputs ( ( char * )msgPrefsError, stderr );
+                    fputs ( ( char * )MSG_PrefsError, stderr );
                     fputs ( ( char * )template, stderr );
                     fputs ( ( char * )"\n", stderr );
                     DisplayBeep ( NULL );

@@ -1,7 +1,6 @@
-
 /****************************************************************
-   This file was created automatically by `FlexCat 2.6.2'
-   from "Catalogs_Src/FlexCat.cd".
+   This file was created automatically by `FlexCat 2.6'
+   from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
 ****************************************************************/
@@ -9,113 +8,124 @@
 /* Include files */
 #include <libraries/gadtools.h>
 #include <proto/locale.h>
-#include "flexcat.h"
+
+#include "FlexCat_cat.h"
 
 /* Variables */
-struct FC_String FlexCat_Strings[] = {
-    {"Out of memory!", 0},
-    {"%s, Line %d; warning: ", 1},
-    {"Expected hex character (one of [0-9a-fA-F]).", 2},
-    {"Expected octal character (one of [0-7]).", 3},
-    {"Cannot open catalog description %s.", 4},
-    {"LengthBytes > %d (sizeof long) not possible.", 5},
-    {"Unknown catalog description command", 6},
-    {"Unexpected blanks.", 7},
-    {"Missing identifier.", 8},
-    {"Missing '('.", 9},
-    {"ID number used twice.", 10},
-    {"Identifier redeclared.", 11},
-    {"Expected MinLen (character '/').", 12},
-    {"Expected MaxLen (character '/').", 13},
-    {"Expected ')'.", 14},
-    {"Extra characters at the end of the line.", 15},
-    {"Unexpected end of file (missing catalog string).", 16},
-    {"String too short.", 17},
-    {"String too long.", 18},
-    {"Cannot open catalog translation file %s.", 19},
-    {"Missing catalog translation command. (Expected second '#'.)", 20},
-    {"Unknown catalog translation command.", 21},
-    {"Missing catalog translation version; use either ##version\nor ##rcsid and ##name.", 22},
-    {"Missing catalog translation language.", 23},
-    {"Cannot open catalog file %s.", 24},
-    {"Cannot create catalog translation file %s.", 25},
-    {"%s missing in catalog description.", 26},
-    {"Cannot open source description file %s.", 27},
-    {"Cannot open source file %s.", 28},
-    {"Unknown string type.", 29},
-    {"Unexpected end of line. (Missing ')')", 30},
-    {"  CDFILE        Catalog description file to scan", 31},
-    {"  CTFILE        Catalog translation file to scan", 32},
-    {"  CATALOG       Catalog file to create", 33},
-    {"  NEWCTFILE     Catalog translation file to create", 34},
-    {"  SOURCES       Sources to create; must be something like sfile=sdfile,\n                where sfile is a sourcefile and sdfile is a source\n                description file", 35},
-    {"  WARNCTGAPS    Warn symbols missing in CT file", 36},
-    {"  NOOPTIM       Do not skip unchanged strings (equal in both #?.cd and #?.ct)", 37},
-    {"  FILL          Use descriptor texts if translation are missing", 38},
-    {"  FLUSH         Flush memory when catalog is written", 39},
-    {"  NOBEEP        Suppress DisplayBeep()'s on error and warnings", 40},
-    {"  QUIET         Suppress warning messages", 41},
-    {"Creating a catalog needs a catalog translation file as argument.\n",
-     42},
-    {"Binary characters in stringtype None.", 43},
-    {"ID %s missing in CT file.", 44},
-    {"Catalog language declared twice.", 45},
-    {"Catalog version declared twice.", 46},
-    {"Incorrect rcs ID (must be similar to\n'$Date$ $Revision$')", 47},
-    {"Usage", 48},
-    {"Error processing FlexCat.prefs variable, falling back to defaults.\nPreferences template: ", 49},
-    {"  NOLANGTOLOWER Prevents #language name from being lowercased", 50},
-    {"  NOBUFFEREDIO  Disables IO buffers", 51},
-    {"  MODIFIED      Creates the catalog only when #?.c(d|t) files were changed", 52},
-    {"File %s is up to date", 53},
-    {"Cannot get the datestamp of %s", 54},
-    {"  COPYMSGNEW    Turns on copying ***NEW*** markers while updating #?.ct file", 55},
-    {"  OLDMSGNEW     If old #?.ct file is using other marker, specify it here", 56},
-    {"Original string has a trailing ellipsis (...)", 57},
-    {"Original string has a trailing spaces", 58},
-    {"  NOSPACE       Removes the space being usually put between ';' and the comment", 59},
-    {"  NOAUTODATE    Do not use current date in version string. Use from\n                .ct instead", 60},
-    {"Catalog translation file name not specified at command-line or as base name in description.", 61},
-    {"Catalog file name not specified at command-line or as base name in description.", 62},
-    {NULL, 0}
+struct FC_String FlexCat_Strings[] =
+{
+   { "%s, line %d - warning: ", 0 },
+   { "expected hex character (one of [0-9a-fA-F])", 1 },
+   { "expected octal character (one of [0-7])", 2 },
+   { "lengthbytes cannot be larger than %d (sizeof long)", 3 },
+   { "unknown catalog description command", 4 },
+   { "unexpected blanks", 5 },
+   { "missing identifier", 6 },
+   { "missing '('", 7 },
+   { "ID number used twice", 8 },
+   { "identifier declared twice", 9 },
+   { "expected MinLen (character '/')", 10 },
+   { "expected MaxLen (character '/')", 11 },
+   { "expected ')'", 12 },
+   { "extra characters at the end of the line", 13 },
+   { "unexpected end of file (missing catalog strings)", 14 },
+   { "string too short", 15 },
+   { "string too long", 16 },
+   { "missing command in translation (expected a second '#')", 17 },
+   { "unknown command in translation", 18 },
+   { "'%s' missing in catalog description", 19 },
+   { "unknown string type", 20 },
+   { "unexpected end of line (missing ')')", 21 },
+   { "binary characters in string type None", 22 },
+   { "'%s' missing in catalog translation", 23 },
+   { "catalog language declared twice", 24 },
+   { "catalog version declared twice", 25 },
+   { "incorrect RCS Id", 26 },
+   { "Out of memory!", 27 },
+   { "Cannot open catalog description '%s'.", 28 },
+   { "Cannot open catalog translation '%s'.", 29 },
+   { "Missing catalog translation version. Use either\n"\
+	"'## version' or '## rcsid' and '## name'.", 30 },
+   { "Cannot open catalog file '%s'.", 31 },
+   { "Cannot create catalog translation '%s'.", 32 },
+   { "Missing catalog translation language.", 33 },
+   { "Cannot open source file '%s'.", 34 },
+   { "Cannot open source description file '%s'.", 35 },
+   { "Creating a catalog requires a translation file.", 36 },
+   { "File '%s' is up to date", 37 },
+   { "Cannot get datestamp of '%s'", 38 },
+   { "Original string has a trailing ellipsis ('...')", 39 },
+   { "Original string has trailing blanks", 40 },
+   { "Catalog translation file name not specified at "\
+	"command line or as basename in description.", 41 },
+   { "Catalog file name not specified at command line or "\
+	"as basename in description.", 42 },
+   { "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
+	"Template: ", 43 },
+   { "Usage:", 44 },
+   { "  CDFILE         Catalog description file to scan\n"\
+	"  CTFILE         Catalog translation file to scan\n"\
+	"  CATALOG        Catalog file to create\n"\
+	"  NEWCTFILE      Catalog translation file to create\n"\
+	"  SOURCES        Sources to create; must be something like SFILE=SDFILE,\n"\
+	"                 where SFILE is a source file and SDFILE is a source\n"\
+	"                 description file\n"\
+	"  WARNCTGAPS     Warn about identifiers missing in translation\n"\
+	"  NOOPTIM        Do not skip unchanged strings in translation/description\n"\
+	"  FILL           Fill missing identifiers with original text\n"\
+	"  FLUSH          Flush memory after the catalog is created\n"\
+	"  NOBEEP         No DisplayBeep() on errors and warnings\n"\
+	"  QUIET          No warnings\n"\
+	"  NOLANGTOLOWER  Prevent #language name from being lowercased\n"\
+	"  NOBUFFEREDIO   Disable I/O buffers\n"\
+	"  MODIFIED       Create catalog only if description/translation have changed\n"\
+	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
+	"  OLDMSGNEW      Custom marker in old translation\n"\
+	"  NOSPACE        Removes the space being usually put between ';' and the comment\n"\
+	"  NOAUTODATE     Do not use current date in version string. Use from\n"\
+	"                 .ct instead", 45 },
+   { NULL, 0 }
 };
 
 static struct Catalog *FlexCatCatalog;
 
 
-void OpenFlexCatCatalog (  )
+void OpenFlexCatCatalog()
 {
-    if ( LocaleBase )
-    {
-        if ( ( FlexCatCatalog = OpenCatalog ( NULL, "FlexCat.catalog",
-                                              OC_BuiltInLanguage, "english",
-                                              OC_Version, 0,
-                                              TAG_DONE ) ) != NULL )
-        {
-            struct FC_String *fc;
+   if (LocaleBase)
+   {
+      if (FlexCatCatalog = OpenCatalog(NULL, "FlexCat.catalog",
+     			          OC_BuiltInLanguage, "english",
+     			          OC_Version, 3,
+     			          TAG_DONE
+                                 )
+         )
+      {
+         struct FC_String *fc;
 
-            for ( fc = FlexCat_Strings; fc->Str; fc++ )
-            {
-                fc->Str = GetCatalogStr ( FlexCatCatalog, fc->Id, fc->Str );
-            }
-        }
-    }
+         for (fc = FlexCat_Strings; fc->Str; fc++)
+         {
+            fc->Str = GetCatalogStr(FlexCatCatalog, fc->Id, fc->Str);
+         }
+      }
+   }
 }
 
-void CloseFlexCatCatalog (  )
+void CloseFlexCatCatalog()
 {
-    if ( FlexCatCatalog )
-    {
-        CloseCatalog ( FlexCatCatalog );
-    }
+   if (FlexCatCatalog)
+   {
+      CloseCatalog(FlexCatCatalog);
+   }
 }
 
-void LocalizeStringArray ( STRPTR * Array )
+void LocalizeStringArray(STRPTR *Array)
 {
-    STRPTR         *x;
+   STRPTR *x;
 
-    for ( x = Array; *x; x++ )
-    {
-        *x = FlexCat_Strings[( int )*x].Str;
-    }
+   for (x = Array; *x; x++)
+   {
+      *x = FlexCat_Strings[(int)*x].Str;
+   }
 }
+

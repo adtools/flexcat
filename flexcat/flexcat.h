@@ -27,7 +27,7 @@
 // Amiga enviroment?
 #ifdef AMIGA
 #define __amigados
-#include "flexcat_cat_amiga.h"
+#include "flexcat_cat.h"
 #else
 #undef __amigados
 #include "flexcat_cat_other.h"
@@ -35,8 +35,8 @@
 
 #define VERSION 2
 #define REVISION 6
-#define VERS       "FlexCat 2.6.6"
-#define VSTRING  VERS " (" __DATE__ ") (c) 2003 Ondrej Zima"
+#define VERS       "FlexCat 2.6.7"
+#define VSTRING  VERS " (" __DATE__ ") (c) 2005 FlexCat SourceForge project team"
 #define VERSTAG  "$VER: " VSTRING
 
 #include <stdlib.h>
@@ -45,7 +45,7 @@
 #include <ctype.h>
 #include <time.h>
 #ifdef __amigados
-#include <dos.h>
+#include <dos/dos.h>
 #endif
 
 #if ((defined(_DCC) && defined(AMIGA))       ||     \

@@ -58,7 +58,7 @@ int ScanCTFile ( char *ctfile )
 
     if ( !( fp = fopen ( ctfile, "r" ) ) )
     {
-        ShowError ( msgNoCatalogTranslation, ctfile );
+        ShowError ( MSG_ERR_NoCatalogTranslation, ctfile );
     }
 
     if ( !NoBufferedIO )
@@ -84,7 +84,7 @@ int ScanCTFile ( char *ctfile )
             // looking for command;
                 if ( *( ++line ) != '#' )
                 {
-                    ShowWarn ( msgNoCTCommand );
+                    ShowWarn ( MSG_WARN_NoCTCommand );
                 }
                 ++line;
                 OverSpace ( &line );
@@ -92,7 +92,7 @@ int ScanCTFile ( char *ctfile )
                 {
                     if ( CatVersionString || CatRcsId || CatName )
                     {
-                        ShowWarn ( msgDoubleCTVersion );
+                        ShowWarn ( MSG_WARN_DoubleCTVersion );
                     }
                     line += 7;
                     OverSpace ( &line );
@@ -105,7 +105,7 @@ int ScanCTFile ( char *ctfile )
                     OverSpace ( &line );
                     if ( *line )
                     {
-                        ShowWarn ( msgExtraCharacters );
+                        ShowWarn ( MSG_WARN_ExtraCharacters );
                     }
                 }
                 else if ( Strnicmp ( line, "language", 8 ) == 0 )
@@ -114,7 +114,7 @@ int ScanCTFile ( char *ctfile )
 
                     if ( CatLanguage )
                     {
-                        ShowWarn ( msgDoubleCTLanguage );
+                        ShowWarn ( MSG_WARN_DoubleCTLanguage );
                     }
                     line += 8;
                     OverSpace ( &line );
@@ -140,7 +140,7 @@ int ScanCTFile ( char *ctfile )
                 {
                     if ( CatVersionString || CatRcsId )
                     {
-                        ShowWarn ( msgDoubleCTVersion );
+                        ShowWarn ( MSG_WARN_DoubleCTVersion );
                     }
                     line += 5;
                     OverSpace ( &line );
@@ -150,7 +150,7 @@ int ScanCTFile ( char *ctfile )
                 {
                     if ( CatVersionString || CatName )
                     {
-                        ShowWarn ( msgDoubleCTVersion );
+                        ShowWarn ( MSG_WARN_DoubleCTVersion );
                     }
                     line += 4;
                     OverSpace ( &line );
@@ -164,14 +164,14 @@ int ScanCTFile ( char *ctfile )
                if ( ( LengthBytes = strtol ( line, &line, 0 ) )
                > sizeof ( long ) )
                {
-               ShowWarn ( msgNoLengthBytes, sizeof ( long ) );
+               ShowWarn ( MSG_WARN_NoLengthBytes, sizeof ( long ) );
                LengthBytes = sizeof ( long );
                }
                }
              */
                 else
                 {
-                    ShowWarn ( msgUnknownCTCommand );
+                    ShowWarn ( MSG_WARN_UnknownCTCommand );
                 }
             // End: looking command
                 break;
@@ -179,7 +179,7 @@ int ScanCTFile ( char *ctfile )
             default:
                 if ( *line == ' ' || *line == '\t' )
                 {
-                    ShowWarn ( msgUnexpectedBlanks );
+                    ShowWarn ( MSG_WARN_UnexpectedBlanks );
                     OverSpace ( &line );
                 }
                 idstr = line;
@@ -192,7 +192,7 @@ int ScanCTFile ( char *ctfile )
                 }
                 if ( idstr == line )
                 {
-                    ShowWarn ( msgNoIdentifier );
+                    ShowWarn ( MSG_WARN_NoIdentifier );
                     break;
                 }
 
@@ -207,7 +207,7 @@ int ScanCTFile ( char *ctfile )
 
                 if ( *line )
                 {
-                    ShowWarn ( msgExtraCharacters );
+                    ShowWarn ( MSG_WARN_ExtraCharacters );
                 }
 
                 if ( ( newstr = ReadLine ( fp, FALSE ) ) )
@@ -221,7 +221,7 @@ int ScanCTFile ( char *ctfile )
                     }
                     if ( cs == NULL )
                     {
-                        ShowWarn ( msgUnknownIdentifier, newidstr );
+                        ShowWarn ( MSG_WARN_UnknownIdentifier, newidstr );
                     }
                     else
                     {
@@ -231,7 +231,7 @@ int ScanCTFile ( char *ctfile )
 
                         if ( cs->CT_Str )
                         {
-                            ShowWarn ( msgDoubleIdentifier );
+                            ShowWarn ( MSG_WARN_DoubleIdentifier );
                             Result = FALSE;
                             free ( cs->CT_Str );
                         }
@@ -254,11 +254,11 @@ int ScanCTFile ( char *ctfile )
 
                         if ( cs->MinLen > 0 && reallen < cs->MinLen )
                         {
-                            ShowWarn ( msgShortString );
+                            ShowWarn ( MSG_WARN_ShortString );
                         }
                         if ( cs->MaxLen > 0 && reallen > cs->MaxLen )
                         {
-                            ShowWarn ( msgLongString );
+                            ShowWarn ( MSG_WARN_LongString );
                         }
 
 
@@ -277,7 +277,7 @@ int ScanCTFile ( char *ctfile )
                                            "..." ) != 0 )
                                     {
                                     // printf("ORG: '%s'\nNEW: '%s'\n", cs->CD_Str, cs->CT_Str);
-                                        ShowWarn ( msgTrailingEllipsis );
+                                        ShowWarn ( MSG_TrailingEllipsis );
                                     }
                             }
                         }
@@ -296,7 +296,7 @@ int ScanCTFile ( char *ctfile )
                                     if ( strcmp
                                          ( &cs->CT_Str[reallen - 1],
                                            " " ) != 0 )
-                                        ShowWarn ( msgTrailingSpaces );
+                                        ShowWarn ( MSG_TrailingBlanks );
                             }
                         }
 
@@ -306,7 +306,7 @@ int ScanCTFile ( char *ctfile )
                 }
                 else
                 {
-                    ShowWarn ( msgNoString );
+                    ShowWarn ( MSG_WARN_NoString );
                     if ( cs )
                         cs->CT_Str = "";
                 }
@@ -323,7 +323,7 @@ int ScanCTFile ( char *ctfile )
         {
             if ( cs->CT_Str == NULL )
             {
-                ShowWarn ( msgCTGap, cs->ID_Str );
+                ShowWarn ( MSG_WARN_CTGap, cs->ID_Str );
             }
         }
     }

@@ -20,6 +20,7 @@
  *
  */
 
+#include <stdarg.h>
 #include "flexcat.h"
 #include "readprefs.h"
 #include "globals.h"
@@ -54,7 +55,7 @@ void ShowError ( const char *msg, ... )
 /* This shows the message: Memory error. */
 void MemError ( void )
 {
-    ShowError ( msgMemoryError, NULL );
+    ShowError ( MSG_ERR_MemoryError, NULL );
 }
 
 //|
@@ -69,7 +70,7 @@ void ShowWarn ( const char *msg, ... )
     if ( !Quiet )
     {
         va_start ( args, msg );
-        fprintf ( stderr, ( char * )msgWarning, ScanFile, ScanLine );
+        fprintf ( stderr, ( char * )MSG_WARN_Warning, ScanFile, ScanLine );
         vfprintf ( stderr, msg, args );
         putc ( '\n', stderr );
 	va_end ( args );

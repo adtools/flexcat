@@ -250,7 +250,7 @@ void WriteBinChar ( int c )
             OutputMode = OutputMode_Bin;
             break;
         case TYPE_NONE:
-            ShowWarn ( msgNoBinChars );
+            ShowWarn ( MSG_WARN_NoBinChars );
             break;
 
     }
@@ -506,14 +506,14 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
     if ( !fpin )
 
     {
-        ShowError ( msgNoSourceDescription, OrigTemplateFile );
+        ShowError ( MSG_ERR_NoSourceDescription, OrigTemplateFile );
         return;
 
     }
     if ( !( fpout = fopen ( SourceFile, "w" ) ) )
 
     {
-        ShowError ( msgNoSource, SourceFile );
+        ShowError ( MSG_ERR_NoSource, SourceFile );
         return;
 
     }
@@ -597,7 +597,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                     else
                     {
-                        ShowWarn ( msgUnknownStringType );
+                        ShowWarn ( MSG_WARN_UnknownStringType );
                         currentline += strlen ( currentline );
 
                     }
@@ -605,7 +605,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                     if ( *currentline )
 
                     {
-                        ShowWarn ( msgExtraCharacters );
+                        ShowWarn ( MSG_WARN_ExtraCharacters );
 
                     }
                     continue;
@@ -621,7 +621,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                     if ( *currentline )
 
                     {
-                        ShowWarn ( msgExtraCharacters );
+                        ShowWarn ( MSG_WARN_ExtraCharacters );
 
                     }
                     continue;
@@ -848,7 +848,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 if ( !*currentline )
 
                                 {
-                                    ShowWarn ( msgNoTerminateBracket );
+                                    ShowWarn ( MSG_WARN_NoTerminateBracket );
 
                                 }
 

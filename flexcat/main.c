@@ -120,7 +120,6 @@ int main ( int argc, char *argv[] )
 #ifdef __amigados
     ReadPrefs (  );
 #endif
-
     if ( argc == 1 )
     {
         Usage (  );
@@ -303,7 +302,7 @@ int main ( int argc, char *argv[] )
                     {
                         if ( !Quiet )
                         {
-                            fprintf ( stderr, ( char * )msgUpToDate,
+                            fprintf ( stderr, ( char * )MSG_UpToDate,
                                       catalog );
                             putc ( '\n', stderr );
                         }
@@ -321,12 +320,12 @@ int main ( int argc, char *argv[] )
                 }
                 else
                 {
-                    ShowError ( msgCantCheckDate, ctfile );
+                    ShowError ( MSG_CantCheckDate, ctfile );
                 }
             }
             else
             {
-                ShowError ( msgCantCheckDate, cdfile );
+                ShowError ( MSG_CantCheckDate, cdfile );
             }
         }
     }
@@ -342,7 +341,7 @@ int main ( int argc, char *argv[] )
     {
         if ( !ctfile )
         {
-            fprintf ( stderr, ( char * )msgNoCTArgument );
+            fprintf ( stderr, ( char * )MSG_ERR_NoCTArgument );
             Usage (  );
         }
         CreateCat ( catalog );

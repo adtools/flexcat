@@ -51,7 +51,7 @@ int ScanCDFile ( char *cdfile )
 
     if ( !( fp = fopen ( cdfile, "r" ) ) )
     {
-        ShowError ( msgNoCatalogDescription, cdfile );
+        ShowError ( MSG_ERR_NoCatalogDescription, cdfile );
     }
 
     if ( !NoBufferedIO )
@@ -74,7 +74,6 @@ int ScanCDFile ( char *cdfile )
         {
             continue;
         }
-
         if ( *line == '#' )
         {
             int             CheckExtra = TRUE;
@@ -98,6 +97,7 @@ int ScanCDFile ( char *cdfile )
                     }
                     CheckExtra = FALSE;
                 }
+        	CheckExtra = FALSE;
 
             }
             else if ( Strnicmp ( line + 1, "version", 7 ) == 0 ||
@@ -158,7 +158,7 @@ int ScanCDFile ( char *cdfile )
             }
             else
             {
-                ShowWarn ( msgUnknownCDCommand );
+                ShowWarn ( MSG_WARN_UnknownCDCommand );
                 Result = FALSE;
                 CheckExtra = FALSE;
             }
@@ -168,7 +168,7 @@ int ScanCDFile ( char *cdfile )
                 OverSpace ( &line );
                 if ( *line )
                 {
-                    ShowWarn ( msgExtraCharacters );
+                    ShowWarn ( MSG_WARN_ExtraCharacters );
                     Result = FALSE;
                 }
             }
@@ -180,7 +180,7 @@ int ScanCDFile ( char *cdfile )
         // Some blanks on start of line
             if ( *line == ' ' || *line == '\t' )
             {
-                ShowWarn ( msgUnexpectedBlanks );
+                ShowWarn ( MSG_WARN_UnexpectedBlanks );
                 Result = FALSE;
                 OverSpace ( &line );
             }
@@ -195,7 +195,7 @@ int ScanCDFile ( char *cdfile )
 
             if ( idstr == line )
             {
-                ShowWarn ( msgNoIdentifier );
+                ShowWarn ( MSG_WARN_NoIdentifier );
                 Result = FALSE;
             }
             else
@@ -240,7 +240,7 @@ int ScanCDFile ( char *cdfile )
             // Next char in line is '('? (//)
                 if ( *line != '(' )
                 {
-                    ShowWarn ( msgNoLeadingBracket );
+                    ShowWarn ( MSG_WARN_NoLeadingBracket );
                     Result = FALSE;
                 }
                 else
@@ -277,12 +277,12 @@ int ScanCDFile ( char *cdfile )
                     {
                         if ( scs->ID == cs->ID )
                         {
-                            ShowWarn ( msgDoubleID );
+                            ShowWarn ( MSG_WARN_DoubleID );
                             Result = FALSE;
                         }
                         if ( strcmp ( cs->ID_Str, scs->ID_Str ) == 0 )
                         {
-                            ShowWarn ( msgDoubleIdentifier );
+                            ShowWarn ( MSG_WARN_DoubleIdentifier );
                             Result = FALSE;
                         }
                     }
@@ -290,7 +290,7 @@ int ScanCDFile ( char *cdfile )
                 // If line not have a minlen config (//)
                     if ( *line != '/' )
                     {
-                        ShowWarn ( msgNoMinLen );
+                        ShowWarn ( MSG_WARN_NoMinLen );
                         Result = FALSE;
                     }
                     else
@@ -304,7 +304,7 @@ int ScanCDFile ( char *cdfile )
                         }
                         if ( *line != '/' )
                         {
-                            ShowWarn ( msgNoMaxLen );
+                            ShowWarn ( MSG_WARN_NoMaxLen );
                             Result = FALSE;
                         }
                         else
@@ -318,7 +318,7 @@ int ScanCDFile ( char *cdfile )
                             }
                             if ( *line != ')' )
                             {
-                                ShowWarn ( msgNoTrailingBracket );
+                                ShowWarn ( MSG_WARN_NoTrailingBracket );
                                 Result = FALSE;
                             }
                             else
@@ -327,7 +327,7 @@ int ScanCDFile ( char *cdfile )
                                 OverSpace ( &line );
                                 if ( *line )
                                 {
-                                    ShowWarn ( msgExtraCharacters );
+                                    ShowWarn ( MSG_WARN_ExtraCharacters );
                                 }
                             }
                         }
@@ -336,7 +336,7 @@ int ScanCDFile ( char *cdfile )
                 // Huh? There is no string for this definition?
                     if ( !( newline = ReadLine ( fp, FALSE ) ) )
                     {
-                        ShowWarn ( msgNoString );
+                        ShowWarn ( MSG_WARN_NoString );
                         Result = FALSE;
                         cs->CD_Str = "";
                     }
@@ -362,12 +362,12 @@ int ScanCDFile ( char *cdfile )
                 // Too short string
                     if ( cs->MinLen > 0 && reallen < cs->MinLen )
                     {
-                        ShowWarn ( msgShortString );
+                        ShowWarn ( MSG_WARN_ShortString );
                     }
                 // Too long string
                     if ( cs->MaxLen > 0 && reallen > cs->MaxLen )
                     {
-                        ShowWarn ( msgLongString );
+                        ShowWarn ( MSG_WARN_LongString );
                     }
 
                     cs->Nr = NumStrings;

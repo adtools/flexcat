@@ -612,8 +612,14 @@ otherwise FlexCat won't find it. Example:
     @samp{FlexCat New.cd Old.ct NEWCTFILE Updated.ct COPYMSGNEW OLDMSGNEW=**Neu**}
 @end example
 
+@cindex NOSPACE
+@item NOSPACE
+*FIXME* To be documented...
+
 @cindex AUTODATE
 @item AUTODATE
+*FIXME* to be verified...
+
 This switch was formerly known as NOAUTODATE, and since it was disabled
 by default, FlexCat would always ignore the date in the translation
 and use the current date when compiling a catalog, which in turn could

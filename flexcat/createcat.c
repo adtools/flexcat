@@ -120,23 +120,23 @@ void CreateCat ( char *CatFile )
 
     if ( !CatVersionString && !CatRcsId )
     {
-        ShowError ( msgNoCTVersion );
+        ShowError ( MSG_ERR_NoCTVersion );
     }
 
     if ( !CatLanguage )
     {
-        ShowError ( msgNoCTLanguage );
+        ShowError ( MSG_ERR_NoCTLanguage );
     }
 
     if ( strlen ( CatLanguage ) == 0 )
     {
-        ShowError ( msgNoCTLanguage );
+        ShowError ( MSG_ERR_NoCTLanguage );
     }
 
     if ( CatFile == NULL )
     {
         if ( BaseName == NULL )
-            ShowError ( msgNoCatFileName );
+            ShowError ( MSG_NoCatFileName );
         else
         {
             CatFile = malloc ( strlen ( BaseName ) + 10 );
@@ -146,7 +146,7 @@ void CreateCat ( char *CatFile )
 
     if ( !( fp = fopen ( CatFile, "w" ) ) )
     {
-        ShowError ( msgNoCatalog, CatFile );
+        ShowError ( MSG_ERR_NoCatalog, CatFile );
     }
 
     if ( !NoBufferedIO )
@@ -257,7 +257,7 @@ void CreateCat ( char *CatFile )
 
         if ( !CatRcsId )
         {
-            ShowError ( msgNoCTVersion );
+            ShowError ( MSG_ERR_NoCTVersion );
         }
         else
         {
@@ -266,7 +266,7 @@ void CreateCat ( char *CatFile )
                  || !( ptr = strstr ( CatRcsId, "$Revision:" ) )
                  || sscanf ( ptr + 10, " %d.%d", &version, &revision ) != 2 )
             {
-                ShowError ( msgWrongRcsId );
+                ShowError ( MSG_WARN_WrongRcsId );
             }
             if ( ( ptr = strstr ( CatRcsId, "$Id:" ) ) )
             {
@@ -297,7 +297,7 @@ void CreateCat ( char *CatFile )
         }
         else if ( !name )
         {
-            ShowError ( msgNoCTVersion );
+            ShowError ( MSG_ERR_NoCTVersion );
             name = "";
         }
         if ( !( verStr = malloc ( strlen ( name ) + 256 ) ) )

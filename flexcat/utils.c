@@ -233,7 +233,7 @@ int gethex ( int c )
     {
         return ( c - 'A' + 10 );
     }
-    ShowWarn ( msgExpectedHex );
+    ShowWarn ( MSG_WARN_ExpectedHex );
     return ( 0 );
 }
 
@@ -250,7 +250,7 @@ int getoctal ( int c )
         return ( c - '0' );
     }
 
-    ShowWarn ( msgExpectedOctal );
+    ShowWarn ( MSG_WARN_ExpectedOctal );
     return ( 0 );
 
 }
@@ -395,9 +395,15 @@ void Expunge ( void )
             FreeMem ( Memory, -1 );     // just in case ;-)
 #else
 #ifdef __GNUC__
+#ifdef __MORPHOS__
+#define localeExpunge() \
+	LP0NR(12, localeExpunge, \
+		, LocaleBase, 0, 0, 0, 0, 0, 0)
+#else
 #define localeExpunge() \
 	((BPTR (*)(struct Library * __asm("a6"))) \
   (((char *) LocaleBase) - 18))((struct Library *) LocaleBase)
+#endif
 #else
 #pragma libcall LocaleBase localeExpunge 12 00
         VOID            localeExpunge ( VOID );
@@ -605,13 +611,8 @@ void Usage ( void )
     fprintf ( stderr, "%s\n", EString );
     fprintf ( stderr,
               "%s\n        FlexCat CDFILE/A,CTFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n                WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,\n                QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,\n                MODIFIED/S,COPYMSGNEW/S,OLDMSGNEW/K,NOSPACE/S,NOAUTODATE/S\n\n",
-              ( char * )msgUsageHead );
-    fprintf ( stderr, "%s\n%s\n%s\n", msgUsage_1, msgUsage_2, msgUsage_3 );
-    fprintf ( stderr, "%s\n%s\n%s\n", msgUsage_4, msgUsage_5, msgUsage_6 );
-    fprintf ( stderr, "%s\n%s\n%s\n", msgUsage_7, msgUsage_8, msgUsage_9 );
-    fprintf ( stderr, "%s\n%s\n%s\n", msgUsage_10, msgUsage_11, msgUsage_12 );
-    fprintf ( stderr, "%s\n%s\n%s\n", msgUsage_13, msgUsage_14, msgUsage_15 );
-    fprintf ( stderr, "%s\n%s\n%s\n\n", msgUsage_16, msgUsage_17, msgUsage_18 );
+              ( char * )MSG_UsageHead );
+    fprintf ( stderr, "%s\n", MSG_Usage );
     MyExit ( 5 );
 }
 
