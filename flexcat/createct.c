@@ -131,12 +131,12 @@ void CreateCTFile ( char *NewCTFile )
                 {
                     if ( BaseName )
                     {
-                        fprintf ( fp, "R: %s.ct %s (%s)\n", BaseName,
+                        fprintf ( fp, "R: %s.ct %d (%s)\n", BaseName,
                                   CatVersion, dateStr );
                     }
                     else
                     {
-                        fprintf ( fp, "R: <name>.ct %s (%s)\n", CatVersion,
+                        fprintf ( fp, "R: <name>.ct %d (%s)\n", CatVersion,
                                   dateStr );
                     }
                 }

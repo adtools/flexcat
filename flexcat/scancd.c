@@ -108,8 +108,8 @@ int ScanCDFile ( char *cdfile )
                 else
                     line += 8;
                 OverSpace ( &line );
-                CatVersion = AllocString ( line );
-                CheckExtra = FALSE;
+                CatVersion = strtol ( line, &line, 0 );
+                CheckExtra = TRUE;
             }
             else if ( strnicmp ( line + 1, "basename", 8 ) == 0 ||
                       strnicmp ( line + 1, "#basename", 9 ) == 0 )
