@@ -218,7 +218,6 @@ int ScanCTFile ( char *ctfile )
                     }
                     if ( cs == NULL )
                     {
-                        printf("HIT!\n");
                         ShowWarn ( msgUnknownIdentifier, newidstr );
                     }
                     else
