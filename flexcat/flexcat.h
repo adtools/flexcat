@@ -34,7 +34,7 @@
 
 #define VERSION 2
 #define REVISION 6
-#define VERS       "FlexCat 2.6.5"
+#define VERS       "FlexCat 2.6.6"
 
 #ifdef __amigados
 
@@ -99,9 +99,6 @@
 #undef tolower
 #endif
 #define tolower         ToLower
-//#define stricmp(s,t)    Stricmp((char *) (s), (char *) (t))
-//#define strnicmp(s,t,l) Strnicmp((char *) (s), (char *) (t), l)
-
 #endif
 
 

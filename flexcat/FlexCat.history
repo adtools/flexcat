@@ -28,6 +28,20 @@
         highly needed!
 
   ========================================================================
+  
+2003-02-12 Ondrej Zima <amiandrew@volny.cz>
+
+	* Changed behaviour of #version in catalog description. Only
+	  version number can be specified, no revision or other numbers
+	  allowed.
+	* Fixed compatibility with GCC on non-Amiga systems. Sources are
+	  compilable now
+	* If language enviroment is not specified (like on Un*x systems),
+	  the "nolanguage" string is taken as language.
+	* Changed compare function (stricmp, strnicmp) to Stricmp and
+	  Strnicmp and implemented from GCC project libiberty.
+	* Changed default localization to macro which is defined in
+	  flexcat.h.
 
 2003-01-27 Ondrej Zima <amiandrew@volny.cz>
 
