@@ -24,7 +24,7 @@
 #define  FLEXCAT_H
 
 // undef if not on Amiga
-#define __amigados
+#undef __amigados
 
 #define VERSION 2
 #define REVISION 6

@@ -1,0 +1,34 @@
+##rem $Id$
+##stringtype C
+##shortstrings
+/****************************************************************
+   This file was created automatically by `%fv'
+   from "%f0".
+
+   Do NOT edit by hand!
+****************************************************************/
+
+/****************************************************************
+
+   This file is a quick-hack-solution for all of you wanting
+   to compile FlexCat on non-amiga platform. It creates
+   necessary string tables (hardcoded ATM) and functions to
+   make code work under any operating system.
+
+   Carlos
+
+****************************************************************/
+
+#ifndef %b_CAT_H
+#define %b_CAT_H
+
+void Open%bCatalog( void );
+void Close%bCatalog( void );
+
+char * %b_Strings[%n] = {
+    (char *)%s%(,)
+};
+
+#define %i %b_Strings[%e]
+
+#endif
