@@ -1,0 +1,284 @@
+;#language english
+;#version 2
+;
+;
+;   $Id$
+;
+;
+;   FlexCat.cd
+;
+;
+;   FlexCat:                 The flexible catalog generator
+;   Copyright (C) 1993-1998  Jochen Wiedmann and Marcin Orlowski
+;
+;   The following defines a sequence of strings. Each definition looks as
+;   follows:
+;
+;   MSG_STRING_NAME (num/minlen/maxlen)
+;   text
+;
+;   where:
+;
+;   MSG_STRING_NAME is the name of the macro-definition, that will be used
+;                   to get the string.
+;   num             is the number, which MSG_STRING_NAME will stand for
+;   minlen          is the minimum length of "text" (this may be missing)
+;   maxlen          is the maximum length of "text" (this may be missing
+;                   too)
+;   text            is the text, the string will contain
+;
+;   Each definition is preceded by a remark, which tells what the string
+;   is used for.
+;
+;
+;   Error message: Out of memory.
+msgMemoryError (//)
+Out of memory!
+;
+;   Warning message; must contain one %s (file), one %d (line number)
+;   DON'T EAT THE TRAILING SPACE HERE!
+msgWarning (//)
+%s, Line %d; warning: \
+
+;
+;   Warning message: Expected hex character.
+msgExpectedHex (//)
+Expected hex character (one of [0-9a-fA-F]).
+;
+;   Warning message: Expected octal character.
+msgExpectedOctal (//)
+Expected octal character (one of [0-7]).
+;
+;   Error message: Cannot open catalog description; must contain one %s
+;   (file name)
+msgNoCatalogDescription (//)
+Cannot open catalog description %s.
+;
+;   Warning message: Too much Lengthbytes; must contain one %d (maximum).
+msgNoLengthBytes (//)
+LengthBytes > %d (sizeof long) not possible.
+;
+;   Warning message: Unknown catalog description command.
+msgUnknownCDCommand (//)
+Unknown catalog description command
+;
+;   Warning message: Unexpected blank.
+msgUnexpectedBlanks (//)
+Unexpected blanks.
+;
+;   Warning message: Identifier expected.
+msgNoIdentifier (//)
+Missing identifier.
+;
+;   Warning message: '(' expected.
+msgNoLeadingBracket (//)
+Missing '('.
+;
+;   Warning message: Identifier number redeclared.
+msgDoubleID (//)
+ID number used twice.
+;
+;   Warning message: Identifier redeclared.
+msgDoubleIdentifier (//)
+Identifier redeclared.
+;
+;   Warning message: '/' expected (MinLen).
+msgNoMinLen (//)
+Expected MinLen (character '/').
+;
+;   Warning message: '/' expected (MaxLen).
+msgNoMaxLen (//)
+Expected MaxLen (character '/').
+;
+;   Warning message: ')' expected.
+msgNoTrailingBracket (//)
+Expected ')'.
+;
+;   Warning message: Extra characters
+msgExtraCharacters (//)
+Extra characters at the end of the line.
+;
+;   Warning message: Missing catalog string
+msgNoString (//)
+Unexpected end of file (missing catalog string).
+;
+;   Warning message: String too short.
+msgShortString (//)
+String too short.
+;
+;   Warning message: String too long.
+msgLongString (//)
+String too long.
+;
+;   Error message: No catalog translation file; must contain one %s (file
+;   name).
+msgNoCatalogTranslation (//)
+Cannot open catalog translation file %s.
+;
+;   Warning message: Missing catalog translation command.
+msgNoCTCommand (//)
+Missing catalog translation command. (Expected second '#'.)
+;
+;   Warning message: Unknown catalog translation command.
+msgUnknownCTCommand (//)
+Unknown catalog translation command.
+;
+;   Error message: Missing catalog translation version.
+msgNoCTVersion (//)
+Missing catalog translation version; use either ##version\n\
+or ##rcsid and ##name.
+;
+;   Error message: Missing catalog translation language.
+msgNoCTLanguage (//)
+Missing catalog translation language.
+;
+;   Error message: Cannot open catalog file. Must contain one %s (file name).
+msgNoCatalog (//)
+Cannot open catalog file %s.
+;
+;   Error message: Cannot create catalog translation file. Must contain
+;   one %s (file name).
+msgNoNewCTFile (//)
+Cannot create catalog translation file %s.
+;
+;   Warning message: Unknown identifier. Must contain one %s (identifier).
+msgUnknownIdentifier (//)
+%s missing in catalog description.
+;
+;   Error message: No source description file. Must contain one %s (file
+;   name).
+msgNoSourceDescription (//)
+Cannot open source description file %s.
+;
+;   Error message: No source file. Must contain one %s (file name).
+msgNoSource (//)
+Cannot open source file %s.
+;
+;   Warning message: Unknown string type
+msgUnknownStringType (//)
+Unknown string type.
+;
+;   Warning message: Missing trailing ')' in %(..).
+msgNoTerminateBracket (//)
+Unexpected end of line. (Missing ')')
+;
+;   Usage message
+msgUsage_1 (//)
+  CDFILE        Catalog description file to scan
+msgUsage_2 (//)
+  CTFILE        Catalog translation file to scan
+msgUsage_3 (//)
+  CATALOG       Catalog file to create
+msgUsage_4 (//)
+  NEWCTFILE     Catalog translation file to create
+msgUsage_5 (//)
+  SOURCES       Sources to create; must be something like sfile=sdfile,\n\
+                where sfile is a sourcefile and sdfile is a source\n\
+                description file
+msgUsage_6 (//)
+  WARNCTGAPS    Warn symbols missing in CT file
+msgUsage_7 (//)
+  NOOPTIM       Do not skip unchanged strings (equal in both #?.cd and #?.ct)
+msgUsage_8 (//)
+  FILL          Use descriptor texts if translation are missing
+msgUsage_9 (//)
+  FLUSH         Flush memory when catalog is written
+msgUsage_10 (//)
+  NOBEEP        Suppress DisplayBeep()'s on error and warnings
+msgUsage_11 (//)
+  QUIET         Suppress warning messages
+;
+;   Error message: No catalog translation argument
+msgNoCTArgument (//)
+Creating a catalog needs a catalog translation file as argument.\n
+;
+;   Warning message: No binary characters.
+msgNoBinChars (//)
+Binary characters in stringtype None.
+;
+;   Warning message: Gap in CT file.
+msgCTGap (//)
+ID %s missing in CT file.
+;
+;   Warning: Catalog language declared twice
+msgDoubleCTLanguage (//)
+Catalog language declared twice.
+;
+;   Warning: Catalog version declared twice
+msgDoubleCTVersion (//)
+Catalog version declared twice.
+;
+;   Warning: Wrong Rcs ID
+msgWrongRcsId (//)
+Incorrect rcs ID (must be similar to\n\
+'$Date$ $Revision$')
+;
+;
+; NEW IN 1.9
+;
+msgUsageHead (//)
+Usage
+;
+msgPrefsError (//)
+Error processing FlexCat.prefs variable, falling back to defaults.\n\
+Preferences template: \
+
+;
+;
+; NEW IN 2.0
+;
+; NOTE: This string is concatenated with msgUsage, so make sure you
+;       indented it the same way etc. And DON'T MISS trailing LF here!
+;       Type FLEXCAT and check how it looks.
+;
+msgUsage_12 (//)
+  NOLANGTOLOWER Prevents #language name from being lowercased
+msgUsage_13 (//)
+  NOBUFFEREDIO  Disables IO buffers
+msgUsage_14 (//)
+  MODIFIED      Creates the catalog only when #?.c(d|t) files were changed
+;
+;
+;
+; NEW IN 2.1
+;
+msgUpToDate (//)
+File %s is up to date
+;
+msgCantCheckDate (//)
+Cannot get the datestamp of %s
+;
+;
+; NEW IN 2.2
+;
+msgUsage_15 (//)
+  COPYMSGNEW    Turns on copying ***NEW*** markers while updating #?.ct file
+msgUsage_16 (//)
+  OLDMSGNEW     If old #?.ct file is using other marker, specify it here
+;
+msgTrailingEllipsis (//)
+Original string has a trailing ellipsis (...)
+;
+msgTrailingSpaces (//)
+Original string has a trailing spaces
+;
+;
+; NEW IN 2.4
+;
+; IMPORTANT: I just removed trailing '\n' from the ALL msgUsage_#?
+;            strings. Please check your translations and remove them
+;            as well when required. '\n' are now printed withing
+;            the FlexCat itself to avoid further problems when Usage
+;            text will expand again
+;
+msgUsage_17 (//)
+  NOSPACE       Removes the space being usually put between ';' and the comment
+;
+;
+; NEW IN 2.4.1
+;
+; Do not use current date in version string
+msgUsage_18 (//)
+  NOAUTODATE    Do not use current date in version string. Use from\n\
+                .ct instead
+;

@@ -1,0 +1,12 @@
+extern void     MyExit ( int Code );
+extern char    *AllocString ( const char *str );
+extern char    *AddCatalogChunk ( char *ID, const char *string );
+extern int      gethex ( int c );
+extern int      getoctal ( int c );
+extern char    *ReadLine ( FILE * fp, int AllowComment );
+extern void     OverSpace ( char **strptr );
+extern void     Expunge ( void );
+extern int      ReadChar ( char **strptr, char *dest );
+extern char    *AllocFileName ( char *filename, int howto );
+extern char    *AddFileName ( char *pathname, char *filename );
+extern void     Usage ( void );

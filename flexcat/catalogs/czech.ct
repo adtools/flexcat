@@ -1,0 +1,389 @@
+## version $VER: FlexCat.catalog 2.6.3 (5.5.02) © Vit Sindlar, Ondrej Zima, ATO-CZ
+## language czech
+## codeset 0
+;
+;#language english
+;#version 2
+;
+;
+;   $Id$
+;
+;
+;   FlexCat.cd
+;
+;
+;   FlexCat:                 The flexible catalog generator
+;   Copyright (C) 1993-1998  Jochen Wiedmann and Marcin Orlowski
+;
+;   The following defines a sequence of strings. Each definition looks as
+;   follows:
+;
+;   MSG_STRING_NAME (num/minlen/maxlen)
+;   text
+;
+;   where:
+;
+;   MSG_STRING_NAME is the name of the macro-definition, that will be used
+;                   to get the string.
+;   num             is the number, which MSG_STRING_NAME will stand for
+;   minlen          is the minimum length of "text" (this may be missing)
+;   maxlen          is the maximum length of "text" (this may be missing
+;                   too)
+;   text            is the text, the string will contain
+;
+;   Each definition is preceded by a remark, which tells what the string
+;   is used for.
+;
+;
+;   Error message: Out of memory.
+msgMemoryError
+Nedostatek pamëti!
+; Out of memory!
+;
+;   Warning message; must contain one %s (file), one %d (line number)
+;   DON'T EAT THE TRAILING SPACE HERE!
+msgWarning
+%s, êádek %d; upozornëní: \
+
+; %s, Line %d; warning: \
+; 
+;
+;   Warning message: Expected hex character.
+msgExpectedHex
+Oçekáván îestnáctkový znak (jeden z [0-9a-fA-F]).
+; Expected hex character (one of [0-9a-fA-F]).
+;
+;   Warning message: Expected octal character.
+msgExpectedOctal
+Oçekáván osmiçkový znak (jeden z [0-7]).
+; Expected octal character (one of [0-7]).
+;
+;   Error message: Cannot open catalog description; must contain one %s
+;   (file name)
+msgNoCatalogDescription
+Nelze otevêít soubor s popisem katalogu %s.
+; Cannot open catalog description %s.
+;
+;   Warning message: Too much Lengthbytes; must contain one %d (maximum).
+msgNoLengthBytes
+LengthBytes > %d (sizeof long) není povolena.
+; LengthBytes > %d (sizeof long) not possible.
+;
+;   Warning message: Unknown catalog description command.
+msgUnknownCDCommand
+Neznámý pêíkaz v souboru s popisem katalogu
+; Unknown catalog description command
+;
+;   Warning message: Unexpected blank.
+msgUnexpectedBlanks
+Neoçekávané prázdné znaky.
+; Unexpected blanks.
+;
+;   Warning message: Identifier expected.
+msgNoIdentifier
+Chybí identifikátor.
+; Missing identifier.
+;
+;   Warning message: '(' expected.
+msgNoLeadingBracket
+Chybí '('.
+; Missing '('.
+;
+;   Warning message: Identifier number redeclared.
+msgDoubleID
+ID çíslo pouùito dvakrát.
+; ID number used twice.
+;
+;   Warning message: Identifier redeclared.
+msgDoubleIdentifier
+Identifikátor znovu nadefinován.
+; Identifier redeclared.
+;
+;   Warning message: '/' expected (MinLen).
+msgNoMinLen
+Oçekáváno MinLen (znak '/').
+; Expected MinLen (character '/').
+;
+;   Warning message: '/' expected (MaxLen).
+msgNoMaxLen
+Oçekáváno MaxLen (znak '/').
+; Expected MaxLen (character '/').
+;
+;   Warning message: ')' expected.
+msgNoTrailingBracket
+Oçekáváno ')'.
+; Expected ')'.
+;
+;   Warning message: Extra characters
+msgExtraCharacters
+Na konci êádku jsou znaky navíc.
+; Extra characters at the end of the line.
+;
+;   Warning message: Missing catalog string
+msgNoString
+Neoçekávané zakonçení souboru (chybí êetëzec catalog).
+; Unexpected end of file (missing catalog string).
+;
+;   Warning message: String too short.
+msgShortString
+Êetëzec je pêíliî krátký.
+; String too short.
+;
+;   Warning message: String too long.
+msgLongString
+Êetëzec je pêíliî dlouhý.
+; String too long.
+;
+;   Error message: No catalog translation file; must contain one %s (file
+;   name).
+msgNoCatalogTranslation
+Nelze otevêít soubor s pêekladem katalogu %s.
+; Cannot open catalog translation file %s.
+;
+;   Warning message: Missing catalog translation command.
+msgNoCTCommand
+V souboru s pêekladem katalogu chybí pêíkaz. (Oçekáván druhý '#'.)
+; Missing catalog translation command. (Expected second '#'.)
+;
+;   Warning message: Unknown catalog translation command.
+msgUnknownCTCommand
+Neznámý pêíkaz v souboru s pêekladem.
+; Unknown catalog translation command.
+;
+;   Error message: Missing catalog translation version.
+msgNoCTVersion
+Chybí êetëzec s verzí; pouùijte buð ##version\n\
+nebo ##rcsid a ##name.
+; Missing catalog translation version; use either ##version\n\
+; or ##rcsid and ##name.
+;
+;   Error message: Missing catalog translation language.
+msgNoCTLanguage
+Chybí êetëzec s volbou jazyka; pouùijte ##language.
+; Missing catalog translation language.
+;
+;   Error message: Cannot open catalog file. Must contain one %s (file name).
+msgNoCatalog
+Nelze otevêít katalog: %s.
+; Cannot open catalog file %s.
+;
+;   Error message: Cannot create catalog translation file. Must contain
+;   one %s (file name).
+msgNoNewCTFile
+Nelze vytvoêit soubor s pêekladem katalogu %s.
+; Cannot create catalog translation file %s.
+;
+;   Warning message: Unknown identifier. Must contain one %s (identifier).
+msgUnknownIdentifier
+%s chybí v souboru s popisem katalogu.
+; %s missing in catalog description.
+;
+;   Error message: No source description file. Must contain one %s (file
+;   name).
+msgNoSourceDescription
+Nelze otevêít soubor s popisem katalogu %s.
+; Cannot open source description file %s.
+;
+;   Error message: No source file. Must contain one %s (file name).
+msgNoSource
+Nelze otevêít zdrojový soubor %s.
+; Cannot open source file %s.
+;
+;   Warning message: Unknown string type
+msgUnknownStringType
+Neznámý typ êetëzce.
+; Unknown string type.
+;
+;   Warning message: Missing trailing ')' in %(..).
+msgNoTerminateBracket
+Neoçekávaný konec êádku. (Chybí ')')
+; Unexpected end of line. (Missing ')')
+;
+;   Usage message
+msgUsage_1
+  CDFILE        Soubor s popisem katalogu
+;   CDFILE        Catalog description file to scan
+;
+; ***NEW***
+msgUsage_2
+  CTFILE        Soubor s pêekladem katalogu
+;   CTFILE        Catalog translation file to scan
+msgUsage_3
+  CATALOG       Výsledný katalog
+;   CATALOG       Catalog file to create
+msgUsage_4
+  NEWCTFILE     Soubor s popisem katalogu, který bude vytvoêen
+;   NEWCTFILE     Catalog translation file to create
+;
+; ***NEW***
+msgUsage_5
+  SOURCES       Zdrojové texty, které bodou vytvoêeny; musí být nëco jako\n\
+                sfile=sdfile, kde sfile je název souboru, který bude\n\
+                vytvoêen a sdfile je definiçní soubor, který popisuje,\n\
+                vytvoêení onoho zdrojového souboru
+;   SOURCES       Sources to create; must be something like sfile=sdfile,\n\
+;                 where sfile is a sourcefile and sdfile is a source\n\
+;                 description file
+;
+; ***NEW***
+msgUsage_6
+  WARNCTGAPS    Upozorñuje na chybëjící znaky v souboru CT
+;   WARNCTGAPS    Warn symbols missing in CT file
+;
+; ***NEW***
+msgUsage_7
+  NOOPTIM       Zakáùe provádëní optimalizace katalogu
+;   NOOPTIM       Do not skip unchanged strings (equal in both #?.cd and #?.ct)
+;
+; ***NEW***
+msgUsage_8
+  FILL          Pouùije texty ze souboru CD tam, kde chybí pêeklad
+;   FILL          Use descriptor texts if translation are missing
+;
+; ***NEW***
+msgUsage_9
+  FLUSH         Vyprázdní pamëï po kompilaci katalogu
+;   FLUSH         Flush memory when catalog is written
+;
+; ***NEW***
+msgUsage_10
+  NOBEEP        Potlaçí DisplayBeep() pêi chybových hláîeních
+;   NOBEEP        Suppress DisplayBeep()'s on error and warnings
+;
+; ***NEW***
+msgUsage_11
+  QUIET         Potlaçí upozornëní na chyby
+;   QUIET         Suppress warning messages
+;
+; ***NEW***
+;
+;   Error message: No catalog translation argument
+msgNoCTArgument
+Pêi vytváêení katalogu je nutné mít jako parametr soubor s pêekladem katalogu.\n
+; Creating a catalog needs a catalog translation file as argument.\n
+;
+;   Warning message: No binary characters.
+msgNoBinChars
+Binární znaky v êetëzci typu None.
+; Binary characters in stringtype None.
+;
+;   Warning message: Gap in CT file.
+msgCTGap
+ID %s chybí v souboru CT.
+; ID %s missing in CT file.
+;
+;   Warning: Catalog language declared twice
+msgDoubleCTLanguage
+Êetëzec s volbou jazyka je v katalogu dvakrát.
+; Catalog language declared twice.
+;
+;   Warning: Catalog version declared twice
+msgDoubleCTVersion
+Êetëzec s verzí je v katalogu dvakrát.
+; Catalog version declared twice.
+;
+;   Warning: Wrong Rcs ID
+msgWrongRcsId
+Neplatné rcs ID (musí být nëco jako\n\
+'$Date$ $Revision$')
+; Incorrect rcs ID (must be similar to\n\
+; '$Date$ $Revision$')
+;
+;
+; NEW IN 1.9
+;
+msgUsageHead
+Pouùití:
+; Usage
+;
+msgPrefsError
+Chyba pêi zpracování promënné FlexCat.prefs, budou pouùity základní hodnoty.\n\
+Îablona pro nastavení: \
+
+; Error processing FlexCat.prefs variable, falling back to defaults.\n\
+; Preferences template: \
+; 
+;
+;
+; NEW IN 2.0
+;
+; NOTE: This string is concatenated with msgUsage, so make sure you
+;       indented it the same way etc. And DON'T MISS trailing LF here!
+;       Type FLEXCAT and check how it looks.
+;
+msgUsage_12
+  NOLANGTOLOWER Zabrání pêevodu názvu #language na malá písmena
+;   NOLANGTOLOWER Prevents #language name from being lowercased
+;
+; ***NEW***
+msgUsage_13
+  NOBUFFEREDIO  Vypne zásobníky pro V/V operace
+;   NOBUFFEREDIO  Disables IO buffers
+;
+; ***NEW***
+msgUsage_14
+  MODIFIED      Vytvoêí katalog pouze tehdy, byly-li zmënëny soubory #?.c(d|t)
+;   MODIFIED      Creates the catalog only when #?.c(d|t) files were changed
+;
+; ***NEW***
+;
+;
+;
+; NEW IN 2.1
+;
+msgUpToDate
+Soubor %s jiù je aktualizovaný
+; File %s is up to date
+;
+msgCantCheckDate
+Nelze naçíst datum souboru %s
+; Cannot get the datestamp of %s
+;
+;
+; NEW IN 2.2
+;
+msgUsage_15
+  COPYMSGNEW    Zapne vkládání znaçky **NEW** pêi aktualizaci souboru #?.ct
+;   COPYMSGNEW    Turns on copying ***NEW*** markers while updating #?.ct file
+;
+; ***NEW***
+msgUsage_16
+  OLDMSGNEW     Pouùívá-li starý soubor #?.ct jinou znaçku, uveðte ji zde
+;   OLDMSGNEW     If old #?.ct file is using other marker, specify it here
+;
+; ***NEW***
+;
+msgTrailingEllipsis
+Pûvodní êetëzec obsahuje závorky (...)
+; Original string has a trailing ellipsis (...)
+;
+msgTrailingSpaces
+Pûvodní êetëzec obsahuje mezery
+; Original string has a trailing spaces
+;
+;
+; NEW IN 2.4
+;
+; IMPORTANT: I just removed trailing '\n' from the ALL msgUsage_#?
+;            strings. Please check your translations and remove them
+;            as well when required. '\n' are now printed withing
+;            the FlexCat itself to avoid further problems when Usage
+;            text will expand again
+;
+msgUsage_17
+  NOSPACE       Odstranëní mezery uùité obvykle mezi ';' a komentáêem
+;   NOSPACE       Removes the space being usually put between ';' and the comment
+;
+; ***NEW***
+;
+;
+; NEW IN 2.4.1
+;
+; Do not use current date in version string
+msgUsage_18
+  NOAUTODATE    Pouùít datum specifikované v .ct souboru místo aktuálního datumu
+;   NOAUTODATE    Do not use current date in version string. Use from\n\
+;                 .ct instead
+;
+; ***NEW***
+;
