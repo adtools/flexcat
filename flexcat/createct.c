@@ -187,6 +187,9 @@ void CreateCTFile ( char *NewCTFile )
         }
     }
     fclose ( fp );
+#ifdef __amigados
+    SetProtection ( NewCTFile, FILE_MASK );
+#endif
 }
 
 //|

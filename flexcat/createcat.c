@@ -141,7 +141,6 @@ void CreateCat ( char *CatFile )
     if ( !NoBufferedIO )
         setvbuf ( fp, NULL, _IOFBF, buffer_size );
 
-
     fputs ( "FORM0000CTLG", fp );
     CatLen = 4;
 
@@ -305,7 +304,6 @@ void CreateCat ( char *CatFile )
         CatLen += PutCatalogChunk ( fp, &cc );
     }
 
-
     for ( cc = FirstChunk; cc != NULL; cc = cc->Next )
     {
         CatLen += PutCatalogChunk ( fp, cc );
@@ -331,7 +329,6 @@ void CreateCat ( char *CatFile )
     CatLen += 48;
     fprintf ( fp, "STRS0000" );
     HeadLen = CatLen;
-
 
     for ( cs = FirstCatString; cs != NULL; cs = cs->Next )
     {
@@ -365,8 +362,6 @@ void CreateCat ( char *CatFile )
             CatLen += 4 + CatPuts ( fp, cs->CT_Str, 4, FALSE );
         }
     }
-
-
     {
         int             tmp_Len;
 
@@ -382,9 +377,10 @@ void CreateCat ( char *CatFile )
     }
 
     fclose ( fp );
-
+#ifdef __amigados
+    SetProtection ( CatFile, FILE_MASK );
+#endif
     Expunge (  );
-
 }
 
 //|

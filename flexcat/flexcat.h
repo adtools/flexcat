@@ -110,6 +110,7 @@
 #define MAXPATHLEN 512
 #define FLEXCAT_SDDIR "FLEXCAT_SDDIR"
 #if defined(__amigados)
+#define FILE_MASK FIBF_EXECUTE
 #define DEFAULT_FLEXCAT_SDDIR "PROGDIR:lib"
 #else
 #define DEFAULT_FLEXCAT_SDDIR "lib"

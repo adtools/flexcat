@@ -754,6 +754,9 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
     fclose ( fpin );
     fclose ( fpout );
+#ifdef __amigados
+    SetProtection ( SourceFile, FILE_MASK );
+#endif
 }
 
 //|
