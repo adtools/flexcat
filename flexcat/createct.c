@@ -47,6 +47,8 @@ void CreateCTFile ( char *NewCTFile )
     char           *line;
     char           *ctlanguage = NULL;
 
+    printf("BASE=%s\nLANG=%s\n", BaseName, ctlanguage);
+    printf("CTFILE=%s\n", NewCTFile);
     if ( !CatVersionString && !CatRcsId )
     {
         ScanLine = 1;
@@ -66,7 +68,7 @@ void CreateCTFile ( char *NewCTFile )
 #else
         char           *lang = NULL;
 
-        if ( ( lang = getenv ( "ENV:Language" ) ) != NULL )
+        if ( ( lang = getenv ( "language" ) ) != NULL )
         {
             register int    i;
 
@@ -131,12 +133,12 @@ void CreateCTFile ( char *NewCTFile )
                 {
                     if ( BaseName )
                     {
-                        fprintf ( fp, "R: %s.ct %d (%s)\n", BaseName,
+                        fprintf ( fp, "R: %s.ct %d.<rev> (%s)\n", BaseName,
                                   CatVersion, dateStr );
                     }
                     else
                     {
-                        fprintf ( fp, "R: <name>.ct %d (%s)\n", CatVersion,
+                        fprintf ( fp, "R: <name>.ct %d.<rev> (%s)\n", CatVersion,
                                   dateStr );
                     }
                 }
