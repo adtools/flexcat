@@ -79,12 +79,12 @@ int ScanCDFile ( char *cdfile )
         {
             int             CheckExtra = TRUE;
 
-            if ( strnicmp ( line + 1, "language", 8 ) == 0 ||
-                 strnicmp ( line + 1, "#language", 9 ) == 0 )
+            if ( Strnicmp ( line + 1, "language", 8 ) == 0 ||
+                 Strnicmp ( line + 1, "#language", 9 ) == 0 )
             {
                 char           *ptr;
 
-                if ( strnicmp ( line + 1, "language", 8 ) == 0 )
+                if ( Strnicmp ( line + 1, "language", 8 ) == 0 )
                     line += 9;
                 else
                     line += 10;
@@ -100,10 +100,10 @@ int ScanCDFile ( char *cdfile )
                 }
 
             }
-            else if ( strnicmp ( line + 1, "version", 7 ) == 0 ||
-                      strnicmp ( line + 1, "#version", 8 ) == 0 )
+            else if ( Strnicmp ( line + 1, "version", 7 ) == 0 ||
+                      Strnicmp ( line + 1, "#version", 8 ) == 0 )
             {
-                if ( strnicmp ( line + 1, "#version", 8 ) == 0 )
+                if ( Strnicmp ( line + 1, "#version", 8 ) == 0 )
                     line += 9;
                 else
                     line += 8;
@@ -111,10 +111,10 @@ int ScanCDFile ( char *cdfile )
                 CatVersion = strtol ( line, &line, 0 );
                 CheckExtra = TRUE;
             }
-            else if ( strnicmp ( line + 1, "basename", 8 ) == 0 ||
-                      strnicmp ( line + 1, "#basename", 9 ) == 0 )
+            else if ( Strnicmp ( line + 1, "basename", 8 ) == 0 ||
+                      Strnicmp ( line + 1, "#basename", 9 ) == 0 )
             {
-                if ( strnicmp ( line + 1, "#basename", 9 ) == 0 )
+                if ( Strnicmp ( line + 1, "#basename", 9 ) == 0 )
                     line += 10;
                 else
                     line += 9;
@@ -123,22 +123,22 @@ int ScanCDFile ( char *cdfile )
                 BaseName = AllocString ( line );
                 CheckExtra = FALSE;
             }
-            else if ( strnicmp ( line + 1, "ifdef", 5 ) == 0 )
+            else if ( Strnicmp ( line + 1, "ifdef", 5 ) == 0 )
             {
                 continue;
             }
-            else if ( strnicmp ( line + 1, "endif", 5 ) == 0 )
+            else if ( Strnicmp ( line + 1, "endif", 5 ) == 0 )
             {
                 continue;
             }
-            else if ( strnicmp ( line + 1, "header", 6 ) == 0 )
+            else if ( Strnicmp ( line + 1, "header", 6 ) == 0 )
             {
                 continue;
             }
-            else if ( strnicmp ( line + 1, "lengthbytes", 11 ) == 0 ||
-                      strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )
+            else if ( Strnicmp ( line + 1, "lengthbytes", 11 ) == 0 ||
+                      Strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )
             {
-                if ( strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )
+                if ( Strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )
                     line += 13;
                 else
                     line += 12;
@@ -146,7 +146,7 @@ int ScanCDFile ( char *cdfile )
                 lenbytes = atoi ( line );
                 CheckExtra = FALSE;
             }
-            else if ( strnicmp ( line + 1, "#", 1 ) == 0 )
+            else if ( Strnicmp ( line + 1, "#", 1 ) == 0 )
             {
                 continue;
             }

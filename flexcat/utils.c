@@ -121,7 +121,7 @@ int Stricmp ( const char *str1, const char *str2 )
 
 //|
 
-/// FUNC: strnicmp
+/// FUNC: Strnicmp
 #ifndef __amigados
 int Strnicmp ( const char *str1, const char *str2, register int len )
 {

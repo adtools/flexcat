@@ -73,7 +73,7 @@ int ScanCTFile ( char *ctfile )
             case ';':
                 if ( CopyNEWs == TRUE )
                 {
-                    if ( strnicmp
+                    if ( Strnicmp
                          ( line, Old_Msg_New, strlen ( Old_Msg_New ) ) == 0 )
                     {
                         cs->NotInCT = TRUE;
@@ -89,7 +89,7 @@ int ScanCTFile ( char *ctfile )
                 }
                 ++line;
                 OverSpace ( &line );
-                if ( strnicmp ( line, "version", 7 ) == 0 )
+                if ( Strnicmp ( line, "version", 7 ) == 0 )
                 {
                     if ( CatVersionString || CatRcsId || CatName )
                     {
@@ -99,7 +99,7 @@ int ScanCTFile ( char *ctfile )
                     OverSpace ( &line );
                     CatVersionString = AllocString ( line );
                 }
-                else if ( strnicmp ( line, "codeset", 7 ) == 0 )
+                else if ( Strnicmp ( line, "codeset", 7 ) == 0 )
                 {
                     line += 7;
                     CodeSet = strtol ( line, &line, 0 );
@@ -109,7 +109,7 @@ int ScanCTFile ( char *ctfile )
                         ShowWarn ( msgExtraCharacters );
                     }
                 }
-                else if ( strnicmp ( line, "language", 8 ) == 0 )
+                else if ( Strnicmp ( line, "language", 8 ) == 0 )
                 {
                     char           *ptr;
 
@@ -125,7 +125,7 @@ int ScanCTFile ( char *ctfile )
                         for ( ptr = CatLanguage; *ptr; ptr++ )
                             *ptr = tolower ( ( int )*ptr );
                 }
-                else if ( strnicmp ( line, "chunk", 5 ) == 0 )
+                else if ( Strnicmp ( line, "chunk", 5 ) == 0 )
                 {
                     char           *ID;
 
@@ -137,7 +137,7 @@ int ScanCTFile ( char *ctfile )
 
                     AddCatalogChunk ( ID, AllocString ( line ) );
                 }
-                else if ( strnicmp ( line, "rcsid", 5 ) == 0 )
+                else if ( Strnicmp ( line, "rcsid", 5 ) == 0 )
                 {
                     if ( CatVersionString || CatRcsId )
                     {
@@ -147,7 +147,7 @@ int ScanCTFile ( char *ctfile )
                     OverSpace ( &line );
                     CatRcsId = AllocString ( line );
                 }
-                else if ( strnicmp ( line, "name", 5 ) == 0 )
+                else if ( Strnicmp ( line, "name", 5 ) == 0 )
                 {
                     if ( CatVersionString || CatName )
                     {
@@ -159,7 +159,7 @@ int ScanCTFile ( char *ctfile )
                 }
             /*
                This directive cannot be in .ct file
-               else if ( strnicmp ( line + 1, "lengthbytes", 11 ) == 0 )
+               else if ( Strnicmp ( line + 1, "lengthbytes", 11 ) == 0 )
                {
                line += 12;
                if ( ( LengthBytes = strtol ( line, &line, 0 ) )

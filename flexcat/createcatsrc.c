@@ -542,7 +542,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
             {
                 ++currentline;
                 OverSpace ( &currentline );
-                if ( strnicmp ( currentline, "rem", 3 ) == 0 )
+                if ( Strnicmp ( currentline, "rem", 3 ) == 0 )
 
                 {
 
@@ -550,12 +550,12 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                     continue;
 
                 }
-                if ( strnicmp ( currentline, "stringtype", 10 ) == 0 )
+                if ( Strnicmp ( currentline, "stringtype", 10 ) == 0 )
 
                 {
                     currentline += 10;
                     OverSpace ( &currentline );
-                    if ( strnicmp ( currentline, "c", 1 ) == 0 )
+                    if ( Strnicmp ( currentline, "c", 1 ) == 0 )
 
                     {
                         OutputType = TYPE_C;
@@ -563,7 +563,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                     }
 
-                    else if ( strnicmp ( currentline, "assembler", 9 ) == 0 )
+                    else if ( Strnicmp ( currentline, "assembler", 9 ) == 0 )
 
                     {
                         OutputType = TYPE_ASSEMBLER;
@@ -571,7 +571,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                     }
 
-                    else if ( strnicmp ( currentline, "oberon", 6 ) == 0 )
+                    else if ( Strnicmp ( currentline, "oberon", 6 ) == 0 )
 
                     {
                         OutputType = TYPE_OBERON;
@@ -579,7 +579,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                     }
 
-                    else if ( strnicmp ( currentline, "e", 1 ) == 0 )
+                    else if ( Strnicmp ( currentline, "e", 1 ) == 0 )
 
                     {
                         OutputType = TYPE_E;
@@ -587,7 +587,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                     }
 
-                    else if ( strnicmp ( currentline, "none", 4 ) == 0 )
+                    else if ( Strnicmp ( currentline, "none", 4 ) == 0 )
 
                     {
                         OutputType = TYPE_NONE;
@@ -612,7 +612,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                 }
 
-                else if ( strnicmp ( currentline, "shortstrings", 12 ) == 0 )
+                else if ( Strnicmp ( currentline, "shortstrings", 12 ) == 0 )
 
                 {
                     currentline += 12;
