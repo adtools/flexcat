@@ -652,7 +652,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 fprintf ( fpout, "%d", NumStrings );
                                 break;
                             case 'v':
-                                fprintf ( fpout, "%s", CatVersion );
+                                fprintf ( fpout, "%d", CatVersion );
                                 break;
                             case 'l':
                                 WriteString ( fpout, Language, -1,
