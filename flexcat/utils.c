@@ -399,6 +399,9 @@ void Expunge ( void )
 #define localeExpunge() \
 	LP0NR(12, localeExpunge, \
 		, LocaleBase, 0, 0, 0, 0, 0, 0)
+#elif __amigaos4__
+#  define localeExpunge()
+#warning ! TODO amigaos4 !
 #else
 #define localeExpunge() \
 	((BPTR (*)(struct Library * __asm("a6"))) \

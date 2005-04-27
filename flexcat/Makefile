@@ -1,8 +1,19 @@
+#
+# $Id$
+#
+
 CC       = gcc
 MAKEINFO = makeinfo
 CFLAGS   = -g -funsigned-char -O2
 
+# Might be replaced by 'delete'
+REMOVE   = rm -f
+
+# Overriding the OS definition is possible, for example "make OS=ABCDEF". Handy for cross-compiling.
+ifndef (OS)
 OS=$(shell uname)
+endif
+
 ifeq ($(OS), MorphOS)
 
 # Building on MorphOS
@@ -23,6 +34,16 @@ CATFILES    =   flexcat_cat.h
 CATOBJS     =   locale.o
 
 else
+ifeq ($(OS), AmigaOS4)
+
+# Building on AmigaOS 4
+
+LDFLAGS     =   -newlib -lauto
+CFLAGS      =   -newlib -D__USE_INLINE__
+CATFILES    =   flexcat_cat.h
+CATOBJS     =   locale.o getft.o
+
+else
 
 # Building on UNIX
 
@@ -30,6 +51,7 @@ LDFLAGS     =
 CATFILES    =   flexcat_cat_other.h
 CATOBJS     =   locale_other.o
 
+endif
 endif
 endif
 
@@ -52,8 +74,8 @@ flexcat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
 	flexcat catalogs/FlexCat.cd flexcat_cat_other.h=lib/Hardcode_h.sd
 
 clean:
-	rm -f *.o
-	rm -f flexcat
+	$(REMOVE) *.o
+	$(REMOVE) flexcat
 
 doc:
 	$(MAKEINFO) docs/FlexCat_german.texinfo --amiga-39 --fill-column 76 --output docs/FlexCat_deutsch.guide

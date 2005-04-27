@@ -1,0 +1,12 @@
+-------------------------------
+FlexCat Open Source - Changelog
+-------------------------------
+
+$Id$
+$Source$
+
+2005-04-28  David Rey <tactica@users.sourceforge.net>
+
+    * utils.c, makefile: added new AmigaOS 4 target.
+      (Patch #1190521 from Juha Niemimaki <capehill@users.sourceforge.net>)
+    * ChangeLog: added
