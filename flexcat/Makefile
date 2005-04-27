@@ -39,7 +39,7 @@ ifeq ($(OS), AmigaOS4)
 # Building on AmigaOS 4
 
 LDFLAGS     =   -newlib -lauto
-CFLAGS      =   -newlib -D__USE_INLINE__
+CFLAGS      +=  -newlib -D__USE_INLINE__
 CATFILES    =   flexcat_cat.h
 CATOBJS     =   locale.o getft.o
 
