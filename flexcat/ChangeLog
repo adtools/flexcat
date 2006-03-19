@@ -5,6 +5,14 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-03-19  Jens Langner <Jens.Langner@light-speed.de>
+
+    * main.c: fixed a bug in the 'BaseName' stripping routines. When a
+      *.cd file was specified with a path (e.g. './test.cd') then the
+      basename was found to be '/test' instead of 'test'.
+    * createcatsrc.c: fixed two minor memory leaks where we forgot to
+      free the resulsts of AllocFileName()
+
 2005-04-28  David Rey <tactica@users.sourceforge.net>
 
     * utils.c, makefile: added new AmigaOS 4 target.
