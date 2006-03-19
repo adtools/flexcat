@@ -35,8 +35,8 @@
 
 #define VERSION 2
 #define REVISION 6
-#define VERS       "FlexCat 2.6.7"
-#define VSTRING  VERS " (" __DATE__ ") (c) 2005 FlexCat SourceForge project team"
+#define VERS       "FlexCat 2.6.8"
+#define VSTRING  VERS " (" __DATE__ ") (c) 2002-2006 FlexCat SourceForge project team"
 #define VERSTAG  "$VER: " VSTRING
 
 #include <stdlib.h>
