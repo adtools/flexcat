@@ -15,6 +15,7 @@ $Source$
       and comments style where appropriate, fixed some harmless
       typos, dropped all the tabs spotted in the process
     * flexcat.h: now creates a 99% correct AmigaOS version string
+    * lib/Hardcode_c.sd: updated copyright notice
 
 2006-03-19  Jens Langner <Jens.Langner@light-speed.de>
 
