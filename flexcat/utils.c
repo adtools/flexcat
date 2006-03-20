@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,12 +30,13 @@
 #include "globals.h"
 
 char            VString[] =
-    VSTRING "\n(original idea: Jochen Wiedmann and Marcin Orlowski)";
+    VSTRING "\n(Original idea by Jochen Wiedmann and Marcin Orlowski)";
 char            EString[] =
     "Contact: http://sourceforge.net/projects/flexcat/";
 
 
 /// FUNC: MyExit
+
 void MyExit ( int Code )
 {
 #ifdef __amigados
@@ -53,10 +53,11 @@ void MyExit ( int Code )
 #ifndef __amigados
 
 /*
- * This array is designed for mapping upper and lower case letter
+ * This array is designed for mapping upper and lower case letters
  * together for a case independent comparison.  The mappings are
  * based upon ascii character sequences.
  */
+
 typedef unsigned char uc;
 static const unsigned char charmap[] = {
     ( uc ) '\000', ( uc ) '\001', ( uc ) '\002', ( uc ) '\003', ( uc ) '\004',
@@ -126,6 +127,7 @@ static const unsigned char charmap[] = {
 };
 
 /// FUNC: Stricmp
+
 int Stricmp ( const char *str1, const char *str2 )
 {
     register unsigned char u1, u2;
@@ -149,6 +151,7 @@ int Stricmp ( const char *str1, const char *str2 )
 //|
 
 /// FUNC: Strnicmp
+
 int Strnicmp ( const char *str1, const char *str2, register int len )
 {
     register unsigned char u1, u2;
@@ -174,6 +177,7 @@ int Strnicmp ( const char *str1, const char *str2, register int len )
 /// FUNC: AllocString
 
 /* This allocates a string */
+
 char           *AllocString ( const char *str )
 {
     char           *ptr;
@@ -192,6 +196,7 @@ char           *AllocString ( const char *str )
 
 /* This adds a new catalog chunk to the list of catalog
    chunks. */
+
 char           *AddCatalogChunk ( char *ID, const char *string )
 {
     struct CatalogChunk *cc, **ccptr;
@@ -205,8 +210,9 @@ char           *AddCatalogChunk ( char *ID, const char *string )
     cc->ChunkStr = AllocString ( string );
 
 /*
-   Put the new chunk to the end of the chunk list. 
+   Put the new chunk at the end of the chunk list. 
  */
+
     for ( ccptr = &FirstChunk; *ccptr != NULL; ccptr = &( *ccptr )->Next )
     {
     }
@@ -218,7 +224,8 @@ char           *AddCatalogChunk ( char *ID, const char *string )
 
 /// FUNC: gethex
 
-/* This translates a hex character. */
+/* This translates an hex character. */
+
 int gethex ( int c )
 {
     if ( c >= '0' && c <= '9' )
@@ -242,6 +249,7 @@ int gethex ( int c )
 /// FUNC: getoctal
 
 /* This translates an octal digit. */
+
 int getoctal ( int c )
 {
 
@@ -261,9 +269,11 @@ int getoctal ( int c )
 
 /* Reading a line is somewhat complicated in order to allow lines of any
    length.
-   Inputs: fp           - the file, where the input comes from
-		   AllowComment - TRUE, if a leading semicolon should force to
-		   			      interpret the line as a comment line */
+
+   Inputs: fp - the file, where the input comes from
+           AllowComment - TRUE if a leading semicolon should force the
+                          line to be interpreted as a comment */
+
 char           *ReadLine ( FILE * fp, int AllowComment )
 {
 
@@ -272,8 +282,8 @@ char           *ReadLine ( FILE * fp, int AllowComment )
     int             Len = 0, LineLen = 0;
     int             FirstChar = TRUE;
     int             BackslashSeen = FALSE;
-    int             BackslashSeenOn = 0;        /* position the last backslash was seen on */
-    int             CommentLine = FALSE;        /* if TRUE we should ignore normally treat trailing \'s */
+    int             BackslashSeenOn = 0;        /* Position where the last backslash was seen. */
+    int             CommentLine = FALSE;        /* If TRUE, we should ignore any trailing \'s */
 
     while ( c != EOF )
     {
@@ -329,6 +339,7 @@ char           *ReadLine ( FILE * fp, int AllowComment )
             /*
                Let's check for trailing \\ 
              */
+
             case '\\':
                 {
                     if ( !CommentLine )
@@ -369,6 +380,7 @@ char           *ReadLine ( FILE * fp, int AllowComment )
 /// FUNC: OverSpace
 
 /* This removes trailing blanks. */
+
 void OverSpace ( char **strptr )
 {
     int             c;
@@ -429,13 +441,14 @@ void Expunge ( void )
 
 /// FUNC: ReadChar
 
-/* ReadChar scans an input line translating the backslash characters.
-   Inputs: char *  - a pointer to a stringpointer; the latter points to the
-					 next character to be read and points behind the read
-					 bytes after executing ReadChar
-		   dest    - a pointer to a buffer, where the read bytes should be
-					 stored
+/* ReadChar scans an input line and translates the backslash characters.
+   Inputs: char *  - a pointer to a string pointer; the latter points
+                     to the next character to be read and points behind
+                     the read bytes after executing ReadChar
+           dest    - a pointer to a buffer, where the read bytes should be
+                     stored
    Result: number of bytes that are written to dest (between 0 and 2) */
+
 int ReadChar ( char **strptr, char *dest )
 {
     char            c;
@@ -527,14 +540,15 @@ int ReadChar ( char **strptr, char *dest )
 
 /// FUNC: AllocFileName
 
-/* This function creates a copy of a filename, removes an
-   optional ending and pathname components, if desired.
-   Inputs: filename - the filename to copy
-		   howto - a set of bits
-				   bit 0: 1 = remove ending, 0 = leave it
-				   bit 1: 1 = remove pathname, 0 = leave it
-   Result: The copy of the filename
+/* This function creates a copy of a filename, and optionally
+   removes an ending and pathname components, if desired.
+   Inputs: filename  - the filename to copy
+           howto     - a set of bits
+                         bit 0: 1 = remove ending, 0 = leave it
+                         bit 1: 1 = remove pathname, 0 = leave it
+   Result: the copy of the filename
 */
+
 char           *AllocFileName ( char *filename, int howto )
 {
     char           *tempstr, *ptr;
@@ -548,6 +562,7 @@ char           *AllocFileName ( char *filename, int howto )
 /*
    Remove pathname components, if desired 
  */
+
     if ( howto & 2 )
     {
         if ( ( ptr = strchr ( tempstr, ':' ) ) )
@@ -561,6 +576,7 @@ char           *AllocFileName ( char *filename, int howto )
     }
 
 /* Remove ending, if desired. */
+
     if ( howto & 1 )
     {
         if ( ( ptr = strrchr ( tempstr, '.' ) ) )
@@ -579,8 +595,9 @@ char           *AllocFileName ( char *filename, int howto )
 /* This function adds a pathname and a filename to a full
    filename.
    Inputs: pathname - the leading pathname
-		   filename - the filename
+           filename - the filename
    Result: The new filename */
+
 char           *AddFileName ( char *pathname, char *filename )
 {
     char           *buffer;
@@ -607,14 +624,15 @@ char           *AddFileName ( char *pathname, char *filename )
 
 /// FUNC: Usage
 
-/* The Usage function describes the programs calling syntax. */
+/* The Usage function describes the program's calling syntax. */
+
 void Usage ( void )
 {
     fprintf ( stderr, "%s\n", VString );
     fprintf ( stderr, "%s\n", EString );
     fprintf ( stderr,
-              "\n%s\n        FlexCat CDFILE/A,CTFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n                WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,\n                QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,\n                MODIFIED/S,COPYMSGNEW/S,OLDMSGNEW/K,NOSPACE/S,NOAUTODATE/S\n\n",
-              ( char * )MSG_UsageHead );
+            "\n%s\n         FlexCat CDFILE/A,CTFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n                 WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,\n                 QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,\n                 COPYMSGNEW/S,OLDMSGNEW/K,NOSPACE/S,NOAUTODATE/S\n\n",
+            ( char * )MSG_UsageHead );
     fprintf ( stderr, "%s\n", MSG_Usage );
     MyExit ( 5 );
 }
@@ -624,12 +642,13 @@ void Usage ( void )
 /// FUNC: wbmain
 
 /* Dice's entry point for workbench programs */
+
 #if defined(__amigados)  &&  defined(_DCC)
 void wbmain ( struct WBStartup *wbmsg )
 {
     fprintf ( stderr, "FlexCat can't be run from Workbench!\n\n" );
-    fprintf ( stderr, "Open a Shell session and type FlexCat\n" );
-    fprintf ( stderr, "for syntax and more information\n" );
+    fprintf ( stderr, "Open a shell session and type FlexCat\n" );
+    fprintf ( stderr, "for syntax and more information.\n" );
 
     exit ( 5 );
 }

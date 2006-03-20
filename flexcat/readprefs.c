@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,43 +22,44 @@
 
 #include "flexcat.h"
 
-int             WarnCTGaps = FALSE;     /* Warn missing symbols in CT file. */
-int             NoOptim = FALSE;        /* Put string into catalog even
-                                           if translation is equal to
-                                           description. */
-int             Fill = FALSE;   /* It translation of given string
-                                   is missing or it's empty, write
-                                   string descriptor from #?.cd
-                                   file instead. */
-int             DoExpunge = FALSE;      /* If TRUE FlexCat will do AVAIL
-                                           FLUSH alike after catalog save */
-int             NoBeep = FALSE; /* If TRUE, FlexCat won't call
-                                   DisplayBeep() any longer */
-int             Quiet = FALSE;  /*  Forces FlexCat to shut up */
-int             LANGToLower = TRUE;     /* Shall we do ToLower() on lang's 
-                                           name? Some #?.language seems to
-                                           be broken, so we allow workaround */
-int             NoBufferedIO = FALSE;   /* Shall we do buffered ID */
-int             Modified = FALSE;       /* Shall we write the catalog ONLY 
-                                           if #?.catalog is younger than
-                                           #?.c(d|t) files? */
-char            Msg_New[MAX_NEW_STR_LEN] = "***NEW***"; /* New strings in updated #?.ct */
-int             CopyNEWs = FALSE;       /* Shall we write the Msg_New into new strings? */
-char            Old_Msg_New[MAX_NEW_STR_LEN] = "; ***NEW***";   /* Old newstring (above) used in old
-                                                                   CT file. Now we look if it's present
-                                                                   and copy it into new CT if user does
-                                                                   upgrade (flexcat CD CT newctfile CT */
-int             NoSpace = FALSE;        /* Do want to strip the space usually
-                                           placed between ';' and original 
-                                           string? */
-int             NoAutoDate = FALSE;     /* To catalog date will be written
-                                           from translation or current date */
+int     WarnCTGaps = FALSE;                             /* Warn for missing symbols in CT file. */
+int     NoOptim = FALSE;                                /* Put string into catalog even
+                                                           if translation is equal to
+                                                           description. */
+int     Fill = FALSE;                                   /* If translation of given string
+                                                           is missing or empty, write
+                                                           string descriptor from #?.cd
+                                                           file instead. */
+int     DoExpunge = FALSE;                              /* If TRUE, FlexCat will do an AVAIL
+                                                           FLUSH-alike call after saving the catalog. */
+int     NoBeep = FALSE;                                 /* If TRUE, FlexCat won't call
+                                                           DisplayBeep() any longer. */
+int     Quiet = FALSE;                                  /* Forces FlexCat to shut up. */
+int     LANGToLower = TRUE;                             /* Shall we do ToLower() on lang's name ?
+                                                           Some #?.language drivers seem to be
+                                                           broken, so we provide a workaround. */
+int     NoBufferedIO = FALSE;                           /* Shall we do buffered I/O ? */
+int     Modified = FALSE;                               /* Shall we write the catalog ONLY 
+                                                           if #?.catalog is newer than
+                                                           #?.c(d|t) files ? */
+char    Msg_New[MAX_NEW_STR_LEN] = "***NEW***";         /* New strings in updated #?.ct */
+int     CopyNEWs = FALSE;                               /* Shall we write the Msg_New into new strings ? */
+char    Old_Msg_New[MAX_NEW_STR_LEN] = "; ***NEW***";   /* Old new string (above) used in old
+                                                           CT file. Now we look if it's present
+                                                           and copy it into new CT if the user
+                                                           upgrades (flexcat CD CT newctfile CT */
+int     NoSpace = FALSE;                                /* Shall we strip the space usually
+                                                           placed between ';' and the original 
+                                                           string ? */
+int     NoAutoDate = FALSE;                             /* The catalog date will be taken from
+                                                           the translation, or the current date ? */
 
-char            prefs_sddir[MAXPATHLEN] = "\0";
+char    prefs_sddir[MAXPATHLEN] = "\0";
 
 /// ReadPrefs
 
-/* Fill in options from preferences file */
+/* Fill in options from preferences file. */
+
 char ReadPrefs ( void )
 {
     char            result = FALSE;

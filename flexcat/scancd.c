@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,23 +27,24 @@
 #include "utils.h"
 #include "createcat.h"
 
-struct CDLine  *FirstCDLine = NULL;     /* First catalog description line  */
-char           *HeaderName = NULL;
+struct CDLine  *FirstCDLine = NULL;     /* First catalog description line. */
+char           *HeaderName  = NULL;
 
 /// FUNC: ScanCDFile
 
 /* This scans the catalog description file.
-   Inputs: cdfile  - name of the catalog description file
-   Result: TRUE, if successful, FALSE otherwise */
+   Inputs: cdfile - name of the catalog description file
+   Result: TRUE if successful, FALSE otherwise */
+
 int ScanCDFile ( char *cdfile )
 {
-    FILE           *fp;
-    struct CDLine  *cdline, **cdptr = &FirstCDLine;
+    FILE             *fp;
+    struct CDLine    *cdline, **cdptr = &FirstCDLine;
     struct CatString *cs, **csptr = &FirstCatString;
-    char           *line, *newline;
-    int             NextID = 0;
-    int             Result = TRUE;
-    int             lenbytes = 0;
+    char             *line, *newline;
+    int               NextID = 0;
+    int               Result = TRUE;
+    int               lenbytes = 0;
 
     ScanFile = cdfile;
     ScanLine = 0;
@@ -177,7 +177,8 @@ int ScanCDFile ( char *cdfile )
         {
             char           *idstr;
 
-        // Some blanks on start of line
+        // Some blanks on start of line.
+
             if ( *line == ' ' || *line == '\t' )
             {
                 ShowWarn ( MSG_WARN_UnexpectedBlanks );
@@ -237,7 +238,9 @@ int ScanCDFile ( char *cdfile )
                 strncpy ( cs->ID_Str, idstr, line - idstr );
                 cs->ID_Str[line - idstr] = '\0';
                 OverSpace ( &line );
+
             // Next char in line is '('? (//)
+
                 if ( *line != '(' )
                 {
                     ShowWarn ( MSG_WARN_NoLeadingBracket );
@@ -245,14 +248,16 @@ int ScanCDFile ( char *cdfile )
                 }
                 else
                 {
-                    char           *oldstr;
+                    char             *oldstr;
                     struct CatString *scs;
-                    char            bytes[10];
-                    int             bytesread, reallen;
+                    char              bytes[10];
+                    int               bytesread, reallen;
 
                     ++line;
                     OverSpace ( &line );
+
                 // Check for default config of line (//)
+
                     if ( *line != '/' )
                     {
                         if ( *line == '+' )
@@ -272,7 +277,8 @@ int ScanCDFile ( char *cdfile )
                         OverSpace ( &line );
                     }
 
-                // Check for already used identifier
+                // Check for already used identifier.
+
                     for ( scs = FirstCatString; scs != NULL; scs = scs->Next )
                     {
                         if ( scs->ID == cs->ID )
@@ -287,7 +293,7 @@ int ScanCDFile ( char *cdfile )
                         }
                     }
 
-                // If line not have a minlen config (//)
+                // Does line have a minlen value (//) ?
                     if ( *line != '/' )
                     {
                         ShowWarn ( MSG_WARN_NoMinLen );
@@ -334,6 +340,7 @@ int ScanCDFile ( char *cdfile )
                     }
 
                 // Huh? There is no string for this definition?
+
                     if ( !( newline = ReadLine ( fp, FALSE ) ) )
                     {
                         ShowWarn ( MSG_WARN_NoString );
@@ -346,7 +353,8 @@ int ScanCDFile ( char *cdfile )
                         free ( newline );
                     }
 
-                // Get stringlen
+                // Get string length.
+
                     oldstr = cs->CD_Str;
                     reallen = 0;
                     while ( *oldstr )
@@ -359,12 +367,15 @@ int ScanCDFile ( char *cdfile )
                         reallen += bytesread;
                     }
 
-                // Too short string
+                // String too short.
+
                     if ( cs->MinLen > 0 && reallen < cs->MinLen )
                     {
                         ShowWarn ( MSG_WARN_ShortString );
                     }
-                // Too long string
+
+                // String too long.
+
                     if ( cs->MaxLen > 0 && reallen > cs->MaxLen )
                     {
                         ShowWarn ( MSG_WARN_LongString );

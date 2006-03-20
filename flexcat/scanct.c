@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,24 +27,25 @@
 #include "utils.h"
 #include "createcat.h"
 
-char           *CatVersionString = NULL;        /* version string of catalog
-                                                   translation (## version) */
-char           *CatLanguage = NULL;     /* Language of catalog translation */
-char           *CatRcsId = NULL;        /* rcs ID of catalog translation
-                                           (## rcsid) */
-char           *CatName = NULL; /* name of catalog translation */
-int             CodeSet = 0;    /* Codeset of catalog translation */
-int             CT_Scanned = FALSE;     /* If TRUE, and we are going to
-                                           write new #?.ct file, then user
-                                           surely updates own #?.ct file
-                                           so we should write ***NEW***
-                                           whenever necessary. */
+char           *CatVersionString = NULL;   /* Version string of catalog
+                                              translation (## version) */
+char           *CatLanguage = NULL;        /* Language of catalog translation */
+char           *CatRcsId = NULL;           /* RCS ID of catalog translation
+                                              (## rcsid) */
+char           *CatName = NULL;            /* Name of catalog translation */
+int             CodeSet = 0;               /* Codeset of catalog translation */
+int             CT_Scanned = FALSE;        /* If TRUE and we are going to
+                                              write a new #?.ct file, then the
+                                              user is surely updating his own
+                                              #?.ct file, so we should write
+                                              ***NEW*** wherever necessary. */
 
 /// FUNC: ScanCTFile
 
-/*	This scans a catalog translation file.
-	Inputs: ctfile      - name of the translation file to scan.
-	Result: TRUE, if successful, FALSE otherwise. */
+/* This scans a catalog translation file.
+   Inputs: ctfile  - name of the translation file to scan.
+   Result: TRUE if successful, FALSE otherwise. */
+
 int ScanCTFile ( char *ctfile )
 {
     FILE           *fp;
@@ -81,7 +81,9 @@ int ScanCTFile ( char *ctfile )
                 break;
 
             case '#':
+
             // looking for command;
+
                 if ( *( ++line ) != '#' )
                 {
                     ShowWarn ( MSG_WARN_NoCTCommand );
@@ -156,6 +158,7 @@ int ScanCTFile ( char *ctfile )
                     OverSpace ( &line );
                     CatName = AllocString ( line );
                 }
+
             /*
                This directive cannot be in .ct file
                else if ( Strnicmp ( line + 1, "lengthbytes", 11 ) == 0 )
@@ -173,7 +176,9 @@ int ScanCTFile ( char *ctfile )
                 {
                     ShowWarn ( MSG_WARN_UnknownCTCommand );
                 }
+
             // End: looking command
+
                 break;
 
             default:
@@ -262,7 +267,7 @@ int ScanCTFile ( char *ctfile )
                         }
 
 
-                    // checking for trailing ellipsis...
+                    // Check for trailing ellipsis...
 
                         if ( reallen >= 3 )
                         {
@@ -283,7 +288,7 @@ int ScanCTFile ( char *ctfile )
                         }
 
 
-                    // checking for trailing spaces
+                    // Check for trailing spaces
 
                         if ( reallen >= 1 )
                         {

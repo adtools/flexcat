@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,12 +29,13 @@
 #include "globals.h"
 
 #ifdef __amigados
-#include <proto/locale.h>
+ #include <proto/locale.h>
 #endif
 
 /// FUNC: CreateCTFile
 
 /* This creates a new catalog translation file. */
+
 void CreateCTFile ( char *NewCTFile )
 {
     FILE           *fp;

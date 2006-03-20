@@ -5,6 +5,17 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-03-20  David Rey <tactica@users.sourceforge.net>
+
+    * createcat.c, createcat.h, createcatsrc.c, createcatsrc.h,
+      createct.c, createct.h, flexcat.h, getft.c, globals.c, globals.h,
+      main.c, readprefs.c, readprefs.h, scancd.c, scancd.h, scanct.c,
+      scanct.h, showfuncs.c, showfuncs.h, swapfuncs.c, swapfuncs.h,
+      utils.c, utils.h: updated copyright notices, unified formatting
+      and comments style where appropriate, fixed some harmless
+      typos, dropped all the tabs spotted in the process
+    * flexcat.h: now creates a 99% correct AmigaOS version string
+
 2006-03-19  Jens Langner <Jens.Langner@light-speed.de>
 
     * main.c: fixed a bug in the 'BaseName' stripping routines. When a

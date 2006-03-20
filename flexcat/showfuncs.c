@@ -1,8 +1,7 @@
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +27,8 @@
 
 /// FUNC: ShowError
 
-/* This shows an error message and terminates */
+/* This shows an error message and quits. */
+
 void ShowError ( const char *msg, ... )
 {
     va_list args;
@@ -52,7 +52,8 @@ void ShowError ( const char *msg, ... )
 
 /// FUNC: MemError
 
-/* This shows the message: Memory error. */
+/* This shows the 'Memory error' message. */
+
 void MemError ( void )
 {
     ShowError ( MSG_ERR_MemoryError, NULL );
@@ -62,7 +63,8 @@ void MemError ( void )
 
 /// FUNC: ShowWarn
 
-/* This shows a warning */
+/* This shows a warning. */
+
 void ShowWarn ( const char *msg, ... )
 {
     va_list args;

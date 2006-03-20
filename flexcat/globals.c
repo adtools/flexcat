@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,15 +25,15 @@
 /// Globals
 char           *BaseName = NULL;        /* Basename of catalog description */
 char           *Language = "english";   /* Language of catalog description */
-int             CatVersion = 0; /* Version of catalog to be opened */
-int             NumStrings = 0; /* Number of catalog strings */
-char           *ScanFile;       /*  File currently scanned */
-int             ScanLine;       /*  Line currently scanned */
-int             GlobalReturnCode = 0;   /*  Will be 5, if warnings appear */
+int             CatVersion = 0;         /* Version of catalog to be opened */
+int             NumStrings = 0;         /* Number of catalog strings */
+char           *ScanFile;               /* File currently scanned */
+int             ScanLine;               /* Line currently scanned */
+int             GlobalReturnCode = 0;   /* Will be 5 if warnings appear */
 int             NumberOfWarnings = 0;   /* We count warnings to be smart
-                                           and not to do Beep bombing, but
+                                           and avoid Beep bombing, but
                                            call DisplayBeep() only once */
-int             buffer_size = 2048;     /* Size of the IO buffer */
+int             buffer_size = 2048;     /* Size of the I/O buffer */
 char            VersTag[] = VERSTAG;
 
 //|

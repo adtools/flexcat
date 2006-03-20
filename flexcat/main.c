@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -89,8 +88,9 @@ int isParam ( char *input_string )
 
 /// FUNC: main
 
-/* Finally the main function. Does nothing special except for scanning
-	the arguments. */
+/* Finally, the main function. It does nothing special
+   except for scanning the arguments. */
+
 int main ( int argc, char *argv[] )
 {
     char           *cdfile, *ctfile, *newctfile, *catalog;
@@ -110,9 +110,10 @@ int main ( int argc, char *argv[] )
     OpenFlexCatCatalog (  );
 
 // Big Endian vs Little Endian (both supported ;-)
+
     if ( !SwapChoose (  ) )
     {
-        fprintf ( stderr, "FlexCat is unable to determine the\n" );
+        fprintf ( stderr, "FlexCat is unable to determine\n" );
         fprintf ( stderr, "the byte order used by your system.\n" );
         fprintf ( stderr, "It's neither Little nor Big Endian?!.\n" );
         exit ( 5 );
@@ -251,7 +252,9 @@ int main ( int argc, char *argv[] )
         }
         else if ( strchr ( argv[i], '=' ) )
         {
-// Determine basename
+
+// Determine basename.
+
             if ( BaseName == NULL && cdfile != NULL )
             {
                 char           *lslash = strrchr ( cdfile, '/' );

@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,8 +28,8 @@
 #include "globals.h"
 #include "utils.h"
 
-struct CatString *FirstCatString = NULL;        /* First catalog string */
-struct CatalogChunk *FirstChunk = NULL; /* List of catalog chunks */
+struct CatString *FirstCatString = NULL;       /* First catalog string */
+struct CatalogChunk *FirstChunk = NULL;        /* List of catalog chunks */
 
 /// FUNC: CatPuts
 
@@ -39,6 +38,7 @@ struct CatalogChunk *FirstChunk = NULL; /* List of catalog chunks */
    boundary or longword boundary, depending on the argument padbytes.)
    The arguments countnul should be TRUE if the NUL byte at the end of
    the string should be counted. */
+
 int CatPuts ( FILE * fp, char *str, int padbytes, int countnul, int lenbytes )
 {
     unsigned long   reallen, virtuallen, chunklen, swapped_long;
@@ -46,7 +46,7 @@ int CatPuts ( FILE * fp, char *str, int padbytes, int countnul, int lenbytes )
     char           *oldstr;
     char            bytes[10];
 
-/* Get Length of string. */
+/* Get length of string */
 
     oldstr = str;
     reallen = 0;
@@ -99,6 +99,7 @@ int CatPuts ( FILE * fp, char *str, int padbytes, int countnul, int lenbytes )
 /// FUNC: PutCatalogChunk
 
 /* This puts a string chunk into the catalog */
+
 int PutCatalogChunk ( FILE * fp, struct CatalogChunk *cc )
 {
     fwrite ( &cc->ID, sizeof ( cc->ID ), 1, fp );
@@ -109,7 +110,8 @@ int PutCatalogChunk ( FILE * fp, struct CatalogChunk *cc )
 
 /// FUNC: CreateCatalog
 
-/* This creates a catalog. */
+/* This creates a catalog */
+
 void CreateCat ( char *CatFile )
 {
     FILE           *fp;
@@ -164,7 +166,9 @@ void CreateCat ( char *CatFile )
         cc.ID = MAKE_ID ( 'F', 'V', 'E', 'R' );
 
         cc.ChunkStr = strdup ( CatVersionString );
-    // replace $TODAY placeholder
+
+    // Replace $TODAY placeholder
+
         found = strstr ( cc.ChunkStr, "$TODAY" );
         if ( found )
         {
@@ -192,7 +196,9 @@ void CreateCat ( char *CatFile )
         }
         else
         {
-        // is there a date in the string, then update this one ?
+
+        // If a date exists in the string, then update it?
+
             found1 = strstr ( cc.ChunkStr, " (" );
             if ( found1 && found1[1] == '(' && isdigit ( found1[2] ) )
             {
@@ -228,7 +234,9 @@ void CreateCat ( char *CatFile )
                 }
             }
         }
-    // replace ".ct" with ".catalog"
+
+    // Replace ".ct" with ".catalog"
+
         found = strstr ( cc.ChunkStr, ".ct " );
         if ( found )
         {
@@ -375,7 +383,9 @@ void CreateCat ( char *CatFile )
             fwrite ( &tmp_ID, sizeof ( tmp_ID ), 1, fp );
             CatLen += 4 + CatPuts ( fp, cs->CT_Str, 4, FALSE, cs->LenBytes );
         }
+
     //printf("LB=%d\n", cs->LenBytes);
+
     }
     {
         int             tmp_Len;

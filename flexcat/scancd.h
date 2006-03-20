@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +20,8 @@
  *
  */
 
-#ifndef FLEXCAT_SCANCD_H
-#define FLEXCAT_SCANCD_H
+#ifndef  FLEXCAT_SCANCD_H
+#define  FLEXCAT_SCANCD_H
 
 // Functions
 int             ScanCDFile ( char *cdfile );
@@ -31,4 +30,4 @@ int             ScanCDFile ( char *cdfile );
 extern char    *HeaderName;
 extern struct CDLine *FirstCDLine;
 
-#endif
+#endif  /* FLEXCAT_SCANCD_H */

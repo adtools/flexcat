@@ -1,9 +1,8 @@
 
 /* $Id$
-
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ *
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,12 +39,14 @@ enum StringTypes
                                    it allows only 32 bit integers? ;-) */
     TYPE_NONE                   /* Simple strings */
 };
+
 enum OutputModes
 {
     OutputMode_None,            /* Nothing written yet */
     OutputMode_Bin,             /* Last character written was binary */
     OutputMode_Ascii            /* Last character written was Ascii */
 };
+
 int             OutputMode = OutputMode_None;
 int             OutputType = TYPE_C;
 
@@ -56,13 +57,13 @@ int             LongStrings = TRUE;     /* Generate long or short strings */
 
 /// FUNC: CalcRealLength
 
-
 /* This function measures the real (binary) length of source
    string. It correctly process 'slash chars' (\n, \000 etc),
    and gives the real length such source string have.
 
-   Inputs: source - pointer to null terminated source string
+   Inputs: source - pointer to NULL terminated source string
    Result: real length */
+
 int CalcRealLength ( char *source )
 {
     int             count = 0;
@@ -86,14 +87,14 @@ int CalcRealLength ( char *source )
 
 /// FUNC: InitCatStringOutput
 
-
 /* InitCatStringOutput gets called before writing a catalog string as source.
    Inputs: fp   = file pointer to the output file
-   type = one of   TYPE_C          create C strings
-   TYPE_ASSEMBLER  create Assembler strings
-   TYPE_OBERON     create Oberon strings
-   TYPE_E          create E strings
-   TYPE_NONE       create simple strings */
+   type = one of TYPE_C          create C strings
+                 TYPE_ASSEMBLER  create Assembler strings
+                 TYPE_OBERON     create Oberon strings
+                 TYPE_E          create E strings
+                 TYPE_NONE       create simple strings */
+
 void InitCatStringOutput ( FILE * fp )
 {
     OutputLen = 0;
@@ -122,8 +123,9 @@ void InitCatStringOutput ( FILE * fp )
 
 /// FUNC: SeparateCatStringOutput
 
+/* SeparateCatStringOutput gets called to split a catalog into
+   separate lines. */
 
-/* SeparateCatStringOutput gets called to split a catalog into separate lines. */
 void SeparateCatStringOutput ( void )
 {
     switch ( OutputType )
@@ -180,8 +182,8 @@ void SeparateCatStringOutput ( void )
 
 /// FUNC: WriteBinChar
 
+/* WriteBinChar writes one binary character into the source file. */
 
-/* WriteBinChar writes one binary character into the source file */
 void WriteBinChar ( int c )
 {
     switch ( OutputType )
@@ -262,8 +264,8 @@ void WriteBinChar ( int c )
 
 /// FUNC: WriteAsciiChar
 
-
 /* WriteAsciiChar writes one ascii character into the source file. */
+
 void WriteAsciiChar ( int c )
 {
     switch ( OutputType )
@@ -342,8 +344,8 @@ void WriteAsciiChar ( int c )
 
 /// FUNC: TerminateCatStringOutput
 
+/* TerminateCatStringOutput finishes the output of a catalog string. */
 
-/* TerminateCatStringOutput finishs the output of a catalog string. */
 void TerminateCatStringOutput ( void )
 {
     switch ( OutputType )
@@ -380,8 +382,8 @@ void TerminateCatStringOutput ( void )
 
 /// FUNC: WriteString
 
+/* This writes a source string. */
 
-/* This writes a sourcestring. */
 void WriteString ( FILE * fpout, char *str, long Len, int lenbytes )
 {
     char            bytes[10];
@@ -450,8 +452,8 @@ void WriteString ( FILE * fpout, char *str, long Len, int lenbytes )
 
 /// FUNC: CreateSourceFile
 
+/* Finally, the source creation. */
 
-/* Finally the source creation. */
 void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 {
     FILE           *fpin, *fpout;
@@ -461,7 +463,8 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
     ScanFile = SourceFile;
     ScanLine = 0;
 
-// Open the source file. This may be found in various places */
+    // Open the source file. This may be found in various places.
+
     if ( !( fpin = fopen ( TemplateFile, "r" ) ) )
 
     {
@@ -546,7 +549,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                 {
 
-                // we just skip this line
+                // We just skip this line.
                     continue;
 
                 }

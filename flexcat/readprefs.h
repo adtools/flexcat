@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +20,8 @@
  *
  */
 
-#ifndef FLEXCAT_READPREFS_H
-#define FLEXCAT_READPREFS_H
+#ifndef  FLEXCAT_READPREFS_H
+#define  FLEXCAT_READPREFS_H
 
 // Functions
 char            ReadPrefs ( void );
@@ -44,4 +43,4 @@ extern char     Old_Msg_New[MAX_NEW_STR_LEN];
 extern int      NoSpace;
 extern int      NoAutoDate;
 
-#endif
+#endif  /* FLEXCAT_READPREFS_H */

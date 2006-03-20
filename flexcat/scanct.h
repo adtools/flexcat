@@ -1,9 +1,8 @@
 
 /* $Id$
  * 
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+ * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +20,8 @@
  *
  */
 
-#ifndef FLEXCAT_SCANCT_H
-#define FLEXCAT_SCANCT_H
+#ifndef  FLEXCAT_SCANCT_H
+#define  FLEXCAT_SCANCT_H
 
 // Functions
 int             ScanCTFile ( char *ctfile );
@@ -35,4 +34,4 @@ extern char    *CatName;
 extern int      CodeSet;
 extern int      CT_Scanned;
 
-#endif
+#endif  /* FLEXCAT_SCANCT_H */
