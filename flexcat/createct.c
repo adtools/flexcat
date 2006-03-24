@@ -94,7 +94,7 @@ void CreateCTFile ( char *NewCTFile )
         {
             NewCTFile =
                 malloc ( strlen ( BaseName ) + strlen ( ctlanguage ) + 5 );
-            sprintf ( NewCTFile, "%s_%s.ct", BaseName, ctlanguage );
+            sprintf ( NewCTFile, "%s_%s.catalog", BaseName, ctlanguage );
         }
     }
     if ( !( fp = fopen ( NewCTFile, "w" ) ) )
@@ -125,19 +125,19 @@ void CreateCTFile ( char *NewCTFile )
                 dateStr = calloc ( 15, 1 );
                 time ( &tim );
                 t = localtime ( &tim );
-                strftime ( dateStr, 10, "%d.%m.%y", t );
+                strftime ( dateStr, 12, "%d.%m.%Y", t );
                 fprintf ( fp, "## version $V" );
                 fprintf ( fp, "%c", 50 + 19 );  // E
                 if ( CatVersion )
                 {
                     if ( BaseName )
                     {
-                        fprintf ( fp, "R: %s.ct %d.<rev> (%s)\n", BaseName,
+                        fprintf ( fp, "R: %s.catalog %d.<rev> (%s)\n", BaseName,
                                   CatVersion, dateStr );
                     }
                     else
                     {
-                        fprintf ( fp, "R: <name>.ct %d.<rev> (%s)\n", CatVersion,
+                        fprintf ( fp, "R: <name>.catalog %d.<rev> (%s)\n", CatVersion,
                                   dateStr );
                     }
                 }
@@ -145,12 +145,12 @@ void CreateCTFile ( char *NewCTFile )
                 {
                     if ( BaseName )
                     {
-                        fprintf ( fp, "R: %s.ct <ver>.0 (%s)\n", BaseName,
+                        fprintf ( fp, "R: %s.catalog <ver>.0 (%s)\n", BaseName,
                                   dateStr );
                     }
                     else
                     {
-                        fprintf ( fp, "R: <name>.ct <ver>.0 (%s)\n",
+                        fprintf ( fp, "R: <name>.catalog <ver>.0 (%s)\n",
                                   dateStr );
                     }
                 }

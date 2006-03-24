@@ -5,6 +5,15 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-03-24  David Rey <tactica@users.sourceforge.net>
+
+    * createct.c: the "## version" header in translations generated
+      with the NEWCTFILE switch no longer contains "<name.ct>", but
+      "<name.catalog>" for compatibility with other compilers (fixes
+      bug #778520); as well, we now generate years properly instead
+      of 2-digit ones.
+    * FlexCat.¶, FlexCatFinal.¶, FlexCatPPC.¶: removed
+
 2006-03-20  David Rey <tactica@users.sourceforge.net>
 
     * createcat.c, createcat.h, createcatsrc.c, createcatsrc.h,
