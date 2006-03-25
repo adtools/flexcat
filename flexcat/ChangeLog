@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-03-25  David Rey <tactica@users.sourceforge.net>
+
+    * todo: translated the Polish bits to English thanks to the
+      help of Mariusz Danilewicz, also updated it in the process.
+
 2006-03-24  David Rey <tactica@users.sourceforge.net>
 
     * createct.c: the "## version" header in translations generated
