@@ -21,7 +21,7 @@ void Close%bCatalog();
 
 struct FC_String
 {
-   STRPTR Str;
+   const char *Str;
    const LONG Id;
 };
 

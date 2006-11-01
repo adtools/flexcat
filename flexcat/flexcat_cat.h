@@ -1,5 +1,5 @@
 /****************************************************************
-   This file was created automatically by `FlexCat 2.6'
+   This file was created automatically by `FlexCat 2.7-dev'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -19,7 +19,7 @@ void CloseFlexCatCatalog();
 
 struct FC_String
 {
-   STRPTR Str;
+   const char *Str;
    const LONG Id;
 };
 

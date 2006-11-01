@@ -18,7 +18,11 @@ $Source$
       (same patch)
     * flexcat.h: modified version string to mark the current build as a
       development version
-      
+    * lib/NoAutoC_c.sd, lib/NoAutoC_h.sd: fixed -Wwrite-strings warnings
+      in the auto-generated files.
+      (Patch #1588907 from Henning Nielsen Lund <hnl_dk@users.sourceforge.net>)
+    * locale.c, flexcat_cat.h: regenerated
+
 2006-03-25  David Rey <tactica@users.sourceforge.net>
 
     * todo: translated the Polish bits to English thanks to the

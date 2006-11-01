@@ -10,6 +10,7 @@
 /* Include files */
 #include <libraries/gadtools.h>
 #include <proto/locale.h>
+#include <string.h>
 
 #include "%b_cat.h"
 
@@ -22,23 +23,22 @@ struct FC_String %b_Strings[] =
 
 static struct Catalog *%bCatalog;
 
-
 void Open%bCatalog()
 {
    if (LocaleBase)
    {
-      if (%bCatalog = OpenCatalog(NULL, "%b.catalog",
+      if ((%bCatalog = OpenCatalog(NULL, "%b.catalog",
      			          OC_BuiltInLanguage, %l,
      			          OC_Version, %v,
      			          TAG_DONE
-                                 )
+                                 ))
          )
       {
          struct FC_String *fc;
 
          for (fc = %b_Strings; fc->Str; fc++)
          {
-            fc->Str = GetCatalogStr(%bCatalog, fc->Id, fc->Str);
+            fc->Str = (char *)GetCatalogStr(%bCatalog, fc->Id, fc->Str);
          }
       }
    }
@@ -56,9 +56,9 @@ void LocalizeStringArray(STRPTR *Array)
 {
    STRPTR *x;
 
-   for (x = Array; *x; x++)
+   for (x = Array; *x != NULL; x++)
    {
-      *x = %b_Strings[(int)*x].Str;
+      *x = strdup(%b_Strings[(int)*x].Str);
    }
 }
 

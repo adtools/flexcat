@@ -1,5 +1,5 @@
 /****************************************************************
-   This file was created automatically by `FlexCat 2.6'
+   This file was created automatically by `FlexCat 2.7-dev'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -8,6 +8,7 @@
 /* Include files */
 #include <libraries/gadtools.h>
 #include <proto/locale.h>
+#include <string.h>
 
 #include "FlexCat_cat.h"
 
@@ -89,23 +90,22 @@ struct FC_String FlexCat_Strings[] =
 
 static struct Catalog *FlexCatCatalog;
 
-
 void OpenFlexCatCatalog()
 {
    if (LocaleBase)
    {
-      if (FlexCatCatalog = OpenCatalog(NULL, "FlexCat.catalog",
+      if ((FlexCatCatalog = OpenCatalog(NULL, "FlexCat.catalog",
      			          OC_BuiltInLanguage, "english",
      			          OC_Version, 3,
      			          TAG_DONE
-                                 )
+                                 ))
          )
       {
          struct FC_String *fc;
 
          for (fc = FlexCat_Strings; fc->Str; fc++)
          {
-            fc->Str = GetCatalogStr(FlexCatCatalog, fc->Id, fc->Str);
+            fc->Str = (char *)GetCatalogStr(FlexCatCatalog, fc->Id, fc->Str);
          }
       }
    }
@@ -123,9 +123,9 @@ void LocalizeStringArray(STRPTR *Array)
 {
    STRPTR *x;
 
-   for (x = Array; *x; x++)
+   for (x = Array; *x != NULL; x++)
    {
-      *x = FlexCat_Strings[(int)*x].Str;
+      *x = strdup(FlexCat_Strings[(int)*x].Str);
    }
 }
 
