@@ -228,7 +228,7 @@ int ScanCDFile ( char *cdfile )
                 cs->ID = NextID;
                 cs->MinLen = 0;
                 cs->MaxLen = -1;
-                cs->CD_Str = "";
+                cs->CD_Str = (char *)"";
                 cs->CT_Str = NULL;
                 cs->NotInCT = TRUE;
                 if ( !( cs->ID_Str = malloc ( ( line - idstr ) + 1 ) ) )
@@ -345,7 +345,7 @@ int ScanCDFile ( char *cdfile )
                     {
                         ShowWarn ( MSG_WARN_NoString );
                         Result = FALSE;
-                        cs->CD_Str = "";
+                        cs->CD_Str = (char *)"";
                     }
                     else
                     {

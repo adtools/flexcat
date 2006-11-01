@@ -306,7 +306,7 @@ void CreateCat ( char *CatFile )
         else if ( !name )
         {
             ShowError ( MSG_ERR_NoCTVersion );
-            name = "";
+            name = (char *)"";
         }
         if ( !( verStr = malloc ( strlen ( name ) + 256 ) ) )
         {

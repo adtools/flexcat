@@ -5,6 +5,20 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-11-01  David Rey <tactica@users.sourceforge.net>
+
+    * Makefile: now builds with recent versions of GCC for OS4
+      (-newlib -> -mcrt=newlib), supports crosscompilers for
+      this target, added -Wall -Wwrite-strings to the CFLAGS for
+      the OS4 target.
+      (Patch #1588835 from Henning Nielsen Lund <hnl_dk@users.sourceforge.net>)
+    * createcat.c, createcatsrc.c, createct.c, flexcat.h, getft.c, globals.c,
+      readprefs.c, scancd.c, scanct.c, utils.c: no longer throw warnings with
+      -Wwrite-strings
+      (same patch)
+    * flexcat.h: modified version string to mark the current build as a
+      development version
+      
 2006-03-25  David Rey <tactica@users.sourceforge.net>
 
     * todo: translated the Polish bits to English thanks to the

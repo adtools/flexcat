@@ -24,7 +24,7 @@
 
 /// Globals
 char           *BaseName = NULL;        /* Basename of catalog description */
-char           *Language = "english";   /* Language of catalog description */
+const char     *Language = "english";   /* Language of catalog description */
 int             CatVersion = 0;         /* Version of catalog to be opened */
 int             NumStrings = 0;         /* Number of catalog strings */
 char           *ScanFile;               /* File currently scanned */

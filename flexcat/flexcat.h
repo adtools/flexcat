@@ -34,8 +34,8 @@
 
 #define VERSION                2
 #define REVISION               7
-#define DATE                   "20.3.2006"
-#define VERS                   "FlexCat 2.7"
+#define DATE                   "1.11.2006"
+#define VERS                   "FlexCat 2.7-dev"
 #define VSTRING                VERS " (" DATE ") (C) 2002-2006 FlexCat Open Source Team"
 #define VERSTAG                "\0$VER: " VSTRING
 
@@ -127,5 +127,7 @@ struct CatalogChunk
     ULONG                ID;
     char                *ChunkStr;
 };
+
+long getft ( char *filename );
 
 #endif  /* FLEXCAT_H */

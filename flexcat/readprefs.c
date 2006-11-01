@@ -97,7 +97,7 @@ char ReadPrefs ( void )
 
     if ( ( prefs = malloc ( 2048 ) ) != NULL )
     {
-        if ( GetVar ( FLEXCAT_PREFS, prefs, 80, NULL ) != -1 )
+        if ( GetVar ( FLEXCAT_PREFS, prefs, 80, 0 ) != -1 )
         {
             prefs = realloc ( prefs, strlen ( prefs ) + 1 );
             strcat ( prefs, "\n" );

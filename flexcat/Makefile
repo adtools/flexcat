@@ -38,8 +38,9 @@ ifeq ($(OS), AmigaOS4)
 
 # Building on AmigaOS 4
 
-LDFLAGS     =   -newlib -lauto
-CFLAGS      +=  -newlib -D__USE_INLINE__
+CC          =   ppc-amigaos-gcc
+LDFLAGS     =   -mcrt=newlib -lauto
+CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__ -Wall -Wwrite-strings
 CATFILES    =   flexcat_cat.h
 CATOBJS     =   locale.o getft.o
 

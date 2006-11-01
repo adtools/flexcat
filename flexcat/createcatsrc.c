@@ -485,7 +485,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 #ifdef __amigados
         char            sddir[80];
 
-        if ( GetVar ( FLEXCAT_SDDIR, sddir, 80, NULL ) != 0 )
+        if ( GetVar ( FLEXCAT_SDDIR, sddir, 80, 0 ) != 0 )
 #else
         char           *sddir;
 
@@ -502,7 +502,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
     {
         TemplateFile =
-            AddFileName ( DEFAULT_FLEXCAT_SDDIR, OrigTemplateFile );
+            AddFileName ( strdup(DEFAULT_FLEXCAT_SDDIR), OrigTemplateFile );
         fpin = fopen ( TemplateFile, "r" );
 
     }
@@ -809,7 +809,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                                 {
                                     char           *idstr;
-                                    unsigned long   len = 0;
+                                    long   len = 0;
 
                                     if ( cs->LenBytes )
 

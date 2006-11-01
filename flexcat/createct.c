@@ -57,7 +57,7 @@ void CreateCTFile ( char *NewCTFile )
 #ifdef __amigados
         char            lang[80];
 
-        if ( GetVar ( "language", lang, 80, NULL ) != 0 )
+        if ( GetVar ( "language", lang, 80, 0 ) != 0 )
         {
             ctlanguage = lang;
         }
@@ -84,7 +84,7 @@ void CreateCTFile ( char *NewCTFile )
         ctlanguage = CatLanguage;
         
     if ( ctlanguage == NULL )
-        ctlanguage = "nolanguage";
+        ctlanguage = (char *)"nolanguage";
 
     if ( NewCTFile == NULL )
     {

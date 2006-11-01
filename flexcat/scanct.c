@@ -120,7 +120,7 @@ int ScanCTFile ( char *ctfile )
                     }
                     line += 8;
                     OverSpace ( &line );
-                    CatLanguage = AddCatalogChunk ( "LANG", line );
+                    CatLanguage = AddCatalogChunk ( strdup("LANG"), line );
 
                     if ( LANGToLower )
                         for ( ptr = CatLanguage; *ptr; ptr++ )
@@ -313,7 +313,7 @@ int ScanCTFile ( char *ctfile )
                 {
                     ShowWarn ( MSG_WARN_NoString );
                     if ( cs )
-                        cs->CT_Str = "";
+                        cs->CT_Str = (char *)"";
                 }
                 free ( newidstr );
         }

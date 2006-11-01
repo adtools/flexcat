@@ -412,8 +412,9 @@ void Expunge ( void )
 	LP0NR(12, localeExpunge, \
 		, LocaleBase, 0, 0, 0, 0, 0, 0)
 #elif __amigaos4__
-#  define localeExpunge()
-#warning ! TODO amigaos4 !
+#define localeExpunge() \
+    if ( (ILocale = (struct LocaleIFace *)GetInterface(LocaleBase, "main", 1, 0)) != NULL ) \
+    DropInterface((struct Interface*)ILocale), ILocale = NULL;
 #else
 #define localeExpunge() \
 	((BPTR (*)(struct Library * __asm("a6"))) \
@@ -424,6 +425,10 @@ void Expunge ( void )
         VOID            localeExpunge ( VOID );
 #endif
         struct Library *LocaleBase;
+
+#ifdef __amigaos4__
+    struct LocaleIFace *ILocale;
+#endif
 
         if ( ( LocaleBase = OpenLibrary ( "locale.library", 0 ) ) != NULL )
         {
