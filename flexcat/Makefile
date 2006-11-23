@@ -4,7 +4,7 @@
 
 CC       = gcc
 MAKEINFO = makeinfo
-CFLAGS   = -g -funsigned-char -O2
+CFLAGS   = -g -funsigned-char -O2 -Wall -Wwrite-strings
 
 # Might be replaced by 'delete'
 REMOVE   = rm -f
@@ -20,6 +20,7 @@ ifeq ($(OS), MorphOS)
 
 # -lauto here is a workaround for libabox's bug. Without it locale.library will not
 # be opened automatically. Don't remove it.
+CC          =   ppc-morphos-gcc
 LDFLAGS     =	-lauto -noixemul
 CATFILES    =   flexcat_cat.h
 CATOBJS     =   locale.o
@@ -29,9 +30,11 @@ ifeq ($(OS), AmigaOS)
 
 # Building on AmigaOS
 
+CC          =   m68k-amigaos-gcc
 LDFLAGS     =   -lamiga -noixemul
+CFLAGS      +=  -DNO_INLINE_STDARG
 CATFILES    =   flexcat_cat.h
-CATOBJS     =   locale.o
+CATOBJS     =   locale.o getft.o
 
 else
 ifeq ($(OS), AmigaOS4)
@@ -40,7 +43,7 @@ ifeq ($(OS), AmigaOS4)
 
 CC          =   ppc-amigaos-gcc
 LDFLAGS     =   -mcrt=newlib -lauto
-CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__ -Wall -Wwrite-strings
+CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
 CATFILES    =   flexcat_cat.h
 CATOBJS     =   locale.o getft.o
 

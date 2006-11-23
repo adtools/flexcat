@@ -5,6 +5,17 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-11-23  David Rey <tactica@users.sourceforge.net>
+
+    * Makefile: added "-Wall -Wwrite-strings" to the default CFLAGS,
+      also added explicitly the native MorphOS GCC to the MorphOS build
+      process, and the AmigaOS/m68k GCC to the original AmigaOS build,
+      plus the missing getft.o object and "-DNO_INLINE_STDARG" as CFLAGS to
+      the latter, thanks to Joachim Birging and Henning Nielsen Lund for
+      the patches.
+    * getft.c: replaced the reference to ZERO with NULL for compatibility
+      (again Joachim)
+
 2006-11-01  David Rey <tactica@users.sourceforge.net>
 
     * Makefile: now builds with recent versions of GCC for OS4

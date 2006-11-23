@@ -35,7 +35,7 @@ long getft ( char *filename )
 
     if ( ( p_fib = AllocDosObject ( DOS_FIB, NULL ) ) != NULL )
     {
-        if ( ( p_flock = Lock ( filename, ACCESS_READ ) ) != ZERO )
+        if ( ( p_flock = Lock ( filename, ACCESS_READ ) ) != NULL )
         {
             Examine ( p_flock, p_fib );
             timestamp = p_fib->fib_Date.ds_Days * 86400;        // days
