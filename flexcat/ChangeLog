@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-12-24  David Rey <tactica@users.sourceforge.net>
+
+    * in: removed, no use for it
+
 2006-11-23  David Rey <tactica@users.sourceforge.net>
 
     * Makefile: added "-Wall -Wwrite-strings" to the default CFLAGS,
