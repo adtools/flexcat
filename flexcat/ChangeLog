@@ -7,6 +7,10 @@ $Source$
 
 2006-12-25  David Rey <tactica@users.sourceforge.net>
 
+    * makefile: now detects AmigaOS 4 automatically and doesn't need
+      "OS=AmigaOS4" anymore (thanks to Henning Nielsen Lund for the
+      patch)
+    * getft.c: fixed the remaining warning (Henning again)
     * createcat.c: now always generates 4-digit years
 
 2006-12-24  David Rey <tactica@users.sourceforge.net>

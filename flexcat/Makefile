@@ -2,16 +2,24 @@
 # $Id$
 #
 
-CC       = gcc
-MAKEINFO = makeinfo
-CFLAGS   = -g -funsigned-char -O2 -Wall -Wwrite-strings
+CC          = gcc
+MAKEINFO    = makeinfo
+CFLAGS      = -g -funsigned-char -O2 -Wall -Wwrite-strings
 
 # Might be replaced by 'delete'
-REMOVE   = rm -f
+REMOVE      = rm -f
 
 # Overriding the OS definition is possible, for example "make OS=ABCDEF". Handy for cross-compiling.
 ifndef (OS)
-OS=$(shell uname)
+OS          =   $(shell uname)
+
+# We separate AmigaOS 4.x from Classic AmigaOS and call it AmigaOS4.
+ifeq ($(OS), AmigaOS)
+ifeq ($(shell uname -m), ppc)
+OS          =   AmigaOS4
+endif
+endif
+
 endif
 
 ifeq ($(OS), MorphOS)
@@ -21,7 +29,7 @@ ifeq ($(OS), MorphOS)
 # -lauto here is a workaround for libabox's bug. Without it locale.library will not
 # be opened automatically. Don't remove it.
 CC          =   ppc-morphos-gcc
-LDFLAGS     =	-lauto -noixemul
+LDFLAGS     =   -lauto -noixemul
 CATFILES    =   flexcat_cat.h
 CATOBJS     =   locale.o
 
@@ -42,7 +50,7 @@ ifeq ($(OS), AmigaOS4)
 # Building on AmigaOS 4
 
 CC          =   ppc-amigaos-gcc
-LDFLAGS     =   -mcrt=newlib -lauto
+LDFLAGS     =   -mcrt=newlib -lauto -lunix
 CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
 CATFILES    =   flexcat_cat.h
 CATOBJS     =   locale.o getft.o

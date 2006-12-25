@@ -22,6 +22,10 @@
 #include <proto/exec.h>
 #include <proto/dos.h>
 
+#ifndef __amigaos4__
+# define ZERO NULL
+#endif
+
 /// getft
 
 /* Returns the time of change.
@@ -35,7 +39,7 @@ long getft ( char *filename )
 
     if ( ( p_fib = AllocDosObject ( DOS_FIB, NULL ) ) != NULL )
     {
-        if ( ( p_flock = Lock ( filename, ACCESS_READ ) ) != NULL )
+        if ( ( p_flock = Lock ( filename, ACCESS_READ ) ) != ZERO )
         {
             Examine ( p_flock, p_fib );
             timestamp = p_fib->fib_Date.ds_Days * 86400;        // days
