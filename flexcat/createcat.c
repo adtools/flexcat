@@ -175,7 +175,7 @@ void CreateCat ( char *CatFile )
             if ( ( verStr =
                    malloc ( strlen ( cc.ChunkStr ) + 128 ) ) != NULL )
             {
-                char            dateStr[10];
+                char            dateStr[12];
 
                 long            tim;
                 struct tm      *t;
@@ -184,7 +184,7 @@ void CreateCat ( char *CatFile )
                 t = localtime ( &tim );
 
                 *found = 0;
-                strftime ( dateStr, sizeof ( dateStr ), "%d.%m.%y", t );
+                strftime ( dateStr, sizeof ( dateStr ), "%d.%m.%Y", t );
 
                 sprintf ( verStr, "%s%s%s", cc.ChunkStr, dateStr,
                           found + strlen ( "$TODAY" ) );
@@ -211,7 +211,7 @@ void CreateCat ( char *CatFile )
                                malloc ( strlen ( cc.ChunkStr ) + 128 ) ) !=
                              NULL )
                         {
-                            char            dateStr[10];
+                            char            dateStr[12];
 
                             long            tim;
                             struct tm      *t;
@@ -221,7 +221,7 @@ void CreateCat ( char *CatFile )
 
                             found1[2] = 0;
                             strftime ( dateStr, sizeof ( dateStr ),
-                                       "%d.%m.%y", t );
+                                       "%d.%m.%Y", t );
 
                             sprintf ( verStr, "%s%s%s", cc.ChunkStr, dateStr,
                                       found2 );
