@@ -9,7 +9,8 @@ $Source$
 
     * makefile: now detects AmigaOS 4 automatically and doesn't need
       "OS=AmigaOS4" anymore (thanks to Henning Nielsen Lund for the
-      patch)
+      patch), and "clean" also removes the m68k specific builds (and
+      patches)
     * getft.c: fixed the remaining warning (Henning again)
     * createcat.c: now always generates 4-digit years
     * createct.c: no longer forces a local codeset while updating an

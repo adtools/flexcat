@@ -87,6 +87,9 @@ flexcat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
 
 clean:
 	$(REMOVE) *.o
+	$(REMOVE) *.020*
+	$(REMOVE) *.040*
+	$(REMOVE) *.060*
 	$(REMOVE) flexcat
 
 doc:
