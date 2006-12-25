@@ -7,7 +7,7 @@ $Source$
 
 2006-12-25  David Rey <tactica@users.sourceforge.net>
 
-    * createcat.h: now always generates 4-digit years
+    * createcat.c: now always generates 4-digit years
 
 2006-12-24  David Rey <tactica@users.sourceforge.net>
 
