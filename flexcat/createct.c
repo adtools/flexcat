@@ -28,9 +28,9 @@
 #include "createcat.h"
 #include "globals.h"
 
-#ifdef __amigados
- #include <proto/locale.h>
-#endif
+// #ifdef __amigados
+//  #include <proto/locale.h>
+// #endif
 
 /// FUNC: CreateCTFile
 
@@ -159,25 +159,31 @@ void CreateCTFile ( char *NewCTFile )
         }
     }
 
-#ifdef __amigados
-    if ( CodeSet == 0 )
-    {
-        struct LocaleBase *LocaleBase;
-        struct Locale  *my_locale;
+/* The following code breaks when using NEWCTFILE on a system where the
+ * codeset doesn't match the target, as it forces a local codeset. This
+ * needs a smarter approach. <tactica>
+ */
 
-        if ( ( LocaleBase =
-               ( struct LocaleBase * )OpenLibrary ( "locale.library",
-                                                    47L ) ) != NULL )
-        {
-            if ( ( my_locale = OpenLocale ( NULL ) ) != NULL )
-            {
-                CodeSet = my_locale->loc_CodeSet;
-                CloseLocale ( my_locale );
-            }
-            CloseLibrary ( ( struct Library * )LocaleBase );
-        }
-    }
-#endif
+// #ifdef __amigados
+//     if ( CodeSet == 0 )
+//     {
+//         struct LocaleBase *LocaleBase;
+//         struct Locale  *my_locale;
+// 
+//         if ( ( LocaleBase =
+//                ( struct LocaleBase * )OpenLibrary ( "locale.library",
+//                                                     47L ) ) != NULL )
+//         {
+//             if ( ( my_locale = OpenLocale ( NULL ) ) != NULL )
+//             {
+//                 CodeSet = my_locale->loc_CodeSet;
+//                 CloseLocale ( my_locale );
+//             }
+//             CloseLibrary ( ( struct Library * )LocaleBase );
+//         }
+//     }
+// #endif
+
     fprintf ( fp, "## language %s\n## codeset %d\n;\n",
               ctlanguage ? ctlanguage : "X", CodeSet );
     for ( cc = FirstChunk; cc != NULL; cc = cc->Next )
