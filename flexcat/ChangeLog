@@ -15,6 +15,7 @@ $Source$
     * createct.c: no longer forces a local codeset while updating an
       old translation on a system using locale.library V47 or newer
       (fixes bug #1367295)
+    * scancd.c: added "#array" to the ignore list (fixes bug 1204131)
 
 2006-12-24  David Rey <tactica@users.sourceforge.net>
 

@@ -132,6 +132,10 @@ int ScanCDFile ( char *cdfile )
             {
                 continue;
             }
+            else if ( Strnicmp ( line + 1, "array", 5 ) == 0 )
+            {
+                continue;
+            }
             else if ( Strnicmp ( line + 1, "header", 6 ) == 0 )
             {
                 line += 7;
