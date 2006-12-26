@@ -636,7 +636,7 @@ void Usage ( void )
     fprintf ( stderr, "%s\n", VString );
     fprintf ( stderr, "%s\n", EString );
     fprintf ( stderr,
-            "\n%s\n         FlexCat CDFILE/A,CTFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n                 WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,\n                 QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,\n                 COPYMSGNEW/S,OLDMSGNEW/K,NOSPACE/S,NOAUTODATE/S\n\n",
+            "\n%s\n         FlexCat CDFILE/A,CTFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n                 WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,\n                 QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,\n                 COPYMSGNEW/S,OLDMSGNEW/K\n\n",
             ( char * )MSG_UsageHead );
     fprintf ( stderr, "%s\n", MSG_Usage );
     MyExit ( 5 );

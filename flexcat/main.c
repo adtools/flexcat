@@ -69,10 +69,6 @@ int isParam ( char *input_string )
         return TRUE;
     if ( Stricmp ( input_string, "copymsgnew" ) == 0 )
         return TRUE;
-    if ( Stricmp ( input_string, "nospace" ) == 0 )
-        return TRUE;
-    if ( Stricmp ( input_string, "noautodate" ) == 0 )
-        return TRUE;
     if ( Stricmp ( input_string, "oldmsgnew" ) == 0 )
         return TRUE;
     if ( Stricmp ( input_string, "?" ) == 0 )
@@ -223,14 +219,6 @@ int main ( int argc, char *argv[] )
         else if ( Stricmp ( argv[i], "copymsgnew" ) == 0 )
         {
             CopyNEWs = TRUE;
-        }
-        else if ( Stricmp ( argv[i], "nospace" ) == 0 )
-        {
-            NoSpace = TRUE;
-        }
-        else if ( Stricmp ( argv[i], "noautodate" ) == 0 )
-        {
-            NoAutoDate = TRUE;
         }
         else if ( Stricmp ( argv[i], "oldmsgnew" ) == 0 )
         {

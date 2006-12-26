@@ -161,7 +161,7 @@ void CreateCat ( char *CatFile )
     {
         struct CatalogChunk cc;
         char           *verStr;
-        char           *found, *found1, *found2;
+        char           *found;
 
         cc.ID = MAKE_ID ( 'F', 'V', 'E', 'R' );
 
@@ -194,47 +194,7 @@ void CreateCat ( char *CatFile )
             else
                 MemError (  );
         }
-        else
-        {
-
-        // If a date exists in the string, then update it?
-
-            found1 = strstr ( cc.ChunkStr, " (" );
-            if ( found1 && found1[1] == '(' && isdigit ( found1[2] ) )
-            {
-                found2 = strstr ( found1, ")" );
-                if ( found2 )
-                {
-                    if ( !NoAutoDate )
-                    {
-                        if ( ( verStr =
-                               malloc ( strlen ( cc.ChunkStr ) + 128 ) ) !=
-                             NULL )
-                        {
-                            char            dateStr[12];
-
-                            long            tim;
-                            struct tm      *t;
-
-                            time ( &tim );
-                            t = localtime ( &tim );
-
-                            found1[2] = 0;
-                            strftime ( dateStr, sizeof ( dateStr ),
-                                       "%d.%m.%Y", t );
-
-                            sprintf ( verStr, "%s%s%s", cc.ChunkStr, dateStr,
-                                      found2 );
-                            free ( cc.ChunkStr );
-                            cc.ChunkStr = verStr;
-                        }
-                        else
-                            MemError (  );
-                    }
-                }
-            }
-        }
-
+        
     // Replace ".ct" with ".catalog"
 
         found = strstr ( cc.ChunkStr, ".ct " );

@@ -81,10 +81,7 @@ struct FC_String FlexCat_Strings[] =
 	"  NOBUFFEREDIO   Disable I/O buffers\n"\
 	"  MODIFIED       Create catalog only if description/translation have changed\n"\
 	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
-	"  OLDMSGNEW      Custom marker in old translation\n"\
-	"  NOSPACE        Removes the space being usually put between ';' and the comment\n"\
-	"  NOAUTODATE     Do not use current date in version string. Use from\n"\
-	"                 .ct instead", 45 },
+	"  OLDMSGNEW      Custom marker in old translation", 45 },
    { NULL, 0 }
 };
 

@@ -5,9 +5,18 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-12-26  David Rey <tactica@users.sourceforge.net>
+
+    * createcat.c, createct.c, main.c, readprefs.c, readprefs.h,
+      utils.c, FlexCat.cd: completely removed support for the NOSPACE
+      and NOAUTODATE switches.
+    * Makefile: now generates "FlexCat", not "flexcat".
+    * flexcat_cat.h, flexcat_cat_other.h, locale_other.c, locale.c:
+      regenerated.
+
 2006-12-25  David Rey <tactica@users.sourceforge.net>
 
-    * makefile: now detects AmigaOS 4 automatically and doesn't need
+    * Makefile: now detects AmigaOS 4 automatically and doesn't need
       "OS=AmigaOS4" anymore (thanks to Henning Nielsen Lund for the
       patch), and "clean" also removes the m68k specific builds (and
       patches)

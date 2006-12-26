@@ -28,10 +28,6 @@
 #include "createcat.h"
 #include "globals.h"
 
-// #ifdef __amigados
-//  #include <proto/locale.h>
-// #endif
-
 /// FUNC: CreateCTFile
 
 /* This creates a new catalog translation file. */
@@ -218,16 +214,14 @@ void CreateCTFile ( char *NewCTFile )
                  */
                     fprintf ( fp, "%s\n%s\n;", cs->ID_Str,
                               cs->CT_Str ? cs->CT_Str : "" );
-                    if ( !NoSpace )
-                        putc ( ' ', fp );
+                    putc ( ' ', fp );
                     for ( line = cs->CD_Str; *line; ++line )
                     {
                         putc ( ( int )*line, fp );
                         if ( *line == '\n' )
                         {
                             putc ( ';', fp );
-                            if ( !NoSpace )
-                                putc ( ' ', fp );
+                            putc ( ' ', fp );
                         }
                     }
                     putc ( '\n', fp );

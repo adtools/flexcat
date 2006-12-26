@@ -48,11 +48,7 @@ char    Old_Msg_New[MAX_NEW_STR_LEN] = "; ***NEW***";   /* Old new string (above
                                                            CT file. Now we look if it's present
                                                            and copy it into new CT if the user
                                                            upgrades (flexcat CD CT newctfile CT */
-int     NoSpace = FALSE;                                /* Shall we strip the space usually
-                                                           placed between ';' and the original 
-                                                           string ? */
-int     NoAutoDate = FALSE;                             /* The catalog date will be taken from
-                                                           the translation, or the current date ? */
+
 
 char    prefs_sddir[MAXPATHLEN] = "\0";
 
@@ -83,13 +79,11 @@ char ReadPrefs ( void )
         MODIFIED,
         COPYMSGNEW,
         OLDMSGNEW,
-        NOSPACE,
-        NOAUTODATE,
         ARGS_COUNT
     };
 
     char            template[] =
-        "SDDIR/K,MSG_NEW/K,WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,COPYMSGNEW/S,OLDMSGNEW/K,NOSPACE/S,NOAUTODATE/S";
+        "SDDIR/K,MSG_NEW/K,WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,COPYMSGNEW/S,OLDMSGNEW/K";
     LONG            Results[ARGS_COUNT] = { 0 };
     char           *prefs;
     struct RDArgs  *rda;
@@ -130,8 +124,6 @@ char ReadPrefs ( void )
                     Modified = Results[MODIFIED];
                     NoBufferedIO = Results[NOBUFFEREDIO];
                     CopyNEWs = Results[COPYMSGNEW];
-                    NoSpace = Results[NOSPACE];
-                    NoAutoDate = Results[NOAUTODATE];
                     if ( Results[OLDMSGNEW] )
                         sprintf ( Old_Msg_New, "; %s",
                                   ( char * )Results[OLDMSGNEW] );

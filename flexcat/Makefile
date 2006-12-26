@@ -73,7 +73,7 @@ OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
 all: $(CATFILES) flexcat
 
 flexcat: $(OBJS) $(CATFILES)
-	$(CC) -o flexcat $(OBJS) $(LDFLAGS)
+	$(CC) -o FlexCat $(OBJS) $(LDFLAGS)
 
 locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
 	flexcat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd

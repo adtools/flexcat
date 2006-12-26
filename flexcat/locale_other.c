@@ -1,14 +1,12 @@
 /****************************************************************
-   This file was created automatically by `FlexCat 2.6.7'
+   This file was created automatically by `FlexCat 2.7-dev'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
 ****************************************************************/
 
-/* Copyright (C) 2005 Pavel Fedin <sonic_amiga@rambler.ru>
- * Copyright (C) 2002 Ondrej Zima <amiandrew@volny.cz>
- * Copyright (C) 2002 Stefan Kost <ensonic@sonicpulse.de>
- * Copyright (C) 1993 Jochen Wiedmann and Marcin Orlowski <carlos@wfmh.org.pl>
+/* Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
+ * Copyright (C) 2002-2006 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -109,8 +107,5 @@ char * FlexCat_Strings[46] = {
 	"  NOBUFFEREDIO   Disable I/O buffers\n"\
 	"  MODIFIED       Create catalog only if description/translation have changed\n"\
 	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
-	"  OLDMSGNEW      Custom marker in old translation\n"\
-	"  NOSPACE        Removes the space being usually put between ';' and the comment\n"\
-	"  NOAUTODATE     Do not use current date in version string. Use from\n"\
-	"                 .ct instead"
+	"  OLDMSGNEW      Custom marker in old translation"
 };
