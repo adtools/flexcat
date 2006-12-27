@@ -51,7 +51,7 @@ int ScanCDFile ( char *cdfile )
 
     if ( !( fp = fopen ( cdfile, "r" ) ) )
     {
-        ShowError ( MSG_ERR_NoCatalogDescription, cdfile );
+        ShowError ( MSG_ERR_NOCATALOGDESCRIPTION, cdfile );
     }
 
     if ( !NoBufferedIO )
@@ -162,7 +162,7 @@ int ScanCDFile ( char *cdfile )
             }
             else
             {
-                ShowWarn ( MSG_WARN_UnknownCDCommand );
+                ShowWarn ( MSG_ERR_UNKNOWNCDCOMMAND );
                 Result = FALSE;
                 CheckExtra = FALSE;
             }
@@ -172,7 +172,7 @@ int ScanCDFile ( char *cdfile )
                 OverSpace ( &line );
                 if ( *line )
                 {
-                    ShowWarn ( MSG_WARN_ExtraCharacters );
+                    ShowWarn ( MSG_ERR_EXTRACHARACTERS );
                     Result = FALSE;
                 }
             }
@@ -185,7 +185,7 @@ int ScanCDFile ( char *cdfile )
 
             if ( *line == ' ' || *line == '\t' )
             {
-                ShowWarn ( MSG_WARN_UnexpectedBlanks );
+                ShowWarn ( MSG_ERR_UNEXPECTEDBLANKS );
                 Result = FALSE;
                 OverSpace ( &line );
             }
@@ -200,7 +200,7 @@ int ScanCDFile ( char *cdfile )
 
             if ( idstr == line )
             {
-                ShowWarn ( MSG_WARN_NoIdentifier );
+                ShowWarn ( MSG_ERR_NOIDENTIFIER );
                 Result = FALSE;
             }
             else
@@ -247,7 +247,7 @@ int ScanCDFile ( char *cdfile )
 
                 if ( *line != '(' )
                 {
-                    ShowWarn ( MSG_WARN_NoLeadingBracket );
+                    ShowWarn ( MSG_ERR_NOLEADINGBRACKET );
                     Result = FALSE;
                 }
                 else
@@ -287,12 +287,12 @@ int ScanCDFile ( char *cdfile )
                     {
                         if ( scs->ID == cs->ID )
                         {
-                            ShowWarn ( MSG_WARN_DoubleID );
+                            ShowWarn ( MSG_ERR_DOUBLEID );
                             Result = FALSE;
                         }
                         if ( strcmp ( cs->ID_Str, scs->ID_Str ) == 0 )
                         {
-                            ShowWarn ( MSG_WARN_DoubleIdentifier );
+                            ShowWarn ( MSG_ERR_DOUBLEIDENTIFIER );
                             Result = FALSE;
                         }
                     }
@@ -300,7 +300,7 @@ int ScanCDFile ( char *cdfile )
                 // Does line have a minlen value (//) ?
                     if ( *line != '/' )
                     {
-                        ShowWarn ( MSG_WARN_NoMinLen );
+                        ShowWarn ( MSG_ERR_NOMINLEN );
                         Result = FALSE;
                     }
                     else
@@ -314,7 +314,7 @@ int ScanCDFile ( char *cdfile )
                         }
                         if ( *line != '/' )
                         {
-                            ShowWarn ( MSG_WARN_NoMaxLen );
+                            ShowWarn ( MSG_ERR_NOMAXLEN );
                             Result = FALSE;
                         }
                         else
@@ -328,7 +328,7 @@ int ScanCDFile ( char *cdfile )
                             }
                             if ( *line != ')' )
                             {
-                                ShowWarn ( MSG_WARN_NoTrailingBracket );
+                                ShowWarn ( MSG_ERR_NOTRAILINGBRACKET );
                                 Result = FALSE;
                             }
                             else
@@ -337,7 +337,7 @@ int ScanCDFile ( char *cdfile )
                                 OverSpace ( &line );
                                 if ( *line )
                                 {
-                                    ShowWarn ( MSG_WARN_ExtraCharacters );
+                                    ShowWarn ( MSG_ERR_EXTRACHARACTERS );
                                 }
                             }
                         }
@@ -347,7 +347,7 @@ int ScanCDFile ( char *cdfile )
 
                     if ( !( newline = ReadLine ( fp, FALSE ) ) )
                     {
-                        ShowWarn ( MSG_WARN_NoString );
+                        ShowWarn ( MSG_ERR_MISSINGSTRING );
                         Result = FALSE;
                         cs->CD_Str = (char *)"";
                     }
@@ -375,14 +375,14 @@ int ScanCDFile ( char *cdfile )
 
                     if ( cs->MinLen > 0 && reallen < cs->MinLen )
                     {
-                        ShowWarn ( MSG_WARN_ShortString );
+                        ShowWarn ( MSG_ERR_STRINGTOOSHORT );
                     }
 
                 // String too long.
 
                     if ( cs->MaxLen > 0 && reallen > cs->MaxLen )
                     {
-                        ShowWarn ( MSG_WARN_LongString );
+                        ShowWarn ( MSG_ERR_STRINGTOOLONG );
                     }
 
                     cs->Nr = NumStrings;

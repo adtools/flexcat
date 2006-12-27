@@ -252,7 +252,7 @@ void WriteBinChar ( int c )
             OutputMode = OutputMode_Bin;
             break;
         case TYPE_NONE:
-            ShowWarn ( MSG_WARN_NoBinChars );
+            ShowWarn ( MSG_ERR_NOBINCHARS );
             break;
 
     }
@@ -509,14 +509,14 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
     if ( !fpin )
 
     {
-        ShowError ( MSG_ERR_NoSourceDescription, OrigTemplateFile );
+        ShowError ( MSG_ERR_NOSOURCEDESCRIPTION, OrigTemplateFile );
         return;
 
     }
     if ( !( fpout = fopen ( SourceFile, "w" ) ) )
 
     {
-        ShowError ( MSG_ERR_NoSource, SourceFile );
+        ShowError ( MSG_ERR_NOSOURCE, SourceFile );
         return;
 
     }
@@ -600,7 +600,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                     else
                     {
-                        ShowWarn ( MSG_WARN_UnknownStringType );
+                        ShowWarn ( MSG_ERR_UNKNOWNSTRINGTYPE );
                         currentline += strlen ( currentline );
 
                     }
@@ -608,7 +608,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                     if ( *currentline )
 
                     {
-                        ShowWarn ( MSG_WARN_ExtraCharacters );
+                        ShowWarn ( MSG_ERR_EXTRACHARACTERS );
 
                     }
                     continue;
@@ -624,7 +624,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                     if ( *currentline )
 
                     {
-                        ShowWarn ( MSG_WARN_ExtraCharacters );
+                        ShowWarn ( MSG_ERR_EXTRACHARACTERS );
 
                     }
                     continue;
@@ -855,7 +855,8 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 if ( !*currentline )
 
                                 {
-                                    ShowWarn ( MSG_WARN_NoTerminateBracket );
+                                    // FIXME: reuse MSG_ERR_NOTRAILINGBRACKET here? <tactica>
+                                    ShowWarn ( MSG_ERR_NOTERMINATEBRACKET );
 
                                 }
 

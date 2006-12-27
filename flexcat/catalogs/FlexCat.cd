@@ -7,154 +7,12 @@
 #version 3
 ;
 ;
-; Warnings
-;
-MSG_WARN_Warning (//)
-%s, line %d - warning: 
-;
-MSG_WARN_ExpectedHex (//)
-expected hex character (one of [0-9a-fA-F])
-;
-MSG_WARN_ExpectedOctal (//)
-expected octal character (one of [0-7])
-;
-MSG_WARN_NoLengthBytes (//)
-lengthbytes cannot be larger than %d (sizeof long)
-;
-MSG_WARN_UnknownCDCommand (//)
-unknown catalog description command
-;
-MSG_WARN_UnexpectedBlanks (//)
-unexpected blanks
-;
-MSG_WARN_NoIdentifier (//)
-missing identifier
-;
-MSG_WARN_NoLeadingBracket (//)
-missing '('
-;
-MSG_WARN_DoubleID (//)
-ID number used twice
-;
-MSG_WARN_DoubleIdentifier (//)
-identifier declared twice
-;
-MSG_WARN_NoMinLen (//)
-expected MinLen (character '/')
-;
-MSG_WARN_NoMaxLen (//)
-expected MaxLen (character '/')
-;
-MSG_WARN_NoTrailingBracket (//)
-expected ')'
-;
-MSG_WARN_ExtraCharacters (//)
-extra characters at the end of the line
-;
-MSG_WARN_NoString (//)
-unexpected end of file (missing catalog strings)
-;
-MSG_WARN_ShortString (//)
-string too short
-;
-MSG_WARN_LongString (//)
-string too long
-;
-MSG_WARN_NoCTCommand (//)
-missing command in translation (expected a second '#')
-;
-MSG_WARN_UnknownCTCommand (//)
-unknown command in translation
-;
-MSG_WARN_UnknownIdentifier (//)
-'%s' missing in catalog description
-;
-MSG_WARN_UnknownStringType (//)
-unknown string type
-;
-MSG_WARN_NoTerminateBracket (//)
-unexpected end of line (missing ')')
-;
-MSG_WARN_NoBinChars (//)
-binary characters in string type None
-;
-MSG_WARN_CTGap (//)
-'%s' missing in catalog translation
-;
-MSG_WARN_DoubleCTLanguage (//)
-catalog language declared twice
-;
-MSG_WARN_DoubleCTVersion (//)
-catalog version declared twice
-;
-MSG_WARN_WrongRcsId (//)
-incorrect RCS Id
-;
-;
-; Errors
-;
-MSG_ERR_MemoryError (//)
-Out of memory!
-;
-MSG_ERR_NoCatalogDescription (//)
-Cannot open catalog description '%s'.
-;
-MSG_ERR_NoCatalogTranslation (//)
-Cannot open catalog translation '%s'.
-;
-MSG_ERR_NoCTVersion (//)
-Missing catalog translation version. Use either\n\
-'## version' or '## rcsid' and '## name'.
-;
-MSG_ERR_NoCatalog (//)
-Cannot open catalog file '%s'.
-;
-MSG_ERR_NoNewCTFile (//)
-Cannot create catalog translation '%s'.
-;
-MSG_ERR_NoCTLanguage (//)
-Missing catalog translation language.
-;
-MSG_ERR_NoSource (//)
-Cannot open source file '%s'.
-;
-MSG_ERR_NoSourceDescription (//)
-Cannot open source description file '%s'.
-;
-MSG_ERR_NoCTArgument (//)
-Creating a catalog requires a translation file.
-;
-;
 ; Misc
 ;
-MSG_UpToDate (//)
-File '%s' is up to date
-;
-MSG_CantCheckDate (//)
-Cannot get datestamp of '%s'
-;
-MSG_TrailingEllipsis (//)
-Original string has a trailing ellipsis ('...')
-;
-MSG_TrailingBlanks (//)
-Original string has trailing blanks
-;
-MSG_NoCTFileName (//)
-Catalog translation file name not specified at \
-command line or as basename in description.
-; 
-MSG_NoCatFileName (//)
-Catalog file name not specified at command line or \
-as basename in description.
-;
-MSG_PrefsError (//)
-Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-Template: 
-;
-MSG_UsageHead (//)
+MSG_USAGE_HEAD (//)
 Usage:
 ;
-MSG_Usage (//)
+MSG_USAGE (//)
   CDFILE         Catalog description file to scan\n\
   CTFILE         Catalog translation file to scan\n\
   CATALOG        Catalog file to create\n\
@@ -173,3 +31,143 @@ MSG_Usage (//)
   MODIFIED       Create catalog only if description/translation have changed\n\
   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
   OLDMSGNEW      Custom marker in old translation
+;
+MSG_FILEUPTODATE (//)
+File '%s' is up to date
+;
+;
+; Error output
+;
+MSG_ERR_WARNING (100//)
+%s, line %d - warning: 
+;
+MSG_ERR_EXPECTEDHEX (//)
+expected hex character (one of [0-9a-fA-F])
+;
+MSG_ERR_EXPECTEDOCTAL (//)
+expected octal character (one of [0-7])
+;
+MSG_ERR_NOLENGTHBYTES (//)
+lengthbytes cannot be larger than %d (sizeof long)
+;
+MSG_ERR_UNKNOWNCDCOMMAND (//)
+unknown catalog description command
+;
+MSG_ERR_UNEXPECTEDBLANKS (//)
+unexpected blanks
+;
+MSG_ERR_NOIDENTIFIER (//)
+missing identifier
+;
+MSG_ERR_NOLEADINGBRACKET (//)
+missing '('
+;
+MSG_ERR_DOUBLEID (//)
+ID number used twice
+;
+MSG_ERR_DOUBLEIDENTIFIER (//)
+identifier declared twice
+;
+MSG_ERR_NOMINLEN (//)
+expected MinLen (character '/')
+;
+MSG_ERR_NOMAXLEN (//)
+expected MaxLen (character '/')
+;
+MSG_ERR_NOTRAILINGBRACKET (//)
+missing ')'
+;
+MSG_ERR_EXTRACHARACTERS (//)
+extra characters at the end of the line
+;
+MSG_ERR_MISSINGSTRING (//)
+unexpected end of file (missing catalog strings)
+;
+MSG_ERR_STRINGTOOSHORT (//)
+string too short
+;
+MSG_ERR_STRINGTOOLONG (//)
+string too long
+;
+MSG_ERR_NOCTCOMMAND (//)
+missing command in translation (expected a second '#')
+;
+MSG_ERR_UNKNOWNCTCOMMAND (//)
+unknown command in translation
+;
+MSG_ERR_UNKNOWNIDENTIFIER (//)
+'%s' missing in catalog description
+;
+MSG_ERR_UNKNOWNSTRINGTYPE (//)
+unknown string type
+;
+MSG_ERR_NOTERMINATEBRACKET (//)
+unexpected end of line (missing ')')
+;
+MSG_ERR_NOBINCHARS (//)
+binary characters in string type None
+;
+MSG_ERR_CTGAP (//)
+'%s' missing in catalog translation
+;
+MSG_ERR_DOUBLECTLANGUAGE (//)
+catalog language declared twice
+;
+MSG_ERR_DOUBLECTVERSION (//)
+catalog version declared twice
+;
+MSG_ERR_WRONGRCSID (//)
+incorrect RCS Id
+;
+MSG_ERR_NOMEMORY (//)
+Out of memory!
+;
+MSG_ERR_NOCATALOGDESCRIPTION (//)
+Cannot open catalog description '%s'.
+;
+MSG_ERR_NOCATALOGTRANSLATION (//)
+Cannot open catalog translation '%s'.
+;
+MSG_ERR_NOCTVERSION (//)
+Missing catalog translation version. Use either\n\
+'## version' or '## rcsid' and '## name'.
+;
+MSG_ERR_NOCATALOG (//)
+Cannot open catalog file '%s'.
+;
+MSG_ERR_NONEWCTFILE (//)
+Cannot create catalog translation '%s'.
+;
+MSG_ERR_NOCTLANGUAGE (//)
+Missing catalog translation language.
+;
+MSG_ERR_NOSOURCE (//)
+Cannot open source file '%s'.
+;
+MSG_ERR_NOSOURCEDESCRIPTION (//)
+Cannot open source description file '%s'.
+;
+MSG_ERR_NOCTARGUMENT (//)
+Creating a catalog requires a translation file.
+;
+MSG_ERR_CANTCHECKDATE (//)
+Cannot get datestamp of '%s'
+;
+MSG_ERR_TRAILINGELLIPSIS (//)
+Original string has a trailing ellipsis ('...')
+;
+MSG_ERR_TRAILINGBLANKS (//)
+Original string has trailing blanks
+;
+MSG_ERR_NOCTFILENAME (//)
+Catalog translation file name not specified at \
+command line or as basename in description.
+; 
+MSG_ERR_NOCATFILENAME (//)
+Catalog file name not specified at command line or \
+as basename in description.
+;
+MSG_ERR_BADPREFS (//)
+Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
+Template: 
+;

@@ -15,55 +15,7 @@
 /* Variables */
 struct FC_String FlexCat_Strings[] =
 {
-   { "%s, line %d - warning: ", 0 },
-   { "expected hex character (one of [0-9a-fA-F])", 1 },
-   { "expected octal character (one of [0-7])", 2 },
-   { "lengthbytes cannot be larger than %d (sizeof long)", 3 },
-   { "unknown catalog description command", 4 },
-   { "unexpected blanks", 5 },
-   { "missing identifier", 6 },
-   { "missing '('", 7 },
-   { "ID number used twice", 8 },
-   { "identifier declared twice", 9 },
-   { "expected MinLen (character '/')", 10 },
-   { "expected MaxLen (character '/')", 11 },
-   { "expected ')'", 12 },
-   { "extra characters at the end of the line", 13 },
-   { "unexpected end of file (missing catalog strings)", 14 },
-   { "string too short", 15 },
-   { "string too long", 16 },
-   { "missing command in translation (expected a second '#')", 17 },
-   { "unknown command in translation", 18 },
-   { "'%s' missing in catalog description", 19 },
-   { "unknown string type", 20 },
-   { "unexpected end of line (missing ')')", 21 },
-   { "binary characters in string type None", 22 },
-   { "'%s' missing in catalog translation", 23 },
-   { "catalog language declared twice", 24 },
-   { "catalog version declared twice", 25 },
-   { "incorrect RCS Id", 26 },
-   { "Out of memory!", 27 },
-   { "Cannot open catalog description '%s'.", 28 },
-   { "Cannot open catalog translation '%s'.", 29 },
-   { "Missing catalog translation version. Use either\n"\
-	"'## version' or '## rcsid' and '## name'.", 30 },
-   { "Cannot open catalog file '%s'.", 31 },
-   { "Cannot create catalog translation '%s'.", 32 },
-   { "Missing catalog translation language.", 33 },
-   { "Cannot open source file '%s'.", 34 },
-   { "Cannot open source description file '%s'.", 35 },
-   { "Creating a catalog requires a translation file.", 36 },
-   { "File '%s' is up to date", 37 },
-   { "Cannot get datestamp of '%s'", 38 },
-   { "Original string has a trailing ellipsis ('...')", 39 },
-   { "Original string has trailing blanks", 40 },
-   { "Catalog translation file name not specified at "\
-	"command line or as basename in description.", 41 },
-   { "Catalog file name not specified at command line or "\
-	"as basename in description.", 42 },
-   { "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
-	"Template: ", 43 },
-   { "Usage:", 44 },
+   { "Usage:", 0 },
    { "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
 	"  CATALOG        Catalog file to create\n"\
@@ -81,7 +33,55 @@ struct FC_String FlexCat_Strings[] =
 	"  NOBUFFEREDIO   Disable I/O buffers\n"\
 	"  MODIFIED       Create catalog only if description/translation have changed\n"\
 	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
-	"  OLDMSGNEW      Custom marker in old translation", 45 },
+	"  OLDMSGNEW      Custom marker in old translation", 1 },
+   { "File '%s' is up to date", 2 },
+   { "%s, line %d - warning: ", 100 },
+   { "expected hex character (one of [0-9a-fA-F])", 101 },
+   { "expected octal character (one of [0-7])", 102 },
+   { "lengthbytes cannot be larger than %d (sizeof long)", 103 },
+   { "unknown catalog description command", 104 },
+   { "unexpected blanks", 105 },
+   { "missing identifier", 106 },
+   { "missing '('", 107 },
+   { "ID number used twice", 108 },
+   { "identifier declared twice", 109 },
+   { "expected MinLen (character '/')", 110 },
+   { "expected MaxLen (character '/')", 111 },
+   { "missing ')'", 112 },
+   { "extra characters at the end of the line", 113 },
+   { "unexpected end of file (missing catalog strings)", 114 },
+   { "string too short", 115 },
+   { "string too long", 116 },
+   { "missing command in translation (expected a second '#')", 117 },
+   { "unknown command in translation", 118 },
+   { "'%s' missing in catalog description", 119 },
+   { "unknown string type", 120 },
+   { "unexpected end of line (missing ')')", 121 },
+   { "binary characters in string type None", 122 },
+   { "'%s' missing in catalog translation", 123 },
+   { "catalog language declared twice", 124 },
+   { "catalog version declared twice", 125 },
+   { "incorrect RCS Id", 126 },
+   { "Out of memory!", 127 },
+   { "Cannot open catalog description '%s'.", 128 },
+   { "Cannot open catalog translation '%s'.", 129 },
+   { "Missing catalog translation version. Use either\n"\
+	"'## version' or '## rcsid' and '## name'.", 130 },
+   { "Cannot open catalog file '%s'.", 131 },
+   { "Cannot create catalog translation '%s'.", 132 },
+   { "Missing catalog translation language.", 133 },
+   { "Cannot open source file '%s'.", 134 },
+   { "Cannot open source description file '%s'.", 135 },
+   { "Creating a catalog requires a translation file.", 136 },
+   { "Cannot get datestamp of '%s'", 137 },
+   { "Original string has a trailing ellipsis ('...')", 138 },
+   { "Original string has trailing blanks", 139 },
+   { "Catalog translation file name not specified at "\
+	"command line or as basename in description.", 140 },
+   { "Catalog file name not specified at command line or "\
+	"as basename in description.", 141 },
+   { "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
+	"Template: ", 142 },
    { NULL, 0 }
 };
 

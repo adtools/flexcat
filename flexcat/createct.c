@@ -45,7 +45,7 @@ void CreateCTFile ( char *NewCTFile )
     {
         ScanLine = 1;
     // ##version,##rcsid,##name are not valid for *.cd-files
-    // ShowWarn(MSG_ERR_NoCTVersion);
+    // ShowWarn(MSG_ERR_NOCTVERSION);
     }
 
     if ( CatLanguage == NULL )
@@ -85,7 +85,7 @@ void CreateCTFile ( char *NewCTFile )
     if ( NewCTFile == NULL )
     {
         if ( BaseName == NULL )
-            ShowError ( MSG_NoCTFileName );
+            ShowError ( MSG_ERR_NOCTFILENAME );
         else
         {
             NewCTFile =
@@ -95,7 +95,7 @@ void CreateCTFile ( char *NewCTFile )
     }
     if ( !( fp = fopen ( NewCTFile, "w" ) ) )
     {
-        ShowError ( MSG_ERR_NoNewCTFile );
+        ShowError ( MSG_ERR_NONEWCTFILE );
     }
 
     if ( !NoBufferedIO )

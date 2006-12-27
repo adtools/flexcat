@@ -41,6 +41,26 @@ void CloseFlexCatCatalog( void )
 {}
 
 char * FlexCat_Strings[46] = {
+    "Usage:",
+    "  CDFILE         Catalog description file to scan\n"\
+	"  CTFILE         Catalog translation file to scan\n"\
+	"  CATALOG        Catalog file to create\n"\
+	"  NEWCTFILE      Catalog translation file to create\n"\
+	"  SOURCES        Sources to create; must be something like SFILE=SDFILE,\n"\
+	"                 where SFILE is a source file and SDFILE is a source\n"\
+	"                 description file\n"\
+	"  WARNCTGAPS     Warn about identifiers missing in translation\n"\
+	"  NOOPTIM        Do not skip unchanged strings in translation/description\n"\
+	"  FILL           Fill missing identifiers with original text\n"\
+	"  FLUSH          Flush memory after the catalog is created\n"\
+	"  NOBEEP         No DisplayBeep() on errors and warnings\n"\
+	"  QUIET          No warnings\n"\
+	"  NOLANGTOLOWER  Prevent #language name from being lowercased\n"\
+	"  NOBUFFEREDIO   Disable I/O buffers\n"\
+	"  MODIFIED       Create catalog only if description/translation have changed\n"\
+	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
+	"  OLDMSGNEW      Custom marker in old translation",
+    "File '%s' is up to date",
     "%s, line %d - warning: ",
     "expected hex character (one of [0-9a-fA-F])",
     "expected octal character (one of [0-7])",
@@ -53,7 +73,7 @@ char * FlexCat_Strings[46] = {
     "identifier declared twice",
     "expected MinLen (character '/')",
     "expected MaxLen (character '/')",
-    "expected ')'",
+    "missing ')'",
     "extra characters at the end of the line",
     "unexpected end of file (missing catalog strings)",
     "string too short",
@@ -79,7 +99,6 @@ char * FlexCat_Strings[46] = {
     "Cannot open source file '%s'.",
     "Cannot open source description file '%s'.",
     "Creating a catalog requires a translation file.",
-    "File '%s' is up to date",
     "Cannot get datestamp of '%s'",
     "Original string has a trailing ellipsis ('...')",
     "Original string has trailing blanks",
@@ -88,24 +107,5 @@ char * FlexCat_Strings[46] = {
     "Catalog file name not specified at command line or "\
 	"as basename in description.",
     "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
-	"Template: ",
-    "Usage:",
-    "  CDFILE         Catalog description file to scan\n"\
-	"  CTFILE         Catalog translation file to scan\n"\
-	"  CATALOG        Catalog file to create\n"\
-	"  NEWCTFILE      Catalog translation file to create\n"\
-	"  SOURCES        Sources to create; must be something like SFILE=SDFILE,\n"\
-	"                 where SFILE is a source file and SDFILE is a source\n"\
-	"                 description file\n"\
-	"  WARNCTGAPS     Warn about identifiers missing in translation\n"\
-	"  NOOPTIM        Do not skip unchanged strings in translation/description\n"\
-	"  FILL           Fill missing identifiers with original text\n"\
-	"  FLUSH          Flush memory after the catalog is created\n"\
-	"  NOBEEP         No DisplayBeep() on errors and warnings\n"\
-	"  QUIET          No warnings\n"\
-	"  NOLANGTOLOWER  Prevent #language name from being lowercased\n"\
-	"  NOBUFFEREDIO   Disable I/O buffers\n"\
-	"  MODIFIED       Create catalog only if description/translation have changed\n"\
-	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
-	"  OLDMSGNEW      Custom marker in old translation"
+	"Template: "
 };

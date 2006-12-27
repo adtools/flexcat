@@ -56,7 +56,7 @@ void ShowError ( const char *msg, ... )
 
 void MemError ( void )
 {
-    ShowError ( MSG_ERR_MemoryError, NULL );
+    ShowError ( MSG_ERR_NOMEMORY, NULL );
 }
 
 //|
@@ -72,7 +72,7 @@ void ShowWarn ( const char *msg, ... )
     if ( !Quiet )
     {
         va_start ( args, msg );
-        fprintf ( stderr, ( char * )MSG_WARN_Warning, ScanFile, ScanLine );
+        fprintf ( stderr, ( char * )MSG_ERR_WARNING, ScanFile, ScanLine );
         vfprintf ( stderr, msg, args );
         putc ( '\n', stderr );
 	va_end ( args );

@@ -240,7 +240,7 @@ int gethex ( int c )
     {
         return ( c - 'A' + 10 );
     }
-    ShowWarn ( MSG_WARN_ExpectedHex );
+    ShowWarn ( MSG_ERR_EXPECTEDHEX );
     return ( 0 );
 }
 
@@ -258,7 +258,7 @@ int getoctal ( int c )
         return ( c - '0' );
     }
 
-    ShowWarn ( MSG_WARN_ExpectedOctal );
+    ShowWarn ( MSG_ERR_EXPECTEDOCTAL );
     return ( 0 );
 
 }
@@ -637,8 +637,8 @@ void Usage ( void )
     fprintf ( stderr, "%s\n", EString );
     fprintf ( stderr,
             "\n%s\n         FlexCat CDFILE/A,CTFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n                 WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,\n                 QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,\n                 COPYMSGNEW/S,OLDMSGNEW/K\n\n",
-            ( char * )MSG_UsageHead );
-    fprintf ( stderr, "%s\n", MSG_Usage );
+            ( char * )MSG_USAGE_HEAD );
+    fprintf ( stderr, "%s\n", MSG_USAGE );
     MyExit ( 5 );
 }
 

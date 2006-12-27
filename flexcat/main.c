@@ -297,7 +297,7 @@ int main ( int argc, char *argv[] )
                     {
                         if ( !Quiet )
                         {
-                            fprintf ( stderr, ( char * )MSG_UpToDate,
+                            fprintf ( stderr, ( char * )MSG_FILEUPTODATE,
                                       catalog );
                             putc ( '\n', stderr );
                         }
@@ -315,12 +315,12 @@ int main ( int argc, char *argv[] )
                 }
                 else
                 {
-                    ShowError ( MSG_CantCheckDate, ctfile );
+                    ShowError ( MSG_ERR_CANTCHECKDATE, ctfile );
                 }
             }
             else
             {
-                ShowError ( MSG_CantCheckDate, cdfile );
+                ShowError ( MSG_ERR_CANTCHECKDATE, cdfile );
             }
         }
     }
@@ -336,7 +336,7 @@ int main ( int argc, char *argv[] )
     {
         if ( !ctfile )
         {
-            fprintf ( stderr, ( char * )MSG_ERR_NoCTArgument );
+            fprintf ( stderr, ( char * )MSG_ERR_NOCTARGUMENT );
             Usage (  );
         }
         CreateCat ( catalog );

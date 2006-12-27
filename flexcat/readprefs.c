@@ -134,7 +134,7 @@ char ReadPrefs ( void )
                 }
                 else
                 {
-                    fputs ( ( char * )MSG_PrefsError, stderr );
+                    fputs ( ( char * )MSG_ERR_BADPREFS, stderr );
                     fputs ( ( char * )template, stderr );
                     fputs ( ( char * )"\n", stderr );
                     DisplayBeep ( NULL );

@@ -5,6 +5,17 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-12-27  David Rey <tactica@users.sourceforge.net>
+
+     * FlexCat.cd: converted all identifiers to use only uppercase letters,
+       renamed some to make them more descriptive, renamed all MSG_WARN_#?
+       identifiers as MSG_ERR_#?, then put them all together starting
+       from slot 100.
+     * createcat.c, createcatsrc.c, createct.c, main.c, readprefs.c,
+       scancd.c, scanct.c, showfuncs.c, utils.c: modified to suit
+     * flexcat_cat_other.h, flexcat_cat.h, locale.c, locale_other.c:
+       regenerated
+
 2006-12-26  David Rey <tactica@users.sourceforge.net>
 
     * createcat.c, createct.c, main.c, readprefs.c, readprefs.h,
