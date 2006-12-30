@@ -23,7 +23,7 @@
 #ifndef  FLEXCAT_SWAPFUNCS_H
 #define  FLEXCAT_SWAPFUNCS_H
 
-// Functions
+/* Functions */
 extern unsigned long   ( *SwapLong ) ( unsigned long r );
 extern unsigned short  ( *SwapWord ) ( unsigned short r );
 unsigned short  SwapWord21 ( unsigned short r );

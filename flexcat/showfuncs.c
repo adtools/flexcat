@@ -33,12 +33,12 @@ void ShowError ( const char *msg, ... )
 {
     va_list args;
 
-//  if(!Quiet)
+/* if(!Quiet) */
     {
         va_start ( args, msg );
         vfprintf ( stderr, msg, args );
         putc ( '\n', stderr );
-	va_end ( args );
+        va_end ( args );
     }
 
 #ifdef __amigados
@@ -75,7 +75,7 @@ void ShowWarn ( const char *msg, ... )
         fprintf ( stderr, ( char * )MSG_ERR_WARNING, ScanFile, ScanLine );
         vfprintf ( stderr, msg, args );
         putc ( '\n', stderr );
-	va_end ( args );
+        va_end ( args );
     }
 
     NumberOfWarnings++;

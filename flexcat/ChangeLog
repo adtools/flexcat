@@ -5,16 +5,31 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-12-30  David Rey <tactica@users.sourceforge.net>
+
+    * scancd.c, scanct.c: they now take a '#' in the first column of a
+      line as command introducer and skip any blank spaces, tabs and
+      further '#' symbols found afterwards to be compatible with CatComp
+      (fixes bug #1473677)
+    * FlexCat.cd: removed MSG_ERR_NOCTCOMMAND, now obsoleted by this change
+    * Makefile, createcat.c, createcat.h, createcatsrc.c, createcatsrc.h,
+      createct.c, createct.h, flexcat.h, getft.c, globals.h, main.c,
+      readprefs.h, scancd.c, scancd.h, scanct.c, scanct.h, showfuncs.c,
+      showfuncs.h, swapfuncs.h, utils.c, utils.h: removed C++ style comments
+      and made some other minor adjustments
+    * flexcat_cat.h, flexcat_cat_other.h, locale.c, locale_other.c:
+      regenerated
+
 2006-12-27  David Rey <tactica@users.sourceforge.net>
 
-     * FlexCat.cd: converted all identifiers to use only uppercase letters,
-       renamed some to make them more descriptive, renamed all MSG_WARN_#?
-       identifiers as MSG_ERR_#?, then put them all together starting
-       from slot 100.
-     * createcat.c, createcatsrc.c, createct.c, main.c, readprefs.c,
-       scancd.c, scanct.c, showfuncs.c, utils.c: modified to suit
-     * flexcat_cat_other.h, flexcat_cat.h, locale.c, locale_other.c:
-       regenerated
+    * FlexCat.cd: converted all identifiers to use only uppercase letters,
+      renamed some to make them more descriptive, renamed all MSG_WARN_#?
+      identifiers as MSG_ERR_#?, then put them all together starting
+      from slot 100.
+    * createcat.c, createcatsrc.c, createct.c, main.c, readprefs.c,
+      scancd.c, scanct.c, showfuncs.c, utils.c: modified to suit
+    * flexcat_cat_other.h, flexcat_cat.h, locale.c, locale_other.c:
+      regenerated
 
 2006-12-26  David Rey <tactica@users.sourceforge.net>
 
@@ -36,7 +51,7 @@ $Source$
     * createct.c: no longer forces a local codeset while updating an
       old translation on a system using locale.library V47 or newer
       (fixes bug #1367295)
-    * scancd.c: added "#array" to the ignore list (fixes bug 1204131)
+    * scancd.c: added "#array" to the ignore list (fixes bug #1204131)
 
 2006-12-24  David Rey <tactica@users.sourceforge.net>
 

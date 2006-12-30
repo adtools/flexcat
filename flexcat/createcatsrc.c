@@ -77,7 +77,7 @@ int CalcRealLength ( char *source )
 
     }
 
-// printf("%ld: '%s'\n", count, source);
+/* printf("%ld: '%s'\n", count, source); */
     return ( count );
 
 }
@@ -463,7 +463,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
     ScanFile = SourceFile;
     ScanLine = 0;
 
-    // Open the source file. This may be found in various places.
+    /* Open the source file. This may be found in various places. */
 
     if ( !( fpin = fopen ( TemplateFile, "r" ) ) )
 
@@ -549,7 +549,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                 {
 
-                // We just skip this line.
+                /* We just skip this line. */
                     continue;
 
                 }
@@ -855,7 +855,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 if ( !*currentline )
 
                                 {
-                                    // FIXME: reuse MSG_ERR_NOTRAILINGBRACKET here? <tactica>
+                                    /* FIXME: reuse MSG_ERR_NOTRAILINGBRACKET here? <tactica> */
                                     ShowWarn ( MSG_ERR_NOTERMINATEBRACKET );
 
                                 }
@@ -867,7 +867,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 }
                                 break;
 
-                            // !!!! FIX !!!!
+                            /* !!!! FIXME !!!! */
                             case 'z':
 
                                 {

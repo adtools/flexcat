@@ -23,10 +23,10 @@
 #ifndef  FLEXCAT_CREATECAT_H
 #define  FLEXCAT_CREATECAT_H
 
-// Functions
+/* Functions */
 void CreateCat ( char *CatFile );
 
-// Variables
+/* Variables */
 extern struct CatString *FirstCatString;
 extern struct CatalogChunk *FirstChunk;
 

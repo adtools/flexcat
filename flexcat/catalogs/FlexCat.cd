@@ -89,9 +89,6 @@ string too short
 MSG_ERR_STRINGTOOLONG (//)
 string too long
 ;
-MSG_ERR_NOCTCOMMAND (//)
-missing command in translation (expected a second '#')
-;
 MSG_ERR_UNKNOWNCTCOMMAND (//)
 unknown command in translation
 ;

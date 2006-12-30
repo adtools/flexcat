@@ -167,7 +167,7 @@ void CreateCat ( char *CatFile )
 
         cc.ChunkStr = strdup ( CatVersionString );
 
-    // Replace $TODAY placeholder
+        /* Replace $TODAY placeholder */
 
         found = strstr ( cc.ChunkStr, "$TODAY" );
         if ( found )
@@ -195,7 +195,7 @@ void CreateCat ( char *CatFile )
                 MemError (  );
         }
         
-    // Replace ".ct" with ".catalog"
+        /* Replace ".ct" with ".catalog" */
 
         found = strstr ( cc.ChunkStr, ".ct " );
         if ( found )
@@ -344,7 +344,7 @@ void CreateCat ( char *CatFile )
             CatLen += 4 + CatPuts ( fp, cs->CT_Str, 4, FALSE, cs->LenBytes );
         }
 
-    //printf("LB=%d\n", cs->LenBytes);
+    /* printf("LB=%d\n", cs->LenBytes); */
 
     }
     {

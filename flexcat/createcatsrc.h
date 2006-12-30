@@ -23,7 +23,7 @@
 #ifndef  FLEXCAT_CREATECATSRC_H
 #define  FLEXCAT_CREATECATSRC_H
 
-// Functions
+/* Functions */
 void CreateSourceFile ( char *SourceFile, char *TemplateFile,
                         char *CDFile );
 

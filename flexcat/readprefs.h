@@ -23,10 +23,10 @@
 #ifndef  FLEXCAT_READPREFS_H
 #define  FLEXCAT_READPREFS_H
 
-// Functions
+/* Functions */
 char            ReadPrefs ( void );
 
-// Variables
+/* Variables */
 extern char    *prefs_sddir;
 extern int      WarnCTGaps;
 extern int      NoOptim;

@@ -209,9 +209,7 @@ char           *AddCatalogChunk ( char *ID, const char *string )
     cc->ID = *( ( ULONG * ) ID );
     cc->ChunkStr = AllocString ( string );
 
-/*
-   Put the new chunk at the end of the chunk list. 
- */
+    /* Put the new chunk at the end of the chunk list. */
 
     for ( ccptr = &FirstChunk; *ccptr != NULL; ccptr = &( *ccptr )->Next )
     {
@@ -336,9 +334,7 @@ char           *ReadLine ( FILE * fp, int AllowComment )
             case EOF:
                 break;
 
-            /*
-               Let's check for trailing \\ 
-             */
+            /* Check for trailing \\ */
 
             case '\\':
                 {
@@ -564,9 +560,7 @@ char           *AllocFileName ( char *filename, int howto )
         MyExit ( 10 );
     }
 
-/*
-   Remove pathname components, if desired 
- */
+    /* Remove pathname components, if desired. */
 
     if ( howto & 2 )
     {
@@ -580,7 +574,7 @@ char           *AllocFileName ( char *filename, int howto )
         }
     }
 
-/* Remove ending, if desired. */
+    /* Remove ending, if desired. */
 
     if ( howto & 1 )
     {

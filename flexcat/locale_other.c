@@ -40,7 +40,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-char * FlexCat_Strings[46] = {
+char * FlexCat_Strings[45] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -78,7 +78,6 @@ char * FlexCat_Strings[46] = {
     "unexpected end of file (missing catalog strings)",
     "string too short",
     "string too long",
-    "missing command in translation (expected a second '#')",
     "unknown command in translation",
     "'%s' missing in catalog description",
     "unknown string type",

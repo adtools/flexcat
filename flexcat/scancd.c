@@ -78,15 +78,19 @@ int ScanCDFile ( char *cdfile )
         {
             int             CheckExtra = TRUE;
 
-            if ( Strnicmp ( line + 1, "language", 8 ) == 0 ||
-                 Strnicmp ( line + 1, "#language", 9 ) == 0 )
+            /* '#' in the first  column of a line is the command introducer --
+               any number of # symbols, blank spaces and tabs afterwards are
+               skipped for compatibility with CatComp */
+
+            while ( ( *line == '#' ) || ( *line == ' ' ) || ( *line == '\t' ) )
+            {
+                ++line;
+            }
+            
+            if ( Strnicmp ( line, "language", 8 ) == 0 )
             {
                 char           *ptr;
-
-                if ( Strnicmp ( line + 1, "language", 8 ) == 0 )
-                    line += 9;
-                else
-                    line += 10;
+                line += 9;
                 OverSpace ( &line );
                 Language = AllocString ( line );
                 if ( LANGToLower )
@@ -100,43 +104,35 @@ int ScanCDFile ( char *cdfile )
         	CheckExtra = FALSE;
 
             }
-            else if ( Strnicmp ( line + 1, "version", 7 ) == 0 ||
-                      Strnicmp ( line + 1, "#version", 8 ) == 0 )
+
+            else if ( Strnicmp ( line, "version", 7 ) == 0 )
             {
-                if ( Strnicmp ( line + 1, "#version", 8 ) == 0 )
-                    line += 9;
-                else
-                    line += 8;
+                line += 8;
                 OverSpace ( &line );
                 CatVersion = strtol ( line, &line, 0 );
                 CheckExtra = TRUE;
             }
-            else if ( Strnicmp ( line + 1, "basename", 8 ) == 0 ||
-                      Strnicmp ( line + 1, "#basename", 9 ) == 0 )
+            else if ( Strnicmp ( line, "basename", 8 ) == 0 )
             {
-                if ( Strnicmp ( line + 1, "#basename", 9 ) == 0 )
-                    line += 10;
-                else
-                    line += 9;
+                line += 9;
                 OverSpace ( &line );
                 free ( BaseName );
                 BaseName = AllocString ( line );
                 CheckExtra = FALSE;
-
             }
-            else if ( Strnicmp ( line + 1, "ifdef", 5 ) == 0 )
+            else if ( Strnicmp ( line, "ifdef", 5 ) == 0 )
             {
                 continue;
             }
-            else if ( Strnicmp ( line + 1, "endif", 5 ) == 0 )
+            else if ( Strnicmp ( line, "endif", 5 ) == 0 )
             {
                 continue;
             }
-            else if ( Strnicmp ( line + 1, "array", 5 ) == 0 )
+            else if ( Strnicmp ( line, "array", 5 ) == 0 )
             {
                 continue;
             }
-            else if ( Strnicmp ( line + 1, "header", 6 ) == 0 )
+            else if ( Strnicmp ( line, "header", 6 ) == 0 )
             {
                 line += 7;
                 OverSpace ( &line );
@@ -145,20 +141,12 @@ int ScanCDFile ( char *cdfile )
                 CheckExtra = FALSE;
 
             }
-            else if ( Strnicmp ( line + 1, "lengthbytes", 11 ) == 0 ||
-                      Strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )
+            else if ( Strnicmp ( line, "lengthbytes", 11 ) == 0 )
             {
-                if ( Strnicmp ( line + 1, "#lengthbytes", 12 ) == 0 )
-                    line += 13;
-                else
-                    line += 12;
+                line += 12;
                 OverSpace ( &line );
                 lenbytes = atoi ( line );
                 CheckExtra = FALSE;
-            }
-            else if ( Strnicmp ( line + 1, "#", 1 ) == 0 )
-            {
-                continue;
             }
             else
             {
@@ -181,7 +169,7 @@ int ScanCDFile ( char *cdfile )
         {
             char           *idstr;
 
-        // Some blanks on start of line.
+            /* Check for blanks at the start of line. */
 
             if ( *line == ' ' || *line == '\t' )
             {
@@ -243,7 +231,7 @@ int ScanCDFile ( char *cdfile )
                 cs->ID_Str[line - idstr] = '\0';
                 OverSpace ( &line );
 
-            // Next char in line is '('? (//)
+                /* Check if next char in line is '('? (//) */
 
                 if ( *line != '(' )
                 {
@@ -260,7 +248,7 @@ int ScanCDFile ( char *cdfile )
                     ++line;
                     OverSpace ( &line );
 
-                // Check for default config of line (//)
+                    /* Check for default config of line (//) */
 
                     if ( *line != '/' )
                     {
@@ -281,7 +269,7 @@ int ScanCDFile ( char *cdfile )
                         OverSpace ( &line );
                     }
 
-                // Check for already used identifier.
+                    /* Check for already used identifier. */
 
                     for ( scs = FirstCatString; scs != NULL; scs = scs->Next )
                     {
@@ -297,7 +285,8 @@ int ScanCDFile ( char *cdfile )
                         }
                     }
 
-                // Does line have a minlen value (//) ?
+                    /* Check for min/len values (//) */
+
                     if ( *line != '/' )
                     {
                         ShowWarn ( MSG_ERR_NOMINLEN );
@@ -343,7 +332,7 @@ int ScanCDFile ( char *cdfile )
                         }
                     }
 
-                // Huh? There is no string for this definition?
+                    /* Huh? There is no string for this definition? */
 
                     if ( !( newline = ReadLine ( fp, FALSE ) ) )
                     {
@@ -357,7 +346,7 @@ int ScanCDFile ( char *cdfile )
                         free ( newline );
                     }
 
-                // Get string length.
+                    /* Get string length. */
 
                     oldstr = cs->CD_Str;
                     reallen = 0;
@@ -371,14 +360,14 @@ int ScanCDFile ( char *cdfile )
                         reallen += bytesread;
                     }
 
-                // String too short.
+                    /* String too short. */
 
                     if ( cs->MinLen > 0 && reallen < cs->MinLen )
                     {
                         ShowWarn ( MSG_ERR_STRINGTOOSHORT );
                     }
 
-                // String too long.
+                    /* String too long. */
 
                     if ( cs->MaxLen > 0 && reallen > cs->MaxLen )
                     {

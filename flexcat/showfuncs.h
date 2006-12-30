@@ -23,7 +23,7 @@
 #ifndef  FLEXCAT_SHOWFUNCS_H
 #define  FLEXCAT_SHOWFUNCS_H
 
-// Functions
+/* Functions */
 void            ShowError ( const char *msg, ... );
 void            MemError ( void );
 void            ShowWarn ( const char *msg, ... );

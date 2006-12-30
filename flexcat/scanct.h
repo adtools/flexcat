@@ -23,10 +23,10 @@
 #ifndef  FLEXCAT_SCANCT_H
 #define  FLEXCAT_SCANCT_H
 
-// Functions
+/* Functions */
 int             ScanCTFile ( char *ctfile );
 
-// Variables
+/* Variables */
 extern char    *CatVersionString;
 extern char    *CatLanguage;
 extern char    *CatRcsId;

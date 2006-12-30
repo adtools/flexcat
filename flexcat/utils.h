@@ -23,7 +23,7 @@
 #ifndef  FLEXCAT_UTILS_H
 #define  FLEXCAT_UTILS_H
 
-// Functions
+/* Functions */
 void            MyExit ( int Code );
 char           *AllocString ( const char *str );
 char           *AddCatalogChunk ( char *ID, const char *string );

@@ -82,13 +82,15 @@ int ScanCTFile ( char *ctfile )
 
             case '#':
 
-            // looking for command;
+                /* '#' in the first  column of a line is the command introducer --
+                any number of # symbols, blank spaces and tabs afterwards are
+                skipped for compatibility with CatComp */
 
-                if ( *( ++line ) != '#' )
+                while ( ( ( *line ) == '#' ) || ( ( *line ) == ' ' ) || ( ( *line ) == '\t' ) )
                 {
-                    ShowWarn ( MSG_ERR_NOCTCOMMAND );
+                    ++line;
                 }
-                ++line;
+
                 OverSpace ( &line );
                 if ( Strnicmp ( line, "version", 7 ) == 0 )
                 {
@@ -158,26 +160,12 @@ int ScanCTFile ( char *ctfile )
                     OverSpace ( &line );
                     CatName = AllocString ( line );
                 }
-
-            /*
-               This directive cannot be in .ct file
-               else if ( Strnicmp ( line + 1, "lengthbytes", 11 ) == 0 )
-               {
-               line += 12;
-               if ( ( LengthBytes = strtol ( line, &line, 0 ) )
-               > sizeof ( long ) )
-               {
-               ShowWarn ( MSG_ERR_NOLENGTHBYTES, sizeof ( long ) );
-               LengthBytes = sizeof ( long );
-               }
-               }
-             */
                 else
                 {
                     ShowWarn ( MSG_ERR_UNKNOWNCTCOMMAND );
                 }
 
-            // End: looking command
+                /* Stop looking for commands */
 
                 break;
 
@@ -243,7 +231,7 @@ int ScanCTFile ( char *ctfile )
                         cs->CT_Str = AllocString ( newstr );
                         cs->NotInCT = FALSE;
 
-                    // Get stringlen
+                        /* Get string length */
 
                         oldstr = cs->CT_Str;
                         reallen = 0;
@@ -267,7 +255,7 @@ int ScanCTFile ( char *ctfile )
                         }
 
 
-                    // Check for trailing ellipsis...
+                        /* Check for trailing ellipsis. */
 
                         if ( reallen >= 3 )
                         {
@@ -281,14 +269,14 @@ int ScanCTFile ( char *ctfile )
                                          ( &cs->CT_Str[reallen - 2],
                                            "..." ) != 0 )
                                     {
-                                    // printf("ORG: '%s'\nNEW: '%s'\n", cs->CD_Str, cs->CT_Str);
+                                    /* printf("ORG: '%s'\nNEW: '%s'\n", cs->CD_Str, cs->CT_Str); */
                                         ShowWarn ( MSG_ERR_TRAILINGELLIPSIS );
                                     }
                             }
                         }
 
 
-                    // Check for trailing spaces
+                        /* Check for trailing spaces. */
 
                         if ( reallen >= 1 )
                         {

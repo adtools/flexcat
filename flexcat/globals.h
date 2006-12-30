@@ -23,7 +23,7 @@
 #ifndef  FLEXCAT_GLOBALS_H
 #define  FLEXCAT_GLOBALS_H
 
-// Variables
+/* Variables */
 extern int      buffer_size;
 extern char    *ScanFile;
 extern int      ScanLine;

@@ -23,10 +23,10 @@
 #ifndef  FLEXCAT_SCANCD_H
 #define  FLEXCAT_SCANCD_H
 
-// Functions
+/* Functions */
 int             ScanCDFile ( char *cdfile );
 
-// Variables
+/* Variables */
 extern char    *HeaderName;
 extern struct CDLine *FirstCDLine;
 

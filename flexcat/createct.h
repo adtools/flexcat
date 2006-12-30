@@ -23,7 +23,7 @@
 #ifndef  FLEXCAT_CREATECT_H
 #define  FLEXCAT_CREATECT_H
 
-// Functions
+/* Functions */
 void CreateCTFile ( char *NewCTFile );
 
 #endif  /* FLEXCAT_CREATECT_H */

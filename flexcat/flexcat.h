@@ -23,7 +23,7 @@
 #ifndef  FLEXCAT_H
 #define  FLEXCAT_H
 
-// Amiga enviroment?
+/* Amiga enviroment? */
 #ifdef AMIGA
  #define __amigados
  #include "flexcat_cat.h"

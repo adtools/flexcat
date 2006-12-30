@@ -44,8 +44,6 @@ void CreateCTFile ( char *NewCTFile )
     if ( !CatVersionString && !CatRcsId )
     {
         ScanLine = 1;
-    // ##version,##rcsid,##name are not valid for *.cd-files
-    // ShowWarn(MSG_ERR_NOCTVERSION);
     }
 
     if ( CatLanguage == NULL )
@@ -160,25 +158,26 @@ void CreateCTFile ( char *NewCTFile )
  * needs a smarter approach. <tactica>
  */
 
-// #ifdef __amigados
-//     if ( CodeSet == 0 )
-//     {
-//         struct LocaleBase *LocaleBase;
-//         struct Locale  *my_locale;
-// 
-//         if ( ( LocaleBase =
-//                ( struct LocaleBase * )OpenLibrary ( "locale.library",
-//                                                     47L ) ) != NULL )
-//         {
-//             if ( ( my_locale = OpenLocale ( NULL ) ) != NULL )
-//             {
-//                 CodeSet = my_locale->loc_CodeSet;
-//                 CloseLocale ( my_locale );
-//             }
-//             CloseLibrary ( ( struct Library * )LocaleBase );
-//         }
-//     }
-// #endif
+/* #ifdef __amigados
+     if ( CodeSet == 0 )
+     {
+         struct LocaleBase *LocaleBase;
+         struct Locale  *my_locale;
+ 
+         if ( ( LocaleBase =
+                ( struct LocaleBase * )OpenLibrary ( "locale.library",
+                                                     47L ) ) != NULL )
+         {
+             if ( ( my_locale = OpenLocale ( NULL ) ) != NULL )
+             {
+                 CodeSet = my_locale->loc_CodeSet;
+                 CloseLocale ( my_locale );
+             }
+             CloseLibrary ( ( struct Library * )LocaleBase );
+         }
+     }
+ #endif
+*/
 
     fprintf ( fp, "## language %s\n## codeset %d\n;\n",
               ctlanguage ? ctlanguage : "X", CodeSet );

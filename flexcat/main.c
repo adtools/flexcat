@@ -93,7 +93,7 @@ int main ( int argc, char *argv[] )
     char           *source, *template, makenewct = FALSE, makecatalog = FALSE;
     int             i;
 
-    if ( argc == 0 )            // Aztec's entry point for workbench programs
+    if ( argc == 0 )            /* Aztec's entry point for workbench programs */
     {
         fprintf ( stderr, "FlexCat can't be run from Workbench!\n\n" );
         fprintf ( stderr, "Open a Shell session and type FlexCat ?\n" );
@@ -105,7 +105,7 @@ int main ( int argc, char *argv[] )
 
     OpenFlexCatCatalog (  );
 
-// Big Endian vs Little Endian (both supported ;-)
+    /* Big Endian vs. Little Endian (both supported ;-) */
 
     if ( !SwapChoose (  ) )
     {
@@ -241,7 +241,7 @@ int main ( int argc, char *argv[] )
         else if ( strchr ( argv[i], '=' ) )
         {
 
-// Determine basename.
+            /* Determine basename. */
 
             if ( BaseName == NULL && cdfile != NULL )
             {

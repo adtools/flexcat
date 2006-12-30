@@ -79,7 +79,6 @@ locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
 	flexcat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
 flexcat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd
 	flexcat catalogs/FlexCat.cd flexcat_cat.h=lib/NoAutoC_h.sd
-
 locale_other.c: catalogs/FlexCat.cd lib/Hardcode_c.sd
 	flexcat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
 flexcat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
