@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $Source$
 
+2006-12-31  Joerg Strohmayer <nospam@gmx.de>
+    * Makefile, flexcat.h: Several flexcat->FlexCat changes to be able to
+      build on case sensitive file systems, renamed flexcat_cat(_other).h
+      to FlexCat_cat(_other).h for the same reason.
+
 2006-12-30  David Rey <tactica@users.sourceforge.net>
 
     * scancd.c, scanct.c: they now take a '#' in the first column of a

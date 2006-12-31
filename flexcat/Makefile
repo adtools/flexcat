@@ -70,26 +70,26 @@ endif
 OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
       scancd.o scanct.o showfuncs.o swapfuncs.o utils.o $(CATOBJS)
 
-all: $(CATFILES) flexcat
+all: $(CATFILES) FlexCat
 
-flexcat: $(OBJS) $(CATFILES)
+FlexCat: $(OBJS) $(CATFILES)
 	$(CC) -o FlexCat $(OBJS) $(LDFLAGS)
 
 locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
-	flexcat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
-flexcat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd
-	flexcat catalogs/FlexCat.cd flexcat_cat.h=lib/NoAutoC_h.sd
+	FlexCat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
+FlexCat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd
+	FlexCat catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
 locale_other.c: catalogs/FlexCat.cd lib/Hardcode_c.sd
-	flexcat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
-flexcat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
-	flexcat catalogs/FlexCat.cd flexcat_cat_other.h=lib/Hardcode_h.sd
+	FlexCat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
+FlexCat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
+	FlexCat catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
 
 clean:
 	$(REMOVE) *.o
 	$(REMOVE) *.020*
 	$(REMOVE) *.040*
 	$(REMOVE) *.060*
-	$(REMOVE) flexcat
+	$(REMOVE) FlexCat
 
 doc:
 	$(MAKEINFO) docs/FlexCat_german.texinfo --amiga-39 --fill-column 76 --output docs/FlexCat_deutsch.guide
