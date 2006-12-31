@@ -30,7 +30,7 @@ ifeq ($(OS), MorphOS)
 # be opened automatically. Don't remove it.
 CC          =   ppc-morphos-gcc
 LDFLAGS     =   -lauto -noixemul
-CATFILES    =   flexcat_cat.h
+CATFILES    =   FlexCat_cat.h
 CATOBJS     =   locale.o
 
 else
@@ -41,7 +41,7 @@ ifeq ($(OS), AmigaOS)
 CC          =   m68k-amigaos-gcc
 LDFLAGS     =   -lamiga -noixemul
 CFLAGS      +=  -DNO_INLINE_STDARG
-CATFILES    =   flexcat_cat.h
+CATFILES    =   FlexCat_cat.h
 CATOBJS     =   locale.o getft.o
 
 else
@@ -52,7 +52,7 @@ ifeq ($(OS), AmigaOS4)
 CC          =   ppc-amigaos-gcc
 LDFLAGS     =   -mcrt=newlib -lauto -lunix
 CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
-CATFILES    =   flexcat_cat.h
+CATFILES    =   FlexCat_cat.h
 CATOBJS     =   locale.o getft.o
 
 else
@@ -60,7 +60,7 @@ else
 # Building on UNIX
 
 LDFLAGS     =
-CATFILES    =   flexcat_cat_other.h
+CATFILES    =   FlexCat_cat_other.h
 CATOBJS     =   locale_other.o
 
 endif
