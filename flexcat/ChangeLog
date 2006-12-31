@@ -3,7 +3,7 @@ FlexCat Open Source - Changelog
 -------------------------------
 
 $Id$
-$Source$
+$URL$
 
 2006-12-31  Joerg Strohmayer <nospam@gmx.de>
     * Makefile, flexcat.h: Several flexcat->FlexCat changes to be able to
