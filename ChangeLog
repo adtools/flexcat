@@ -33,6 +33,11 @@ $URL$
       typos
     * Oberon-A.sd: typos fixed
     * Minor changes in most source descriptors to make them more consistent
+    * scanct.c: now checks for trailing spaces added in the translation, too
+      (fixes bug #747905)
+    * FlexCat.cd: added new error string to match the new feature
+    * FlexCat_cat.h, FlexCat_cat_other.h, locale.c, locale_other.c:
+      regenerated
 
 2006-12-31  Joerg Strohmayer <nospam@gmx.de>
 

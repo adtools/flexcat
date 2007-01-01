@@ -1,12 +1,15 @@
+
 /****************************************************************
+
    This file was created automatically by `FlexCat 2.7-dev'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 /* Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
- * Copyright (C) 2002-2006 by the FlexCat Open Source Team
+ * Copyright (C) 2002-2007 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,10 +29,10 @@
 
 /****************************************************************
 
-   This file provide at least the minimal compatiblity with
-   AmigaOS catalog system on other platforms. It creates
-   necessary string tables (hardcoded ATM) and functions to
-   make code work under any operating system.
+   This file provides at least minimal compatibility with
+   the AmigaOS catalog system on other platforms. It creates
+   the necessary string tables (hardcoded ATM) and functions
+   to make code work under any operating system.
 
    Carlos
 
@@ -40,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-char * FlexCat_Strings[45] = {
+char * FlexCat_Strings[46] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -106,5 +109,6 @@ char * FlexCat_Strings[45] = {
     "Catalog file name not specified at command line or "\
 	"as basename in description.",
     "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
-	"Template: "
+	"Template: ",
+    "Original string doesn't have trailing blanks"
 };

@@ -1,8 +1,11 @@
+
 /****************************************************************
+
    This file was created automatically by `FlexCat 2.7-dev'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 /* Include files */
@@ -81,6 +84,7 @@ struct FC_String FlexCat_Strings[] =
 	"as basename in description.", 140 },
    { "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
 	"Template: ", 141 },
+   { "Original string doesn't have trailing blanks", 142 },
    { NULL, 0 }
 };
 
@@ -124,4 +128,3 @@ void LocalizeStringArray(STRPTR *Array)
       *x = strdup(FlexCat_Strings[(int)*x].Str);
    }
 }
-

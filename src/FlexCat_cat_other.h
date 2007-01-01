@@ -1,14 +1,17 @@
+
 /****************************************************************
+
    This file was created automatically by `FlexCat 2.7-dev'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 /****************************************************************
 
    This file is a quick-hack-solution for all of you wanting
-   to compile FlexCat on non-amiga platform. It creates
+   to compile FlexCat on non-amiga platform. It creates the
    necessary string tables (hardcoded ATM) and functions to
    make code work under any operating system.
 
@@ -69,5 +72,6 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_NOCTFILENAME FlexCat_Strings[42]
 #define MSG_ERR_NOCATFILENAME FlexCat_Strings[43]
 #define MSG_ERR_BADPREFS FlexCat_Strings[44]
+#define MSG_ERR_NOTRAILINGBLANKS FlexCat_Strings[45]
 
 #endif

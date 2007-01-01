@@ -1,8 +1,11 @@
+
 /****************************************************************
+
    This file was created automatically by `FlexCat 2.7-dev'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 #ifndef FlexCat_CAT_H
@@ -115,5 +118,7 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_NOCATFILENAME 43
 #define MSG_ERR_BADPREFS (FlexCat_Strings[44].Str)
 #define _MSG_ERR_BADPREFS 44
+#define MSG_ERR_NOTRAILINGBLANKS (FlexCat_Strings[45].Str)
+#define _MSG_ERR_NOTRAILINGBLANKS 45
 
 #endif

@@ -284,15 +284,20 @@ int ScanCTFile ( char *ctfile )
 
                             if ( cd_len >= 1 )
                             {
-                                if ( strcmp ( &cs->CD_Str[cd_len - 1], " " )
-                                     == 0 )
-                                    if ( strcmp
-                                         ( &cs->CT_Str[reallen - 1],
-                                           " " ) != 0 )
-                                        ShowWarn ( MSG_ERR_TRAILINGBLANKS );
+                                if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) == 0 ) &&
+                                     ( strcmp ( &cs->CT_Str[reallen - 1], " " ) != 0 ) )
+                                
+                                {
+                                    ShowWarn ( MSG_ERR_TRAILINGBLANKS );
+                                }
+                                if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) != 0 ) &&
+                                     ( strcmp ( &cs->CT_Str[reallen - 1], " " ) == 0 ) )
+                                
+                                {
+                                    ShowWarn ( MSG_ERR_NOTRAILINGBLANKS );
+                                }
                             }
                         }
-
 
                     }
                     free ( newstr );
@@ -307,7 +312,7 @@ int ScanCTFile ( char *ctfile )
         }
         free ( newline );
     }
-
+    
     fclose ( fp );
 
     if ( WarnCTGaps )

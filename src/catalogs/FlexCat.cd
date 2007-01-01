@@ -168,3 +168,6 @@ MSG_ERR_BADPREFS (//)
 Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
 Template: 
 ;
+MSG_ERR_NOTRAILINGBLANKS (//)
+Original string doesn't have trailing blanks
+;
