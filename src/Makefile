@@ -75,21 +75,28 @@ all: $(CATFILES) FlexCat
 FlexCat: $(OBJS) $(CATFILES)
 	$(CC) -o FlexCat $(OBJS) $(LDFLAGS)
 
-locale.c: /catalogs/FlexCat.cd lib/NoAutoC_c.sd
-	FlexCat /catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
-FlexCat_cat.h: /catalogs/FlexCat.cd lib/NoAutoC_h.sd
-	FlexCat /catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
-locale_other.c: /catalogs/FlexCat.cd lib/Hardcode_c.sd
-	FlexCat /catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
-FlexCat_cat_other.h: /catalogs/FlexCat.cd lib/Hardcode_h.sd
-	FlexCat /catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
+locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
+	FlexCat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
+FlexCat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd
+	FlexCat catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
+locale_other.c: catalogs/FlexCat.cd lib/Hardcode_c.sd
+	FlexCat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
+FlexCat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
+	FlexCat catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
 
 clean:
 	$(REMOVE) *.o
-	$(REMOVE) *.020*
-	$(REMOVE) *.040*
-	$(REMOVE) *.060*
 	$(REMOVE) FlexCat
+	$(REMOVE) /doc/*.guide
+
+realclean:
+	$(REMOVE) *.o
+	$(REMOVE) FlexCat
+	$(REMOVE) /doc/*.guide
+	$(REMOVE) FlexCat_cat.h
+	$(REMOVE) FlexCat_cat_other.h
+	$(REMOVE) locale.c
+	$(REMOVE) locale_other.c
 
 doc:
 	$(MAKEINFO) /doc/FlexCat_german.texinfo --amiga-39 --fill-column 76 --output /doc/FlexCat_deutsch.guide
