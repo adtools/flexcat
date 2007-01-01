@@ -2,7 +2,7 @@
 /* $Id$
  * 
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
- * Copyright (C) 2002-2006 by the FlexCat Open Source Team
+ * Copyright (C) 2002-2007 by the FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,9 +34,9 @@
 
 #define VERSION                2
 #define REVISION               7
-#define DATE                   "1.11.2006"
+#define DATE                   "1.1.2007"
 #define VERS                   "FlexCat 2.7-dev"
-#define VSTRING                VERS " (" DATE ") (C) 2002-2006 FlexCat Open Source Team"
+#define VSTRING                VERS " (" DATE ") (C) 2002-2007 FlexCat Open Source Team"
 #define VERSTAG                "\0$VER: " VSTRING
 
 #include <stdlib.h>
