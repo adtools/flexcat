@@ -5,7 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2007-01-01  David Rey <tactica@users.sourceforge.net>
+
+    * ChangeLog: replaced "Source" with "URL" keyword for SVN
+
 2006-12-31  Joerg Strohmayer <nospam@gmx.de>
+
     * Makefile, flexcat.h: Several flexcat->FlexCat changes to be able to
       build on case sensitive file systems, renamed flexcat_cat(_other).h
       to FlexCat_cat(_other).h for the same reason.
