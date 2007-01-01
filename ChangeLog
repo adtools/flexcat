@@ -1,0 +1,141 @@
+-------------------------------
+FlexCat Open Source - Changelog
+-------------------------------
+
+$Id$
+$URL$
+
+2007-01-01  David Rey <tactica@users.sourceforge.net>
+
+    * ChangeLog: replaced "Source" with "URL" keyword for SVN
+
+2006-12-31  Joerg Strohmayer <nospam@gmx.de>
+
+    * Makefile, flexcat.h: Several flexcat->FlexCat changes to be able to
+      build on case sensitive file systems, renamed flexcat_cat(_other).h
+      to FlexCat_cat(_other).h for the same reason.
+
+
+--- Sources moved to SubVersion ---
+
+
+2006-12-30  David Rey <tactica@users.sourceforge.net>
+
+    * scancd.c, scanct.c: they now take a '#' in the first column of a
+      line as command introducer and skip any blank spaces, tabs and
+      further '#' symbols found afterwards to be compatible with CatComp
+      (fixes bug #1473677)
+    * FlexCat.cd: removed MSG_ERR_NOCTCOMMAND, now obsoleted by this change
+    * Makefile, createcat.c, createcat.h, createcatsrc.c, createcatsrc.h,
+      createct.c, createct.h, flexcat.h, getft.c, globals.h, main.c,
+      readprefs.h, scancd.c, scancd.h, scanct.c, scanct.h, showfuncs.c,
+      showfuncs.h, swapfuncs.h, utils.c, utils.h: removed C++ style comments
+      and made some other minor adjustments
+    * flexcat_cat.h, flexcat_cat_other.h, locale.c, locale_other.c:
+      regenerated
+
+2006-12-27  David Rey <tactica@users.sourceforge.net>
+
+    * FlexCat.cd: converted all identifiers to use only uppercase letters,
+      renamed some to make them more descriptive, renamed all MSG_WARN_#?
+      identifiers as MSG_ERR_#?, then put them all together starting
+      from slot 100.
+    * createcat.c, createcatsrc.c, createct.c, main.c, readprefs.c,
+      scancd.c, scanct.c, showfuncs.c, utils.c: modified to suit
+    * flexcat_cat_other.h, flexcat_cat.h, locale.c, locale_other.c:
+      regenerated
+
+2006-12-26  David Rey <tactica@users.sourceforge.net>
+
+    * createcat.c, createct.c, main.c, readprefs.c, readprefs.h,
+      utils.c, FlexCat.cd: completely removed support for the NOSPACE
+      and NOAUTODATE switches.
+    * Makefile: now generates "FlexCat", not "flexcat".
+    * flexcat_cat.h, flexcat_cat_other.h, locale_other.c, locale.c:
+      regenerated.
+
+2006-12-25  David Rey <tactica@users.sourceforge.net>
+
+    * Makefile: now detects AmigaOS 4 automatically and doesn't need
+      "OS=AmigaOS4" anymore (thanks to Henning Nielsen Lund for the
+      patch), and "clean" also removes the m68k specific builds (and
+      patches)
+    * getft.c: fixed the remaining warning (Henning again)
+    * createcat.c: now always generates 4-digit years
+    * createct.c: no longer forces a local codeset while updating an
+      old translation on a system using locale.library V47 or newer
+      (fixes bug #1367295)
+    * scancd.c: added "#array" to the ignore list (fixes bug #1204131)
+
+2006-12-24  David Rey <tactica@users.sourceforge.net>
+
+    * in: removed, no use for it
+
+2006-11-23  David Rey <tactica@users.sourceforge.net>
+
+    * Makefile: added "-Wall -Wwrite-strings" to the default CFLAGS,
+      also added explicitly the native MorphOS GCC to the MorphOS build
+      process, and the AmigaOS/m68k GCC to the original AmigaOS build,
+      plus the missing getft.o object and "-DNO_INLINE_STDARG" as CFLAGS to
+      the latter, thanks to Joachim Birging and Henning Nielsen Lund for
+      the patches.
+    * getft.c: replaced the reference to ZERO with NULL for compatibility
+      (again Joachim)
+
+2006-11-01  David Rey <tactica@users.sourceforge.net>
+
+    * Makefile: now builds with recent versions of GCC for OS4
+      (-newlib -> -mcrt=newlib), supports crosscompilers for
+      this target, added -Wall -Wwrite-strings to the CFLAGS for
+      the OS4 target.
+      (Patch #1588835 from Henning Nielsen Lund <hnl_dk@users.sourceforge.net>)
+    * createcat.c, createcatsrc.c, createct.c, flexcat.h, getft.c, globals.c,
+      readprefs.c, scancd.c, scanct.c, utils.c: no longer throw warnings with
+      -Wwrite-strings
+      (same patch)
+    * flexcat.h: modified version string to mark the current build as a
+      development version
+    * lib/NoAutoC_c.sd, lib/NoAutoC_h.sd: fixed -Wwrite-strings warnings
+      in the auto-generated files.
+      (Patch #1588907 from Henning Nielsen Lund <hnl_dk@users.sourceforge.net>)
+    * locale.c, flexcat_cat.h: regenerated
+
+2006-03-25  David Rey <tactica@users.sourceforge.net>
+
+    * todo: translated the Polish bits to English thanks to the
+      help of Mariusz Danilewicz, also updated it in the process.
+
+2006-03-24  David Rey <tactica@users.sourceforge.net>
+
+    * createct.c: the "## version" header in translations generated
+      with the NEWCTFILE switch no longer contains "<name.ct>", but
+      "<name.catalog>" for compatibility with other compilers (fixes
+      bug #778520); as well, we now generate years properly instead
+      of 2-digit ones.
+    * FlexCat.¶, FlexCatFinal.¶, FlexCatPPC.¶: removed
+
+2006-03-20  David Rey <tactica@users.sourceforge.net>
+
+    * createcat.c, createcat.h, createcatsrc.c, createcatsrc.h,
+      createct.c, createct.h, flexcat.h, getft.c, globals.c, globals.h,
+      main.c, readprefs.c, readprefs.h, scancd.c, scancd.h, scanct.c,
+      scanct.h, showfuncs.c, showfuncs.h, swapfuncs.c, swapfuncs.h,
+      utils.c, utils.h: updated copyright notices, unified formatting
+      and comments style where appropriate, fixed some harmless
+      typos, dropped all the tabs spotted in the process
+    * flexcat.h: now creates a 99% correct AmigaOS version string
+    * lib/Hardcode_c.sd: updated copyright notice
+
+2006-03-19  Jens Langner <Jens.Langner@light-speed.de>
+
+    * main.c: fixed a bug in the 'BaseName' stripping routines. When a
+      *.cd file was specified with a path (e.g. './test.cd') then the
+      basename was found to be '/test' instead of 'test'.
+    * createcatsrc.c: fixed two minor memory leaks where we forgot to
+      free the resulsts of AllocFileName()
+
+2005-04-28  David Rey <tactica@users.sourceforge.net>
+
+    * utils.c, makefile: added new AmigaOS 4 target.
+      (Patch #1190521 from Juha Niemimaki <capehill@users.sourceforge.net>)
+    * ChangeLog: added
