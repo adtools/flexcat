@@ -1,0 +1,286 @@
+## version $VER: flexcat.catalog 2.2 (20.3.99)
+## language greek
+## codeset 0
+;
+;
+;   FlexCat:                 The flexible catalog generator          V1.8
+;   Copyright (C) 1993-1997  Jochen Wiedmann and Marcin Orlowski
+;
+;   The following defines a sequence of strings. Each definition looks as
+;   follows:
+;
+;   MSG_STRING_NAME (num/minlen/maxlen)
+;   text
+;
+;   where:
+;
+;   MSG_STRING_NAME is the name of the macro-definition, that will be used
+;                   to get the string.
+;   num             is the number, which MSG_STRING_NAME will stand for
+;   minlen          is the minimum length of "text" (this may be missing)
+;   maxlen          is the maximum length of "text" (this may be missing
+;                   too)
+;   text            is the text, the string will contain
+;
+;   Each definition is preceded by a remark, which tells what the string
+;   is used for.
+;
+;   Greek translation by Alexandros Vellis <avellis@pmail.net> :-)
+;
+;
+;   Error message: Out of memory.
+msgMemoryError
+Ανεπάρκεια μνήμης!
+;Out of memory!
+;
+;   Warning message; must contain one %s (file), one %d (line number)
+;   DON'T EAT THE TRAILING SPACE HERE!
+msgWarning
+%s, γραμμή %d· προειδοποίηση:
+;%s, Line %d; warning: 
+;
+;
+;   Warning message: Expected hex character.
+msgExpectedHex
+Αναμενόταν δεκαεξαδικός χαρακτήρας (ένας από [0-9a-4A-F]).
+;Expected hex character (one of [0-9a-4A-F]).
+;
+;   Warning message: Expected octal character.
+msgExpectedOctal
+Αναμενόταν οκταδικός χαρακτήρας (ένας από [0-7]).
+;Expected octal character (one of [0-7]).
+;
+;   Error message: Cannot open catalog description; must contain one %s
+;   (file name)
+msgNoCatalogDescription
+Αδύνατο το άνοιγμα της περιγραφής καταλόγου %s.
+;Cannot open catalog description %s.
+;
+;   Warning message: Too much Lengthbytes; must contain one %d (maximum).
+msgNoLengthBytes
+Μέγεγος σε Bytes > %d (sizeof long) δεν είναι δυνατό.
+;LengthBytes > %d (sizeof long) not possible.
+;
+;   Warning message: Unknown catalog description command.
+msgUnknownCDCommand
+Άγνωστη εντολή περιγραφής καταλόγου
+;Unknown catalog description command
+;
+;   Warning message: Unexpected blank.
+msgUnexpectedBlanks
+Αναπάντεχα κενά.
+;Unexpected blanks.
+;
+;   Warning message: Identifier expected.
+msgNoIdentifier
+Λείπει το identifier (το όνομα του string).
+;Missing identifier.
+;
+;   Warning message: '(' expected.
+msgNoLeadingBracket
+Λείπει '('.
+;Missing '('.
+;
+;   Warning message: Identifier number redeclared.
+msgDoubleID
+Αριθμός ID χρησιμοποιήθηκε δύο φορές.
+;ID number used twice.
+;
+;   Warning message: Identifier redeclared.
+msgDoubleIdentifier
+To identifier (το όνομα του string) έχει ξαναδηλωθεί.
+;Identifier redeclared.
+;
+;   Warning message: '/' expected (MinLen).
+msgNoMinLen
+Αναμενόταν MinLen (χαρακτήρας '/')
+;Expected MinLen (character '/').
+;
+;   Warning message: '/' expected (MaxLen).
+msgNoMaxLen
+Αναμενόταν MaxLen (χαρακτήρας '/')
+;Expected MaxLen (character '/').
+;
+;   Warning message: ')' expected.
+msgNoTrailingBracket
+Αναμενόταν ')'.
+;Expected ')'.
+;
+;   Warning message: Extra characters
+msgExtraCharacters
+Επιπλέον χαρακτήρες στο τέλος της γραμμής.
+;Extra characters at the end of the line.
+;
+;   Warning message: Missing catalog string
+msgNoString
+Αναπάντεχο τέλος αρχείου (λείπει ένα catalog string).
+;Unexpected end of file (missing catalog string).
+;
+;   Warning message: String too short.
+msgShortString
+Το string είναι πολύ μικρό.
+;String too short.
+;
+;   Warning message: String too long.
+msgLongString
+Το string είναι πολύ μεγάλο.
+;String too long.
+;
+;   Error message: No catalog translation file; must contain one %s (file
+;   name).
+msgNoCatalogTranslation
+Αδύνατο το άνοιγμα αρχείου μετάφρασης %s.
+;Cannot open catalog translation file %s.
+;
+;   Warning message: Missing catalog translation command.
+msgNoCTCommand
+Λείπει εντολή στο αρχείο μετάφρασης καταλόγου (αναμενόταν δεύτερο `#').
+;Missing catalog translation command. (Expected second '#'.)
+;
+;   Warning message: Unknown catalog translation command.
+msgUnknownCTCommand
+Άγνωστη εντολή αρχείου μετάφρασης καταλόγου.
+;Unknown catalog translation command.
+;
+;   Error message: Missing catalog translation version.
+msgNoCTVersion
+Λείπει η έκδοση του αρχείου μετάφρασης καταλόγου·\nχρησιμοποιήστε είτε ##version είτε ##rcsid και ##name.
+;Missing catalog translation version; use either ##version\n\
+;or ##rcsid and ##name.
+;
+;   Error message: Missing catalog translation language.
+msgNoCTLanguage
+Λείπει η γλώσσα στο αρχείο μετάφρασης καταλόγου.
+;Missing catalog translation language.
+;
+;   Error message: Cannot open catalog file. Must contain one %s (file name).
+msgNoCatalog
+Αδύνατο το άνοιγμα του καταλόγου %s.
+;Cannot open catalog file %s.
+;
+;   Error message: Cannot create catalog translation file. Must contain
+;   one %s (file name).
+msgNoNewCTFile
+Αδύνατη η δημιουργία αρχείου μετάφρασης καταλόγου %s.
+;Cannot create catalog translation file %s.
+;
+;   Warning message: Unknown identifier. Must contain one %s (identifier).
+msgUnknownIdentifier
+Το %s λείπει στο αρχείο περιγραφής καταλόγου.
+;%s missing in catalog description.
+;
+;   Error message: No source description file. Must contain one %s (file
+;   name).
+msgNoSourceDescription
+Αδύνατο το άνοιγμα πηγαίου αρχείου περιγραφής %s.
+;Cannot open source description file %s.
+;
+;   Error message: No source file. Must contain one %s (file name).
+msgNoSource
+Αδύνατο το άνοιγμα του αρχείου κώδικα %s.
+;Cannot open source file %s.
+;
+;   Warning message: Unknown string type
+msgUnknownStringType
+Άγνωστος τύπος string.
+;Unknown string type.
+;
+;   Warning message: Missing trailing ')' in %(..).
+msgNoTerminateBracket
+Αναπάντεχο τέλος γραμμής (λείπει `)').
+;Unexpected end of line. (Missing ')')
+;
+;   Usage message
+msgUsage
+  CDFILE        Αρχείο περιγραφής καταλόγου που θα αναγνωσθεί.\n\
+  CTFILE        Αρχείο μετάφρασης καταλόγου που θα αναγνωσθεί.\n\
+  CATALOG       Αρχείο καταλόγου που θα δημιουργηθεί.\n\
+  NEWCTFILE     Αρχείο μετάφρασης καταλόγου που θα δημιουργηθεί.\n\
+  SOURCES       Κώδικας που θα δημιουργηθεί· πρέπει να είναι κάτι σαν\n\
+                sfile=sdfile, όπου sfile το αρχείο του κώδικα και sdfile\n\
+                είναι το αρχείο περιγραφής καταλόγου.\n\
+  WARNCTGAPS    Προειδοποίηση των συμβόλων που λείπουν στο αρχείο CT.\n\
+  NOOPTIM       Να μην παραλείπονται τα μη αλλαγμένα strings (εξίσου στα\n\
+                αρχεία #?.cd και #?.ct)\n\
+  FILL          Αν η μετάφραση λείπει, θα χρησιμοποιηθεί το κείμενο του\n\
+                αρχείου περιγραφής\n\
+  FLUSH         Ελευθέρωση των πηγών μνήμης όταν γραφεί ο κατάλογος\n\
+  NOBEEP        Απενεργοποίηση του DisplayBeep() σε λάθη και προειδοποιήσεις\n\
+  QUIET         Όχι εμφάνιση των μηνυμάτων προειδοποίησης
+;
+;   Error message: No catalog translation argument
+msgNoCTArgument
+Η δημιουργία ενός καταλόγου απαιτεί ένα αρχείο μετάφρασης καταλόγου ως παράμετρο.\n
+;Creating a catalog needs a catalog translation file as argument.\n
+;
+;   Warning message: No binary characters.
+msgNoBinChars
+Δυαδικοί χαρακτήρες στο stringtype None.
+;Binary characters in stringtype None.
+;
+;   Warning message: Gap in CT file.
+msgCTGap
+To ID %s λείπει στο αρχείο CT.
+;ID %s missing in CT file.
+;
+;   Warning: Catalog language declared twice
+msgDoubleCTLanguage
+Η γλώσσα του καταλόγου δηλώθηκε δύο φορές.
+;Catalog language declared twice.
+;
+;   Warning: Catalog version declared twice
+msgDoubleCTVersion
+Η έκδοση του καταλόγου δηλώθηκε δύο φορές.
+;Catalog version declared twice.
+;
+;   Warning: Wrong Rcs ID
+msgWrongRcsId
+Λάθος rcs ID (πρέπει να είναι παρόμοιο με\n\
+`$Date$ $Revision$')
+;Incorrect rcs ID (must be similar to\n\
+;'$Date$ $Revision$')
+;
+;
+; NEW IN 1.9
+;
+msgUsageHead
+Χρήση
+;
+msgPrefsError
+Λάθος κατά τηην επεξεργασία της μεταβλητής Flexcat.prefs, επιστροφή\n\
+στις προκαθορισμένες επιλογές.\n\
+ επιλογών: \
+;Error processing FlexCat.prefs variable, falling back to defaults.\n\
+;Preferences template: \
+;
+;
+; NEW IN 2.0
+;
+; NOTE: This string is concatenated with msgUsage, so make sure you
+;       indented it the same way etc. And DON'T MISS trailing LF here!
+;       Type FLEXCAT and check how it looks.
+;
+msgUsage_2
+  NOLANGTOLOWER Αποτρέπει το όνομα #language από το να είναι με μικρά\n\
+  NOBUFFEREDIO  Απενεργοποίηση των IO buffers\n\
+  MODIFIED      Δημιουργεί το catalog μόνο αν τα αρχεία #?.c(d|t) άλλαξαν\n
+;
+;
+;
+; NEW IN 2.0
+;
+msgUpToDate
+Το αρχείο %s είναι ενημερωμένο
+;
+msgCantCheckDate
+Αδύνατη η εξακρίβωση της ημερομηνίας του %s
+;
+;
+; NEW IN 2.2
+;
+msgUsage_3
+  COPYMSGNEW    Ενεργοποίηση της αντιγραφής των σχολίων **NEW** κατά την\n\
+                ενημέρωση αρχείου #?.ct\n\
+  OLDNEWMSG     Αν ένα παλιό αρχείο #?.ct χρησιμοποιεί άλλο σχόλιο,\n\
+                καθορίζεται εδώ.
+;

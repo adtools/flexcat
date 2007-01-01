@@ -1,0 +1,26 @@
+##rem $Id$
+##stringtype C
+##shortstrings
+//****************************************************************
+//  This file was created automatically by `%fv'
+//  from "%f0".
+//
+//  Do NOT edit by hand!
+//****************************************************************
+
+// You can include as many files like this as you want, if they have
+// diferent string ID names; allowing you this way to have diferent catalogs
+// in your program.
+
+#ifndef %b_CAT_H    //  assure that this is read only once
+#define %b_CAT_H
+
+// This include the definition of the CatalogF class with CatMessage class
+#include <CatalogF.h>
+
+//         'catalogFileName' 'builtInLanguage' & 'versionNumber'
+#define %b_ARGS "%b.catalog", %l, %v
+
+extern const CatMessage %i;
+
+#endif

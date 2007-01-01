@@ -1,0 +1,246 @@
+## version $VER: FlexCat.catalog 3.0 (XX.XX.2003)
+## language hrvatski
+## codeset 0
+;
+;
+; FlexCat.cd - FlexCat catalog description file
+; $Id$
+;
+;#basename flexcat
+;#language english
+;#version 3
+;
+;
+; Warnings
+;
+MSG_WARN_Warning
+%s, Linija %d; pa¾nja: 
+; %s, line %d - warning: 
+;
+MSG_WARN_ExpectedHex
+Oèekivan hex znak (jedan od [0-9a-fA-F]).
+; expected hex character (one of [0-9a-fA-F])
+;
+MSG_WARN_ExpectedOctal
+Oèekivan oktalni znak (jedan od [0-7]).
+; expected octal character (one of [0-7])
+;
+MSG_WARN_NoLengthBytes
+Du¾ina Bajta >%d (velièina dugog) nije moguæa.
+; lengthbytes cannot be larger than %d (sizeof long)
+;
+MSG_WARN_UnknownCDCommand
+Nepoznata zapovjed opisa kataloga
+; unknown catalog description command
+;
+MSG_WARN_UnexpectedBlanks
+Neoèekivana praznina.
+; unexpected blanks
+;
+MSG_WARN_NoIdentifier
+Nedostaje identifikator
+; missing identifier
+;
+MSG_WARN_NoLeadingBracket
+Nedostaje '('.
+; missing '('
+;
+MSG_WARN_DoubleID
+ID broj upotrebljen dvaput.
+; ID number used twice
+;
+MSG_WARN_DoubleIdentifier
+Identifikator upotrebljen opet.
+; identifier declared twice
+;
+MSG_WARN_NoMinLen
+Oèekivana MinDu¾ (znak '/').
+; expected MinLen (character '/')
+;
+MSG_WARN_NoMaxLen
+Oèekivana MaxDu¾ (znak '/').
+; expected MaxLen (character '/')
+;
+MSG_WARN_NoTrailingBracket
+Oèekivan ')'.
+; expected ')'
+;
+MSG_WARN_ExtraCharacters
+Znak vi¹ka na kraju linije.
+; extra characters at the end of the line
+;
+MSG_WARN_NoString
+Neoèekivan kraj datoteke (nedostaje pojam kataloga).
+; unexpected end of file (missing catalog strings)
+;
+MSG_WARN_ShortString
+Pojam prekratak.
+; string too short
+;
+MSG_WARN_LongString
+Pojam predugaèak.
+; string too long
+;
+MSG_WARN_NoCTCommand
+Nedostaje zapovjed prijevoda kataloga. (Oèekivan je su dva '#'.)
+; missing command in translation (expected a second '#')
+;
+MSG_WARN_UnknownCTCommand
+Nepoznata zapovjed prijevoda kataloga.
+; unknown command in translation
+;
+MSG_WARN_UnknownIdentifier
+%s nedostaje u opisu kataloga.
+; '%s' missing in catalog description
+;
+MSG_WARN_UnknownStringType
+Nepoznati oblik pojma.
+; unknown string type
+;
+MSG_WARN_NoTerminateBracket
+Neoèekivan kraj linije. (Nedostaje ')')
+; unexpected end of line (missing ')')
+;
+MSG_WARN_NoBinChars
+Binarni znak i ispisu pojma Ni¹ta.
+; binary characters in string type None
+;
+MSG_WARN_CTGap
+ID %s nedostaje u CT datoteci.
+; '%s' missing in catalog translation
+;
+MSG_WARN_DoubleCTLanguage
+Jezik kataloga odreðen dvaput.
+; catalog language declared twice
+;
+MSG_WARN_DoubleCTVersion
+Inaæica kataloga odreðena dvaput.
+; catalog version declared twice
+;
+MSG_WARN_WrongRcsId
+Netoæan rcs ID
+; incorrect RCS Id
+;
+;
+; Errors
+;
+MSG_ERR_MemoryError
+Nema Memorije!
+; Out of memory!
+;
+MSG_ERR_NoCatalogDescription
+Ne mogu otvoriti opis kataloga %s.
+; Cannot open catalog description '%s'.
+;
+MSG_ERR_NoCatalogTranslation
+Ne mogu otvoriti datoteku prijevoda kataloga %s.
+; Cannot open catalog translation '%s'.
+;
+MSG_ERR_NoCTVersion
+Nedostaje inaæica prijevoda kataloga; upotrijebite ##version\n\
+ili ##rcsid i ##name.
+; Missing catalog translation version. Use either\n\
+; '## version' or '## rcsid' and '## name'.
+;
+MSG_ERR_NoCatalog
+Ne mogu otvoriti datoteku kataloga %s.
+; Cannot open catalog file '%s'.
+;
+MSG_ERR_NoNewCTFile
+Ne mogu kreirati datoteku prijevoda kataloga %s.
+; Cannot create catalog translation '%s'.
+;
+MSG_ERR_NoCTLanguage
+Nedostaje ime prijevoda kataloga.
+; Missing catalog translation language.
+;
+MSG_ERR_NoSource
+Ne mogu otvoriti izvornu datoteku %s.
+; Cannot open source file '%s'.
+;
+MSG_ERR_NoSourceDescription
+Ne mogu otvoriti datoteku izvornog opisa %s.
+; Cannot open source description file '%s'.
+;
+MSG_ERR_NoCTArgument
+Stvaranje katalga iziskuje datoteku prijevoda kao argument.
+; Creating a catalog requires a translation file.
+;
+;
+; Misc
+;
+MSG_UpToDate
+Datoteka %s je do datuma
+; File '%s' is up to date
+;
+MSG_CantCheckDate
+Ne mogu odrediti od kada je %s
+; Cannot get datestamp of '%s'
+;
+MSG_TrailingEllipsis
+
+; Original string has a trailing ellipsis ('...')
+;
+MSG_TrailingBlanks
+
+; Original string has trailing blanks
+;
+MSG_NoCTFileName
+
+; Catalog translation file name not specified at \
+; command line or as basename in description.
+; 
+MSG_NoCatFileName
+
+; Catalog file name not specified at command line or \
+; as basename in description.
+;
+MSG_PrefsError
+Gre¹ka pri obradi FlexCat.prefs varijable, vraæam vrijednosti na ugraðene.\n\
+Oblik postavki: 
+; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
+; Template: 
+;
+MSG_UsageHead
+Kori¹tenje:
+; Usage:
+;
+MSG_Usage
+  CDFILE         Datoteka opisa kataloga za pretra¾ivanje\n\
+  CTFILE         Datoteka prijevoda kataloga za pretra¾ivanje\n\
+  CATALOG        Datoteka kataloga za stvoriti\n\
+  NEWCTFILE      Datoteka prijevoda kataloga za stvoriti\n\
+  SOURCES        Soursovi za kreirati; mora biti ne¹to kao sfile=sdfile,\n\
+                 gdje sfile je izvorna datoteka a sdfile je izvorna\n\
+                 datoteka opisa\n\
+  WARNCTGAPS     Simboli upozorenjau  CT datoteci\n\
+  NOOPTIM        Ne preskakuj nepromjenjene pojmove (jednake u #?.cd i #?.ct)\n\
+  FILL           Koristi tekst opisa ako prijevod nedostaje\n\
+  FLUSH          Oèisti memoriju kada je katalog napisan\n\
+  NOBEEP         Onemoguæuje DisplayBeep()'s pri gre¹kama i upozorenjima\n\
+  QUIET          Onemoguæuje pruke upozorenja\n\
+  NOLANGTOLOWER  
+  NOBUFFEREDIO   
+  MODIFIED       
+  COPYMSGNEW     
+  OLDMSGNEW      
+  AUTODATE       
+;   CDFILE         Catalog description file to scan\n\
+;   CTFILE         Catalog translation file to scan\n\
+;   CATALOG        Catalog file to create\n\
+;   NEWCTFILE      Catalog translation file to create\n\
+;   SOURCES        Sources to create; must be something like SFILE=SDFILE,\n\
+;                  where SFILE is a source file and SDFILE is a source\n\
+;                  description file\n\
+;   WARNCTGAPS     Warn about identifiers missing in translation\n\
+;   NOOPTIM        Do not skip unchanged strings in translation/description\n\
+;   FILL           Fill missing identifiers with original text\n\
+;   FLUSH          Flush memory after the catalog is created\n\
+;   NOBEEP         No DisplayBeep() on errors and warnings\n\
+;   QUIET          No warnings\n\
+;   NOLANGTOLOWER  Prevent #language name from being lowercased\n\
+;   NOBUFFEREDIO   Disable I/O buffers\n\
+;   MODIFIED       Create catalog only if description/translation have changed\n\
+;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
+;   OLDMSGNEW      Custom marker in old translation\n\
+;   AUTODATE       Use current date when compiling a catalog
