@@ -2,10 +2,14 @@
 ##stringtype Oberon
 ##shortstrings
 MODULE %o3;
+
 (****************************************************************
+
    This file was created automatically by `%fv'
+
    Do NOT edit by hand!
-   Oberon-A source description C 1994 by Albert Weinert
+
+   Oberon-A source description (C) 1994 by Albert Weinert
    Using with Oberon-A Interfaces for AmigaOS Release 3.1
 
    Application: %b

@@ -1,11 +1,12 @@
 ##rem $Id$
 ##stringtype Oberon
 ##shortstrings
+
 (****************************************************************
 
    This file was created automatically by `%fv'
    Do NOT edit by hand!
-   AmigaOberon source description © 1994 by Albert Weinert
+   AmigaOberon source description (C) 1994 by Albert Weinert
    Using with AmigaOberon Interfaces for AmigaOS Release 3.1
 
    Application: %b

@@ -22,6 +22,17 @@ $URL$
       readprefs.c, readprefs.h, scancd.c, scancd.h, scanct.c, scanct.h,
       showfuncs.c, showfuncs.h, swapfuncs.c, swapfuncs.h, utils.c, utils.h:
       updated copyright notice (2006->2007)
+    * NoAutoC_c.sd, NoAutoC_h.sd: added the missing Id keyword for SVN
+    * Cat2h_c.sd: removed some empty lines and moved ##stringtype to the
+      beginning to make it consistent with the other source descriptors.
+    * AmigaOberon.sd: replaced the copyright symbol with something
+      friendly with all charsets
+    * ARexx.sd: replaced germanisms with English text
+    * AutoC_c.sd, C++_h.sd, C_c.sd, C_c_V20.sd: better English comments now
+    * Hardcode_c.sd: updated copyright notice (2006->2007) and fixed some
+      typos
+    * Oberon-A.sd: typos fixed
+    * Minor changes in most source descriptors to make them more consistent
 
 2006-12-31  Joerg Strohmayer <nospam@gmx.de>
 

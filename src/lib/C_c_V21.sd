@@ -1,11 +1,14 @@
 ##rem $Id$
 ##stringtype C
 ##shortstrings
+
 /****************************************************************
+
    This file was created automatically by `%fv'
    from "%f0".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 #if defined(__SASC)  ||  defined(_DCC)
@@ -39,7 +42,7 @@ void Open%bCatalog(struct Locale *loc, STRPTR language)
   extern void Close%bCatalog(void);
 
   Close%bCatalog(); /* Not needed if the programmer pairs Open%bCatalog
-                       and Close%bCatalog right, but does no harm.  */
+                       and Close%bCatalog right, but does no harm. */
 
   if (LocaleBase != NULL  &&  %b_Catalog == NULL)
   { if (language == NULL)

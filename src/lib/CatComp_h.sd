@@ -2,9 +2,6 @@
 ##stringtype C
 ##shortstrings
 
-#ifndef %b_STRINGS_H
-#define %b_STRINGS_H
-
 /****************************************************************
 
    This file was created automatically by `%fv'
@@ -15,6 +12,9 @@
    Do NOT edit by hand!
 
 ****************************************************************/
+
+#ifndef %b_STRINGS_H
+#define %b_STRINGS_H
 
 #ifndef EXEC_TYPES_H
 #include <exec/types.h>

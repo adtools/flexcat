@@ -1,11 +1,14 @@
 ##rem $Id$
 ##stringtype assembler
 ##shortstrings
+
 *****************************************************************
-*   This file was created automatically by `%fv'
-*   from "%f0".
 *
-*   Do NOT edit by hand!
+*  This file was created automatically by `%fv'
+*  from "%f0".
+*
+*  Do NOT edit by hand!
+*
 *****************************************************************
 
 *   Includefiles

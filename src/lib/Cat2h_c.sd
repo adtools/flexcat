@@ -1,5 +1,5 @@
-
 ##rem $Id$
+##stringtype C
 
 /****************************************************************
 
@@ -11,8 +11,6 @@
    Do NOT edit by hand!
 
 ****************************************************************/
-
-##stringtype C
 
 #ifdef __SASC
 #define __USE_SYSBASE 1
@@ -28,13 +26,14 @@ struct Library          *LocaleBase;
 static struct Catalog   *Catalog;
 
 
-/* No support for version number or other builtin language for now.
+/* No support for version number or other built-in language for now.
  * Not often used (in my experience), and easy to add if you should
  * need it.
  *
  * We open it at a high priority during autoinit (for SAS/C), to allow
- * the use of GetString in lower priority autoinit code.
+ * the use of GetString() in lower priority autoinit code.
  */
+
 #ifdef _DCC
 __autoinit
 #endif

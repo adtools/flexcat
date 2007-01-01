@@ -1,12 +1,15 @@
 ##rem $Id$
 ##stringtype C
 ##shortstrings
-//****************************************************************
+
+//***************************************************************
+//
 //  This file was created automatically by `%fv'
 //  from "%f0".
 //
 //  Do NOT edit by hand!
-//****************************************************************
+//
+//***************************************************************
 // this contains the string structs definitions ready to be compiled
 // into an object file to later linkage.
 
@@ -15,4 +18,3 @@
 
 extern const CatMessage %i;
 const CatMessage %i = { %d, %s };
-

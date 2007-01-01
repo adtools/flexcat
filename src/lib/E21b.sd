@@ -1,12 +1,15 @@
 ##rem $Id$
 ##stringtype E
 ##shortstrings
+
 /****************************************************************
+
    This file was created automatically by `%fv'
    from "%f0".
-   Do NOT edit by hand!
-****************************************************************/
 
+   Do NOT edit by hand!
+
+****************************************************************/
 
         /* External modules */
 MODULE 'locale' , 'libraries/locale'

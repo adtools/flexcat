@@ -1,17 +1,20 @@
 ##rem $Id$
 ##stringtype C
 ##shortstrings
+
 /****************************************************************
+
    This file was created automatically by `%fv'
    from "%f0".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 /****************************************************************
 
    This file is a quick-hack-solution for all of you wanting
-   to compile FlexCat on non-amiga platform. It creates
+   to compile FlexCat on non-amiga platform. It creates the
    necessary string tables (hardcoded ATM) and functions to
    make code work under any operating system.
 

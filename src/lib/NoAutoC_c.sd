@@ -1,10 +1,14 @@
+##rem $Id$
 ##stringtype C
 ##shortstrings
+
 /****************************************************************
+
    This file was created automatically by `%fv'
    from "%f0".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 /* Include files */
@@ -61,4 +65,3 @@ void LocalizeStringArray(STRPTR *Array)
       *x = strdup(%b_Strings[(int)*x].Str);
    }
 }
-

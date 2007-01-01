@@ -1,6 +1,7 @@
 ##rem $Id$
 ##stringtype C
 ##shortstrings
+
 /****************************************************************
 
    This file was created automatically by `%fv'
@@ -11,29 +12,29 @@
 ****************************************************************/
 
 /****************************************************************
-    This file uses the auto initialization possibilities of
+    This file uses the auto initialization features of
     Dice, gcc and SAS/C, respectively.
 
-    Dice does this by using the keywords __autoinit and
-    __autoexit, SAS uses names beginning with _STI or
-    _STD, respectively. gcc uses the asm() instruction,
+    Dice does this by using the __autoinit and __autoexit
+    keywords, whereas SAS/C uses names beginning with _STI
+    or _STD, respectively. gcc uses the asm() instruction
     to emulate C++ constructors and destructors.
 
-    Using this file you don't have *all* possibilities of
-    the locale.library. (No Locale or Language arguments are
-    supported when opening the catalog. However, these are
+    Using this file you don't have *all* the benefits of
+    locale.library (no Locale or Language arguments are
+    supported when opening the catalog). However, these are
     *very* rarely used, so this should be sufficient for most
     applications.
 
-    If you really need all possibilities or you have another
-    compiler, you should use the source description C_c_V21.sd
-    instead.
+    If you really need all the bells and whistles or you
+    are using another compiler, you should use the source
+    description C_c_V21.sd instead.
 ****************************************************************/
-
 
 /*
     Include files and compiler specific stuff
 */
+
 #include <libraries/locale.h>
 
 #if defined(__SASC)  ||  defined(_DCC)
@@ -45,7 +46,7 @@ typedef struct Library LocaleBase_t;
 #include <inline/locale.h>
 typedef struct LocaleBase LocaleBase_t;
 #else
-#error "Don't know how to handle your compiler."
+#error "I don't know how to handle your compiler."
 #endif
 
 #if defined(__SASC)

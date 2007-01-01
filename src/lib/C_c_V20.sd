@@ -1,11 +1,14 @@
 ##rem $Id$
 ##stringtype C
 ##shortstrings
+
 /****************************************************************
+
    This file was created automatically by `%fv'
    from "%f0".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 #include <string.h>
@@ -78,10 +81,10 @@ void Open%bCatalog(struct Locale *loc, STRPTR language)
   if (LocaleBase == NULL  &&  IFFParseBase != NULL  &&  language != NULL  &&
       Stricmp(language, %b_BuiltInLanguage) != 0)
   { struct IFFHandle *iffhandle;
-    char path[128]; /*  Enough to hold 4 path items (dos.library 3.0)  */
+    char path[128];  /* Enough to hold 4 path items (dos.library V40) */
 
     if ((iffhandle = AllocIFF())  !=  NULL)
-    { /*  Trying to open the catalog  */
+    { /* Trying to open the catalog */
       strcpy(path, "Catalogs");
       AddPart((STRPTR) path, language, sizeof(path));
       AddPart((STRPTR) path, (STRPTR) "%b.catalog", sizeof(path));

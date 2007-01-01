@@ -1,33 +1,36 @@
 ##rem $Id$
 ##stringtype C
 ##shortstrings
+
 /****************************************************************
+
    This file was created automatically by `%fv'
    from "%f0".
 
    Do NOT edit by hand!
+
 ****************************************************************/
 
 /****************************************************************
-    This file uses the auto initialization possibilities of
+    This file uses the auto initialization features of
     Dice, gcc and SAS/C, respectively.
 
-    Dice does this by using the keywords __autoinit and
-    __autoexit, SAS uses names beginning with _STI or
-    _STD, respectively. gcc uses the asm() instruction,
+    Dice does this by using the __autoinit and __autoexit
+    keywords, whereas SAS/C uses names beginning with _STI
+    or _STD, respectively. gcc uses the asm() instruction
     to emulate C++ constructors and destructors.
 
-    Using this file you don't have *all* possibilities of
-    the locale.library. (No Locale or Language arguments are
-    supported when opening the catalog. However, these are
+    Using this file you don't have *all* the benefits of
+    locale.library (no Locale or Language arguments are
+    supported when opening the catalog). However, these are
     *very* rarely used, so this should be sufficient for most
     applications.
 ****************************************************************/
 
-
 /*
     Include files and compiler specific stuff
 */
+
 #include <exec/memory.h>
 #include <libraries/locale.h>
 #include <libraries/iffparse.h>
@@ -49,6 +52,7 @@
 /*
     Variables
 */
+
 struct FC_String %b_Strings[%n] = {
     { (STRPTR) %s, %d }%(,)
 };
@@ -126,7 +130,7 @@ VOID Init%bCatalog(STRPTR language)
     }
 
     if ((iffHandle = AllocIFF())) {
-	char path[128]; /* Enough to hold 4 path items (dos.library 3.1)    */
+	char path[128];  /* Enough to hold 4 path items (dos.library V40) */
 	strcpy(path, "PROGDIR:Catalogs");
 	AddPart((STRPTR) path, language, sizeof(path));
 	AddPart((STRPTR) path, "%b.catalog", sizeof(path));
@@ -174,11 +178,11 @@ VOID Init%bCatalog(STRPTR language)
 			    while (bytesRemaining > 0) {
 				LONG skipSize, stringSize;
 
-				ptr++;                  /*  Skip ID     */
+				ptr++;                  /* Skip ID */
 				stringSize = *ptr++;
 				skipSize = ((stringSize+3) >> 2);
 
-				%bStringsSize += stringSize+1;  /*  NUL */
+				%bStringsSize += stringSize+1;  /* NUL */
 				bytesRemaining -= 8 + (skipSize << 2);
 				ptr += skipSize;
 			    }
