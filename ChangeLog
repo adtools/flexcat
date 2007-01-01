@@ -10,6 +10,7 @@ $URL$
     * ChangeLog: replaced "Source" with "URL" keyword for SVN
     * gpl.txt: renamed as COPYING
     * developer.readme: renamed as README
+    * todo: renamed as TODO
     * misc: rearranged the whole directory hierarchy
 
 2006-12-31  Joerg Strohmayer <nospam@gmx.de>
