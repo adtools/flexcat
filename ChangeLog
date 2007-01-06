@@ -8,11 +8,14 @@ $URL$
 2007-01-06  David Rey <tactica@users.sourceforge.net>
 
     * scanct.c: now exits with an error if the ##language command contains
-      non-alphabetical characters, at least for AmigaOS (fixes bug #747909).
+      non-alphabetical characters, at least for AmigaOS (fixes bug #747909),
+      and also checks properly for trailing ellipsis in both catalog
+      description and translation files (fixes bug #747904).
       Thanks to Vicente "Ami603" Gimeno for his help!
-    * FlexCat.cd: added a specific string for this error
+    * FlexCat.cd: added two additional strings to suit
     * Makefile: fixed the paths added recently to keep make happy,
-      replaced -g with -ggdb
+      replaced -g with -ggdb, now generates all the auto-generated
+      files from FlexCat.cd no matter what the host platform is.
     * FlexCat_cat.h, FlexCat_cat_other.h, locale.c, locale_other.c:
       regenerated
 

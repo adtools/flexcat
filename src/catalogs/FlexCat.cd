@@ -176,3 +176,6 @@ Invalid language in catalog translation file.\n\
 Language MUST be a string with alphabetical\n\
 characters and no inlined or trailing spaces.
 ;
+MSG_ERR_NOTRAILINGELLIPSIS (//)
+Original string doesn't have a trailing ellipsis ('...')
+;

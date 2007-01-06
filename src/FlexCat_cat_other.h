@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.7-dev'
+   This file was created automatically by `FlexCat 2.6.7'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -74,5 +74,6 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_BADPREFS FlexCat_Strings[44]
 #define MSG_ERR_NOTRAILINGBLANKS FlexCat_Strings[45]
 #define MSG_ERR_BADCTLANGUAGE FlexCat_Strings[46]
+#define MSG_ERR_NOTRAILINGELLIPSIS FlexCat_Strings[47]
 
 #endif

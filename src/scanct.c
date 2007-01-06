@@ -250,9 +250,7 @@ int ScanCTFile ( char *ctfile )
                     }
                     else
                     {
-                        char           *oldstr;
-                        char            bytes[10];
-                        int             bytesread, reallen;
+                        int             reallen;
 
                         if ( cs->CT_Str )
                         {
@@ -265,17 +263,7 @@ int ScanCTFile ( char *ctfile )
 
                         /* Get string length */
 
-                        oldstr = cs->CT_Str;
-                        reallen = 0;
-                        while ( *oldstr )
-                        {
-                            bytesread = ReadChar ( &oldstr, bytes );
-                            if ( bytesread == 2 )
-                            {
-                                bytesread--;
-                            }
-                            reallen += bytesread;
-                        }
+                        reallen = strlen ( cs->CT_Str);
 
                         if ( cs->MinLen > 0 && reallen < cs->MinLen )
                         {
@@ -295,15 +283,17 @@ int ScanCTFile ( char *ctfile )
 
                             if ( cd_len >= 3 )
                             {
-                                if ( strcmp ( &cs->CD_Str[cd_len - 2], "..." )
-                                     == 0 )
-                                    if ( strcmp
-                                         ( &cs->CT_Str[reallen - 2],
-                                           "..." ) != 0 )
-                                    {
+                                if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) == 0 ) &&
+                                     ( strcmp ( &cs->CT_Str[reallen - 3], "..." ) != 0 ) )
+                                {
                                     /* printf("ORG: '%s'\nNEW: '%s'\n", cs->CD_Str, cs->CT_Str); */
-                                        ShowWarn ( MSG_ERR_TRAILINGELLIPSIS );
-                                    }
+                                    ShowWarn ( MSG_ERR_TRAILINGELLIPSIS );
+                                }
+                                if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) != 0 ) &&
+                                     ( strcmp ( &cs->CT_Str[reallen - 3], "..." ) == 0 ) )
+                                {
+                                    ShowWarn ( MSG_ERR_NOTRAILINGELLIPSIS );
+                                }
                             }
                         }
 

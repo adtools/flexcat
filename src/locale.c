@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.7-dev'
+   This file was created automatically by `FlexCat 2.6.7'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -88,6 +88,7 @@ struct FC_String FlexCat_Strings[] =
    { "Invalid language in catalog translation file.\n"\
 	"Language MUST be a string with alphabetical\n"\
 	"characters and no inlined or trailing spaces.", 143 },
+   { "Original string doesn't have a trailing ellipsis ('...')", 144 },
    { NULL, 0 }
 };
 

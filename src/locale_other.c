@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.7-dev'
+   This file was created automatically by `FlexCat 2.6.7'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-char * FlexCat_Strings[47] = {
+char * FlexCat_Strings[48] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -113,5 +113,6 @@ char * FlexCat_Strings[47] = {
     "Original string doesn't have trailing blanks",
     "Invalid language in catalog translation file.\n"\
 	"Language MUST be a string with alphabetical\n"\
-	"characters and no inlined or trailing spaces."
+	"characters and no inlined or trailing spaces.",
+    "Original string doesn't have a trailing ellipsis ('...')"
 };

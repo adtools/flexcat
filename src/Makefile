@@ -5,6 +5,7 @@
 CC          = gcc
 MAKEINFO    = makeinfo
 CFLAGS      = -ggdb -funsigned-char -O2 -Wall -Wwrite-strings
+CATFILES    = FlexCat_cat.h FlexCat_cat_other.h locale.c locale_other.c
 
 # Might be replaced by 'delete'
 REMOVE      = rm -f
@@ -30,7 +31,6 @@ ifeq ($(OS), MorphOS)
 # be opened automatically. Don't remove it.
 CC          =   ppc-morphos-gcc
 LDFLAGS     =   -lauto -noixemul
-CATFILES    =   FlexCat_cat.h
 CATOBJS     =   locale.o
 
 else
@@ -41,7 +41,6 @@ ifeq ($(OS), AmigaOS)
 CC          =   m68k-amigaos-gcc
 LDFLAGS     =   -lamiga -noixemul
 CFLAGS      +=  -DNO_INLINE_STDARG
-CATFILES    =   FlexCat_cat.h
 CATOBJS     =   locale.o getft.o
 
 else
@@ -52,7 +51,6 @@ ifeq ($(OS), AmigaOS4)
 CC          =   ppc-amigaos-gcc
 LDFLAGS     =   -mcrt=newlib -lauto -lunix
 CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
-CATFILES    =   FlexCat_cat.h
 CATOBJS     =   locale.o getft.o
 
 else
@@ -60,7 +58,6 @@ else
 # Building on UNIX
 
 LDFLAGS     =
-CATFILES    =   FlexCat_cat_other.h
 CATOBJS     =   locale_other.o
 
 endif
@@ -103,4 +100,3 @@ doc:
 	$(MAKEINFO) ../doc/FlexCat_english.texinfo --amiga-39 --fill-column 76 --output ../doc/FlexCat_english.guide
 	$(MAKEINFO) ../doc/FlexCat_spanish.texinfo --amiga-39 --fill-column 76 --output ../doc/FlexCat_español.guide
 	$(MAKEINFO) ../doc/FlexCat_swedish.texinfo --amiga-39 --fill-column 76 --output ../doc/FlexCat_svenska.guide
-
