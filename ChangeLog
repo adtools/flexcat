@@ -7,7 +7,14 @@ $URL$
 
 2007-01-06  David Rey <tactica@users.sourceforge.net>
 
-    * Makefile: fixed the paths added recently to keep make happy
+    * scanct.c: now exits with an error if the ##language command contains
+      non-alphanumeric characters, at least for AmigaOS (fixes bug #747909).
+      Thanks to Vicente "Ami603" Gimeno for his help!
+    * FlexCat.cd: added a specific string for this error
+    * Makefile: fixed the paths added recently to keep make happy,
+      replaced -g with -ggdb
+    * FlexCat_cat.h, FlexCat_cat_other.h, locale.c, locale_other.c:
+      regenerated
 
 2007-01-01  David Rey <tactica@users.sourceforge.net>
 
@@ -92,8 +99,9 @@ $URL$
 
     * Makefile: now detects AmigaOS 4 automatically and doesn't need
       "OS=AmigaOS4" anymore (thanks to Henning Nielsen Lund for the
-      patch), and "clean" also removes the m68k specific builds (and
-      patches)
+      patch), "clean" also removes the m68k specific builds (and
+      patches) and the AmigaOS 4 build uses -lunix to support UNIX
+      style paths
     * getft.c: fixed the remaining warning (Henning again)
     * createcat.c: now always generates 4-digit years
     * createct.c: no longer forces a local codeset while updating an

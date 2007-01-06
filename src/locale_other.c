@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-char * FlexCat_Strings[46] = {
+char * FlexCat_Strings[47] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -110,5 +110,8 @@ char * FlexCat_Strings[46] = {
 	"as basename in description.",
     "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
 	"Template: ",
-    "Original string doesn't have trailing blanks"
+    "Original string doesn't have trailing blanks",
+    "Invalid language in catalog translation file.\n"\
+	"Language MUST be a string with alphabetical\n"\
+	"characters and no inlined or trailing spaces."
 };

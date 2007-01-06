@@ -85,6 +85,9 @@ struct FC_String FlexCat_Strings[] =
    { "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
 	"Template: ", 141 },
    { "Original string doesn't have trailing blanks", 142 },
+   { "Invalid language in catalog translation file.\n"\
+	"Language MUST be a string with alphabetical\n"\
+	"characters and no inlined or trailing spaces.", 143 },
    { NULL, 0 }
 };
 

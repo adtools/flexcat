@@ -20,6 +20,10 @@
  *
  */
 
+#ifdef AMIGA
+  #include <proto/locale.h>
+#endif
+
 #include "flexcat.h"
 #include "showfuncs.h"
 #include "readprefs.h"
@@ -123,6 +127,34 @@ int ScanCTFile ( char *ctfile )
                     line += 8;
                     OverSpace ( &line );
                     CatLanguage = AddCatalogChunk ( strdup("LANG"), line );
+                    
+                    /* Check for a valid language spec. */
+
+#ifdef AMIGA
+                    struct LocaleBase *LocaleBase;
+                    struct Locale     *my_locale;
+
+                    if ( ( LocaleBase =
+                           ( struct LocaleBase * )OpenLibrary ( "locale.library",
+                                                     38L ) ) != NULL )
+                    {
+                        if ( ( my_locale = OpenLocale ( NULL ) ) != NULL )
+                        {
+                            for ( ptr = CatLanguage; *ptr; ptr++ )
+                                if ( !IsAlpha ( (struct Locale *)my_locale, *ptr ) )
+                                /* Non-alphabetical char detected */
+                                {
+                                    if ( my_locale )
+                                        CloseLocale ( my_locale );
+                                    if ( LocaleBase )
+                                        CloseLibrary ( ( struct Library * )LocaleBase );                              
+                                    ShowError ( MSG_ERR_BADCTLANGUAGE );
+                                }
+                                CloseLocale ( my_locale );
+                        }
+                        CloseLibrary ( ( struct Library * )LocaleBase );
+                    }
+#endif
 
                     if ( LANGToLower )
                         for ( ptr = CatLanguage; *ptr; ptr++ )

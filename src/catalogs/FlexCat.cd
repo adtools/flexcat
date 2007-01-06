@@ -171,3 +171,8 @@ Template:
 MSG_ERR_NOTRAILINGBLANKS (//)
 Original string doesn't have trailing blanks
 ;
+MSG_ERR_BADCTLANGUAGE (//)
+Invalid language in catalog translation file.\n\
+Language MUST be a string with alphabetical\n\
+characters and no inlined or trailing spaces.
+;

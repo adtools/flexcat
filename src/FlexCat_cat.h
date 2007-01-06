@@ -120,5 +120,7 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_BADPREFS 44
 #define MSG_ERR_NOTRAILINGBLANKS (FlexCat_Strings[45].Str)
 #define _MSG_ERR_NOTRAILINGBLANKS 45
+#define MSG_ERR_BADCTLANGUAGE (FlexCat_Strings[46].Str)
+#define _MSG_ERR_BADCTLANGUAGE 46
 
 #endif

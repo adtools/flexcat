@@ -73,5 +73,6 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_NOCATFILENAME FlexCat_Strings[43]
 #define MSG_ERR_BADPREFS FlexCat_Strings[44]
 #define MSG_ERR_NOTRAILINGBLANKS FlexCat_Strings[45]
+#define MSG_ERR_BADCTLANGUAGE FlexCat_Strings[46]
 
 #endif
