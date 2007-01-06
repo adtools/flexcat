@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2007-01-06  David Rey <tactica@users.sourceforge.net>
+
+    * Makefile: fixed the paths added recently to keep make happy
+
 2007-01-01  David Rey <tactica@users.sourceforge.net>
 
     * ChangeLog: replaced "Source" with "URL" keyword for SVN

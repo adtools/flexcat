@@ -4,7 +4,7 @@
 
 CC          = gcc
 MAKEINFO    = makeinfo
-CFLAGS      = -g -funsigned-char -O2 -Wall -Wwrite-strings
+CFLAGS      = -ggdb -funsigned-char -O2 -Wall -Wwrite-strings
 
 # Might be replaced by 'delete'
 REMOVE      = rm -f
@@ -87,20 +87,20 @@ FlexCat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
 clean:
 	$(REMOVE) *.o
 	$(REMOVE) FlexCat
-	$(REMOVE) /doc/*.guide
+	$(REMOVE) ../doc/*.guide
 
 realclean:
 	$(REMOVE) *.o
 	$(REMOVE) FlexCat
-	$(REMOVE) /doc/*.guide
+	$(REMOVE) ../doc/*.guide
 	$(REMOVE) FlexCat_cat.h
 	$(REMOVE) FlexCat_cat_other.h
 	$(REMOVE) locale.c
 	$(REMOVE) locale_other.c
 
 doc:
-	$(MAKEINFO) /doc/FlexCat_german.texinfo --amiga-39 --fill-column 76 --output /doc/FlexCat_deutsch.guide
-	$(MAKEINFO) /doc/FlexCat_english.texinfo --amiga-39 --fill-column 76 --output /doc/FlexCat_english.guide
-	$(MAKEINFO) /doc/FlexCat_spanish.texinfo --amiga-39 --fill-column 76 --output /doc/FlexCat_español.guide
-	$(MAKEINFO) /doc/FlexCat_swedish.texinfo --amiga-39 --fill-column 76 --output /doc/FlexCat_svenska.guide
+	$(MAKEINFO) ../doc/FlexCat_german.texinfo --amiga-39 --fill-column 76 --output ../doc/FlexCat_deutsch.guide
+	$(MAKEINFO) ../doc/FlexCat_english.texinfo --amiga-39 --fill-column 76 --output ../doc/FlexCat_english.guide
+	$(MAKEINFO) ../doc/FlexCat_spanish.texinfo --amiga-39 --fill-column 76 --output ../doc/FlexCat_español.guide
+	$(MAKEINFO) ../doc/FlexCat_swedish.texinfo --amiga-39 --fill-column 76 --output ../doc/FlexCat_svenska.guide
 
