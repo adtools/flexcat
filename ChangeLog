@@ -8,7 +8,7 @@ $URL$
 2007-01-06  David Rey <tactica@users.sourceforge.net>
 
     * scanct.c: now exits with an error if the ##language command contains
-      non-alphanumeric characters, at least for AmigaOS (fixes bug #747909).
+      non-alphabetical characters, at least for AmigaOS (fixes bug #747909).
       Thanks to Vicente "Ami603" Gimeno for his help!
     * FlexCat.cd: added a specific string for this error
     * Makefile: fixed the paths added recently to keep make happy,
