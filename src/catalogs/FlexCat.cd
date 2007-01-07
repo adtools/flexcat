@@ -41,6 +41,9 @@ File '%s' is up to date
 MSG_ERR_WARNING (100//)
 %s, line %d - warning: 
 ;
+MSG_ERR_ERROR (//)
+%s, line %d - ERROR: 
+;
 MSG_ERR_EXPECTEDHEX (//)
 expected hex character (one of [0-9a-fA-F])
 ;
@@ -178,4 +181,7 @@ characters and no inlined or trailing spaces.
 ;
 MSG_ERR_NOTRAILINGELLIPSIS (//)
 Original string doesn't have a trailing ellipsis ('...')
+;
+MSG_ERR_DOUBLECTCODESET (//)
+catalog codeset declared twice
 ;

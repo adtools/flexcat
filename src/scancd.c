@@ -160,7 +160,7 @@ int ScanCDFile ( char *cdfile )
                 OverSpace ( &line );
                 if ( *line )
                 {
-                    ShowWarn ( MSG_ERR_EXTRACHARACTERS );
+                    ShowError ( MSG_ERR_EXTRACHARACTERS );
                     Result = FALSE;
                 }
             }
@@ -173,7 +173,7 @@ int ScanCDFile ( char *cdfile )
 
             if ( *line == ' ' || *line == '\t' )
             {
-                ShowWarn ( MSG_ERR_UNEXPECTEDBLANKS );
+                ShowError ( MSG_ERR_UNEXPECTEDBLANKS );
                 Result = FALSE;
                 OverSpace ( &line );
             }
@@ -188,7 +188,7 @@ int ScanCDFile ( char *cdfile )
 
             if ( idstr == line )
             {
-                ShowWarn ( MSG_ERR_NOIDENTIFIER );
+                ShowError ( MSG_ERR_NOIDENTIFIER );
                 Result = FALSE;
             }
             else
@@ -235,7 +235,7 @@ int ScanCDFile ( char *cdfile )
 
                 if ( *line != '(' )
                 {
-                    ShowWarn ( MSG_ERR_NOLEADINGBRACKET );
+                    ShowError ( MSG_ERR_NOLEADINGBRACKET );
                     Result = FALSE;
                 }
                 else
@@ -275,12 +275,12 @@ int ScanCDFile ( char *cdfile )
                     {
                         if ( scs->ID == cs->ID )
                         {
-                            ShowWarn ( MSG_ERR_DOUBLEID );
+                            ShowError ( MSG_ERR_DOUBLEID );
                             Result = FALSE;
                         }
                         if ( strcmp ( cs->ID_Str, scs->ID_Str ) == 0 )
                         {
-                            ShowWarn ( MSG_ERR_DOUBLEIDENTIFIER );
+                            ShowError ( MSG_ERR_DOUBLEIDENTIFIER );
                             Result = FALSE;
                         }
                     }
@@ -317,7 +317,7 @@ int ScanCDFile ( char *cdfile )
                             }
                             if ( *line != ')' )
                             {
-                                ShowWarn ( MSG_ERR_NOTRAILINGBRACKET );
+                                ShowError ( MSG_ERR_NOTRAILINGBRACKET );
                                 Result = FALSE;
                             }
                             else
@@ -326,7 +326,7 @@ int ScanCDFile ( char *cdfile )
                                 OverSpace ( &line );
                                 if ( *line )
                                 {
-                                    ShowWarn ( MSG_ERR_EXTRACHARACTERS );
+                                    ShowError ( MSG_ERR_EXTRACHARACTERS );
                                 }
                             }
                         }

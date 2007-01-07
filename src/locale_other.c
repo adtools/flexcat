@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.6.7'
+   This file was created automatically by `FlexCat 2.7-dev'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-char * FlexCat_Strings[48] = {
+char * FlexCat_Strings[50] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -65,6 +65,7 @@ char * FlexCat_Strings[48] = {
 	"  OLDMSGNEW      Custom marker in old translation",
     "File '%s' is up to date",
     "%s, line %d - warning: ",
+    "%s, line %d - ERROR: ",
     "expected hex character (one of [0-9a-fA-F])",
     "expected octal character (one of [0-7])",
     "lengthbytes cannot be larger than %d (sizeof long)",
@@ -114,5 +115,6 @@ char * FlexCat_Strings[48] = {
     "Invalid language in catalog translation file.\n"\
 	"Language MUST be a string with alphabetical\n"\
 	"characters and no inlined or trailing spaces.",
-    "Original string doesn't have a trailing ellipsis ('...')"
+    "Original string doesn't have a trailing ellipsis ('...')",
+    "catalog codeset declared twice"
 };

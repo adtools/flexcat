@@ -5,6 +5,27 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2007-01-07  David Rey <tactica@users.sourceforge.net>
+
+    * scancd.c, scanct.c: the following events are now handled as
+      errors instead of mere warnings:
+      - Unexpected blanks (possibly caused by broken syntax)
+      - Extra characters at the end of the line
+      - Duplicated or conflicting ##version, ##language, ##name and ##rcsid
+        commands
+      - Missing brackets
+      - Duplicated ID numbers and identifiers
+    * createcatsrc.c: likewise with binary characters in string type None
+    * utils.c: ditto with unexpected stuff instead of hex/octal characters
+    * scanct.c: now also exits with an error if the codeset is declared
+      twice, also fixed memory leak ('line' counter was never freed) and
+      added support for the full 32bit codeset range as supported by
+      AmigaOS 4
+    * showfuncs.c: errors are now as verbose as warnings are
+    * FlexCat.cd: added MSG_ERR_DOUBLECTCODESET & MSG_ERR_ERROR to suit
+    * FlexCat_cat.h, FlexCat_cat_other.h, locale.c, locale_other.c:
+      regenerated
+
 2007-01-06  David Rey <tactica@users.sourceforge.net>
 
     * scanct.c: now exits with an error if the ##language command contains

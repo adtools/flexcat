@@ -238,7 +238,7 @@ int gethex ( int c )
     {
         return ( c - 'A' + 10 );
     }
-    ShowWarn ( MSG_ERR_EXPECTEDHEX );
+    ShowError ( MSG_ERR_EXPECTEDHEX );
     return ( 0 );
 }
 
@@ -256,7 +256,7 @@ int getoctal ( int c )
         return ( c - '0' );
     }
 
-    ShowWarn ( MSG_ERR_EXPECTEDOCTAL );
+    ShowError ( MSG_ERR_EXPECTEDOCTAL );
     return ( 0 );
 
 }

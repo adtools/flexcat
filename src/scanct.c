@@ -37,7 +37,7 @@ char           *CatLanguage = NULL;        /* Language of catalog translation */
 char           *CatRcsId = NULL;           /* RCS ID of catalog translation
                                               (## rcsid) */
 char           *CatName = NULL;            /* Name of catalog translation */
-int             CodeSet = 0;               /* Codeset of catalog translation */
+unsigned long   CodeSet = 0;               /* Codeset of catalog translation */
 int             CT_Scanned = FALSE;        /* If TRUE and we are going to
                                               write a new #?.ct file, then the
                                               user is surely updating his own
@@ -56,6 +56,7 @@ int ScanCTFile ( char *ctfile )
     char           *newline, *line, *idstr, *newidstr, *newstr;
     struct CatString *cs = NULL;
     int             Result = TRUE;
+    int             CodeSet_checked = FALSE;
 
     ScanFile = ctfile;
     ScanLine = 0;
@@ -100,7 +101,7 @@ int ScanCTFile ( char *ctfile )
                 {
                     if ( CatVersionString || CatRcsId || CatName )
                     {
-                        ShowWarn ( MSG_ERR_DOUBLECTVERSION );
+                        ShowError ( MSG_ERR_DOUBLECTVERSION );
                     }
                     line += 7;
                     OverSpace ( &line );
@@ -108,13 +109,18 @@ int ScanCTFile ( char *ctfile )
                 }
                 else if ( Strnicmp ( line, "codeset", 7 ) == 0 )
                 {
+                    if ( CodeSet_checked )
+                    {
+                        ShowError ( MSG_ERR_DOUBLECTCODESET );
+                    }
                     line += 7;
-                    CodeSet = strtol ( line, &line, 0 );
+                    CodeSet = strtoul ( line, &line, 0 );
                     OverSpace ( &line );
                     if ( *line )
                     {
-                        ShowWarn ( MSG_ERR_EXTRACHARACTERS );
+                        ShowError ( MSG_ERR_EXTRACHARACTERS );
                     }
+                    CodeSet_checked = TRUE;
                 }
                 else if ( Strnicmp ( line, "language", 8 ) == 0 )
                 {
@@ -122,7 +128,7 @@ int ScanCTFile ( char *ctfile )
 
                     if ( CatLanguage )
                     {
-                        ShowWarn ( MSG_ERR_DOUBLECTLANGUAGE );
+                        ShowError ( MSG_ERR_DOUBLECTLANGUAGE );
                     }
                     line += 8;
                     OverSpace ( &line );
@@ -176,7 +182,7 @@ int ScanCTFile ( char *ctfile )
                 {
                     if ( CatVersionString || CatRcsId )
                     {
-                        ShowWarn ( MSG_ERR_DOUBLECTVERSION );
+                        ShowError ( MSG_ERR_DOUBLECTVERSION );
                     }
                     line += 5;
                     OverSpace ( &line );
@@ -186,7 +192,7 @@ int ScanCTFile ( char *ctfile )
                 {
                     if ( CatVersionString || CatName )
                     {
-                        ShowWarn ( MSG_ERR_DOUBLECTVERSION );
+                        ShowError ( MSG_ERR_DOUBLECTVERSION );
                     }
                     line += 4;
                     OverSpace ( &line );
@@ -204,7 +210,7 @@ int ScanCTFile ( char *ctfile )
             default:
                 if ( *line == ' ' || *line == '\t' )
                 {
-                    ShowWarn ( MSG_ERR_UNEXPECTEDBLANKS );
+                    ShowError ( MSG_ERR_UNEXPECTEDBLANKS );
                     OverSpace ( &line );
                 }
                 idstr = line;
@@ -217,7 +223,7 @@ int ScanCTFile ( char *ctfile )
                 }
                 if ( idstr == line )
                 {
-                    ShowWarn ( MSG_ERR_NOIDENTIFIER );
+                    ShowError ( MSG_ERR_NOIDENTIFIER );
                     break;
                 }
 
@@ -232,7 +238,7 @@ int ScanCTFile ( char *ctfile )
 
                 if ( *line )
                 {
-                    ShowWarn ( MSG_ERR_EXTRACHARACTERS );
+                    ShowError ( MSG_ERR_EXTRACHARACTERS );
                 }
 
                 if ( ( newstr = ReadLine ( fp, FALSE ) ) )
@@ -254,7 +260,7 @@ int ScanCTFile ( char *ctfile )
 
                         if ( cs->CT_Str )
                         {
-                            ShowWarn ( MSG_ERR_DOUBLEIDENTIFIER );
+                            ShowError ( MSG_ERR_DOUBLEIDENTIFIER );
                             Result = FALSE;
                             free ( cs->CT_Str );
                         }
@@ -334,6 +340,7 @@ int ScanCTFile ( char *ctfile )
         }
         free ( newline );
     }
+    free ( line );
     
     fclose ( fp );
 

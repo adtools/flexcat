@@ -252,7 +252,7 @@ void WriteBinChar ( int c )
             OutputMode = OutputMode_Bin;
             break;
         case TYPE_NONE:
-            ShowWarn ( MSG_ERR_NOBINCHARS );
+            ShowError ( MSG_ERR_NOBINCHARS );
             break;
 
     }
@@ -608,7 +608,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                     if ( *currentline )
 
                     {
-                        ShowWarn ( MSG_ERR_EXTRACHARACTERS );
+                        ShowError ( MSG_ERR_EXTRACHARACTERS );
 
                     }
                     continue;
@@ -624,7 +624,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                     if ( *currentline )
 
                     {
-                        ShowWarn ( MSG_ERR_EXTRACHARACTERS );
+                        ShowError ( MSG_ERR_EXTRACHARACTERS );
 
                     }
                     continue;
@@ -856,7 +856,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 
                                 {
                                     /* FIXME: reuse MSG_ERR_NOTRAILINGBRACKET here? <tactica> */
-                                    ShowWarn ( MSG_ERR_NOTERMINATEBRACKET );
+                                    ShowError ( MSG_ERR_NOTERMINATEBRACKET );
 
                                 }
 
