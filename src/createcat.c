@@ -41,7 +41,7 @@ struct CatalogChunk *FirstChunk = NULL;        /* List of catalog chunks */
 
 int CatPuts ( FILE * fp, char *str, int padbytes, int countnul, int lenbytes )
 {
-    unsigned long   reallen, virtuallen, chunklen, swapped_long;
+    uint32   reallen, virtuallen, chunklen, swapped_long;
     int             bytesread;
     char           *oldstr;
     char            bytes[10];
@@ -177,7 +177,7 @@ void CreateCat ( char *CatFile )
             {
                 char            dateStr[12];
 
-                long            tim;
+                time_t         tim;
                 struct tm      *t;
 
                 time ( &tim );

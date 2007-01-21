@@ -284,7 +284,7 @@ int main ( int argc, char *argv[] )
     {
         if ( cdfile && ctfile && catalog )
         {
-            long            cd_time, ct_time, cat_time;
+            int32 cd_time, ct_time, cat_time;
 
             if ( ( cd_time = getft ( cdfile ) ) != -1 )
             {

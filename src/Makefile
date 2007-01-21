@@ -4,7 +4,8 @@
 
 CC          = gcc
 MAKEINFO    = makeinfo
-CFLAGS      = -ggdb -funsigned-char -O2 -Wall -Wwrite-strings
+DEBUG			= -ggdb -O0
+CFLAGS      = -O3 -fomit-frame-pointer -W -Wall -Wwrite-strings $(DEBUG)
 CATFILES    = FlexCat_cat.h FlexCat_cat_other.h locale.c locale_other.c
 
 # Might be replaced by 'delete'
@@ -16,7 +17,7 @@ OS          =   $(shell uname)
 
 # We separate AmigaOS 4.x from Classic AmigaOS and call it AmigaOS4.
 ifeq ($(OS), AmigaOS)
-ifeq ($(shell uname -m), ppc)
+ifeq ($(shell uname -m), powerpc)
 OS          =   AmigaOS4
 endif
 endif
@@ -57,8 +58,9 @@ else
 
 # Building on UNIX
 
-LDFLAGS     =
-CATOBJS     =   locale_other.o
+LDFLAGS     = -m32
+CFLAGS      += -m32
+CATOBJS     = locale_other.o
 
 endif
 endif

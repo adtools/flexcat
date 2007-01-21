@@ -6,7 +6,17 @@ $Id$
 $URL$
 
 2007-01-21  Jens Langner <Jens.Langner@light-speed.de>
-
+    
+    * Makefile: adapted makefile to carry a DEBUG= option for compiling
+      flexcat without any debugging enabled at all. Also added the "-m32" gcc
+      option to the unix builds so that a 32bit version of flexcat will be
+      generated. We somehow still have problems on getting correct
+      catalog files generated when creating them with a 64bit flexcat.
+	 * flexcat.h, misc: introduced own portable datatype definitions like
+      uint32,int32 and so on. These should help to nail down existing problems
+      when building flexcat on 64bit system where e.g. long is defined as a
+      64bit value. Adapted all 'unsigned long' and similar 64bit usages to
+      use these new types instead.
     * scanct.c: fixed bug #752031 where a NULL pointer exception caused
       a crash when the COPYMSGNEW option was used under certain circumstances.
 

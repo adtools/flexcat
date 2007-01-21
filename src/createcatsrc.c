@@ -384,7 +384,7 @@ void TerminateCatStringOutput ( void )
 
 /* This writes a source string. */
 
-void WriteString ( FILE * fpout, char *str, long Len, int lenbytes )
+void WriteString ( FILE * fpout, char *str, int32 Len, int lenbytes )
 {
     char            bytes[10];
     int             bytesread;
@@ -739,7 +739,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                         char            _StrLen[20 + 1];
 
                                         sprintf ( _StrLen, "%020lx",
-                                                  ( unsigned long )cs->ID );
+                                                  ( uint32 )cs->ID );
                                         start = &_StrLen[20 - _len * 2];
                                         while ( _len > 0 )
 
@@ -760,8 +760,7 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                         char            _StrLen[20 + 1];
 
                                         sprintf ( _StrLen, "%020lx",
-                                                  ( unsigned
-                                                    long )( ( CalcRealLength
+                                                  (uint32)( ( CalcRealLength
                                                               ( cs->CD_Str ) +
                                                               1 ) &
                                                             0xfffffe ) );
@@ -808,11 +807,10 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                 if ( cs )
 
                                 {
-                                    char           *idstr;
-                                    long   len = 0;
+                                    char     *idstr;
+                                    uint32   len = 0;
 
                                     if ( cs->LenBytes )
-
                                     {
                                         idstr = cs->CD_Str;
                                         while ( *idstr )
@@ -830,8 +828,9 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
                                         }
 
                                     }
+
                                     WriteString ( fpout, cs->CD_Str,
-                                                  cs->LenBytes ? len : -1,
+                                                  cs->LenBytes ? len : (uint32)-1,
                                                   cs->LenBytes );
 
                                 }

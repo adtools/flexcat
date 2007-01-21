@@ -272,7 +272,7 @@ int getoctal ( int c )
            AllowComment - TRUE if a leading semicolon should force the
                           line to be interpreted as a comment */
 
-char           *ReadLine ( FILE * fp, int AllowComment )
+char *ReadLine ( FILE * fp, __attribute__((unused)) int AllowComment )
 {
 
     char           *OldLine, *NewLine = NULL;

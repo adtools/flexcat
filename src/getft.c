@@ -31,11 +31,10 @@
 
 /* Returns the time of change.
    Used for compatibility. */
-
-long getft ( char *filename )
+int32 getft ( char *filename )
 {
     BPTR            p_flock;
-    long            timestamp = 0;
+    int32          timestamp = 0;
     struct FileInfoBlock *p_fib;
 
     if ( ( p_fib = AllocDosObject ( DOS_FIB, NULL ) ) != NULL )

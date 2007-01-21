@@ -24,12 +24,12 @@
 #define  FLEXCAT_SWAPFUNCS_H
 
 /* Functions */
-extern unsigned long   ( *SwapLong ) ( unsigned long r );
+extern uint32   ( *SwapLong ) ( uint32 r );
 extern unsigned short  ( *SwapWord ) ( unsigned short r );
 unsigned short  SwapWord21 ( unsigned short r );
 unsigned short  SwapWord12 ( unsigned short r );
-unsigned long   SwapLong4321 ( unsigned long r );
-unsigned long   SwapLong1234 ( unsigned long r );
+uint32   SwapLong4321 ( uint32 r );
+uint32   SwapLong1234 ( uint32 r );
 int             SwapChoose ( void );
 
 #endif  /* FLEXCAT_SWAPFUNCS_H */

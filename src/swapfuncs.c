@@ -25,7 +25,7 @@
 /// FUNC: Swappers...
 
 unsigned short  ( *SwapWord ) ( unsigned short r ) = NULL;
-unsigned long   ( *SwapLong ) ( unsigned long r ) = NULL;
+uint32   ( *SwapLong ) ( uint32 r ) = NULL;
 unsigned short SwapWord21 ( unsigned short r )
 {
     return ( unsigned short )( ( r >> 8 ) + ( r << 8 ) );
@@ -34,12 +34,12 @@ unsigned short SwapWord12 ( unsigned short r )
 {
     return r;
 }
-unsigned long SwapLong4321 ( unsigned long r )
+uint32 SwapLong4321 ( uint32 r )
 {
     return ( ( r >> 24 ) & 0xFF ) + ( r << 24 ) + ( ( r >> 8 ) & 0xFF00 ) +
         ( ( r << 8 ) & 0xFF0000 );
 }
-unsigned long SwapLong1234 ( unsigned long r )
+uint32 SwapLong1234 ( uint32 r )
 {
     return r;
 }
@@ -50,7 +50,7 @@ unsigned long SwapLong1234 ( unsigned long r )
 int SwapChoose ( void )
 {
     unsigned short  w;
-    unsigned long   d;
+    uint32   d;
 
     strncpy ( ( char * )&w, "\1\2", 2 );
     strncpy ( ( char * )&d, "\1\2\3\4", 4 );

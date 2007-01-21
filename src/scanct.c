@@ -37,7 +37,7 @@ char           *CatLanguage = NULL;        /* Language of catalog translation */
 char           *CatRcsId = NULL;           /* RCS ID of catalog translation
                                               (## rcsid) */
 char           *CatName = NULL;            /* Name of catalog translation */
-unsigned long   CodeSet = 0;               /* Codeset of catalog translation */
+uint32   CodeSet = 0;               /* Codeset of catalog translation */
 int             CT_Scanned = FALSE;        /* If TRUE and we are going to
                                               write a new #?.ct file, then the
                                               user is surely updating his own
@@ -284,7 +284,7 @@ int ScanCTFile ( char *ctfile )
 
                         if ( reallen >= 3 )
                         {
-                            long            cd_len = strlen ( cs->CD_Str );
+                            size_t cd_len = strlen ( cs->CD_Str );
 
                             if ( cd_len >= 3 )
                             {
@@ -307,7 +307,7 @@ int ScanCTFile ( char *ctfile )
 
                         if ( reallen >= 1 )
                         {
-                            long            cd_len = strlen ( cs->CD_Str );
+                            size_t cd_len = strlen ( cs->CD_Str );
 
                             if ( cd_len >= 1 )
                             {

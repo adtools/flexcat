@@ -60,7 +60,7 @@ void CreateCTFile ( char *NewCTFile )
 
         if ( ( lang = getenv ( "language" ) ) != NULL )
         {
-            register int    i;
+            unsigned int i;
 
             for ( i = 0; i < strlen ( lang ); i++ )
             {
@@ -113,7 +113,7 @@ void CreateCTFile ( char *NewCTFile )
             else
             {
                 char           *dateStr;
-                long            tim;
+                time_t         tim;
                 struct tm      *t;
 
                 dateStr = calloc ( 15, 1 );

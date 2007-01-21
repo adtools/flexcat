@@ -34,7 +34,7 @@
 
 #define VERSION                2
 #define REVISION               7
-#define DATE                   "1.1.2007"
+#define DATE                   "21.01.2007"
 #define VERS                   "FlexCat 2.7-dev"
 #define VSTRING                VERS " (" DATE ") (C) 2002-2007 FlexCat Open Source Team"
 #define VERSTAG                "\0$VER: " VSTRING
@@ -78,7 +78,7 @@
  #define FALSE 0
 #endif
 #ifndef TRUE
- #define TRUE (!FALSE)
+ #define TRUE  1
 #endif
 
 
@@ -92,12 +92,49 @@
  #define DEFAULT_FLEXCAT_SDDIR "lib"
 #endif
 
-#ifndef MAKE_ID
- #define MAKE_ID(a,b,c,d)      ((ULONG) (a)<<24 | (ULONG) (b)<<16 | (ULONG) (c)<<8 | (ULONG) (d))
+
+// we have to care about own basic datatype
+// definitions as flexcat may also be compiled
+// on 64bit environments (e.g. linux)
+//
+// in fact, these definitions are borrowed from
+// the OS4 SDK and we bring them onto all the
+// other OSs as well....
+#if !defined(__amigaos4__)
+typedef unsigned char uint8;
+typedef   signed char  int8;
+
+typedef unsigned short uint16;
+typedef   signed short  int16;
+
+typedef unsigned long uint32;
+typedef   signed long  int32;
+
+#if !defined(__SASC) && ((__GNUC__ >= 3 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 95)) || defined(__VBCC__))
+typedef unsigned long long uint64;
+typedef   signed long long  int64;
+#else
+typedef struct { unsigned long hi,lo; } uint64; /* Not exactly scalar data
+                                                 * types, but the right size.
+                                                 */
+typedef struct { long hi,lo; }           int64;
 #endif
 
-#ifndef ULONG
- #define ULONG                 unsigned long
+typedef uint8  UBYTE;
+typedef  int8   BYTE;
+typedef uint8   BYTEBITS;
+typedef uint16 UWORD;
+typedef  int16  WORD;
+typedef uint16  WORDBITS;
+typedef uint32 ULONG;
+typedef  int32  LONG;
+typedef uint32  LONGBITS;
+typedef uint16  RPTR;
+
+#endif /* !__amigaos4__ */
+
+#ifndef MAKE_ID
+ #define MAKE_ID(a,b,c,d)      ((ULONG) (a)<<24 | (ULONG) (b)<<16 | (ULONG) (c)<<8 | (ULONG) (d))
 #endif
 
 #define MAX_NEW_STR_LEN        25
@@ -128,6 +165,6 @@ struct CatalogChunk
     char                *ChunkStr;
 };
 
-long getft ( char *filename );
+int32 getft ( char *filename );
 
 #endif  /* FLEXCAT_H */
