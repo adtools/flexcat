@@ -12,7 +12,7 @@ $URL$
       option to the unix builds so that a 32bit version of flexcat will be
       generated. We somehow still have problems on getting correct
       catalog files generated when creating them with a 64bit flexcat.
-	 * flexcat.h, misc: introduced own portable datatype definitions like
+    * flexcat.h, misc: introduced own portable datatype definitions like
       uint32,int32 and so on. These should help to nail down existing problems
       when building flexcat on 64bit system where e.g. long is defined as a
       64bit value. Adapted all 'unsigned long' and similar 64bit usages to
