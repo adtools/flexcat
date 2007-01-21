@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2007-01-21  Jens Langner <Jens.Langner@light-speed.de>
+
+    * scanct.c: fixed bug #752031 where a NULL pointer exception caused
+      a crash when the COPYMSGNEW option was used under certain circumstances.
+
 2007-01-07  David Rey <tactica@users.sourceforge.net>
 
     * scancd.c, scanct.c: the following events are now handled as
