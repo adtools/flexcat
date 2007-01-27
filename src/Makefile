@@ -17,7 +17,7 @@ OS          =   $(shell uname)
 
 # We separate AmigaOS 4.x from Classic AmigaOS and call it AmigaOS4.
 ifeq ($(OS), AmigaOS)
-ifeq ($(shell uname -m), ppc)
+ifeq ($(shell uname -m), powerpc)
 OS          =   AmigaOS4
 endif
 endif
