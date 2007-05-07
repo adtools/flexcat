@@ -46,6 +46,6 @@ void Open%bCatalog( void )
 void Close%bCatalog( void )
 {}
 
-char * %b_Strings[%n] = {
+const char * %b_Strings[%n] = {
     %s%(,)
 };

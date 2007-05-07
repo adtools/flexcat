@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2007-05-07  Joerg Strohmayer <nospam@gmx.de>
+    * Hardcode_c.sd and locale_other.c: Added missing const from patch
+      #1713307.
+    * Makefile: Fixed uname check, uname -m returns ppc, not powerpc, on
+      AmigaOS4.
+
 2007-01-21  Jens Langner <Jens.Langner@light-speed.de>
     
     * Makefile: adapted makefile to carry a DEBUG= option for compiling

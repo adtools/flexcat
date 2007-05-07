@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-char * FlexCat_Strings[50] = {
+const char * FlexCat_Strings[50] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
