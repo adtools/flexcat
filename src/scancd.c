@@ -148,6 +148,14 @@ int ScanCDFile ( char *cdfile )
                 lenbytes = atoi ( line );
                 CheckExtra = FALSE;
             }
+            else if ( Strnicmp ( line, "printf_check_off", 16 ) == 0 )
+            {
+                continue;
+            }
+            else if ( Strnicmp ( line, "printf_check_on", 15 ) == 0 )
+            {
+                continue;
+            }
             else
             {
                 ShowWarn ( MSG_ERR_UNKNOWNCDCOMMAND );

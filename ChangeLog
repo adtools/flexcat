@@ -5,6 +5,9 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2007-05-16  Joerg Strohmayer <nospam@gmx.de>
+    * scancd.c: Ignores commands "printf_check_off" and "printf_check_on".
+
 2007-05-07  Joerg Strohmayer <nospam@gmx.de>
     * Hardcode_c.sd and locale_other.c: Added missing const from patch
       #1713307.
