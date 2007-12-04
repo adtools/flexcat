@@ -52,6 +52,32 @@ void ShowError ( const char *msg, ... )
 
 //|
 
+/// FUNC: ShowErrorQuick
+
+/* Same as ShowError but in this case we omit any line number. */
+
+void ShowErrorQuick ( const char *msg, ... )
+{
+    va_list args;
+
+/* if(!Quiet) */
+    {
+        va_start ( args, msg );
+        fprintf ( stderr, ( char * )MSG_ERR_ERROR_QUICK, ScanFile );
+        vfprintf ( stderr, msg, args );
+        putc ( '\n', stderr );
+        va_end ( args );
+    }
+
+#ifdef __amigados
+    NumberOfWarnings++;
+#endif
+
+    MyExit ( 10 );
+}
+
+//|
+
 /// FUNC: MemError
 
 /* This shows the 'Memory error' message. */

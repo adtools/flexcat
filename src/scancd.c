@@ -51,7 +51,7 @@ int ScanCDFile ( char *cdfile )
 
     if ( !( fp = fopen ( cdfile, "r" ) ) )
     {
-        ShowError ( MSG_ERR_NOCATALOGDESCRIPTION, cdfile );
+        ShowErrorQuick ( MSG_ERR_NOCATALOGDESCRIPTION, cdfile );
     }
 
     if ( !NoBufferedIO )
@@ -76,7 +76,7 @@ int ScanCDFile ( char *cdfile )
         }
         if ( *line == '#' )
         {
-            int             CheckExtra = TRUE;
+            int CheckExtra = TRUE;
 
             /* '#' in the first  column of a line is the command introducer --
                any number of # symbols, blank spaces and tabs afterwards are
@@ -89,7 +89,7 @@ int ScanCDFile ( char *cdfile )
             
             if ( Strnicmp ( line, "language", 8 ) == 0 )
             {
-                char           *ptr;
+                char *ptr;
                 line += 9;
                 OverSpace ( &line );
                 Language = AllocString ( line );
@@ -101,7 +101,7 @@ int ScanCDFile ( char *cdfile )
                     }
                     CheckExtra = FALSE;
                 }
-        	CheckExtra = FALSE;
+        	    CheckExtra = FALSE;
 
             }
 

@@ -44,6 +44,9 @@ MSG_ERR_WARNING (100//)
 MSG_ERR_ERROR (//)
 %s, line %d - ERROR: 
 ;
+MSG_ERR_ERROR_QUICK (//)
+%s - ERROR: 
+;
 MSG_ERR_EXPECTEDHEX (//)
 expected hex character (one of [0-9a-fA-F])
 ;
@@ -185,3 +188,10 @@ Original string doesn't have a trailing ellipsis ('...')
 MSG_ERR_DOUBLECTCODESET (//)
 catalog codeset declared twice
 ;
+MSG_ERR_BADCTCODESET (//)
+Invalid codeset in catalog translation file.\n\
+Codeset MUST be a decimal number, without any\n\
+trailing spaces.
+;
+MSG_ERR_NOCTCODESET (//)
+Missing catalog translation codeset.

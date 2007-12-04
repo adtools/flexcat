@@ -21,8 +21,13 @@
  */
 
 #ifdef AMIGA
-  #include <proto/locale.h>
+  #include <proto/locale.h>  /* This is to get locale.library/IsAlpha() */
 #endif
+
+// #include <stdio.h>
+// #include <stdlib.h>
+#include <errno.h>
+
 
 #include "flexcat.h"
 #include "showfuncs.h"
@@ -37,7 +42,7 @@ char           *CatLanguage = NULL;        /* Language of catalog translation */
 char           *CatRcsId = NULL;           /* RCS ID of catalog translation
                                               (## rcsid) */
 char           *CatName = NULL;            /* Name of catalog translation */
-uint32   CodeSet = 0;               /* Codeset of catalog translation */
+uint32          CodeSet = 0;               /* Codeset of catalog translation */
 int             CT_Scanned = FALSE;        /* If TRUE and we are going to
                                               write a new #?.ct file, then the
                                               user is surely updating his own
@@ -56,14 +61,14 @@ int ScanCTFile ( char *ctfile )
     char           *newline, *line, *idstr, *newidstr, *newstr;
     struct CatString *cs = NULL;
     int             Result = TRUE;
-    int             CodeSet_checked = FALSE;
+    int             CodeSet_checked = 0;
 
     ScanFile = ctfile;
     ScanLine = 0;
 
     if ( !( fp = fopen ( ctfile, "r" ) ) )
     {
-        ShowError ( MSG_ERR_NOCATALOGTRANSLATION, ctfile );
+        ShowErrorQuick ( MSG_ERR_NOCATALOGTRANSLATION, ctfile );
     }
 
     if ( !NoBufferedIO )
@@ -95,7 +100,7 @@ int ScanCTFile ( char *ctfile )
                     ++line;
                 }
 
-                OverSpace ( &line );
+                OverSpace ( &line ); /* <--- FIXME: Do we really want to do this? <tactica> */
                 if ( Strnicmp ( line, "version", 7 ) == 0 )
                 {
                     if ( CatVersionString || CatRcsId || CatName )
@@ -106,20 +111,45 @@ int ScanCTFile ( char *ctfile )
                     OverSpace ( &line );
                     CatVersionString = AllocString ( line );
                 }
-                else if ( Strnicmp ( line, "codeset", 7 ) == 0 )
+                else if ( Strnicmp ( line, "codeset ", 8 ) == 0 )
                 {
                     if ( CodeSet_checked )
                     {
                         ShowError ( MSG_ERR_DOUBLECTCODESET );
                     }
-                    line += 7;
-                    CodeSet = strtoul ( line, &line, 0 );
+                    line += 8;
+
                     OverSpace ( &line );
-                    if ( *line )
+                    
+                    if ( !*line )
+                    /* Missing argument for "## codeset" */
                     {
-                        ShowError ( MSG_ERR_EXTRACHARACTERS );
+                        ShowError ( MSG_ERR_BADCTCODESET );
                     }
-                    CodeSet_checked = TRUE;
+                    
+                    char *ptr;
+
+                    for ( ptr = line; *ptr; ptr++ )
+                        if ( !isdigit ( (int)*ptr ) )
+                        /* Non-digit char detected */
+                        {
+                            ShowError ( MSG_ERR_BADCTCODESET );
+                        }
+                    
+                    errno = 0;
+                    
+                    CodeSet = strtoul ( line, &line, 0 );
+
+                    printf("ulong_max es %lu\n",ULONG_MAX);
+                    printf("CodeSet obtenido de strtoul es %lu\n",CodeSet);
+
+                    if ( ( errno == ERANGE ) && (CodeSet == ULONG_MAX ) )
+                    {
+                        ShowError ( MSG_ERR_BADCTCODESET );
+                    }
+
+                    CodeSet_checked = 1;
+                    // errno = 0;
                 }
                 else if ( Strnicmp ( line, "language", 8 ) == 0 )
                 {
@@ -255,7 +285,7 @@ int ScanCTFile ( char *ctfile )
                     }
                     else
                     {
-                        int             reallen;
+                        int reallen;
 
                         if ( cs->CT_Str )
                         {
@@ -339,8 +369,19 @@ int ScanCTFile ( char *ctfile )
         }
         free ( newline );
     }
-    free ( line );
     
+    if ( !CodeSet_checked )
+    {
+        ShowErrorQuick ( MSG_ERR_NOCTCODESET );
+    }
+
+    if ( !( CatVersionString || ( CatRcsId && CatName ) ) )
+    {
+        ShowErrorQuick ( MSG_ERR_NOCTVERSION );
+    }
+
+    free ( line );
+
     fclose ( fp );
 
     if ( WarnCTGaps )

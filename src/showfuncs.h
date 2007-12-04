@@ -25,6 +25,7 @@
 
 /* Functions */
 void            ShowError ( const char *msg, ... );
+void            ShowErrorQuick ( const char *msg, ... );
 void            MemError ( void );
 void            ShowWarn ( const char *msg, ... );
 

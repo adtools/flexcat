@@ -5,6 +5,19 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2007-12-04  David Rey <tactica@users.sourceforge.net>
+
+    * Makefile: made it more readable and also accept "powerpc" again in
+      addition to "ppc" from "uname -m" for backwards compatibility.
+    * showfuncs.c, showfuncs.h: added ShowErrorQuick() function to show
+      errors omitting any line number.
+    * scancd.c: now uses ShowErrorQuick() to complain about a missing
+      catalog description file.
+    * scanct.c: likewise to complain about a missing catalog translation
+      file; now also detects an empty, missing or bad "## codeset" header,
+      and a missing version; also added some debug output.
+    * catalogs/FlexCat.cd: added new errors to suit.
+
 2007-05-16  Joerg Strohmayer <nospam@gmx.de>
     * scancd.c: Ignores commands "printf_check_off" and "printf_check_on".
 
