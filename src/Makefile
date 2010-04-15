@@ -106,6 +106,8 @@ all: $(CATFILES) FlexCat
 FlexCat: $(OBJS) $(CATFILES)
 	$(CC) -o FlexCat $(OBJS) $(LDFLAGS)
 
+createcatsrc.o: createcatsrc.c flexcat.h readprefs.h swapfuncs.h showfuncs.h scancd.h scanct.h createcat.h globals.h utils.h
+
 locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
 	FlexCat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
 FlexCat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd

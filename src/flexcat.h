@@ -89,7 +89,11 @@
  #define FILE_MASK             FIBF_EXECUTE
  #define DEFAULT_FLEXCAT_SDDIR "PROGDIR:lib"
 #else
- #define DEFAULT_FLEXCAT_SDDIR "lib"
+ #ifdef __MINGW32__
+  #define DEFAULT_FLEXCAT_SDDIR "C:\\MinGW\\lib\\flexcat"
+ #else
+  #define DEFAULT_FLEXCAT_SDDIR "/usr/lib/flexcat"
+ #endif
 #endif
 
 
