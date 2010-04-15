@@ -114,6 +114,8 @@ int ScanCTFile ( char *ctfile )
                 }
                 else if ( Strnicmp ( line, "codeset ", 8 ) == 0 )
                 {
+		    char *ptr;
+
                     if ( CodeSet_checked )
                     {
                         ShowError ( MSG_ERR_DOUBLECTCODESET );
@@ -127,8 +129,6 @@ int ScanCTFile ( char *ctfile )
                     {
                         ShowError ( MSG_ERR_BADCTCODESET );
                     }
-                    
-                    char *ptr;
 
                     for ( ptr = line; *ptr; ptr++ )
                         if ( !isdigit ( (int)*ptr ) )
@@ -154,7 +154,11 @@ int ScanCTFile ( char *ctfile )
                 }
                 else if ( Strnicmp ( line, "language", 8 ) == 0 )
                 {
-                    char           *ptr;
+		    char *ptr;
+#ifdef __amigados
+		    struct LocaleBase *LocaleBase;
+		    struct Locale *my_locale;
+#endif
 
                     if ( CatLanguage )
                     {
@@ -167,9 +171,6 @@ int ScanCTFile ( char *ctfile )
                     /* Check for a valid language spec. */
 
 #ifdef AMIGA
-                    struct LocaleBase *LocaleBase;
-                    struct Locale     *my_locale;
-
                     if ( ( LocaleBase =
                            ( struct LocaleBase * )OpenLibrary ( "locale.library",
                                                      38L ) ) != NULL )

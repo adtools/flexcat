@@ -124,6 +124,7 @@ typedef struct { unsigned long hi,lo; } uint64; /* Not exactly scalar data
 typedef struct { long hi,lo; }           int64;
 #endif
 
+#ifndef __amigados
 typedef uint8  UBYTE;
 typedef  int8   BYTE;
 typedef uint8   BYTEBITS;
@@ -134,6 +135,7 @@ typedef uint32 ULONG;
 typedef  int32  LONG;
 typedef uint32  LONGBITS;
 typedef uint16  RPTR;
+#endif
 
 #endif /* !__amigaos4__ */
 
