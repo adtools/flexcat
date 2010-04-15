@@ -91,6 +91,11 @@ struct FC_String FlexCat_Strings[] =
 	"characters and no inlined or trailing spaces.", 144 },
    { "Original string doesn't have a trailing ellipsis ('...')", 145 },
    { "catalog codeset declared twice", 146 },
+   { "Invalid codeset in catalog translation file.\n"\
+	"Codeset MUST be a decimal number, without any\n"\
+	"trailing spaces.", 147 },
+   { "Missing catalog translation codeset.", 148 },
+   { "%s - ERROR: ", 149 },
    { NULL, 0 }
 };
 

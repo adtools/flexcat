@@ -128,5 +128,11 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_NOTRAILINGELLIPSIS 48
 #define MSG_ERR_DOUBLECTCODESET (FlexCat_Strings[49].Str)
 #define _MSG_ERR_DOUBLECTCODESET 49
+#define MSG_ERR_BADCTCODESET (FlexCat_Strings[50].Str)
+#define _MSG_ERR_BADCTCODESET 50
+#define MSG_ERR_NOCTCODESET (FlexCat_Strings[51].Str)
+#define _MSG_ERR_NOCTCODESET 51
+#define MSG_ERR_ERROR_QUICK (FlexCat_Strings[52].Str)
+#define _MSG_ERR_ERROR_QUICK 52
 
 #endif

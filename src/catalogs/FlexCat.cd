@@ -44,9 +44,6 @@ MSG_ERR_WARNING (100//)
 MSG_ERR_ERROR (//)
 %s, line %d - ERROR: 
 ;
-MSG_ERR_ERROR_QUICK (//)
-%s - ERROR: 
-;
 MSG_ERR_EXPECTEDHEX (//)
 expected hex character (one of [0-9a-fA-F])
 ;
@@ -195,3 +192,6 @@ trailing spaces.
 ;
 MSG_ERR_NOCTCODESET (//)
 Missing catalog translation codeset.
+;
+MSG_ERR_ERROR_QUICK (//)
+%s - ERROR: 

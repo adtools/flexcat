@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-const char * FlexCat_Strings[50] = {
+const char * FlexCat_Strings[53] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -116,5 +116,10 @@ const char * FlexCat_Strings[50] = {
 	"Language MUST be a string with alphabetical\n"\
 	"characters and no inlined or trailing spaces.",
     "Original string doesn't have a trailing ellipsis ('...')",
-    "catalog codeset declared twice"
+    "catalog codeset declared twice",
+    "Invalid codeset in catalog translation file.\n"\
+	"Codeset MUST be a decimal number, without any\n"\
+	"trailing spaces.",
+    "Missing catalog translation codeset.",
+    "%s - ERROR: "
 };

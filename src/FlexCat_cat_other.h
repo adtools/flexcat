@@ -77,5 +77,8 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_BADCTLANGUAGE FlexCat_Strings[47]
 #define MSG_ERR_NOTRAILINGELLIPSIS FlexCat_Strings[48]
 #define MSG_ERR_DOUBLECTCODESET FlexCat_Strings[49]
+#define MSG_ERR_BADCTCODESET FlexCat_Strings[50]
+#define MSG_ERR_NOCTCODESET FlexCat_Strings[51]
+#define MSG_ERR_ERROR_QUICK FlexCat_Strings[52]
 
 #endif

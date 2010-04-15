@@ -27,6 +27,7 @@
 // #include <stdio.h>
 // #include <stdlib.h>
 #include <errno.h>
+#include <limits.h>
 
 
 #include "flexcat.h"
@@ -140,8 +141,8 @@ int ScanCTFile ( char *ctfile )
                     
                     CodeSet = strtoul ( line, &line, 0 );
 
-                    printf("ulong_max es %lu\n",ULONG_MAX);
-                    printf("CodeSet obtenido de strtoul es %lu\n",CodeSet);
+/*                  printf("ulong_max es %lu\n",ULONG_MAX);
+                    printf("CodeSet obtenido de strtoul es %lu\n",CodeSet);*/
 
                     if ( ( errno == ERANGE ) && (CodeSet == ULONG_MAX ) )
                     {
