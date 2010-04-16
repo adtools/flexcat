@@ -50,6 +50,11 @@ ifndef (OS)
 
 endif
 
+# Default CPU for AROS
+ifndef (CPU)
+  CPU = i386
+endif
+
 ifeq ($(OS), MorphOS)
 
   # Building on MorphOS #####################################################
@@ -86,14 +91,26 @@ ifeq ($(OS), MorphOS)
           ###################################################################
 
           else
+	    ifeq ($(OS), AROS)
 
-            # Building on UNIX ##############################################
+	      # Building on AROS ############################################
 
-            LDFLAGS     =   -m32
-            CFLAGS      +=  -m32
-            CATOBJS     =   locale_other.o
+	      CC          =   $(CPU)-aros-gcc
+	      LDFLAGS     =   -lamiga
+	      CATOBJS     =   locale.o
 
-            #################################################################
+	      ###############################################################
+
+	      else
+
+              # Building on UNIX ##############################################
+
+              LDFLAGS     =   -m32
+              CFLAGS      +=  -m32
+              CATOBJS     =   locale_other.o
+
+              #################################################################
+	    endif
         endif
     endif
 endif
