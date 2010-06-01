@@ -1,225 +1,43 @@
-## version $VER: FlexCat.catalog 3.0 (XX.XX.2003)
+## version $VER: FlexCat.catalog 3.1 (01.06.2010)
 ## language polski
-## codeset 0
+## codeset 5
+## chunk AUTH Mariusz Danilewicz <mandi@interia.pl>
 ;
+;
+; FlexCat.ct - FlexCat catalog translation file
 ; $Id$
-;
-;
-; Warnings
-;
-MSG_WARN_Warning
-"%s", linia %d; ostrzeûenie: 
-; %s, line %d - warning: 
-;
-MSG_WARN_ExpectedHex
-Spodziewana liczba w systemie szesnastowym (np. 0-9a-fA-F)
-; expected hex character (one of [0-9a-fA-F])
-;
-MSG_WARN_ExpectedOctal
-Spodziewana liczba w systemie ósemkowym (np. 0-7)
-; expected octal character (one of [0-7])
-;
-MSG_WARN_NoLengthBytes
-Bîëdny argument LengthBytes > %d (dîugie sîowo).
-; lengthbytes cannot be larger than %d (sizeof long)
-;
-MSG_WARN_UnknownCDCommand
-Nieznane polecenie w opisie katalogu
-; unknown catalog description command
-;
-MSG_WARN_UnexpectedBlanks
-Niespodziwane puste linie.
-; unexpected blanks
-;
-MSG_WARN_NoIdentifier
-Brakujâcy indentyfikator.
-; missing identifier
-;
-MSG_WARN_NoLeadingBracket
-Brakujâcy "(".
-; missing '('
-;
-MSG_WARN_DoubleID
-Numer identyfikacyjny uûyty dwukrotnie.
-; ID number used twice
-;
-MSG_WARN_DoubleIdentifier
-Identyfikator zadeklarowany ponownie.
-; identifier declared twice
-;
-MSG_WARN_NoMinLen
-Spodziewana DîugoôêMinimalna (znak "/").
-; expected MinLen (character '/')
-;
-MSG_WARN_NoMaxLen
-Spodziewana DîugoôêMaksymalna (znak "/").
-; expected MaxLen (character '/')
-;
-MSG_WARN_NoTrailingBracket
-Spodziewany ")".
-; expected ')'
-;
-MSG_WARN_ExtraCharacters
-Zbëdne znaki na koïcu linii.
-; extra characters at the end of the line
-;
-MSG_WARN_NoString
-Niespodziewany koniec pliku (brakuje tekstu w katalogu).
-; unexpected end of file (missing catalog strings)
-;
-MSG_WARN_ShortString
-Tekst tîumaczenia zbyt krótki.
-; string too short
-;
-MSG_WARN_LongString
-Tekst tîumaczenia zbyt dîugi.
-; string too long
-;
-MSG_WARN_NoCTCommand
-Brak polecenia w tîumaczeniu katalogu. (Spodziewny drugi znak "#").
-; missing command in translation (expected a second '#')
-;
-MSG_WARN_UnknownCTCommand
-Nieznane polecenie w tîumaczeniu katalogu.
-; unknown command in translation
-;
-MSG_WARN_UnknownIdentifier
-Brakuje etykiety "%s" w opisie katalogu.
-; '%s' missing in catalog description
-;
-MSG_WARN_UnknownStringType
-Nie znany rodziaj îancucha znaków.
-; unknown string type
-;
-MSG_WARN_NoTerminateBracket
-Niespodziewany koniec linii (brakuje ")")
-; unexpected end of line (missing ')')
-;
-MSG_WARN_NoBinChars
-Dane binarne w îaïcuchu typu None.
-; binary characters in string type None
-;
-MSG_WARN_CTGap
-Brakuje identyfikatora %s w pliku #?.ct.
-; '%s' missing in catalog translation
-;
-MSG_WARN_DoubleCTLanguage
-Jëzyk katalogu zadeklarowany dwukrotnie.
-; catalog language declared twice
-;
-MSG_WARN_DoubleCTVersion
-Wersja katalogu zadeklarowana dwukrotnie.
-; catalog version declared twice
-;
-MSG_WARN_WrongRcsId
-Bîëdny identyfikator RCS
-; incorrect RCS Id
-;
-;
-; Errors
-;
-MSG_ERR_MemoryError
-Zbyt maîo wolnej pamiëci!
-; Out of memory!
-;
-MSG_ERR_NoCatalogDescription
-Nie mogë otworzyê opisu katalogu (#?.cd) "%s".
-; Cannot open catalog description '%s'.
-;
-MSG_ERR_NoCatalogTranslation
-Nie mogë otworzyê tîumaczenia katalogu (#?.ct) "%s".
-; Cannot open catalog translation '%s'.
-;
-MSG_ERR_NoCTVersion
-Brak numeru wersji tîumaczenia. Uûyj albo ##version albo ##rcsid and ##name.
-; Missing catalog translation version. Use either\n\
-; '## version' or '## rcsid' and '## name'.
-;
-MSG_ERR_NoCatalog
-Nie mogë otworzyê pliku "%s".
-; Cannot open catalog file '%s'.
-;
-MSG_ERR_NoNewCTFile
-Nie mogë stworzyê pliku tîumaczenia "%s".
-; Cannot create catalog translation '%s'.
-;
-MSG_ERR_NoCTLanguage
-Brak okreôlenia jëzyka tîumaczenia (##language).
-; Missing catalog translation language.
-;
-MSG_ERR_NoSource
-Nie mogë otworzyê pliku úródîowego "%s".
-; Cannot open source file '%s'.
-;
-MSG_ERR_NoSourceDescription
-Nie mogë otworzyê wzorca tekstu úródîowego "%s".
-; Cannot open source description file '%s'.
-;
-MSG_ERR_NoCTArgument
-Tworzenie katalogu wymaga pliku z tîumaczeniem.
-; Creating a catalog requires a translation file.
-;
 ;
 ; Misc
 ;
-MSG_UpToDate
-Plik \"%s\" jest aktualny
-; File '%s' is up to date
-;
-MSG_CantCheckDate
-Nie mogë odczytaê daty pliku \"%s\"
-; Cannot get datestamp of '%s'
-;
-MSG_TrailingEllipsis
-Oryginalny tekst koïczy sië wielokropkiem
-; Original string has a trailing ellipsis ('...')
-;
-MSG_TrailingBlanks
-Oryginalny tekst ma na koïcu co najmniej jednâ spacjë
-; Original string has trailing blanks
-;
-MSG_NoCTFileName
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-; 
-MSG_NoCatFileName
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
-MSG_PrefsError
-Bîâd podczas przetwarzania zmiennej ôrodowiskowej FlexCat.prefs,\n\
-uûywam ustawieï domyônych.\n\
-Dopuszczalne parametry ustawieï zmiennej: 
-; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
-;
-MSG_UsageHead
-Uûycie
+MSG_USAGE_HEAD
+U¿ycie:
 ; Usage:
 ;
-MSG_Usage
-  CDFILE        nazwa pliku z opisiem katalogu (#?.cd).\n\
-  CTFILE        tîumaczenie katalogu (#?.ct).\n\
-  CATALOG       nazwa katalogu do wygenerowania.\n\
-  NEWCTFILE     nazwa nowego pliku tîumaczenia do wygenerowania.\n\
-  SOURCES       tekst úródîowy do stworzenia; musi byê w rodzaju\n\
-                sfile=sdfile, gdzie sfile to tekst úródîowy, zaô\n\
-                sdfile to wzorzec tekstu úródîowego.\n\
-  WARNCTGAPS    wyôwietla ostrzeûenia o symbolach brakujâcych w #?.ct\n\
-  NOOPTIM       przy tworzeniu katalogu, zapisuj takûe teksty identycznych\n\
-                w plikach #?.cd i #?.ct\n\
-  FILL          gdy brakuje tîumaczenia, uûyj tekstu podstawowego\n\
-  FLUSH         usuï z pamiëci biblioteki przy zapisie katalogu\n\
-  NOBEEP        nie wywoîuj DisplayBeep() w przypadku wystâpienia bîëdów\n\
-  QUIET         nie wyôwietlaj ostrzeûeï\n\
-  NOLANGTOLOWER wyîâcza konwersje #language na maîe litery\n\
-  NOBUFFEREDIO  wyîâcza buforowanie operacji IO\n\
-  MODIFIED      generuj katalog tylko gdy pliki #?.c(d|t) byîy zmieniane\n\
-  COPYMSGNEW    Wîâcza kopiowanie znaczników **NEW** przyaktualizacji #?.ct\n\
-  OLDMSGNEW     Jeôli stary plik #?.ct uûywa innego znacznika, podaj go tutaj\n\
-  AUTODATE      
+MSG_USAGE
+  CDFILE        nazwa pliku opisu katalogu\n\
+  CTFILE        nazwa pliku t³umaczenia katalogu\n\
+  CATALOG       nazwa pliku katalogu do wygenerowania\n\
+  NEWCTFILE     nazwa nowego pliku t³umaczenia do wygenerowania\n\
+  SOURCES       tekst ¼ród³owy do stworzenia; musi byæ w postaci\n\
+                SFILE=SDFILE, gdzie SFILE to tekst ¼ród³owy, za¶\n\
+                SDFILE to plik ¼ród³owy opisu katalogu\n\
+  WARNCTGAPS    wy¶wietla ostrze¿enia o brakuj±cych identyfikatorach\n\
+                w pliku t³umaczenia\n\
+  NOOPTIM       nie pomija identycznych ci±gów w plikach\n\
+                opisu/t³umaczenia\n\
+  FILL          u¿ywa ci±gu z pliku opisu w przypadku braku t³umaczenia\n\
+  FLUSH         po utworzeniu katalogu czy¶ci pamiêæ z nieu¿ywanych\n\
+                bibliotek\n\
+  NOBEEP        nie wywo³uje funkcji DisplayBeep() w przypadku\n\
+                wyst±pienia b³êdów\n\
+  QUIET         nie wy¶wietla ostrze¿eñ\n\
+  NOLANGTOLOWER wy³±cza konwersje warto¶ci sta³ej #language na ma³e litery\n\
+  NOBUFFEREDIO  wy³±cza buforowanie operacji wej¶cia/wyj¶cia\n\
+  MODIFIED      generuje katalog tylko gdy pliki opisu/t³umaczenia\n\
+                by³y zmieniane\n\
+  COPYMSGNEW    w³±cza kopiowanie znaczników **NEW** przy aktualizacji\n\
+                pliku t³umaczenia\n\
+  OLDMSGNEW     w³asny znacznik dla ci±gów ze starego pliku t³umaczenia
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\
@@ -237,5 +55,231 @@ MSG_Usage
 ;   NOBUFFEREDIO   Disable I/O buffers\n\
 ;   MODIFIED       Create catalog only if description/translation have changed\n\
 ;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
-;   OLDMSGNEW      Custom marker in old translation\n\
-;   AUTODATE       Use current date when compiling a catalog
+;   OLDMSGNEW      Custom marker in old translation
+;
+MSG_FILEUPTODATE
+Plik \"%s\" jest aktualny
+; File '%s' is up to date
+;
+;
+; Error output
+;
+MSG_ERR_WARNING
+"%s", linia %d - ostrze¿enie: 
+; %s, line %d - warning: 
+;
+MSG_ERR_ERROR
+"%s", linia %d - b³±d: 
+; %s, line %d - ERROR: 
+;
+MSG_ERR_EXPECTEDHEX
+oczekiwana liczba w systemie szesnastowym (jedna z zakresu [0-9a-fA-F])
+; expected hex character (one of [0-9a-fA-F])
+;
+MSG_ERR_EXPECTEDOCTAL
+oczekiwana liczba w systemie ósemkowym (jedna z zakresu [0-7])
+; expected octal character (one of [0-7])
+;
+MSG_ERR_NOLENGTHBYTES
+argument LengthBytes nie mo¿e byæ wiêkszy ni¿ %d (wielko¶æ d³ugiego s³owa).
+; lengthbytes cannot be larger than %d (sizeof long)
+;
+MSG_ERR_UNKNOWNCDCOMMAND
+nieznane polecenie w pliku opisu
+; unknown catalog description command
+;
+MSG_ERR_UNEXPECTEDBLANKS
+nieoczekiwane puste linie
+; unexpected blanks
+;
+MSG_ERR_NOIDENTIFIER
+brakuj±cy indentyfikator
+; missing identifier
+;
+MSG_ERR_NOLEADINGBRACKET
+brakuj±cy \"(\"
+; missing '('
+;
+MSG_ERR_DOUBLEID
+numer identyfikacyjny u¿yty dwukrotnie
+; ID number used twice
+;
+MSG_ERR_DOUBLEIDENTIFIER
+identyfikator zadeklarowany dwukrotnie
+; identifier declared twice
+;
+MSG_ERR_NOMINLEN
+oczekiwany argument MinLen (znak \"/\")
+; expected MinLen (character '/')
+;
+MSG_ERR_NOMAXLEN
+oczekiwany argument MaxLen (znak \"/\")
+; expected MaxLen (character '/')
+;
+MSG_ERR_NOTRAILINGBRACKET
+brakuj±cy \")\"
+; missing ')'
+;
+MSG_ERR_EXTRACHARACTERS
+dodatkowe znaki na koñcu linii
+; extra characters at the end of the line
+;
+MSG_ERR_MISSINGSTRING
+nieoczekiwany koniec pliku (brakuj±ce ci±gi katalogu)
+; unexpected end of file (missing catalog strings)
+;
+MSG_ERR_STRINGTOOSHORT
+ci±g za krótki
+; string too short
+;
+MSG_ERR_STRINGTOOLONG
+ci±g za d³ugi
+; string too long
+;
+MSG_ERR_UNKNOWNCTCOMMAND
+nieznane polecenie w pliku t³umaczenia katalogu
+; unknown command in translation
+;
+MSG_ERR_UNKNOWNIDENTIFIER
+brakuj±ca etykieta \"%s\" w pliku opisu katalogu
+; '%s' missing in catalog description
+;
+MSG_ERR_UNKNOWNSTRINGTYPE
+nie znany rodziaj ci±gu znaków
+; unknown string type
+;
+MSG_ERR_NOTERMINATEBRACKET
+nieoczekiwany koniec linii (brakuje \")\")
+; unexpected end of line (missing ')')
+;
+MSG_ERR_NOBINCHARS
+dane binarne w ³añcuchu typu None
+; binary characters in string type None
+;
+MSG_ERR_CTGAP
+brakuj±cy identyfikator \"%s\" w pliku t³umaczenia
+; '%s' missing in catalog translation
+;
+MSG_ERR_DOUBLECTLANGUAGE
+jêzyk katalogu zadeklarowany dwukrotnie
+; catalog language declared twice
+;
+MSG_ERR_DOUBLECTVERSION
+wersja katalogu zadeklarowana dwukrotnie
+; catalog version declared twice
+;
+MSG_ERR_WRONGRCSID
+niew³a¶ciwy identyfikator RCS
+; incorrect RCS Id
+;
+MSG_ERR_NOMEMORY
+Brak pamiêci!
+; Out of memory!
+;
+MSG_ERR_NOCATALOGDESCRIPTION
+Nie mo¿na otworzyæ pliku opisu katalogu \"%s\".
+; Cannot open catalog description '%s'.
+;
+MSG_ERR_NOCATALOGTRANSLATION
+Nie mo¿na otworzyæ pliku t³umaczenia katalogu \"%s\".
+; Cannot open catalog translation '%s'.
+;
+MSG_ERR_NOCTVERSION
+Brak numeru wersji katalogu. U¿yj polecenia \"## version\"\n\
+albo poleceñ \"## rcsid\" i \"## name\".
+; Missing catalog translation version. Use either\n\
+; '## version' or '## rcsid' and '## name'.
+;
+MSG_ERR_NOCATALOG
+Nie mo¿na otworzyæ pliku katalogu \"%s\".
+; Cannot open catalog file '%s'.
+;
+MSG_ERR_NONEWCTFILE
+Nie mo¿na utworzyæ pliku t³umaczenia \"%s\".
+; Cannot create catalog translation '%s'.
+;
+MSG_ERR_NOCTLANGUAGE
+Brak okre¶lenia jêzyka t³umaczenia katalogu.
+; Missing catalog translation language.
+;
+MSG_ERR_NOSOURCE
+Nie mo¿na otworzyæ pliku ¼ród³owego \"%s\".
+; Cannot open source file '%s'.
+;
+MSG_ERR_NOSOURCEDESCRIPTION
+Nie mo¿na otworzyæ pliku ¼ród³owego opisu katalogu \"%s\".
+; Cannot open source description file '%s'.
+;
+MSG_ERR_NOCTARGUMENT
+Tworzenie pliku katalogu wymaga pliku z t³umaczeniem.
+; Creating a catalog requires a translation file.
+;
+MSG_ERR_CANTCHECKDATE
+Nie mo¿na pobraæ oznaczenia czasowego pliku \"%s\"
+; Cannot get datestamp of '%s'
+;
+MSG_ERR_TRAILINGELLIPSIS
+Oryginalny ci±g koñczy siê wielokropkiem (\"...\")
+; Original string has a trailing ellipsis ('...')
+;
+MSG_ERR_TRAILINGBLANKS
+Oryginalny ci±g koñczy siê stacj±
+; Original string has trailing blanks
+;
+MSG_ERR_NOCTFILENAME
+Nie okre¶lono nazwy pliku t³umaczenia jako argument \
+w linii polecenia, lub jako nazwa bazowa w pliku \
+opisu.
+; Catalog translation file name not specified at \
+; command line or as basename in description.
+;
+MSG_ERR_NOCATFILENAME
+Nie okre¶lono nazwy pliku katalogu jako argument \
+w linii polecenia, lub jako nazwa bazowa w pliku \
+opisu.
+; Catalog file name not specified at command line or \
+; as basename in description.
+;
+MSG_ERR_BADPREFS
+B³±d podczas przetwarzania zmiennych w pliku \"FlexCat.orefs\",\n\
+zostan± u¿yte warto¶ci domy¶lne.\n\
+Szablon: 
+; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
+; Template: 
+;
+MSG_ERR_NOTRAILINGBLANKS
+Oryginalny ci±g nie koñczy siê spacjami
+; Original string doesn't have trailing blanks
+;
+MSG_ERR_BADCTLANGUAGE
+Niew³a¶ciwy jêzyk w pliku t³umaczenia katalogu.\n\
+Nazwa jêzyka MUSI byæ ci±giem liter bez odstepów\n\
+ani spacji na koñcu linii.
+; Invalid language in catalog translation file.\n\
+; Language MUST be a string with alphabetical\n\
+; characters and no inlined or trailing spaces.
+;
+MSG_ERR_NOTRAILINGELLIPSIS
+Oryginalny ci±g nie koñczy siê wielokropkiem (\"...\")
+; Original string doesn't have a trailing ellipsis ('...')
+;
+MSG_ERR_DOUBLECTCODESET
+strona kodowa katalogu zadeklarowana dwukrotnie
+; catalog codeset declared twice
+;
+MSG_ERR_BADCTCODESET
+Niew³a¶ciwa strona kodowa w pliku t³umaczenia katalogu.\n\
+Strona kodowa MUSI byæ liczb± bez odstepów\n\
+ani spacji na koñcu linii.
+; Invalid codeset in catalog translation file.\n\
+; Codeset MUST be a decimal number, without any\n\
+; trailing spaces.
+;
+MSG_ERR_NOCTCODESET
+Brakuj±ca deklaracja strony kodowej w pliku opisu katalogu.
+; Missing catalog translation codeset.
+;
+MSG_ERR_ERROR_QUICK
+%s - b³±d: 
+; %s - ERROR: 
+;

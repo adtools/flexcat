@@ -5,7 +5,13 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
+
+    * polish.ct: updated the existing Polish catalog translation
+
+
 2007-12-13  Vit Sindlar <sindlarv at centrum dot cz>
+
     * czech.ct: updated the existing Czech catalog translation
 
 2007-12-04  David Rey <tactica@users.sourceforge.net>
