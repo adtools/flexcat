@@ -412,9 +412,9 @@ void Expunge(void)
 #if defined(__amigaos4__)
     #define localeExpunge() ILocale->Expunge()
 #elif defined(__MORPHOS__)
-    #define localeExpunge() LP0NR(12, localeExpunge, , LocaleBase, 0, 0, 0, 0, 0, 0)
+    #define localeExpunge() LP0NR(0x12, localeExpunge, , LocaleBase, 0, 0, 0, 0, 0, 0)
 #else
-    #define localeExpunge() LP0NR(12, localeExpunge, , LocaleBase)
+    #define localeExpunge() LP0NR(0x12, localeExpunge, , LocaleBase)
 #endif
 #else // __GNUC__
     #pragma libcall LocaleBase localeExpunge 12 00
@@ -431,6 +431,7 @@ void Expunge(void)
       CloseLibrary(LocaleBase);
     }
   }
+fprintf(stderr, "flush4\n");
 #endif // __amigados
 }
 

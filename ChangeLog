@@ -23,6 +23,7 @@ $URL$
     * getft.c: don't use deprecated functions in the OS4 build anymore.
     * scanct.c, utils.c: use the GETINTERFACE() and DROPINTERFACE() macros for
       all OS4 stuff.
+    * utils.c: fixed wrong jump table offsets for the Expunge() vector.
 
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 
