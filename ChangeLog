@@ -20,6 +20,7 @@ $URL$
     * openlibs.c, vastubs.c, main.c: made FlexCat (cross)compilable for AmigaOS3
       again.
     * lib/NoAutoC_c.sd: fixed a warning for the OS3 build.
+    * getft.c: don't use deprecated functions in the OS4 build anymore.
 
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 

@@ -20,7 +20,6 @@
  *
  */
 
-#include <proto/exec.h>
 #include <proto/dos.h>
 #include "flexcat.h"
 
@@ -32,26 +31,44 @@
 
 /* Returns the time of change.
    Used for compatibility. */
-int32 getft ( char *filename )
+int32 getft(char *filename)
 {
-    BPTR            p_flock;
-    int32          timestamp = 0;
-    struct FileInfoBlock *p_fib;
+  int32 timestamp = 0;
+  #if defined(__amigaos4__)
+  struct ExamineData *ed;
+  #else // __amigaos4__
+  BPTR p_flock;
+  struct FileInfoBlock *p_fib;
+  #endif // __amigaos4__
 
-    if ( ( p_fib = AllocDosObject ( DOS_FIB, NULL ) ) != NULL )
+  #if defined(__amigaos4__)
+  if((ed = ExamineObjectTags(EX_StringNameInput, filename, TAG_DONE)) != NULL)
+  {
+    timestamp = ed->Date.ds_Days * 86400;                /* days    */
+    timestamp += ed->Date.ds_Minute * 60;                /* minutes */
+    timestamp += ed->Date.ds_Tick / TICKS_PER_SECOND;    /* seconds */
+
+    FreeDosObject(DOS_EXAMINEDATA, ed);
+  }
+  #else // __amigaos4__
+  if((p_fib = AllocDosObject(DOS_FIB, NULL)) != NULL)
+  {
+    if((p_flock = Lock(filename, ACCESS_READ)) != ZERO)
     {
-        if ( ( p_flock = Lock ( filename, ACCESS_READ ) ) != ZERO )
-        {
-            Examine ( p_flock, p_fib );
-            timestamp = p_fib->fib_Date.ds_Days * 86400;                /* days    */
-            timestamp += p_fib->fib_Date.ds_Minute * 60;                /* minutes */
-            timestamp += p_fib->fib_Date.ds_Tick / TICKS_PER_SECOND;    /* seconds */
-            UnLock ( p_flock );
-        }
-        FreeDosObject ( DOS_FIB, p_fib );
+      Examine(p_flock, p_fib);
+
+      timestamp = p_fib->fib_Date.ds_Days * 86400;                /* days    */
+      timestamp += p_fib->fib_Date.ds_Minute * 60;                /* minutes */
+      timestamp += p_fib->fib_Date.ds_Tick / TICKS_PER_SECOND;    /* seconds */
+
+      UnLock(p_flock);
     }
 
-    return timestamp;
+    FreeDosObject(DOS_FIB, p_fib);
+  }
+  #endif // __amigaos4__
+
+  return timestamp;
 }
 
 ///
