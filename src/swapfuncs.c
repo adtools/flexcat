@@ -43,7 +43,7 @@ uint32 SwapLong1234 ( uint32 r )
 {
     return r;
 }
-//|
+///
 
 /// FUNC: SwapChoose
 
@@ -71,4 +71,4 @@ int SwapChoose ( void )
 
     return 1;
 }
-//|
+///

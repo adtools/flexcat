@@ -94,7 +94,7 @@ int CatPuts ( FILE * fp, char *str, int padbytes, int countnul, int lenbytes )
     return ( ( int )chunklen + 4 );
 }
 
-//|
+///
 
 /// FUNC: PutCatalogChunk
 
@@ -106,7 +106,7 @@ int PutCatalogChunk ( FILE * fp, struct CatalogChunk *cc )
     return ( 4 + CatPuts ( fp, cc->ChunkStr, 2, TRUE, 0 ) );
 }
 
-//|
+///
 
 /// FUNC: CreateCatalog
 
@@ -368,4 +368,4 @@ void CreateCat ( char *CatFile )
     Expunge (  );
 }
 
-//|
+///

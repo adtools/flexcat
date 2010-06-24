@@ -236,4 +236,4 @@ void CreateCTFile ( char *NewCTFile )
 #endif
 }
 
-//|
+///

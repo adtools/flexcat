@@ -54,4 +54,4 @@ int32 getft ( char *filename )
     return timestamp;
 }
 
-//|
+///

@@ -50,7 +50,7 @@ void ShowError ( const char *msg, ... )
     MyExit ( 10 );
 }
 
-//|
+///
 
 /// FUNC: ShowErrorQuick
 
@@ -76,7 +76,7 @@ void ShowErrorQuick ( const char *msg, ... )
     MyExit ( 10 );
 }
 
-//|
+///
 
 /// FUNC: MemError
 
@@ -87,7 +87,7 @@ void MemError ( void )
     ShowError ( MSG_ERR_NOMEMORY, NULL );
 }
 
-//|
+///
 
 /// FUNC: ShowWarn
 
@@ -110,4 +110,4 @@ void ShowWarn ( const char *msg, ... )
     GlobalReturnCode = 5;
 }
 
-//|
+///

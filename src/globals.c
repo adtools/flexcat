@@ -36,4 +36,4 @@ int             NumberOfWarnings = 0;   /* We count warnings to be smart
 int             buffer_size = 2048;     /* Size of the I/O buffer */
 char            VersTag[] = VERSTAG;
 
-//|
+///

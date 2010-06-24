@@ -83,7 +83,7 @@ int CalcRealLength ( char *source )
 }
 
 
-//|
+///
 
 /// FUNC: InitCatStringOutput
 
@@ -119,7 +119,7 @@ void InitCatStringOutput ( FILE * fp )
 }
 
 
-//|
+///
 
 /// FUNC: SeparateCatStringOutput
 
@@ -178,7 +178,7 @@ void SeparateCatStringOutput ( void )
 }
 
 
-//|
+///
 
 /// FUNC: WriteBinChar
 
@@ -260,7 +260,7 @@ void WriteBinChar ( int c )
 }
 
 
-//|
+///
 
 /// FUNC: WriteAsciiChar
 
@@ -340,7 +340,7 @@ void WriteAsciiChar ( int c )
 }
 
 
-//|
+///
 
 /// FUNC: TerminateCatStringOutput
 
@@ -378,7 +378,7 @@ void TerminateCatStringOutput ( void )
 }
 
 
-//|
+///
 
 /// FUNC: WriteString
 
@@ -448,7 +448,7 @@ void WriteString ( FILE * fpout, char *str, int32 Len, int lenbytes )
 }
 
 
-//|
+///
 
 /// FUNC: CreateSourceFile
 
@@ -923,4 +923,4 @@ void CreateSourceFile ( char *SourceFile, char *TemplateFile, char *CDFile )
 }
 
 
-//|
+///

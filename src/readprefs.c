@@ -153,4 +153,4 @@ char ReadPrefs ( void )
     return ( result );
 }
 
-//|
+///

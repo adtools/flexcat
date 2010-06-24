@@ -395,4 +395,4 @@ int ScanCDFile ( char *cdfile )
     return ( Result );
 }
 
-//|
+///

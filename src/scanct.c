@@ -407,4 +407,4 @@ int ScanCTFile ( char *ctfile )
     return ( Result );
 }
 
-//|
+///

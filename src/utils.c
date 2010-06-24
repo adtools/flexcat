@@ -54,7 +54,7 @@ void MyExit ( int Code )
     exit ( Code );
 }
 
-//|
+///
 
 #ifndef __amigados
 
@@ -154,7 +154,7 @@ int Stricmp ( const char *str1, const char *str2 )
     }
 }
 
-//|
+///
 
 /// FUNC: Strnicmp
 
@@ -178,7 +178,7 @@ int Strnicmp ( const char *str1, const char *str2, register int len )
     return 0;
 }
 #endif
-//|
+///
 
 /// FUNC: AllocString
 
@@ -196,7 +196,7 @@ char           *AllocString ( const char *str )
     return ( ptr );
 }
 
-//|
+///
 
 /// FUNC: Add catalog chunk
 
@@ -224,7 +224,7 @@ char           *AddCatalogChunk ( char *ID, const char *string )
     return ( cc->ChunkStr );
 }
 
-//|
+///
 
 /// FUNC: gethex
 
@@ -248,7 +248,7 @@ int gethex ( int c )
     return ( 0 );
 }
 
-//|
+///
 
 /// FUNC: getoctal
 
@@ -267,7 +267,7 @@ int getoctal ( int c )
 
 }
 
-//|
+///
 
 /// FUNC: ReadLine
 
@@ -371,7 +371,7 @@ char *ReadLine ( FILE * fp, __attribute__((unused)) int AllowComment )
 
 }
 
-//|
+///
 
 /// FUNC: OverSpace
 
@@ -387,7 +387,7 @@ void OverSpace ( char **strptr )
     }
 }
 
-//|
+///
 
 /// FUNC: Expunge
 
@@ -433,7 +433,7 @@ void Expunge ( void )
 
 }
 
-//|
+///
 
 /// FUNC: ReadChar
 
@@ -532,7 +532,7 @@ int ReadChar ( char **strptr, char *dest )
     return ( 1 );
 }
 
-//|
+///
 
 /// FUNC: AllocFileName
 
@@ -582,7 +582,7 @@ char           *AllocFileName ( char *filename, int howto )
     return ( tempstr );
 }
 
-//|
+///
 
 /// FUNC: AddFileName
 
@@ -613,7 +613,7 @@ char           *AddFileName ( char *pathname, char *filename )
     return ( buffer );
 }
 
-//|
+///
 
 
 /// FUNC: Usage
@@ -631,7 +631,7 @@ void Usage ( void )
     MyExit ( 5 );
 }
 
-//|
+///
 
 /// FUNC: wbmain
 
@@ -647,4 +647,4 @@ void wbmain ( struct WBStartup *wbmsg )
     exit ( 5 );
 }
 #endif
-//|
+///

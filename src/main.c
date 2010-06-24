@@ -21,7 +21,7 @@
  ******************************************************************
  ** If you use GoldED or any other text editor featuring folding **
  ** you may want to set up "///" as fold opening phrase, and     **
- ** "//|" as closing one, as this source is using it.            **
+ ** "///" as closing one, as this source is using it.            **
  **                                                Marcin        **
  ******************************************************************
  */
@@ -354,4 +354,4 @@ int main ( int argc, char *argv[] )
     return 0;
 }
 
-//|
+///
