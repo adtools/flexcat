@@ -17,6 +17,8 @@ $URL$
     * Makefile: the .o files and the final binary are now placed into system
       specific directories to be able to build FlexCat for multiple platforms
       at the same time.
+    * openlibs.c, vastubs.c, main.c: made FlexCat (cross)compilable for AmigaOS3
+      again.
 
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 

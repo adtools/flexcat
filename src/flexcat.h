@@ -82,7 +82,13 @@
 #endif
 
 
+#ifndef MAXPATHLEN
 #define MAXPATHLEN             512
+#endif
+#ifndef PATH_MAX
+#define PATH_MAX               512
+#endif
+
 #define FLEXCAT_SDDIR          "FLEXCAT_SDDIR"
 
 #if defined(__amigados)

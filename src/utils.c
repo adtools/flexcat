@@ -28,6 +28,7 @@
 #include "scanct.h"
 #include "createcat.h"
 #include "globals.h"
+#include "openlibs.h"
 
 #if defined(__amigaos4__)
 #include <interfaces/locale.h>
@@ -49,6 +50,7 @@ void MyExit ( int Code )
 
 #endif
     CloseFlexCatCatalog (  );
+    CloseLibs();
     exit ( Code );
 }
 

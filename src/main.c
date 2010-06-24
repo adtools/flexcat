@@ -37,6 +37,7 @@
 #include "utils.h"
 #include "globals.h"
 #include "createcatsrc.h"
+#include "openlibs.h"
 
 
 int isParam ( char *input_string )
@@ -102,6 +103,9 @@ int main ( int argc, char *argv[] )
     }
 
     cdfile = ctfile = newctfile = catalog = NULL;
+
+    if(OpenLibs() == FALSE)
+      exit(20);
 
     OpenFlexCatCatalog (  );
 
@@ -255,7 +259,7 @@ int main ( int argc, char *argv[] )
 
                 if ( ldot == NULL )
                     ldot = cdfile + strlen ( cdfile );
-               
+
                 if ( ldot - lslash > 0 )
                 {
                     BaseName = calloc ( ldot - lslash + 3, 1 );

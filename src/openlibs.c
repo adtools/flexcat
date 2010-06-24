@@ -20,38 +20,33 @@
  *
  */
 
+#include "openlibs.h"
 #include <proto/exec.h>
-#include <proto/dos.h>
-#include "flexcat.h"
+#include <proto/utility.h>
+#include <proto/intuition.h>
+#include <proto/locale.h>
 
-#ifndef ZERO
-# define ZERO (BPTR)NULL
-#endif
+struct Library *UtilityBase = NULL;
+struct IntuitionBase *IntuitionBase = NULL;
 
-/// getft
+// locale.library will opened on demand
+struct LocaleBase *LocaleBase = NULL;
 
-/* Returns the time of change.
-   Used for compatibility. */
-int32 getft ( char *filename )
+#if defined(amigados) && !defined(__amigaos4__) && !defined(__MORPHOS__)
+BOOL OpenLibs(void)
 {
-    BPTR            p_flock;
-    int32          timestamp = 0;
-    struct FileInfoBlock *p_fib;
+  if((UtilityBase = OpenLibrary("utility.library", 37)) != NULL &&
+     (IntuitionBase = (struct IntuitionBase)OpenLibrary("intuition.library", 37)) != NULL)
+    return TRUE;
 
-    if ( ( p_fib = AllocDosObject ( DOS_FIB, NULL ) ) != NULL )
-    {
-        if ( ( p_flock = Lock ( filename, ACCESS_READ ) ) != ZERO )
-        {
-            Examine ( p_flock, p_fib );
-            timestamp = p_fib->fib_Date.ds_Days * 86400;                /* days    */
-            timestamp += p_fib->fib_Date.ds_Minute * 60;                /* minutes */
-            timestamp += p_fib->fib_Date.ds_Tick / TICKS_PER_SECOND;    /* seconds */
-            UnLock ( p_flock );
-        }
-        FreeDosObject ( DOS_FIB, p_fib );
-    }
-
-    return timestamp;
+  return FALSE;
 }
 
-//|
+void CloseLibs(void)
+{
+  if(UtilityBase != NULL)
+    CloseLibrary(UtilityBase);
+  if(IntuitionBase != NULL)
+    CloseLibrary((struct Library *)IntuitionBase);
+}
+#endif

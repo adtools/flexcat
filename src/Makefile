@@ -81,7 +81,7 @@ else
     CFLAGS      +=  -DNO_INLINE_STDARG
     LDFLAGS     =   -noixemul
     LDLIBS      =   -lamiga
-    CATOBJS     =   locale.o getft.o
+    CATOBJS     =   locale.o getft.o openlibs.o vastubs.o
 
     #########################################################################
 
