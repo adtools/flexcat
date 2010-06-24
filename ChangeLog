@@ -5,10 +5,14 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-24 Thore Böckelmann <tboeckel@gmx.de>
+
+    * scanct.c: fixed a double free() in case the .ct file contained no traling
+      empty line.
+
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 
     * polish.ct: updated the existing Polish catalog translation
-
 
 2007-12-13  Vit Sindlar <sindlarv at centrum dot cz>
 
@@ -37,7 +41,7 @@ $URL$
       AmigaOS4.
 
 2007-01-21  Jens Langner <Jens.Langner@light-speed.de>
-    
+
     * Makefile: adapted makefile to carry a DEBUG= option for compiling
       flexcat without any debugging enabled at all. Also added the "-m32" gcc
       option to the unix builds so that a 32bit version of flexcat will be

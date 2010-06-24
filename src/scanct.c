@@ -1,6 +1,6 @@
 
 /* $Id$
- * 
+ *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2007 by the FlexCat Open Source Team
  *
@@ -123,7 +123,7 @@ int ScanCTFile ( char *ctfile )
                     line += 8;
 
                     OverSpace ( &line );
-                    
+
                     if ( !*line )
                     /* Missing argument for "## codeset" */
                     {
@@ -136,9 +136,9 @@ int ScanCTFile ( char *ctfile )
                         {
                             ShowError ( MSG_ERR_BADCTCODESET );
                         }
-                    
+
                     errno = 0;
-                    
+
                     CodeSet = strtoul ( line, &line, 0 );
 
 /*                  printf("ulong_max es %lu\n",ULONG_MAX);
@@ -167,7 +167,7 @@ int ScanCTFile ( char *ctfile )
                     line += 8;
                     OverSpace ( &line );
                     CatLanguage = AddCatalogChunk ( strdup("LANG"), line );
-                    
+
                     /* Check for a valid language spec. */
 
 #ifdef AMIGA
@@ -184,7 +184,7 @@ int ScanCTFile ( char *ctfile )
                                     if ( my_locale )
                                         CloseLocale ( my_locale );
                                     if ( LocaleBase )
-                                        CloseLibrary ( ( struct Library * )LocaleBase );                              
+                                        CloseLibrary ( ( struct Library * )LocaleBase );
                                     ShowError ( MSG_ERR_BADCTLANGUAGE );
                                 }
                                 CloseLocale ( my_locale );
@@ -345,13 +345,13 @@ int ScanCTFile ( char *ctfile )
                             {
                                 if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) == 0 ) &&
                                      ( strcmp ( &cs->CT_Str[reallen - 1], " " ) != 0 ) )
-                                
+
                                 {
                                     ShowWarn ( MSG_ERR_TRAILINGBLANKS );
                                 }
                                 if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) != 0 ) &&
                                      ( strcmp ( &cs->CT_Str[reallen - 1], " " ) == 0 ) )
-                                
+
                                 {
                                     ShowWarn ( MSG_ERR_NOTRAILINGBLANKS );
                                 }
@@ -370,8 +370,11 @@ int ScanCTFile ( char *ctfile )
                 free ( newidstr );
         }
         free ( newline );
+        // forget the pointers as we just freed them and 'line' must not be freed again after the loop
+        newline = NULL;
+        line = NULL;
     }
-    
+
     if ( !CodeSet_checked )
     {
         ShowErrorQuick ( MSG_ERR_NOCTCODESET );
@@ -382,7 +385,8 @@ int ScanCTFile ( char *ctfile )
         ShowErrorQuick ( MSG_ERR_NOCTVERSION );
     }
 
-    free ( line );
+    if(line != NULL)
+	    free ( line );
 
     fclose ( fp );
 
