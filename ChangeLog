@@ -10,6 +10,8 @@ $URL$
     * scanct.c: fixed a double free() in case the .ct file contained no traling
       empty line.
     * utils.c: replaced the malloc/strncpy combination by a realloc call.
+    * utils.c: the expunge code will now correctly call the Expunge() function
+      of locale.library for AmigaOS4, too. This fixes bug #1730644.
 
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 

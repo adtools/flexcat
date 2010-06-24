@@ -29,6 +29,10 @@
 #include "createcat.h"
 #include "globals.h"
 
+#if defined(__amigaos4__)
+#include <interfaces/locale.h>
+#endif
+
 char            VString[] =
     VSTRING "\n(Original idea by Jochen Wiedmann and Marcin Orlowski)";
 char            EString[] =
@@ -404,7 +408,10 @@ void Expunge ( void )
 #elif __amigaos4__
 #define localeExpunge() \
     if ( (ILocale = (struct LocaleIFace *)GetInterface(LocaleBase, "main", 1, 0)) != NULL ) \
-    DropInterface((struct Interface*)ILocale), ILocale = NULL;
+    { \
+      ILocale->Expunge(); \
+      DropInterface((struct Interface*)ILocale), ILocale = NULL; \
+    }
 #else
 #define localeExpunge() \
 	((BPTR (*)(struct Library * __asm("a6"))) \
