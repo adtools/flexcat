@@ -394,12 +394,6 @@ void Expunge ( void )
 #ifdef __amigados
     if ( DoExpunge )
     {
-#ifdef __EXPUNGE_ALL__
-        APTR            Memory;
-
-        if ( Memory = AllocMem ( -1, NULL ) )
-            FreeMem ( Memory, -1 );     // just in case ;-)
-#else
 #ifdef __GNUC__
 #ifdef __MORPHOS__
 #define localeExpunge() \
@@ -432,8 +426,6 @@ void Expunge ( void )
             localeExpunge (  );
             CloseLibrary ( LocaleBase );
         }
-
-#endif
     }
 #endif
 
