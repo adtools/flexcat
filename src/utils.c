@@ -28,7 +28,6 @@
 #include "scanct.h"
 #include "createcat.h"
 #include "globals.h"
-#include <string.h>
 
 char            VString[] =
     VSTRING "\n(Original idea by Jochen Wiedmann and Marcin Orlowski)";
