@@ -14,6 +14,9 @@ $URL$
       of locale.library for AmigaOS4, too. This fixes bug #1730644.
     * utils.c: removed the brain dead FreeMem(AllocMem(allyoucanget)) approach
       to expunge locale.library from memory.
+    * Makefile: the .o files and the final binary are now placed into system
+      specific directories to be able to build FlexCat for multiple platforms
+      at the same time.
 
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 

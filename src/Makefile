@@ -22,13 +22,16 @@
 #***************************************************************************/
 
 CC          =   gcc
+STRIP       =   strip
 MAKEINFO    =   makeinfo
 DEBUG       =   -ggdb -O0
 CFLAGS      =   -O3 -fomit-frame-pointer -W -Wall -Wwrite-strings $(DEBUG)
 CATFILES    =   FlexCat_cat.h FlexCat_cat_other.h locale.c locale_other.c
+MKDIR       =   mkdir -p
 
 # Might be replaced by 'delete'
-REMOVE      =   rm -f
+RM          =   rm -f
+RMDIR       =   rm -rf
 
 # Overriding the OS definition is possible, for example "make OS=ABCDEF".
 # Handy for cross-compiling.
@@ -41,10 +44,10 @@ ifndef (OS)
 
   ifeq ($(OS), AmigaOS)
     ifeq ($(shell uname -m), powerpc)
-      OS          =   AmigaOS4
+      OS          =   os4
     endif
     ifeq ($(shell uname -m), ppc)
-      OS          =   AmigaOS4
+      OS          =   os4
     endif
   endif
 
@@ -55,98 +58,125 @@ ifndef (CPU)
   CPU = i386
 endif
 
-ifeq ($(OS), MorphOS)
+ifeq ($(OS), mos)
 
   # Building on MorphOS #####################################################
 
   # -lauto here is a workaround for libabox's bug. Without it locale.library
   # will not be opened automatically. Don't remove it.
   CC          =   ppc-morphos-gcc
-  LDFLAGS     =   -lauto -noixemul
+  STRIP       =   ppc-morphos-strip
+  LDFLAGS     =   -noixemul
+  LDLIBS      =   -lauto
   CATOBJS     =   locale.o
 
   ###########################################################################
+else
+  ifeq ($(OS), os3)
+
+    # Building on AmigaOS3 ##################################################
+
+    CC          =   m68k-amigaos-gcc
+    STRIP       =   m68k-amigaos-strip
+    CFLAGS      +=  -DNO_INLINE_STDARG
+    LDFLAGS     =   -noixemul
+    LDLIBS      =   -lamiga
+    CATOBJS     =   locale.o getft.o
+
+    #########################################################################
+
   else
-    ifeq ($(OS), AmigaOS)
+    ifeq ($(OS), os4)
 
-      # Building on AmigaOS #################################################
+      # Building on AmigaOS 4 ###############################################
 
-      CC          =   m68k-amigaos-gcc
-      LDFLAGS     =   -lamiga -noixemul
-      CFLAGS      +=  -DNO_INLINE_STDARG
+      CC          =   ppc-amigaos-gcc
+      STRIP       =   ppc-amigaos-strip
+      CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
+      LDFLAGS     =   -mcrt=newlib
+      LDLIBS      =   -lauto -lunix
       CATOBJS     =   locale.o getft.o
 
       #######################################################################
 
+    else
+      ifeq ($(OS), aros-i386)
+
+        # Building on AROS ############################################
+
+        CC          =   $(CPU)-aros-gcc
+        LDFLAGS     =
+        LDLIBS      =   -lamiga
+        CATOBJS     =   locale.o
+
+        ###############################################################
+
       else
-        ifeq ($(OS), AmigaOS4)
 
-          # Building on AmigaOS 4 ###########################################
+        # Building on UNIX ##############################################
 
-          CC          =   ppc-amigaos-gcc
-          LDFLAGS     =   -mcrt=newlib -lauto -lunix
-          CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
-          CATOBJS     =   locale.o getft.o
+        CFLAGS      +=  -m32
+        LDFLAGS     =   -m32
+        CATOBJS     =   locale_other.o
+        OS          =   unix
 
-          ###################################################################
-
-          else
-	    ifeq ($(OS), AROS)
-
-	      # Building on AROS ############################################
-
-	      CC          =   $(CPU)-aros-gcc
-	      LDFLAGS     =   -lamiga
-	      CATOBJS     =   locale.o
-
-	      ###############################################################
-
-	      else
-
-              # Building on UNIX ##############################################
-
-              LDFLAGS     =   -m32
-              CFLAGS      +=  -m32
-              CATOBJS     =   locale_other.o
-
-              #################################################################
-	    endif
-        endif
+        #################################################################
+      endif
     endif
+  endif
 endif
+
+OBJDIR = .obj_$(OS)
+BINDIR = bin_$(OS)
+TARGET = $(BINDIR)/FlexCat
 
 OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
       scancd.o scanct.o showfuncs.o swapfuncs.o utils.o $(CATOBJS)
 
-all: $(CATFILES) FlexCat
+all: $(OBJDIR) $(BINDIR) $(CATFILES) $(TARGET)
 
-FlexCat: $(OBJS) $(CATFILES)
-	$(CC) -o FlexCat $(OBJS) $(LDFLAGS)
+# make the object directories
+$(OBJDIR):
+	@echo "  MK $@"
+	@$(MKDIR) $(OBJDIR)
+
+$(BINDIR):
+	@echo "  MK $@"
+	@$(MKDIR) $(BINDIR)
+
+# for compiling single .c files
+$(OBJDIR)/%.o: %.c
+	@echo "  CC $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(TARGET): $(addprefix $(OBJDIR)/,$(OBJS)) $(CATFILES)
+	@echo "  LD $@.debug"
+	@$(CC) $(LDFLAGS) -o $@.debug $(addprefix $(OBJDIR)/,$(OBJS)) $(LDLIBS) -Wl,--cref,-M,-Map=$@.map
+	@echo "  LD $@"
+	@$(STRIP) --preserve-dates -R.comment -R.sdata2 -S -o $@ $@.debug
 
 createcatsrc.o: createcatsrc.c flexcat.h readprefs.h swapfuncs.h showfuncs.h scancd.h scanct.h createcat.h globals.h utils.h
 
 locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
-	FlexCat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
+    FlexCat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
 FlexCat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd
-	FlexCat catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
+    FlexCat catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
 locale_other.c: catalogs/FlexCat.cd lib/Hardcode_c.sd
-	FlexCat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
+    FlexCat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
 FlexCat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
-	FlexCat catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
+    FlexCat catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
 
 clean:
-	$(REMOVE) *.o
-	$(REMOVE) FlexCat
-	$(REMOVE) ../doc/*.guide
+	-$(RM) $(addprefix $(OBJDIR)/,$(OBJS))
+	-$(RM) $(BINDIR)/FlexCat
+	-$(RM) ../doc/*.guide
 
-realclean:
-	$(REMOVE) *.o
-	$(REMOVE) FlexCat
-	$(REMOVE) ../doc/*.guide
-	$(REMOVE) FlexCat_cat.h
-	$(REMOVE) FlexCat_cat_other.h
-	$(REMOVE) locale.c
-	$(REMOVE) locale_other.c
+realclean: clean
+	-$(RM) FlexCat_cat.h
+	-$(RM) FlexCat_cat_other.h
+	-$(RM) locale.c
+	-$(RM) locale_other.c
+	-$(RMDIR) $(OBJDIR)
 
 doc:
 	$(MAKEINFO) ../doc/FlexCat_german.texinfo --amiga-39 --fill-column 76 --output ../doc/FlexCat_deutsch.guide
