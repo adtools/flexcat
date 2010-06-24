@@ -1,6 +1,6 @@
 
 /* $Id$
- * 
+ *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2007 by the FlexCat Open Source Team
  *
@@ -255,7 +255,7 @@ int main ( int argc, char *argv[] )
 
                 if ( ldot == NULL )
                     ldot = cdfile + strlen ( cdfile );
-                
+               
                 if ( ldot - lslash > 0 )
                 {
                     BaseName = calloc ( ldot - lslash + 3, 1 );

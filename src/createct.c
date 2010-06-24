@@ -1,6 +1,6 @@
 
 /* $Id$
- * 
+ *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2007 by the FlexCat Open Source Team
  *
@@ -76,7 +76,7 @@ void CreateCTFile ( char *NewCTFile )
     }
     else
         ctlanguage = CatLanguage;
-        
+       
     if ( ctlanguage == NULL )
         ctlanguage = (char *)"nolanguage";
 
@@ -163,7 +163,7 @@ void CreateCTFile ( char *NewCTFile )
      {
          struct LocaleBase *LocaleBase;
          struct Locale  *my_locale;
- 
+
          if ( ( LocaleBase =
                 ( struct LocaleBase * )OpenLibrary ( "locale.library",
                                                      47L ) ) != NULL )

@@ -1,6 +1,6 @@
 
 /* $Id$
- * 
+ *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2007 by the FlexCat Open Source Team
  *
@@ -39,7 +39,7 @@ int     LANGToLower = TRUE;                             /* Shall we do ToLower()
                                                            Some #?.language drivers seem to be
                                                            broken, so we provide a workaround. */
 int     NoBufferedIO = FALSE;                           /* Shall we do buffered I/O ? */
-int     Modified = FALSE;                               /* Shall we write the catalog ONLY 
+int     Modified = FALSE;                               /* Shall we write the catalog ONLY
                                                            if #?.catalog is newer than
                                                            #?.c(d|t) files ? */
 char    Msg_New[MAX_NEW_STR_LEN] = "***NEW***";         /* New strings in updated #?.ct */
