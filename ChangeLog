@@ -19,6 +19,7 @@ $URL$
       at the same time.
     * openlibs.c, vastubs.c, main.c: made FlexCat (cross)compilable for AmigaOS3
       again.
+    * lib/NoAutoC_c.sd: fixed a warning for the OS3 build.
 
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 

@@ -20,7 +20,7 @@
 #endif
 
 void LocalizeStringArray(STRPTR *Array);
-void Open%bCatalog ();
+void Open%bCatalog();
 void Close%bCatalog();
 
 struct FC_String

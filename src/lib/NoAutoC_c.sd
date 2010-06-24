@@ -29,18 +29,15 @@ static struct Catalog *%bCatalog;
 
 void Open%bCatalog()
 {
-   if (LocaleBase)
+   if(LocaleBase != NULL)
    {
-      if ((%bCatalog = OpenCatalog(NULL, "%b.catalog",
-     			          OC_BuiltInLanguage, %l,
-     			          OC_Version, %v,
-     			          TAG_DONE
-                                 ))
-         )
+      if ((%bCatalog = OpenCatalog(NULL, (STRPTR)"%b.catalog", OC_BuiltInLanguage, %l,
+                                                               OC_Version, %v,
+                                                               TAG_DONE)) != NULL)
       {
          struct FC_String *fc;
 
-         for (fc = %b_Strings; fc->Str; fc++)
+         for(fc = %b_Strings; fc->Str; fc++)
          {
             fc->Str = (char *)GetCatalogStr(%bCatalog, fc->Id, fc->Str);
          }
@@ -50,9 +47,10 @@ void Open%bCatalog()
 
 void Close%bCatalog()
 {
-   if (%bCatalog)
+   if(%bCatalog != NULL)
    {
       CloseCatalog(%bCatalog);
+      %bCatalog = NULL;
    }
 }
 
@@ -60,7 +58,7 @@ void LocalizeStringArray(STRPTR *Array)
 {
    STRPTR *x;
 
-   for (x = Array; *x != NULL; x++)
+   for(x = Array; *x != NULL; x++)
    {
       *x = strdup(%b_Strings[(int)*x].Str);
    }
