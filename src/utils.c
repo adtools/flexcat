@@ -1,6 +1,6 @@
 
 /* $Id$
- * 
+ *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2007 by the FlexCat Open Source Team
  *
@@ -28,6 +28,7 @@
 #include "scanct.h"
 #include "createcat.h"
 #include "globals.h"
+#include <string.h>
 
 char            VString[] =
     VSTRING "\n(Original idea by Jochen Wiedmann and Marcin Orlowski)";
@@ -275,7 +276,7 @@ int getoctal ( int c )
 char *ReadLine ( FILE * fp, __attribute__((unused)) int AllowComment )
 {
 
-    char           *OldLine, *NewLine = NULL;
+    char           *NewLine = NULL;
     int             c = '\0';
     int             Len = 0, LineLen = 0;
     int             FirstChar = TRUE;
@@ -287,14 +288,7 @@ char *ReadLine ( FILE * fp, __attribute__((unused)) int AllowComment )
     {
         if ( Len + 10 > LineLen )
         {
-            OldLine = NewLine;
-            if ( !( NewLine = malloc ( LineLen + BUFSIZE ) ) )
-                MemError (  );
-
-            strncpy ( NewLine, OldLine, LineLen );
-            if ( OldLine )
-                free ( OldLine );
-
+            NewLine = realloc(NewLine, LineLen + BUFSIZE);
             LineLen += BUFSIZE;
         }
 
@@ -304,7 +298,8 @@ char *ReadLine ( FILE * fp, __attribute__((unused)) int AllowComment )
         {
             if ( c == EOF )
             {
-                free ( NewLine );
+            	if ( NewLine != NULL)
+                    free ( NewLine );
                 return ( NULL );
             }
 

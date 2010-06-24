@@ -9,6 +9,7 @@ $URL$
 
     * scanct.c: fixed a double free() in case the .ct file contained no traling
       empty line.
+    * utils.c: replaced the malloc/strncpy combination by a realloc call.
 
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 
