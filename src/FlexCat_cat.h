@@ -17,7 +17,7 @@
 #endif
 
 void LocalizeStringArray(STRPTR *Array);
-void OpenFlexCatCatalog ();
+void OpenFlexCatCatalog();
 void CloseFlexCatCatalog();
 
 struct FC_String

@@ -103,18 +103,15 @@ static struct Catalog *FlexCatCatalog;
 
 void OpenFlexCatCatalog()
 {
-   if (LocaleBase)
+   if(LocaleBase != NULL)
    {
-      if ((FlexCatCatalog = OpenCatalog(NULL, "FlexCat.catalog",
-     			          OC_BuiltInLanguage, "english",
-     			          OC_Version, 3,
-     			          TAG_DONE
-                                 ))
-         )
+      if ((FlexCatCatalog = OpenCatalog(NULL, (STRPTR)"FlexCat.catalog", OC_BuiltInLanguage, "english",
+                                                               OC_Version, 3,
+                                                               TAG_DONE)) != NULL)
       {
          struct FC_String *fc;
 
-         for (fc = FlexCat_Strings; fc->Str; fc++)
+         for(fc = FlexCat_Strings; fc->Str; fc++)
          {
             fc->Str = (char *)GetCatalogStr(FlexCatCatalog, fc->Id, fc->Str);
          }
@@ -124,9 +121,10 @@ void OpenFlexCatCatalog()
 
 void CloseFlexCatCatalog()
 {
-   if (FlexCatCatalog)
+   if(FlexCatCatalog != NULL)
    {
       CloseCatalog(FlexCatCatalog);
+      FlexCatCatalog = NULL;
    }
 }
 
@@ -134,7 +132,7 @@ void LocalizeStringArray(STRPTR *Array)
 {
    STRPTR *x;
 
-   for (x = Array; *x != NULL; x++)
+   for(x = Array; *x != NULL; x++)
    {
       *x = strdup(FlexCat_Strings[(int)*x].Str);
    }
