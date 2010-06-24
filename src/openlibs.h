@@ -20,7 +20,7 @@
  *
  */
 
-#if defined(amigados) && !defined(__amigaos4__) && !defined(__MORPHOS__)
+#if defined(__amigados) && !defined(__amigaos4__) && !defined(__MORPHOS__)
 BOOL OpenLibs(void);
 void CloseLibs(void);
 #else

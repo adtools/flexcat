@@ -82,7 +82,7 @@ char ReadPrefs ( void )
         ARGS_COUNT
     };
 
-    char            template[] =
+    const char      template[] =
         "SDDIR/K,MSG_NEW/K,WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,COPYMSGNEW/S,OLDMSGNEW/K";
     LONG            Results[ARGS_COUNT] = { 0 };
     char           *prefs;

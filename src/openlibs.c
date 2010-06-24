@@ -20,6 +20,7 @@
  *
  */
 
+#include "flexcat.h"
 #include "openlibs.h"
 #include <proto/exec.h>
 #include <proto/utility.h>
@@ -28,16 +29,17 @@
 
 struct Library *UtilityBase = NULL;
 struct IntuitionBase *IntuitionBase = NULL;
-
-// locale.library will opened on demand
 struct LocaleBase *LocaleBase = NULL;
 
-#if defined(amigados) && !defined(__amigaos4__) && !defined(__MORPHOS__)
+#if defined(__amigados) && !defined(__amigaos4__) && !defined(__MORPHOS__)
 BOOL OpenLibs(void)
 {
   if((UtilityBase = OpenLibrary("utility.library", 37)) != NULL &&
-     (IntuitionBase = (struct IntuitionBase)OpenLibrary("intuition.library", 37)) != NULL)
+     (IntuitionBase = (struct IntuitionBase *)OpenLibrary("intuition.library", 37)) != NULL &&
+     (LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 37)) != NULL)
+  {
     return TRUE;
+  }
 
   return FALSE;
 }
@@ -45,8 +47,19 @@ BOOL OpenLibs(void)
 void CloseLibs(void)
 {
   if(UtilityBase != NULL)
+  {
     CloseLibrary(UtilityBase);
+    UtilityBase = NULL;
+  }
   if(IntuitionBase != NULL)
+  {
     CloseLibrary((struct Library *)IntuitionBase);
+    IntuitionBase = NULL;
+  }
+  if(LocaleBase != NULL)
+  {
+    CloseLibrary((struct Library *)LocaleBase);
+    LocaleBase = NULL;
+  }
 }
 #endif
