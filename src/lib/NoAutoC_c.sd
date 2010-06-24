@@ -31,15 +31,16 @@ void Open%bCatalog()
 {
    if(LocaleBase != NULL)
    {
-      if ((%bCatalog = OpenCatalog(NULL, (STRPTR)"%b.catalog", OC_BuiltInLanguage, %l,
-                                                               OC_Version, %v,
-                                                               TAG_DONE)) != NULL)
+      if ((%bCatalog = OpenCatalog(NULL, (STRPTR)"%b.catalog",
+                                         OC_BuiltInLanguage, (STRPTR)%l,
+                                         OC_Version, %v,
+                                         TAG_DONE)) != NULL)
       {
          struct FC_String *fc;
 
          for(fc = %b_Strings; fc->Str; fc++)
          {
-            fc->Str = (char *)GetCatalogStr(%bCatalog, fc->Id, fc->Str);
+            fc->Str = (const char *)GetCatalogStr(%bCatalog, fc->Id, (STRPTR)fc->Str);
          }
       }
    }

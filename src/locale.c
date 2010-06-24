@@ -105,15 +105,16 @@ void OpenFlexCatCatalog()
 {
    if(LocaleBase != NULL)
    {
-      if ((FlexCatCatalog = OpenCatalog(NULL, (STRPTR)"FlexCat.catalog", OC_BuiltInLanguage, "english",
-                                                               OC_Version, 3,
-                                                               TAG_DONE)) != NULL)
+      if ((FlexCatCatalog = OpenCatalog(NULL, (STRPTR)"FlexCat.catalog",
+                                         OC_BuiltInLanguage, (STRPTR)"english",
+                                         OC_Version, 3,
+                                         TAG_DONE)) != NULL)
       {
          struct FC_String *fc;
 
          for(fc = FlexCat_Strings; fc->Str; fc++)
          {
-            fc->Str = (char *)GetCatalogStr(FlexCatCatalog, fc->Id, fc->Str);
+            fc->Str = (const char *)GetCatalogStr(FlexCatCatalog, fc->Id, (STRPTR)fc->Str);
          }
       }
    }
