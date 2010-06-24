@@ -431,7 +431,6 @@ void Expunge(void)
       CloseLibrary(LocaleBase);
     }
   }
-fprintf(stderr, "flush4\n");
 #endif // __amigados
 }
 
