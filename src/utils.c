@@ -28,10 +28,17 @@
 #include "scanct.h"
 #include "createcat.h"
 #include "globals.h"
+#include "utils.h"
 #include "openlibs.h"
 
 #if defined(__amigaos4__)
 #include <interfaces/locale.h>
+#elif defined(__amigados) && defined(__GNUC__)
+#if defined(__MORPHOS__)
+#include <ppcinline/macros.h>
+#else
+#include <inline/macros.h>
+#endif
 #endif
 
 char            VString[] =
@@ -391,46 +398,40 @@ void OverSpace ( char **strptr )
 
 /// FUNC: Expunge
 
-void Expunge ( void )
+void Expunge(void)
 {
 #ifdef __amigados
-    if ( DoExpunge )
-    {
-#ifdef __GNUC__
-#ifdef __MORPHOS__
-#define localeExpunge() \
-	LP0NR(12, localeExpunge, \
-		, LocaleBase, 0, 0, 0, 0, 0, 0)
-#elif __amigaos4__
-#define localeExpunge() \
-    if ( (ILocale = (struct LocaleIFace *)GetInterface(LocaleBase, "main", 1, 0)) != NULL ) \
-    { \
-      ILocale->Expunge(); \
-      DropInterface((struct Interface*)ILocale), ILocale = NULL; \
-    }
-#else
-#define localeExpunge() \
-	((BPTR (*)(struct Library * __asm("a6"))) \
-  (((char *) LocaleBase) - 18))((struct Library *) LocaleBase)
-#endif
-#else
-#pragma libcall LocaleBase localeExpunge 12 00
-        VOID            localeExpunge ( VOID );
-#endif
-        struct Library *LocaleBase;
-
-#ifdef __amigaos4__
+  if(DoExpunge)
+  {
+    struct Library *LocaleBase;
+    #ifdef __amigaos4__
     struct LocaleIFace *ILocale;
-#endif
+    #endif
 
-        if ( ( LocaleBase = OpenLibrary ( "locale.library", 0 ) ) != NULL )
-        {
-            localeExpunge (  );
-            CloseLibrary ( LocaleBase );
-        }
+#ifdef __GNUC__
+#if defined(__amigaos4__)
+    #define localeExpunge() ILocale->Expunge()
+#elif defined(__MORPHOS__)
+    #define localeExpunge() LP0NR(12, localeExpunge, , LocaleBase, 0, 0, 0, 0, 0, 0)
+#else
+    #define localeExpunge() LP0NR(12, localeExpunge, , LocaleBase)
+#endif
+#else // __GNUC__
+    #pragma libcall LocaleBase localeExpunge 12 00
+    void localeExpunge(void);
+#endif // __GNUC__
+
+    if((LocaleBase = OpenLibrary( "locale.library", 0)) != NULL)
+    {
+      if(GETINTERFACE(ILocale, LocaleBase))
+      {
+        localeExpunge();
+        DROPINTERFACE(ILocale);
+      }
+      CloseLibrary(LocaleBase);
     }
-#endif
-
+  }
+#endif // __amigados
 }
 
 ///

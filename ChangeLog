@@ -21,6 +21,8 @@ $URL$
       again.
     * lib/NoAutoC_c.sd: fixed a warning for the OS3 build.
     * getft.c: don't use deprecated functions in the OS4 build anymore.
+    * scanct.c, utils.c: use the GETINTERFACE() and DROPINTERFACE() macros for
+      all OS4 stuff.
 
 2010-06-01  Mariusz Danilewicz <mandi@interia.pl>
 

@@ -101,7 +101,6 @@ int ScanCTFile ( char *ctfile )
                     ++line;
                 }
 
-                OverSpace ( &line ); /* <--- FIXME: Do we really want to do this? <tactica> */
                 if ( Strnicmp ( line, "version", 7 ) == 0 )
                 {
                     if ( CatVersionString || CatRcsId || CatName )
@@ -114,7 +113,7 @@ int ScanCTFile ( char *ctfile )
                 }
                 else if ( Strnicmp ( line, "codeset ", 8 ) == 0 )
                 {
-		    char *ptr;
+                    char *ptr;
 
                     if ( CodeSet_checked )
                     {
@@ -154,11 +153,14 @@ int ScanCTFile ( char *ctfile )
                 }
                 else if ( Strnicmp ( line, "language", 8 ) == 0 )
                 {
-		    char *ptr;
-#ifdef __amigados
-		    struct LocaleBase *LocaleBase;
-		    struct Locale *my_locale;
-#endif
+                    char *ptr;
+                    #ifdef __amigados
+                    struct LocaleBase *LocaleBase;
+                    struct Locale *my_locale;
+                    #if defined(__amigaos4__)
+                    struct LocaleIFace *ILocale;
+                    #endif
+                    #endif
 
                     if ( CatLanguage )
                     {
@@ -170,28 +172,35 @@ int ScanCTFile ( char *ctfile )
 
                     /* Check for a valid language spec. */
 
-#ifdef AMIGA
-                    if ( ( LocaleBase =
-                           ( struct LocaleBase * )OpenLibrary ( "locale.library",
-                                                     38L ) ) != NULL )
+                    #ifdef __amigados
+                    if((LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 38L)) != NULL)
                     {
-                        if ( ( my_locale = OpenLocale ( NULL ) ) != NULL )
-                        {
-                            for ( ptr = CatLanguage; *ptr; ptr++ )
-                                if ( !IsAlpha ( (struct Locale *)my_locale, *ptr ) )
-                                /* Non-alphabetical char detected */
+                    	if(GETINTERFACE(ILocale, LocaleBase))
+                    	{
+                            if((my_locale = OpenLocale(NULL)) != NULL)
+                            {
+                                for(ptr = CatLanguage; *ptr; ptr++)
                                 {
-                                    if ( my_locale )
-                                        CloseLocale ( my_locale );
-                                    if ( LocaleBase )
-                                        CloseLibrary ( ( struct Library * )LocaleBase );
-                                    ShowError ( MSG_ERR_BADCTLANGUAGE );
+                                    if(!IsAlpha((struct Locale *)my_locale, *ptr))
+                                    {
+                                        /* Non-alphabetical char detected */
+                                        CloseLocale(my_locale);
+                                        DROPINTERFACE(ILocale);
+                                        CloseLibrary((struct Library *)LocaleBase);
+                                        ShowError(MSG_ERR_BADCTLANGUAGE);
+                                        // ShowError() does not return!
+                                    }
                                 }
-                                CloseLocale ( my_locale );
+
+                                CloseLocale(my_locale);
+                            }
+
+                            DROPINTERFACE(ILocale);
                         }
-                        CloseLibrary ( ( struct Library * )LocaleBase );
+
+                        CloseLibrary((struct Library *)LocaleBase);
                     }
-#endif
+                    #endif
 
                     if ( LANGToLower )
                         for ( ptr = CatLanguage; *ptr; ptr++ )
