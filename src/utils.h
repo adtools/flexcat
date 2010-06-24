@@ -37,10 +37,19 @@ char           *AllocFileName ( char *filename, int howto );
 char           *AddFileName ( char *pathname, char *filename );
 void            Usage ( void );
 
-#ifndef __amigados
+#if defined(__amigados)
+#else // __amigados
 int             Stricmp ( const char *str1, const char *str2 );
 int             Strnicmp ( const char *str1, const char *str2,
                            register int len );
-#endif
+#endif // __amigados
+
+#if defined(__amigaos4__)
+#define GETINTERFACE(iface, base) (iface = (APTR)GetInterface((struct Library *)(base), "main", 1L, NULL))
+#define DROPINTERFACE(iface)      (DropInterface((struct Interface *)iface), iface = NULL)
+#else // __amigaos4__
+#define GETINTERFACE(iface, base) TRUE
+#define DROPINTERFACE(iface)      ((void)0)
+#endif // __amigaos4__
 
 #endif  /* FLEXCAT_UTILS_H */
