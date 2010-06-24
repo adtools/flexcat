@@ -133,7 +133,7 @@ TARGET = $(BINDIR)/FlexCat
 OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
       scancd.o scanct.o showfuncs.o swapfuncs.o utils.o $(CATOBJS)
 
-all: $(OBJDIR) $(BINDIR) $(CATFILES) $(TARGET)
+all: $(OBJDIR) $(BINDIR) $(TARGET)
 
 # make the object directories
 $(OBJDIR):
@@ -149,7 +149,7 @@ $(OBJDIR)/%.o: %.c
 	@echo "  CC $<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(TARGET): $(addprefix $(OBJDIR)/,$(OBJS)) $(CATFILES)
+$(TARGET): $(CATFILES) $(addprefix $(OBJDIR)/,$(OBJS))
 	@echo "  LD $@.debug"
 	@$(CC) $(LDFLAGS) -o $@.debug $(addprefix $(OBJDIR)/,$(OBJS)) $(LDLIBS) -Wl,--cref,-M,-Map=$@.map
 	@echo "  LD $@"
