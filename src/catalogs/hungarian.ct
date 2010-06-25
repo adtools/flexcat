@@ -204,7 +204,7 @@ MSG_USAGE
                  ahol sfile a forrásfájl és sdfile a forrás leíró fájl.\n\
   WARNCTGAPS     Figyelmeztetés CT fájlból hiányzó szimbólumok esetén\n\
   NOOPTIM        Ne ugorja át a nem változott sorokat (mind a #?.cd és\n\
-                 a #?.ct fájlokban)
+                 a #?.ct fájlokban)\n\
   FILL           Használja a leíró szövegeket, ha a fordítás hiányzik\n\
   FLUSH          Takarítsa a ki a memóriát, miután a catalog készen van\n\
   NOBEEP         DisplayBeep() tiltása hibák és figyelmeztetések esetén\n\
