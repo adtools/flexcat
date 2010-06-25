@@ -109,7 +109,14 @@ int ScanCTFile ( char *ctfile )
                     }
                     line += 7;
                     OverSpace ( &line );
-                    CatVersionString = AllocString ( line );
+                    if(Strnicmp(line, "$VER:", 5) == 0)
+                    {
+                        CatVersionString = AllocString ( line );
+                    }
+                    else
+                    {
+                        ShowError(MSG_ERR_BADCTVERSION);
+                    }
                 }
                 else if ( Strnicmp ( line, "codeset ", 8 ) == 0 )
                 {
