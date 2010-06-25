@@ -8,8 +8,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-%s, %d sor; figyelem: 
-; %s, line %d - warning: 
+%s, %d sor; figyelem:
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 Hexa karaktert vártam (0-9,a-f,A-F).
@@ -183,7 +183,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -191,9 +191,9 @@ MSG_NoCatFileName
 ;
 MSG_PrefsError
 Hiba a FlexCat.prefs változó feldolgozásánál, visszatérek az alapértelmezetthez.\n\
-Beállítás minta: 
+Beállítás minta:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Használat
@@ -220,7 +220,7 @@ MSG_Usage
   COPYMSGNEW     Bekapcsolja másolásnál a ***NEW*** jelölõket, amikor\n\
                  frissíti a #?.ct fájlt.\n\
   OLDMSGNEW      Ha egy régi #?.ct fájl más jelölõket használ, azt itt adhatod meg\n\
-  AUTODATE       
+  AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

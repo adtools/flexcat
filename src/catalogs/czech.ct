@@ -64,16 +64,16 @@ Soubor '%s' je aktuální
 ; Error output
 ;
 MSG_ERR_WARNING
-%s, øádek è.%d - upozornìní: 
-; %s, line %d - warning: 
+%s, øádek è.%d - upozornìní:
+; %s, line %d - warning:
 ;
 MSG_ERR_ERROR
-%s, øádek è.%d - CHYBA: 
-; %s, line %d - ERROR: 
+%s, øádek è.%d - CHYBA:
+; %s, line %d - ERROR:
 ;
 MSG_ERR_ERROR_QUICK
 
-; %s - ERROR: 
+; %s - ERROR:
 ;
 ; ***NEW***
 ;
@@ -236,7 +236,7 @@ Chybí názvu souboru s pøekladem; zadejte ho buï na pøíkazovém \
 øádku nebo jako direktivu basename do souboru s popisem katalogu.
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_ERR_NOCATFILENAME
 Chybí definice název katalogu; zadejte ho buï na pøíkazovém \
 øádku nebo jako direktivu basename do souboru s popisem katalogu.
@@ -245,9 +245,9 @@ Chybí definice název katalogu; zadejte ho buï na pøíkazovém \
 ;
 MSG_ERR_BADPREFS
 Chyba pøi zpracování promìnné 'FlexCat.prefs'. Pou¾ito výchozí nastavení.\n\
-Povinná ¹ablona: 
+Povinná ¹ablona:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_ERR_NOTRAILINGBLANKS
 Originální text nemá na konci øádku mezery

@@ -8,8 +8,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-%s, linie %d; Advarsel: 
-; %s, line %d - warning: 
+%s, linie %d; Advarsel:
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 Hexadecimalt tal forventet (et af [0-9a-fA-F]).
@@ -182,7 +182,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -191,7 +191,7 @@ MSG_NoCatFileName
 MSG_PrefsError
 
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Brug
@@ -206,16 +206,16 @@ MSG_Usage
                  sfil=sdfil, hvor sfil er en source fil og sdfil er en\n\
                  source beskrivelses fil.\n\
   WARNCTGAPS     Advar om symboler, der mangler i .ct filen.\n\
-  NOOPTIM        
-  FILL           
-  FLUSH          
-  QUIET          
-  NOLANGTOLOWER  
-  NOBUFFEREDIO   
-  MODIFIED       
-  COPYMSGNEW     
-  OLDMSGNEW      
-  AUTODATE       
+  NOOPTIM
+  FILL
+  FLUSH
+  QUIET
+  NOLANGTOLOWER
+  NOBUFFEREDIO
+  MODIFIED
+  COPYMSGNEW
+  OLDMSGNEW
+  AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

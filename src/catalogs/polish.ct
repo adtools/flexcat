@@ -65,12 +65,12 @@ Plik \"%s\" jest aktualny
 ; Error output
 ;
 MSG_ERR_WARNING
-"%s", linia %d - ostrze¿enie: 
-; %s, line %d - warning: 
+"%s", linia %d - ostrze¿enie:
+; %s, line %d - warning:
 ;
 MSG_ERR_ERROR
-"%s", linia %d - b³±d: 
-; %s, line %d - ERROR: 
+"%s", linia %d - b³±d:
+; %s, line %d - ERROR:
 ;
 MSG_ERR_EXPECTEDHEX
 oczekiwana liczba w systemie szesnastowym (jedna z zakresu [0-9a-fA-F])
@@ -243,9 +243,9 @@ opisu.
 MSG_ERR_BADPREFS
 B³±d podczas przetwarzania zmiennych w pliku \"FlexCat.orefs\",\n\
 zostan± u¿yte warto¶ci domy¶lne.\n\
-Szablon: 
+Szablon:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_ERR_NOTRAILINGBLANKS
 Oryginalny ci±g nie koñczy siê spacjami
@@ -280,6 +280,6 @@ Brakuj±ca deklaracja strony kodowej w pliku opisu katalogu.
 ; Missing catalog translation codeset.
 ;
 MSG_ERR_ERROR_QUICK
-%s - b³±d: 
-; %s - ERROR: 
+%s - b³±d:
+; %s - ERROR:
 ;

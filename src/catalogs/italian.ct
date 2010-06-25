@@ -9,7 +9,7 @@
 ;
 MSG_WARN_Warning
 Attenzione! File "%s", linea %d\n
-; %s, line %d - warning: 
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 atteso carattere esadecimale (compreso tra [0-9a-fA-F]).
@@ -183,7 +183,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -192,9 +192,9 @@ MSG_NoCatFileName
 MSG_PrefsError
 Errore nel trattamento della varibile FlexCat.prefs,\n\
 uso i parametri predefiniti.\n\
-Modello preferenze: 
+Modello preferenze:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Uso
@@ -219,7 +219,7 @@ MSG_Usage
   MODIFIED       Crea il catalog solo quando i file #?.c(d|t) sono modificati\n\
   COPYMSGNEW     Aggiornando il file #?.ct abilita la copia dei **NEW** marker\n\
   OLDMSGNEW      Se il vecchio file #?.ct usa un marker diverso, specificarlo qui\n\
-  AUTODATE       
+  AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

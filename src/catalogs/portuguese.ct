@@ -8,8 +8,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-Aviso: %s, linha %d : 
-; %s, line %d - warning: 
+Aviso: %s, linha %d :
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 Caracter HEX esperado (um de entre [[0-9a-fA-F]).
@@ -183,7 +183,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -192,9 +192,9 @@ MSG_NoCatFileName
 MSG_PrefsError
 Erro a processar a variável Flexcat.prefs,\n\
 voltando às preferências pré-definidas.\n\
-Modo de utilização das preferências: 
+Modo de utilização das preferências:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Modo de emprego
@@ -226,7 +226,7 @@ MSG_Usage
                  texto novo a traduzir.\n\
   OLDMSGNEW      Esta opção permite ao utilizador especificar um marcador\n\
                  alternativo em vez da palavra "**NEW**".\n\
-  AUTODATE       
+  AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

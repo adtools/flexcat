@@ -37,7 +37,7 @@ msgMemoryError
 ;   DON'T EAT THE TRAILING SPACE HERE!
 msgWarning
 %s, γραμμή %d· προειδοποίηση:
-;%s, Line %d; warning: 
+;%s, Line %d; warning:
 ;
 ;
 ;   Warning message: Expected hex character.

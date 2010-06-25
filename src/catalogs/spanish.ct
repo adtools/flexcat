@@ -8,8 +8,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-%s, línea %d - aviso: 
-; %s, line %d - warning: 
+%s, línea %d - aviso:
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 se esperaba un carácter hexadecimal ([0-9a-fA-F])
@@ -184,7 +184,7 @@ No se ha indicado un fichero de traducción ni tampoco puede \
 encontrarse en el comando '#basename' de la descripción.
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 No se ha indicado un catálogo ni tampoco puede encontrarse \
 en el comando '#basename' de la descripción.
@@ -193,9 +193,9 @@ en el comando '#basename' de la descripción.
 ;
 MSG_PrefsError
 Error al interpretar la variable 'FlexCat.prefs', usando valores por omisión...\n\
-Plantilla: 
+Plantilla:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Plantilla:

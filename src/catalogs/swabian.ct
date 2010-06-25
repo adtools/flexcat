@@ -8,8 +8,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-Zur %s, Zeile %d sag i bloß ois: 
-; %s, line %d - warning: 
+Zur %s, Zeile %d sag i bloß ois:
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 I däd do gern so a hexziffer sehe.
@@ -182,7 +182,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -191,7 +191,7 @@ MSG_NoCatFileName
 MSG_PrefsError
 
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 
@@ -207,16 +207,16 @@ MSG_Usage
                  Quelltext isch, no kommt's no.\n\
   WARNCTGAPS     I mecker über fehlende Bezeichner en d'r Katalogübersetzung.\n\
   NOOPTIM        So Kruschd wie\n\
-  FILL           
-  FLUSH          
-  NOBEEP         
-  QUIET          
-  NOLANGTOLOWER  
-  NOBUFFEREDIO   
-  MODIFIED       
-  COPYMSGNEW     
-  OLDMSGNEW      
-  AUTODATE       
+  FILL
+  FLUSH
+  NOBEEP
+  QUIET
+  NOLANGTOLOWER
+  NOBUFFEREDIO
+  MODIFIED
+  COPYMSGNEW
+  OLDMSGNEW
+  AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

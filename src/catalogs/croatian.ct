@@ -14,8 +14,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-%s, Linija %d; pa¾nja: 
-; %s, line %d - warning: 
+%s, Linija %d; pa¾nja:
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 Oèekivan hex znak (jedan od [0-9a-fA-F]).
@@ -189,7 +189,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -197,9 +197,9 @@ MSG_NoCatFileName
 ;
 MSG_PrefsError
 Gre¹ka pri obradi FlexCat.prefs varijable, vraæam vrijednosti na ugraðene.\n\
-Oblik postavki: 
+Oblik postavki:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Kori¹tenje:
@@ -219,12 +219,12 @@ MSG_Usage
   FLUSH          Oèisti memoriju kada je katalog napisan\n\
   NOBEEP         Onemoguæuje DisplayBeep()'s pri gre¹kama i upozorenjima\n\
   QUIET          Onemoguæuje pruke upozorenja\n\
-  NOLANGTOLOWER  
-  NOBUFFEREDIO   
-  MODIFIED       
-  COPYMSGNEW     
-  OLDMSGNEW      
-  AUTODATE       
+  NOLANGTOLOWER
+  NOBUFFEREDIO
+  MODIFIED
+  COPYMSGNEW
+  OLDMSGNEW
+  AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

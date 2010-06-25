@@ -8,8 +8,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-%s, regel %d; waarschuwing: 
-; %s, line %d - warning: 
+%s, regel %d; waarschuwing:
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 Verwachtte hex karakter (één uit [0-9a-fA-F]).
@@ -184,7 +184,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -192,9 +192,9 @@ MSG_NoCatFileName
 ;
 MSG_PrefsError
 Fout bij verwerking FlexCat.prefs variabele, val terug naar standaardwaarden.\n\
-Instellingenstramien: 
+Instellingenstramien:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Gebruik
@@ -224,7 +224,7 @@ MSG_Usage
                  bijwerken van het #?.ct bestand\n\
   OLDNEWMSG      Indien oud #?.ct bestand een andere markering gebruikt,\n\
                  specificeer deze hier\n\
-  AUTODATE       
+  AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

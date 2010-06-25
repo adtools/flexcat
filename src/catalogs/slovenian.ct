@@ -8,8 +8,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-%s, vrstica %d; opozorilo: 
-; %s, line %d - warning: 
+%s, vrstica %d; opozorilo:
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 Prièakovan ¹estnajsti¹ki znak (eden izmed [0-9a-fA-F]).
@@ -183,7 +183,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -191,9 +191,9 @@ MSG_NoCatFileName
 ;
 MSG_PrefsError
 Napaka pri obdelavi spremenljivke FlexCat.prefs, uporabljam privzete vrednosti.\n\
-Predloga nastavitev: 
+Predloga nastavitev:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Uporaba
@@ -218,7 +218,7 @@ MSG_Usage
   MODIFIED      Ustvari katalog, le èe se spremenita #?.c(d|t) datoteki\n\
   COPYMSGNEW    Pri obnavljanju #?.ct datoteke kopiraj oznaèbe **NEW**\n\
   OLDMSGNEW     Èe je v stari #?.ct datoteki oznaèba drugaèna, jo podajte tu\n\
-  AUTODATE      
+  AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

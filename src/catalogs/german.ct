@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.0 (XX.XX.2003)
+## version $VER: FlexCat.catalog 3.1 (25.6.2010)
 ## language deutsch
 ## codeset 0
 ;
@@ -8,8 +8,8 @@
 ; Warnings
 ;
 MSG_WARN_Warning
-%s, Zeile %d; Warnung: 
-; %s, line %d - warning: 
+%s, Zeile %d; Warnung:
+; %s, line %d - warning:
 ;
 MSG_WARN_ExpectedHex
 Hex-Zeichen (eines von [0-9a-fA-F]) erwartet.
@@ -183,7 +183,7 @@ MSG_NoCTFileName
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
-; 
+;
 MSG_NoCatFileName
 
 ; Catalog file name not specified at command line or \
@@ -192,9 +192,9 @@ MSG_NoCatFileName
 MSG_PrefsError
 Fehler beim bearbeiten der FlexCat.prefs Variable,\n\
 Standardwerte werden benutzt.\n\
-Muster: 
+Muster:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template: 
+; Template:
 ;
 MSG_UsageHead
 Benutzung
@@ -238,3 +238,10 @@ MSG_Usage
 ;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
 ;   OLDMSGNEW      Custom marker in old translation\n\
 ;   AUTODATE       Use current date when compiling a catalog
+;
+MSG_ERR_BADCTVERSION
+Ungültiger Versionsstring in der Katalogübersetzungsdatei.\n\
+Die Version sollte folgendermaßen aussehen\n\
+## version $VER: name version.revision (datum)\n\
+ohne Leerzeichen im Namen.
+;

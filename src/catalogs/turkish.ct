@@ -155,7 +155,7 @@ Catalog file name not specified at command line or as basename in description.
 ;
 MSG_PrefsError
 Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-Template: 
+Template:
 ;
 MSG_UsageHead
 Usage:

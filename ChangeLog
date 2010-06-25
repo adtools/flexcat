@@ -9,6 +9,8 @@ $URL$
 
     * scanct.c, catalogs/FlexCat.cd: implemented a simple version string check.
       The version must start with "$VER:" to be accepted.
+    * all translations: removed trailing spaces. These are now handled by the
+      code itself.
 
 2010-06-24 Thore Böckelmann <tboeckel@gmx.de>
 
