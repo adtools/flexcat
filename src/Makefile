@@ -133,6 +133,25 @@ TARGET = $(BINDIR)/FlexCat
 OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
       scancd.o scanct.o showfuncs.o swapfuncs.o utils.o $(CATOBJS)
 
+CATALOGS = catalogs/croatian.catalog \
+           catalogs/czech.catalog \
+           catalogs/danish.catalog \
+           catalogs/dutch.catalog \
+           catalogs/finnish.catalog \
+           catalogs/french.catalog \
+           catalogs/german.catalog \
+           catalogs/greek.catalog \
+           catalogs/hungarian.catalog \
+           catalogs/italian.catalog \
+           catalogs/polish.catalog \
+           catalogs/portuguese.catalog \
+           catalogs/serbian.catalog \
+           catalogs/slovenian.catalog \
+           catalogs/spanish.catalog \
+           catalogs/swabian.catalog \
+           catalogs/swedish.catalog \
+           catalogs/turkish.catalog
+
 all: $(OBJDIR) $(BINDIR) $(TARGET)
 
 # make the object directories
@@ -155,16 +174,31 @@ $(TARGET): $(CATFILES) $(addprefix $(OBJDIR)/,$(OBJS))
 	@echo "  LD $@"
 	@$(STRIP) --preserve-dates -R.comment -R.sdata2 -S -o $@ $@.debug
 
-createcatsrc.o: createcatsrc.c flexcat.h readprefs.h swapfuncs.h showfuncs.h scancd.h scanct.h createcat.h globals.h utils.h
+$(OBJDIR)/createcatsrc.o: createcatsrc.c flexcat.h readprefs.h swapfuncs.h showfuncs.h scancd.h scanct.h createcat.h globals.h utils.h
 
 locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
-    FlexCat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
+	@echo "  FC $@"
+	@FlexCat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
+
 FlexCat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd
-    FlexCat catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
+	@echo "  FC $@"
+	@FlexCat catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
+
 locale_other.c: catalogs/FlexCat.cd lib/Hardcode_c.sd
-    FlexCat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
+	@echo "  FC $@"
+	@FlexCat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
+
 FlexCat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
-    FlexCat catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
+	@echo "  FC $@"
+	@FlexCat catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
+
+catalogs/%.catalog: catalogs/%.ct catalogs/FlexCat.cd
+	@echo "  MK $@"
+	@FlexCat catalogs/FlexCat.cd $< CATALOG $@
+
+.IGNORE: $(CATALOGS)
+
+catalogs: $(CATALOGS)
 
 clean:
 	-$(RM) $(addprefix $(OBJDIR)/,$(OBJS))
