@@ -1,11 +1,16 @@
-## version $VER: FlexCat.catalog 3.1 (01.06.2010)
+## version $VER: FlexCat.catalog 3.2 (25.06.2010)
 ## language polski
 ## codeset 5
-## chunk AUTH Mariusz Danilewicz <mandi@interia.pl>
 ;
+## chunk AUTH Mariusz Danilewicz <mandi@interia.pl>
 ;
 ; FlexCat.ct - FlexCat catalog translation file
 ; $Id$
+;
+;#basename FlexCat
+;#language english
+;#version 3
+;
 ;
 ; Misc
 ;
@@ -223,7 +228,7 @@ Oryginalny ci±g koñczy siê wielokropkiem (\"...\")
 ; Original string has a trailing ellipsis ('...')
 ;
 MSG_ERR_TRAILINGBLANKS
-Oryginalny ci±g koñczy siê stacj±
+Oryginalny ci±g koñczy siê stacjami
 ; Original string has trailing blanks
 ;
 MSG_ERR_NOCTFILENAME
@@ -248,8 +253,8 @@ Szablon:
 ; Template:
 ;
 MSG_ERR_NOTRAILINGBLANKS
-Oryginalny ci±g nie koñczy siê spacjami
-; Original string doesn't have trailing blanks
+Oryginalny ci±g nie koñczy siê spacjami.
+; Original string doesn't have trailing blanks.
 ;
 MSG_ERR_BADCTLANGUAGE
 Niew³a¶ciwy jêzyk w pliku t³umaczenia katalogu.\n\
@@ -282,4 +287,14 @@ Brakuj±ca deklaracja strony kodowej w pliku opisu katalogu.
 MSG_ERR_ERROR_QUICK
 %s - b³±d:
 ; %s - ERROR:
+;
+MSG_ERR_BADCTVERSION
+Niew³a¶ciwa deklaracja wersji w pliku t³umaczenia katalogu.\n\
+Wersja powinna byæ wpisana w postaci\n\
+## version $VER: nazwa wersja.rewizja (data)\n\
+bez spacji w nazwie.
+; Invalid version string in catalog translation file.\n\
+; Version should be something like\n\
+; ## version $VER: name version.revision (date)\n\
+; without any spaces in the name.
 ;

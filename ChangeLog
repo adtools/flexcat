@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-25  Mariusz Danilewicz <mandi@interia.pl>
+
+    * catalogs\polish.ct: updated the existing Polish catalog translation
+
 2010-06-25 Thore Böckelmann <tboeckel@gmx.de>
 
     * scanct.c, catalogs/FlexCat.cd: implemented a simple version string check.
