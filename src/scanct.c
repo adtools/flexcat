@@ -118,7 +118,7 @@ int ScanCTFile ( char *ctfile )
                         ShowError(MSG_ERR_BADCTVERSION);
                     }
                 }
-                else if ( Strnicmp ( line, "codeset ", 8 ) == 0 )
+                else if ( Strnicmp ( line, "codeset", 7 ) == 0 )
                 {
                     char *ptr;
 

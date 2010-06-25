@@ -8,11 +8,13 @@ $URL$
 2010-06-25 Thore Böckelmann <tboeckel@gmx.de>
 
     * scanct.c, catalogs/FlexCat.cd: implemented a simple version string check.
-      The version must start with "$VER:" to be accepted.
+      The version must start with "$VER:" to be accepted. This fixes #747906.
     * all translations: removed trailing spaces. These are now handled by the
       code itself.
     * all translations: updated all identifiers to the new naming scheme.
     * Makefile: added rule to generate all catalogs.
+    * scanct.c: fixed detection of "## codeset" command to correctly recognize
+      missing codeset information. This fixes bug #747907.
 
 2010-06-24 Thore Böckelmann <tboeckel@gmx.de>
 
