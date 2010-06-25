@@ -11,6 +11,7 @@ $URL$
       The version must start with "$VER:" to be accepted.
     * all translations: removed trailing spaces. These are now handled by the
       code itself.
+    * all translations: updated all identifiers to the new naming scheme.
 
 2010-06-24 Thore Böckelmann <tboeckel@gmx.de>
 

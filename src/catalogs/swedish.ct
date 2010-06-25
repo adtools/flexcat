@@ -7,199 +7,195 @@
 ;
 ; Warnings
 ;
-MSG_WARN_Warning
+MSG_ERR_WARNING
 %s, rad %d; varning:
 ; %s, line %d - warning:
 ;
-MSG_WARN_ExpectedHex
+MSG_ERR_EXPECTEDHEX
 Hexadecimal siffra förväntades ([0-9,a-f,A-F]).
 ; expected hex character (one of [0-9a-fA-F])
 ;
-MSG_WARN_ExpectedOctal
+MSG_ERR_EXPECTEDOCTAL
 Oktal siffra förväntades ([0-7]).
 ; expected octal character (one of [0-7])
 ;
-MSG_WARN_NoLengthBytes
+MSG_ERR_NOLENGTHBYTES
 LengthBytes > %d (storlek av långord) går inte.
 ; lengthbytes cannot be larger than %d (sizeof long)
 ;
-MSG_WARN_UnknownCDCommand
+MSG_ERR_UNKNOWNCDCOMMAND
 Okänt kommando i katalogbeskrivning
 ; unknown catalog description command
 ;
-MSG_WARN_UnexpectedBlanks
+MSG_ERR_UNEXPECTEDBLANKS
 Oväntade mellanslag.
 ; unexpected blanks
 ;
-MSG_WARN_NoIdentifier
+MSG_ERR_NOIDENTIFIER
 Identifierare saknas.
 ; missing identifier
 ;
-MSG_WARN_NoLeadingBracket
+MSG_ERR_NOLEADINGBRACKET
 "(" saknas.
 ; missing '('
 ;
-MSG_WARN_DoubleID
+MSG_ERR_DOUBLEID
 ID-nummer redan använt.
 ; ID number used twice
 ;
-MSG_WARN_DoubleIdentifier
+MSG_ERR_DOUBLEIDENTIFIER
 Identifierare redan använd.
 ; identifier declared twice
 ;
-MSG_WARN_NoMinLen
+MSG_ERR_NOMINLEN
 MinLen förväntades (tecknet "/").
 ; expected MinLen (character '/')
 ;
-MSG_WARN_NoMaxLen
+MSG_ERR_NOMAXLEN
 MaxLen förväntades (tecknet "/").
 ; expected MaxLen (character '/')
 ;
-MSG_WARN_NoTrailingBracket
+MSG_ERR_NOTRAILINGBRACKET
 ")" förväntades.
 ; expected ')'
 ;
-MSG_WARN_ExtraCharacters
+MSG_ERR_EXTRACHARACTERS
 Extra tecken vid radslut.
 ; extra characters at the end of the line
 ;
-MSG_WARN_NoString
+MSG_ERR_MISSINGSTRING
 Oväntat filslut (katalogsträng saknas).
 ; unexpected end of file (missing catalog strings)
 ;
-MSG_WARN_ShortString
+MSG_ERR_STRINGTOOSHORT
 Strängen är för kort.
 ; string too short
 ;
-MSG_WARN_LongString
+MSG_ERR_STRINGTOOLONG
 Strängen är för lång.
 ; string too long
 ;
-MSG_WARN_NoCTCommand
-Kommando saknas i katalogöversättning (ett andra "#"-tecken förväntades).
-; missing command in translation (expected a second '#')
-;
-MSG_WARN_UnknownCTCommand
+MSG_ERR_UNKNOWNCTCOMMAND
 Okänt kommando i katalogöversättning.
 ; unknown command in translation
 ;
-MSG_WARN_UnknownIdentifier
+MSG_ERR_UNKNOWNIDENTIFIER
 "%s" saknas i katalogbeskrivningen.
 ; '%s' missing in catalog description
 ;
-MSG_WARN_UnknownStringType
+MSG_ERR_UNKNOWNSTRINGTYPE
 Okänd strängtyp.
 ; unknown string type
 ;
-MSG_WARN_NoTerminateBracket
+MSG_ERR_NOTERMINATEBRACKET
 Oväntat radslut (")"-tecken saknas).
 ; unexpected end of line (missing ')')
 ;
-MSG_WARN_NoBinChars
+MSG_ERR_NOBINCHARS
 Binära tecken i strängtypen "None".
 ; binary characters in string type None
 ;
-MSG_WARN_CTGap
+MSG_ERR_CTGAP
 ID "%s" saknas i .ct-fil.
 ; '%s' missing in catalog translation
 ;
-MSG_WARN_DoubleCTLanguage
+MSG_ERR_DOUBLECTLANGUAGE
 Katalogspråk angett två gånger.
 ; catalog language declared twice
 ;
-MSG_WARN_DoubleCTVersion
+MSG_ERR_DOUBLECTVERSION
 Katalogversion angavs två gånger.
 ; catalog version declared twice
 ;
-MSG_WARN_WrongRcsId
+MSG_ERR_WRONGRCSID
 Felaktigt RCS-ID
 ; incorrect RCS Id
 ;
 ;
 ; Errors
 ;
-MSG_ERR_MemoryError
+MSG_ERR_NOMEMORY
 Ej tillräckligt med minne!
 ; Out of memory!
 ;
-MSG_ERR_NoCatalogDescription
+MSG_ERR_NOCATALOGDESCRIPTION
 Kunde inte öppna katalogbeskrivningen "%s"!
 ; Cannot open catalog description '%s'.
 ;
-MSG_ERR_NoCatalogTranslation
+MSG_ERR_NOCATALOGTRANSLATION
 Kunde inte öppna katalogöversättningen "%s"!
 ; Cannot open catalog translation '%s'.
 ;
-MSG_ERR_NoCTVersion
+MSG_ERR_NOCTVERSION
 Saknar version för katalogöversättning!\n\
 Använd "##version" eller "##rcsid" och "##name".
 ; Missing catalog translation version. Use either\n\
 ; '## version' or '## rcsid' and '## name'.
 ;
-MSG_ERR_NoCatalog
+MSG_ERR_NOCATALOG
 Kunde inte öppna katalogen "%s"!
 ; Cannot open catalog file '%s'.
 ;
-MSG_ERR_NoNewCTFile
+MSG_ERR_NONEWCTFILE
 Kunde inte skapa katalogöversättningen "%s"!
 ; Cannot create catalog translation '%s'.
 ;
-MSG_ERR_NoCTLanguage
+MSG_ERR_NOCTLANGUAGE
 Saknar språk för katalogöversättning!
 ; Missing catalog translation language.
 ;
-MSG_ERR_NoSource
+MSG_ERR_NOSOURCE
 Kunde inte öppna källkoden "%s"!
 ; Cannot open source file '%s'.
 ;
-MSG_ERR_NoSourceDescription
+MSG_ERR_NOSOURCEDESCRIPTION
 Kunde inte öppna källkodsbeskrivningen "%s"!
 ; Cannot open source description file '%s'.
 ;
-MSG_ERR_NoCTArgument
+MSG_ERR_NOCTARGUMENT
 För att skapa en katalog måste en katalogöversättning anges!
 ; Creating a catalog requires a translation file.
 ;
 ;
 ; Misc
 ;
-MSG_UpToDate
+MSG_FILEUPTODATE
 Filen "%s" behöver inte uppdateras
 ; File '%s' is up to date
 ;
-MSG_CantCheckDate
+MSG_ERR_CANTCHECKDATE
 Kunde inte läsa datumet för "%s"
 ; Cannot get datestamp of '%s'
 ;
-MSG_TrailingEllipsis
+MSG_ERR_TRAILINGELLIPSIS
 Orginalsträngen har avslutande punkter
 ; Original string has a trailing ellipsis ('...')
 ;
-MSG_TrailingBlanks
+MSG_ERR_TRAILINGBLANKS
 Orginalsträngen har avslutande mellanslag
 ; Original string has trailing blanks
 ;
-MSG_NoCTFileName
+MSG_ERR_NOCTFILENAME
 
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
 ;
-MSG_NoCatFileName
+MSG_ERR_NOCATFILENAME
 
 ; Catalog file name not specified at command line or \
 ; as basename in description.
 ;
-MSG_PrefsError
+MSG_ERR_BADPREFS
 Kunde inte tolka miljövariabeln FlexCat.prefs;\n\
 använder förinställda värden. Inställningsmall:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
 ; Template:
 ;
-MSG_UsageHead
+MSG_USAGE_HEAD
 Användning
 ; Usage
 ;
-MSG_Usage
+MSG_USAGE
   CDFILE         Katalogbeskrivning att läsa.\n\
   CTFILE         Katalogöversättning att läsa.\n\
   CATALOG        Katalog att skapa.\n\

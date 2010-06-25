@@ -219,7 +219,7 @@ MSG_ERR_NOCTARGUMENT
 K vygenerování katalogu je tøeba soubor s pøekladem.
 ; Creating a catalog requires a translation file.
 ;
-MSG_ERR_CANTCHECKDATE
+MSG_FILEUPTODATE
 Nelze zjistit datum a èas souboru '%s'
 ; Cannot get datestamp of '%s'
 ;

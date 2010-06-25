@@ -7,200 +7,196 @@
 ;
 ; Warnings
 ;
-MSG_WARN_Warning
+MSG_ERR_WARNING
 %s, Zeile %d; Warnung:
 ; %s, line %d - warning:
 ;
-MSG_WARN_ExpectedHex
+MSG_ERR_EXPECTEDHEX
 Hex-Zeichen (eines von [0-9a-fA-F]) erwartet.
 ; expected hex character (one of [0-9a-fA-F])
 ;
-MSG_WARN_ExpectedOctal
+MSG_ERR_EXPECTEDOCTAL
 Oktal-Zeichen (eines von [0-7]) erwartet.
 ; expected octal character (one of [0-7])
 ;
-MSG_WARN_NoLengthBytes
+MSG_ERR_NOLENGTHBYTES
 LengthBytes > %d (Größe einer 32-Bit-Integer) nicht möglich.
 ; lengthbytes cannot be larger than %d (sizeof long)
 ;
-MSG_WARN_UnknownCDCommand
+MSG_ERR_UNKNOWNCDCOMMAND
 Unbekanntes Katalogbeschreibungskommando.
 ; unknown catalog description command
 ;
-MSG_WARN_UnexpectedBlanks
+MSG_ERR_UNEXPECTEDBLANKS
 Leerzeichen nicht erwartet.
 ; unexpected blanks
 ;
-MSG_WARN_NoIdentifier
+MSG_ERR_NOIDENTIFIER
 Bezeichner erwartet.
 ; missing identifier
 ;
-MSG_WARN_NoLeadingBracket
+MSG_ERR_NOLEADINGBRACKET
 '(' erwartet.
 ; missing '('
 ;
-MSG_WARN_DoubleID
+MSG_ERR_DOUBLEID
 Bezeichnernummer kommt zweimal vor.
 ; ID number used twice
 ;
-MSG_WARN_DoubleIdentifier
+MSG_ERR_DOUBLEIDENTIFIER
 Bezeichner kommt zweimal vor.
 ; identifier declared twice
 ;
-MSG_WARN_NoMinLen
+MSG_ERR_NOMINLEN
 MinLen (Zeichen '/') erwartet.
 ; expected MinLen (character '/')
 ;
-MSG_WARN_NoMaxLen
+MSG_ERR_NOMAXLEN
 MaxLen (Zeichen '/') erwartet.
 ; expected MaxLen (character '/')
 ;
-MSG_WARN_NoTrailingBracket
+MSG_ERR_NOTRAILINGBRACKET
 ')' erwartet.
 ; expected ')'
 ;
-MSG_WARN_ExtraCharacters
+MSG_ERR_EXTRACHARACTERS
 Zusätzliche Zeichen am Zeilenende.
 ; extra characters at the end of the line
 ;
-MSG_WARN_NoString
+MSG_ERR_MISSINGSTRING
 Unerwartetes Dateiende. (Fehlender Katalogstring)
 ; unexpected end of file (missing catalog strings)
 ;
-MSG_WARN_ShortString
+MSG_ERR_STRINGTOOSHORT
 String kürzer als in Katalogbeschreibung erlaubt.
 ; string too short
 ;
-MSG_WARN_LongString
+MSG_ERR_STRINGTOOLONG
 String länger als in Katalogbeschreibung erlaubt.
 ; string too long
 ;
-MSG_WARN_NoCTCommand
-Katalogübersetzungskommando erwartet. (zweite '#' erwartet)
-; missing command in translation (expected a second '#')
-;
-MSG_WARN_UnknownCTCommand
+MSG_ERR_UNKNOWNCTCOMMAND
 Unbekanntes Katalogübersetzungskommando.
 ; unknown command in translation
 ;
-MSG_WARN_UnknownIdentifier
+MSG_ERR_UNKNOWNIDENTIFIER
 %s fehlt in Katalogbeschreibung.
 ; '%s' missing in catalog description
 ;
-MSG_WARN_UnknownStringType
+MSG_ERR_UNKNOWNSTRINGTYPE
 Unbekannter Stringtyp.
 ; unknown string type
 ;
-MSG_WARN_NoTerminateBracket
+MSG_ERR_NOTERMINATEBRACKET
 Unerwartetes Zeilenende. (')' fehlt.)
 ; unexpected end of line (missing ')')
 ;
-MSG_WARN_NoBinChars
+MSG_ERR_NOBINCHARS
 Binärzeichen beim Stringtyp None nicht erlaubt.
 ; binary characters in string type None
 ;
-MSG_WARN_CTGap
+MSG_ERR_CTGAP
 Bezeichner %s fehlt in der Katalogübersetzung.
 ; '%s' missing in catalog translation
 ;
-MSG_WARN_DoubleCTLanguage
+MSG_ERR_DOUBLECTLANGUAGE
 Katalogsprache mehrfach deklariert.
 ; catalog language declared twice
 ;
-MSG_WARN_DoubleCTVersion
+MSG_ERR_DOUBLECTVERSION
 Katalogversion mehrfach deklariert.
 ; catalog version declared twice
 ;
-MSG_WARN_WrongRcsId
+MSG_ERR_WRONGRCSID
 Inkorrekte rcs ID
 ; incorrect RCS Id
 ;
 ;
 ; Errors
 ;
-MSG_ERR_MemoryError
+MSG_ERR_NOMEMORY
 Zu wenig Speicher!
 ; Out of memory!
 ;
-MSG_ERR_NoCatalogDescription
+MSG_ERR_NOCATALOGDESCRIPTION
 Kann Katalogbeschreibung %s nicht öffnen.
 ; Cannot open catalog description '%s'.
 ;
-MSG_ERR_NoCatalogTranslation
+MSG_ERR_NOCATALOGTRANSLATION
 Kann Katalogübersetzung %s nicht öffnen.
 ; Cannot open catalog translation '%s'.
 ;
-MSG_ERR_NoCTVersion
+MSG_ERR_NOCTVERSION
 Versionsangabe fehlt in der Katalogübersetzung.\n\
 Es sollte entweder ##version oder ##rcsid und ##name benutzt werden.
 ; Missing catalog translation version. Use either\n\
 ; '## version' or '## rcsid' and '## name'.
 ;
-MSG_ERR_NoCatalog
+MSG_ERR_NOCATALOG
 Kann Katalog %s nicht erzeugen.
 ; Cannot open catalog file '%s'.
 ;
-MSG_ERR_NoNewCTFile
+MSG_ERR_NONEWCTFILE
 Kann Katalogübersetzung %s nicht erzeugen.
 ; Cannot create catalog translation '%s'.
 ;
-MSG_ERR_NoCTLanguage
+MSG_ERR_NOCTLANGUAGE
 Sprachangabe fehlt in der Katalogübersetzung.
 ; Missing catalog translation language.
 ;
-MSG_ERR_NoSource
+MSG_ERR_NOSOURCE
 Kann Quelltext %s nicht erzeugen.
 ; Cannot open source file '%s'.
 ;
-MSG_ERR_NoSourceDescription
+MSG_ERR_NOSOURCEDESCRIPTION
 Kann Quelltextbeschreibung %s nicht öffnen.
 ; Cannot open source description file '%s'.
 ;
-MSG_ERR_NoCTArgument
+MSG_ERR_NOCTARGUMENT
 Zur Erzeugung eines Katalogs wird eine Katalogübersetzung benötigt.
 ; Creating a catalog requires a translation file.
 ;
 ;
 ; Misc
 ;
-MSG_UpToDate
+MSG_FILEUPTODATE
 Datei %s ist auf dem neusten Stand
 ; File '%s' is up to date
 ;
-MSG_CantCheckDate
+MSG_ERR_CANTCHECKDATE
 Kann das Datum von %s nicht lesen
 ; Cannot get datestamp of '%s'
 ;
-MSG_TrailingEllipsis
+MSG_ERR_TRAILINGELLIPSIS
 Originalstring hat eine Ellipse (...) am ende
 ; Original string has a trailing ellipsis ('...')
 ;
-MSG_TrailingBlanks
+MSG_ERR_TRAILINGBLANKS
 Originalstring hat Leerzeichen am ende
 ; Original string has trailing blanks
 ;
-MSG_NoCTFileName
-
+MSG_ERR_NOCTFILENAME
+Keine Katalogübersetzung in der Kommandozeile angegeben oder als Basisname der Beschreibung.
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
 ;
-MSG_NoCatFileName
-
+MSG_ERR_NOCATFILENAME
+Kein Katalogname in der Kommandozeile angegeben oder als Basisname der Beschreibung.
 ; Catalog file name not specified at command line or \
 ; as basename in description.
 ;
-MSG_PrefsError
+MSG_ERR_BADPREFS
 Fehler beim bearbeiten der FlexCat.prefs Variable,\n\
 Standardwerte werden benutzt.\n\
 Muster:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
 ; Template:
 ;
-MSG_UsageHead
+MSG_USAGE_HEAD
 Benutzung
 ; Usage:
 ;
-MSG_Usage
+MSG_USAGE
   CDFILE         Einzulesende Katalogbeschreibung\n\
   CTFILE         Einzulesende Katalogübersetzung\n\
   CATALOG        Zu erzeugender Katalog\n\

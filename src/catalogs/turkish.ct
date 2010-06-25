@@ -8,101 +8,98 @@
 ## codeset 0
 ## language türkçe
 ;
-MSG_WARN_Warning
+MSG_ERR_WARNING
 Boþ bellek yetersiz!
 ;
-MSG_WARN_ExpectedHex
+MSG_ERR_EXPECTEDHEX
 Dosya %s, satýr %d; uyarý: ;
 ;
-MSG_WARN_ExpectedOctal
+MSG_ERR_EXPECTEDOCTAL
 Beklenen hex sayý (0-9a-4A-F).
 ;
-MSG_WARN_NoLengthBytes
+MSG_ERR_NOLENGTHBYTES
 Beklenen oktal sayý (0-7).
 ;
-MSG_WARN_UnknownCDCommand
+MSG_ERR_UNKNOWNCDCOMMAND
 Katalog tanýmlama dosyasý %s açýlamýyor.
 ;
-MSG_WARN_UnexpectedBlanks
+MSG_ERR_UNEXPECTEDBLANKS
 Uzunluk > %d olanaksýz.
 ;
-MSG_WARN_NoIdentifier
+MSG_ERR_NOIDENTIFIER
 Bilinmeyen katalog tanýmlama komutu
 ;
-MSG_WARN_NoLeadingBracket
+MSG_ERR_NOLEADINGBRACKET
 Beklenmeyen boþluklar.
 ;
-MSG_WARN_DoubleID
+MSG_ERR_DOUBLEID
 Eksik tanýmlayýcý.
 ;
-MSG_WARN_DoubleIdentifier
+MSG_ERR_DOUBLEIDENTIFIER
 Eksik '(' iþareti.
 ;
-MSG_WARN_NoMinLen
+MSG_ERR_NOMINLEN
 ID numarasý iki kez kullanýlmýþ.
 ;
-MSG_WARN_NoMaxLen
+MSG_ERR_NOMAXLEN
 Ayný ID iki kere tanýmlanmýþ.
 ;
-MSG_WARN_NoTrailingBracket
+MSG_ERR_NOTRAILINGBRACKET
 MinUzunluk yok ('/' karakteri).
 ;
-MSG_WARN_ExtraCharacters
+MSG_ERR_EXTRACHARACTERS
 MaxUzunluk yok ('/' karakteri).
 ;
-MSG_WARN_NoString
+MSG_ERR_MISSINGSTRING
 Eksik ')' iþareti.
 ;
-MSG_WARN_ShortString
+MSG_ERR_STRINGTOOSHORT
 Satýr sonunda fazla karakterler var.
 ;
-MSG_WARN_LongString
+MSG_ERR_STRINGTOOLONG
 Beklenmeyen katalog sonu (eksik yazýlar olabilir).
 ;
-MSG_WARN_NoCTCommand
-Yazý çok kýsa.
-;
-MSG_WARN_UnknownCTCommand
+MSG_ERR_UNKNOWNCTCOMMAND
 Yazý çok uzun.
 ;
-MSG_WARN_UnknownIdentifier
+MSG_ERR_UNKNOWNIDENTIFIER
 Katalog çeviri dosyasý %s açýlamýyor.
 ;
-MSG_WARN_UnknownStringType
+MSG_ERR_UNKNOWNSTRINGTYPE
 Eksik katalog çeviri komutu (ikinci '#' eksik).
 ;
-MSG_WARN_NoTerminateBracket
+MSG_ERR_NOTERMINATEBRACKET
 Bilinmeyen katalog çeviri komutu.
 ;
-MSG_WARN_NoBinChars
+MSG_ERR_NOBINCHARS
 Katalog çeviri versiyonu eksik; ##version yada\n\
 ##rcsid ve ##name kullanýn.
 ;
-MSG_WARN_CTGap
+MSG_ERR_CTGAP
 Eksik katalog çeviri dili.
 ;
-MSG_WARN_DoubleCTLanguage
+MSG_ERR_DOUBLECTLANGUAGE
 Katalog dosyasý %s açýlamýyor.
 ;
-MSG_WARN_DoubleCTVersion
+MSG_ERR_DOUBLECTVERSION
 Katalog çeviri dosyasý %s oluþturulamýyor.
 ;
-MSG_WARN_WrongRcsId
+MSG_ERR_WRONGRCSID
 %s katalog tanýmlamasýnda yok.
 ;
-MSG_ERR_MemoryError
+MSG_ERR_NOMEMORY
 Kaynak tanýmlama dosyasý %s açýlamýyor.
 ;
-MSG_ERR_NoCatalogDescription
+MSG_ERR_NOCATALOGDESCRIPTION
 Kaynak dosyasý %s açýlamýyor.
 ;
-MSG_ERR_NoCatalogTranslation
+MSG_ERR_NOCATALOGTRANSLATION
 Bilinmeyen yazý tipi.
 ;
-MSG_ERR_NoCTVersion
+MSG_ERR_NOCTVERSION
 Beklenmeyen satýr sonu (')' eksik).
 ;
-MSG_ERR_NoCatalog
+MSG_ERR_NOCATALOG
     CDFILE      Taranacak katalog tanýmlama dosyasý.\n\
     CTFILE      Taranacak katalog çeviri dosyasý.\n\
     CATALOG     Oluþturulacak katalog dosyasý.\n\
@@ -117,50 +114,50 @@ MSG_ERR_NoCatalog
     NOBEEP      Hata ve uyarýlarda bip sesi çýkarma.\n\
     QUIET       Uyarý mesajlarýný gösterme.
 ;
-MSG_ERR_NoNewCTFile
+MSG_ERR_NONEWCTFILE
 Katalog oluþturabilmek için bir çeviri dosyasý gerekir.\n\
 
 ;
-MSG_ERR_NoCTLanguage
+MSG_ERR_NOCTLANGUAGE
 Binary karakterler.
 ;
-MSG_ERR_NoSource
+MSG_ERR_NOSOURCE
 ID %s çeviri dosyasýnda yok.
 ;
-MSG_ERR_NoSourceDescription
+MSG_ERR_NOSOURCEDESCRIPTION
 Katalog dili iki kere tanýmlanmýþ.
 ;
-MSG_ERR_NoCTArgument
+MSG_ERR_NOCTARGUMENT
 Katalog versiyonu iki kere tanýmlanmýþ.
 ;
-MSG_UpToDate
+MSG_FILEUPTODATE
 Yanlýþ rcs ID ('$Date$ $Revision$'\n\
 biçiminde olmalýydý).
 ;
-MSG_CantCheckDate
+MSG_ERR_CANTCHECKDATE
 Kullaným
 ;
-MSG_TrailingEllipsis
+MSG_ERR_TRAILINGELLIPSIS
 FlexCat.prefs hatalý, standart deðerler kullanýlacak.\n\
 Ayar Þablonu: ;
 ;
-MSG_TrailingBlanks
+MSG_ERR_TRAILINGBLANKS
 Original string has trailing blanks
 ;
-MSG_NoCTFileName
+MSG_ERR_NOCTFILENAME
 Catalog translation file name not specified at command line or as basename in description.
 ;
-MSG_NoCatFileName
+MSG_ERR_NOCATFILENAME
 Catalog file name not specified at command line or as basename in description.
 ;
-MSG_PrefsError
+MSG_ERR_BADPREFS
 Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
 Template:
 ;
-MSG_UsageHead
+MSG_USAGE_HEAD
 Usage:
 ;
-MSG_Usage
+MSG_USAGE
   CDFILE         Catalog description file to scan\n\
   CTFILE         Catalog translation file to scan\n\
   CATALOG        Catalog file to create\n\

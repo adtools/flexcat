@@ -7,201 +7,197 @@
 ;
 ; Warnings
 ;
-MSG_WARN_Warning
+MSG_ERR_WARNING
 %s, línea %d - aviso:
 ; %s, line %d - warning:
 ;
-MSG_WARN_ExpectedHex
+MSG_ERR_EXPECTEDHEX
 se esperaba un carácter hexadecimal ([0-9a-fA-F])
 ; expected hex character (one of [0-9a-fA-F])
 ;
-MSG_WARN_ExpectedOctal
+MSG_ERR_EXPECTEDOCTAL
 se esperaba un carácter octal ([0-7])
 ; expected octal character (one of [0-7])
 ;
-MSG_WARN_NoLengthBytes
+MSG_ERR_NOLENGTHBYTES
 lengthbytes no puede ser más de %d (sizeof long)
 ; lengthbytes cannot be larger than %d (sizeof long)
 ;
-MSG_WARN_UnknownCDCommand
+MSG_ERR_UNKNOWNCDCOMMAND
 comando desconocido en fichero de descripción
 ; unknown catalog description command
 ;
-MSG_WARN_UnexpectedBlanks
+MSG_ERR_UNEXPECTEDBLANKS
 espacios en blanco inesperados
 ; unexpected blanks
 ;
-MSG_WARN_NoIdentifier
+MSG_ERR_NOIDENTIFIER
 falta el identificador
 ; missing identifier
 ;
-MSG_WARN_NoLeadingBracket
+MSG_ERR_NOLEADINGBRACKET
 falta '('
 ; missing '('
 ;
-MSG_WARN_DoubleID
+MSG_ERR_DOUBLEID
 número ID duplicado
 ; ID number used twice
 ;
-MSG_WARN_DoubleIdentifier
+MSG_ERR_DOUBLEIDENTIFIER
 identificador ya declarado
 ; identifier declared twice
 ;
-MSG_WARN_NoMinLen
+MSG_ERR_NOMINLEN
 falta longitud mínima de cadena (carácter '/')
 ; expected MinLen (character '/')
 ;
-MSG_WARN_NoMaxLen
+MSG_ERR_NOMAXLEN
 falta longitud máxima de cadena (carácter '/')
 ; expected MaxLen (character '/')
 ;
-MSG_WARN_NoTrailingBracket
+MSG_ERR_NOTRAILINGBRACKET
 se esperaba ')'
 ; expected ')'
 ;
-MSG_WARN_ExtraCharacters
+MSG_ERR_EXTRACHARACTERS
 caracteres extraños al final de la línea
 ; extra characters at the end of the line
 ;
-MSG_WARN_NoString
+MSG_ERR_MISSINGSTRING
 fin inesperado del fichero (faltan cadenas)
 ; unexpected end of file (missing catalog strings)
 ;
-MSG_WARN_ShortString
+MSG_ERR_STRINGTOOSHORT
 cadena demasiado corta
 ; string too short
 ;
-MSG_WARN_LongString
+MSG_ERR_STRINGTOOLONG
 cadena demasiado larga
 ; string too long
 ;
-MSG_WARN_NoCTCommand
-falta un comando en la traducción (no hay un segundo '#')
-; missing command in translation (expected a second '#')
-;
-MSG_WARN_UnknownCTCommand
+MSG_ERR_UNKNOWNCTCOMMAND
 comando desconocido en la traducción
 ; unknown command in translation
 ;
-MSG_WARN_UnknownIdentifier
+MSG_ERR_UNKNOWNIDENTIFIER
 '%s' no figura en la descripción
 ; '%s' missing in catalog description
 ;
-MSG_WARN_UnknownStringType
+MSG_ERR_UNKNOWNSTRINGTYPE
 tipo desconocido de cadena
 ; unknown string type
 ;
-MSG_WARN_NoTerminateBracket
+MSG_ERR_NOTERMINATEBRACKET
 fin inesperado de la línea (falta ')')
 ; unexpected end of line (missing ')')
 ;
-MSG_WARN_NoBinChars
+MSG_ERR_NOBINCHARS
 caracteres binarios en tipo nulo de cadena
 ; binary characters in string type None
 ;
-MSG_WARN_CTGap
+MSG_ERR_CTGAP
 '%s' no figura en la traducción
 ; '%s' missing in catalog translation
 ;
-MSG_WARN_DoubleCTLanguage
+MSG_ERR_DOUBLECTLANGUAGE
 comando '## language' duplicado
 ; catalog language declared twice
 ;
-MSG_WARN_DoubleCTVersion
+MSG_ERR_DOUBLECTVERSION
 comando '## version' duplicado
 ; catalog version declared twice
 ;
-MSG_WARN_WrongRcsId
+MSG_ERR_WRONGRCSID
 identificador RCS no válido
 ; incorrect RCS Id
 ;
 ;
 ; Errors
 ;
-MSG_ERR_MemoryError
+MSG_ERR_NOMEMORY
 ¡No queda memoria!
 ; Out of memory!
 ;
-MSG_ERR_NoCatalogDescription
+MSG_ERR_NOCATALOGDESCRIPTION
 No se puede abrir el fichero de descripción '%s'.
 ; Cannot open catalog description '%s'.
 ;
-MSG_ERR_NoCatalogTranslation
+MSG_ERR_NOCATALOGTRANSLATION
 No se puede abrir el fichero de traducción '%s'.
 ; Cannot open catalog translation '%s'.
 ;
-MSG_ERR_NoCTVersion
+MSG_ERR_NOCTVERSION
 Falta el indicador de versión en la traducción. Utilice\n\
 '## version', o bien '## rcsid' y '## name'.
 ; Missing catalog translation version. Use either\n\
 ; '## version' or '## rcsid' and '## name'.
 ;
-MSG_ERR_NoCatalog
+MSG_ERR_NOCATALOG
 No se puede abrir el catálogo '%s'.
 ; Cannot open catalog file '%s'.
 ;
-MSG_ERR_NoNewCTFile
+MSG_ERR_NONEWCTFILE
 No se puede crear la traducción '%s'.
 ; Cannot create catalog translation '%s'.
 ;
-MSG_ERR_NoCTLanguage
+MSG_ERR_NOCTLANGUAGE
 Falta el indicador de idioma en la traducción.
 ; Missing catalog translation language.
 ;
-MSG_ERR_NoSource
+MSG_ERR_NOSOURCE
 No se puede abrir la fuente '%s'.
 ; Cannot open source file '%s'.
 ;
-MSG_ERR_NoSourceDescription
+MSG_ERR_NOSOURCEDESCRIPTION
 No se puede abrir la descripción de fuente '%s'.
 ; Cannot open source description file '%s'.
 ;
-MSG_ERR_NoCTArgument
+MSG_ERR_NOCTARGUMENT
 Se necesita una traducción para crear un catálogo.
 ; Creating a catalog requires a translation file.
 ;
 ;
 ; Misc
 ;
-MSG_UpToDate
+MSG_FILEUPTODATE
 El fichero '%s' está al día.
 ; File '%s' is up to date
 ;
-MSG_CantCheckDate
+MSG_ERR_CANTCHECKDATE
 No se puede averiguar la fecha de última modificación de '%s'.
 ; Cannot get datestamp of '%s'
 ;
-MSG_TrailingEllipsis
+MSG_ERR_TRAILINGELLIPSIS
 La cadena original tiene una elipsis al final ('...').
 ; Original string has a trailing ellipsis ('...')
 ;
-MSG_TrailingBlanks
+MSG_ERR_TRAILINGBLANKS
 La cadena original tiene espacios al final
 ; Original string has trailing blanks
 ;
-MSG_NoCTFileName
+MSG_ERR_NOCTFILENAME
 No se ha indicado un fichero de traducción ni tampoco puede \
 encontrarse en el comando '#basename' de la descripción.
 ; Catalog translation file name not specified at \
 ; command line or as basename in description.
 ;
-MSG_NoCatFileName
+MSG_ERR_NOCATFILENAME
 No se ha indicado un catálogo ni tampoco puede encontrarse \
 en el comando '#basename' de la descripción.
 ; Catalog file name not specified at command line or \
 ; as basename in description.
 ;
-MSG_PrefsError
+MSG_ERR_BADPREFS
 Error al interpretar la variable 'FlexCat.prefs', usando valores por omisión...\n\
 Plantilla:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
 ; Template:
 ;
-MSG_UsageHead
+MSG_USAGE_HEAD
 Plantilla:
 ; Usage:
 ;
-MSG_Usage
+MSG_USAGE
   CDFILE         Descripción a explorar\n\
   CTFILE         Traducción a explorar\n\
   CATALOG        Catálogo a crear\n\

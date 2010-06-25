@@ -133,11 +133,6 @@ msgNoCatalogTranslation
 ;Cannot open catalog translation file %s.
 ;
 ;   Warning message: Missing catalog translation command.
-msgNoCTCommand
-Λείπει εντολή στο αρχείο μετάφρασης καταλόγου (αναμενόταν δεύτερο `#').
-;Missing catalog translation command. (Expected second '#'.)
-;
-;   Warning message: Unknown catalog translation command.
 msgUnknownCTCommand
 Άγνωστη εντολή αρχείου μετάφρασης καταλόγου.
 ;Unknown catalog translation command.
