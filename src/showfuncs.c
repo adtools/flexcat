@@ -37,9 +37,10 @@ void ShowError ( const char *msg, ... )
 /* if(!Quiet) */
     {
         va_start ( args, msg );
-        fprintf ( stderr, ( char * )MSG_ERR_ERROR, ScanFile, ScanLine );
-        vfprintf ( stderr, msg, args );
-        putc ( '\n', stderr );
+        fprintf(stderr,(char *)MSG_ERR_ERROR, ScanFile, ScanLine);
+        putc(' ', stderr);
+        vfprintf(stderr, msg, args);
+        putc('\n', stderr);
         va_end ( args );
     }
 
@@ -63,9 +64,10 @@ void ShowErrorQuick ( const char *msg, ... )
 /* if(!Quiet) */
     {
         va_start ( args, msg );
-        fprintf ( stderr, ( char * )MSG_ERR_ERROR_QUICK, ScanFile );
-        vfprintf ( stderr, msg, args );
-        putc ( '\n', stderr );
+        fprintf(stderr, (char *)MSG_ERR_ERROR_QUICK, ScanFile);
+        putc(' ', stderr);
+        vfprintf(stderr, msg, args);
+        putc('\n', stderr);
         va_end ( args );
     }
 
@@ -100,9 +102,10 @@ void ShowWarn ( const char *msg, ... )
     if ( !Quiet )
     {
         va_start ( args, msg );
-        fprintf ( stderr, ( char * )MSG_ERR_WARNING, ScanFile, ScanLine );
-        vfprintf ( stderr, msg, args );
-        putc ( '\n', stderr );
+        fprintf(stderr, (char *)MSG_ERR_WARNING, ScanFile, ScanLine);
+        putc(' ', stderr);
+        vfprintf(stderr, msg, args);
+        putc('\n', stderr);
         va_end ( args );
     }
 
