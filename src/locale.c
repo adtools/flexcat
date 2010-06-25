@@ -38,8 +38,8 @@ struct FC_String FlexCat_Strings[] =
 	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
 	"  OLDMSGNEW      Custom marker in old translation", 1 },
    { "File '%s' is up to date", 2 },
-   { "%s, line %d - warning: ", 100 },
-   { "%s, line %d - ERROR: ", 101 },
+   { "%s, line %d - warning:", 100 },
+   { "%s, line %d - ERROR:", 101 },
    { "expected hex character (one of [0-9a-fA-F])", 102 },
    { "expected octal character (one of [0-7])", 103 },
    { "lengthbytes cannot be larger than %d (sizeof long)", 104 },
@@ -84,8 +84,8 @@ struct FC_String FlexCat_Strings[] =
    { "Catalog file name not specified at command line or "\
 	"as basename in description.", 141 },
    { "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
-	"Template: ", 142 },
-   { "Original string doesn't have trailing blanks", 143 },
+	"Template:", 142 },
+   { "Original string doesn't have trailing blanks.", 143 },
    { "Invalid language in catalog translation file.\n"\
 	"Language MUST be a string with alphabetical\n"\
 	"characters and no inlined or trailing spaces.", 144 },
@@ -95,7 +95,11 @@ struct FC_String FlexCat_Strings[] =
 	"Codeset MUST be a decimal number, without any\n"\
 	"trailing spaces.", 147 },
    { "Missing catalog translation codeset.", 148 },
-   { "%s - ERROR: ", 149 },
+   { "%s - ERROR:", 149 },
+   { "Invalid version string in catalog translation file.\n"\
+	"Version should be something like\n"\
+	"## version $VER: name version.revision (date)\n"\
+	"without any spaces in the name.", 150 },
    { NULL, 0 }
 };
 

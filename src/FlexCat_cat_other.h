@@ -80,5 +80,6 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_BADCTCODESET FlexCat_Strings[50]
 #define MSG_ERR_NOCTCODESET FlexCat_Strings[51]
 #define MSG_ERR_ERROR_QUICK FlexCat_Strings[52]
+#define MSG_ERR_BADCTVERSION FlexCat_Strings[53]
 
 #endif

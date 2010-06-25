@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-const char * FlexCat_Strings[53] = {
+const char * FlexCat_Strings[54] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -64,8 +64,8 @@ const char * FlexCat_Strings[53] = {
 	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
 	"  OLDMSGNEW      Custom marker in old translation",
     "File '%s' is up to date",
-    "%s, line %d - warning: ",
-    "%s, line %d - ERROR: ",
+    "%s, line %d - warning:",
+    "%s, line %d - ERROR:",
     "expected hex character (one of [0-9a-fA-F])",
     "expected octal character (one of [0-7])",
     "lengthbytes cannot be larger than %d (sizeof long)",
@@ -110,8 +110,8 @@ const char * FlexCat_Strings[53] = {
     "Catalog file name not specified at command line or "\
 	"as basename in description.",
     "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
-	"Template: ",
-    "Original string doesn't have trailing blanks",
+	"Template:",
+    "Original string doesn't have trailing blanks.",
     "Invalid language in catalog translation file.\n"\
 	"Language MUST be a string with alphabetical\n"\
 	"characters and no inlined or trailing spaces.",
@@ -121,5 +121,9 @@ const char * FlexCat_Strings[53] = {
 	"Codeset MUST be a decimal number, without any\n"\
 	"trailing spaces.",
     "Missing catalog translation codeset.",
-    "%s - ERROR: "
+    "%s - ERROR:",
+    "Invalid version string in catalog translation file.\n"\
+	"Version should be something like\n"\
+	"## version $VER: name version.revision (date)\n"\
+	"without any spaces in the name."
 };

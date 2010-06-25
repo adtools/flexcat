@@ -15,6 +15,7 @@ $URL$
     * Makefile: added rule to generate all catalogs.
     * scanct.c: fixed detection of "## codeset" command to correctly recognize
       missing codeset information. This fixes bug #747907.
+    * locale.c: updated to latest generated version.
 
 2010-06-24 Thore Böckelmann <tboeckel@gmx.de>
 

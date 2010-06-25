@@ -134,5 +134,7 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_NOCTCODESET 51
 #define MSG_ERR_ERROR_QUICK (FlexCat_Strings[52].Str)
 #define _MSG_ERR_ERROR_QUICK 52
+#define MSG_ERR_BADCTVERSION (FlexCat_Strings[53].Str)
+#define _MSG_ERR_BADCTVERSION 53
 
 #endif
