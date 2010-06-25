@@ -126,8 +126,7 @@ int ScanCTFile ( char *ctfile )
                     {
                         ShowError ( MSG_ERR_DOUBLECTCODESET );
                     }
-                    line += 8;
-
+                    line += 7;
                     OverSpace ( &line );
 
                     if ( !*line )
