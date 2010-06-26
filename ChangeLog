@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-26  Jens Langner <Jens.Langner@light-speed.de>
+
+    * Makefile: renamed the build target to the lowercase "flexcat" string
+      so that the usage of flexcat with case sensitive file systems is more
+      clear.
+
 2010-06-25  Mariusz Danilewicz <mandi@interia.pl>
 
     * catalogs\polish.ct: updated the existing Polish catalog translation
@@ -63,9 +69,11 @@ $URL$
     * catalogs/FlexCat.cd: added new errors to suit.
 
 2007-05-16  Joerg Strohmayer <nospam@gmx.de>
+
     * scancd.c: Ignores commands "printf_check_off" and "printf_check_on".
 
 2007-05-07  Joerg Strohmayer <nospam@gmx.de>
+
     * Hardcode_c.sd and locale_other.c: Added missing const from patch
       #1713307.
     * Makefile: Fixed uname check, uname -m returns ppc, not powerpc, on

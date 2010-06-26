@@ -128,7 +128,7 @@ endif
 
 OBJDIR = .obj_$(OS)
 BINDIR = bin_$(OS)
-TARGET = $(BINDIR)/FlexCat
+TARGET = $(BINDIR)/flexcat
 
 OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
       scancd.o scanct.o showfuncs.o swapfuncs.o utils.o $(CATOBJS)
