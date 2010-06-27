@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-27 Thore Böckelmann <tboeckel@gmx.de>
+
+    * utils.c: simplified catalog flushing a lot by simply calling
+      RemLibrary(LocaleBase) while locale.library is still opened.
+
 2010-06-26  Jens Langner <Jens.Langner@light-speed.de>
 
     * Makefile: renamed the build target to the lowercase "flexcat" string

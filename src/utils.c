@@ -31,16 +31,6 @@
 #include "utils.h"
 #include "openlibs.h"
 
-#if defined(__amigaos4__)
-#include <interfaces/locale.h>
-#elif defined(__amigados) && defined(__GNUC__)
-#if defined(__MORPHOS__)
-#include <ppcinline/macros.h>
-#else
-#include <inline/macros.h>
-#endif
-#endif
-
 char            VString[] =
     VSTRING "\n(Original idea by Jochen Wiedmann and Marcin Orlowski)";
 char            EString[] =
@@ -162,7 +152,6 @@ int Stricmp ( const char *str1, const char *str2 )
 }
 
 ///
-
 /// FUNC: Strnicmp
 
 int Strnicmp ( const char *str1, const char *str2, register int len )
@@ -186,7 +175,6 @@ int Strnicmp ( const char *str1, const char *str2, register int len )
 }
 #endif
 ///
-
 /// FUNC: AllocString
 
 /* This allocates a string */
@@ -204,7 +192,6 @@ char           *AllocString ( const char *str )
 }
 
 ///
-
 /// FUNC: Add catalog chunk
 
 /* This adds a new catalog chunk to the list of catalog
@@ -232,7 +219,6 @@ char           *AddCatalogChunk ( char *ID, const char *string )
 }
 
 ///
-
 /// FUNC: gethex
 
 /* This translates an hex character. */
@@ -256,7 +242,6 @@ int gethex ( int c )
 }
 
 ///
-
 /// FUNC: getoctal
 
 /* This translates an octal digit. */
@@ -275,7 +260,6 @@ int getoctal ( int c )
 }
 
 ///
-
 /// FUNC: ReadLine
 
 /* Reading a line is somewhat complicated in order to allow lines of any
@@ -379,7 +363,6 @@ char *ReadLine ( FILE * fp, __attribute__((unused)) int AllowComment )
 }
 
 ///
-
 /// FUNC: OverSpace
 
 /* This removes trailing blanks. */
@@ -395,7 +378,6 @@ void OverSpace ( char **strptr )
 }
 
 ///
-
 /// FUNC: Expunge
 
 void Expunge(void)
@@ -403,39 +385,23 @@ void Expunge(void)
 #ifdef __amigados
   if(DoExpunge)
   {
-    struct Library *LocaleBase;
-    #ifdef __amigaos4__
-    struct LocaleIFace *ILocale;
-    #endif
+    struct Library *localeBase;
 
-#ifdef __GNUC__
-#if defined(__amigaos4__)
-    #define localeExpunge() ILocale->Expunge()
-#elif defined(__MORPHOS__)
-    #define localeExpunge() LP0NR(0x12, localeExpunge, , LocaleBase, 0, 0, 0, 0, 0, 0)
-#else
-    #define localeExpunge() LP0NR(0x12, localeExpunge, , LocaleBase)
-#endif
-#else // __GNUC__
-    #pragma libcall LocaleBase localeExpunge 12 00
-    void localeExpunge(void);
-#endif // __GNUC__
-
-    if((LocaleBase = OpenLibrary( "locale.library", 0)) != NULL)
+    // this may look utterly wrong since we are trying to RemLibrary() a library
+    // which we just opened. But this is the most convenient way to invoke the
+    // Expunge() function of locale.library, which will just remove any still
+    // opened but unused catalog file from memory without removing locale.library
+    // itself.
+    if((localeBase = OpenLibrary( "locale.library", 0)) != NULL)
     {
-      if(GETINTERFACE(ILocale, LocaleBase))
-      {
-        localeExpunge();
-        DROPINTERFACE(ILocale);
-      }
-      CloseLibrary(LocaleBase);
+      RemLibrary(localeBase);
+      CloseLibrary(localeBase);
     }
   }
 #endif // __amigados
 }
 
 ///
-
 /// FUNC: ReadChar
 
 /* ReadChar scans an input line and translates the backslash characters.
@@ -534,7 +500,6 @@ int ReadChar ( char **strptr, char *dest )
 }
 
 ///
-
 /// FUNC: AllocFileName
 
 /* This function creates a copy of a filename, and optionally
@@ -584,7 +549,6 @@ char           *AllocFileName ( char *filename, int howto )
 }
 
 ///
-
 /// FUNC: AddFileName
 
 /* This function adds a pathname and a filename to a full
@@ -615,8 +579,6 @@ char           *AddFileName ( char *pathname, char *filename )
 }
 
 ///
-
-
 /// FUNC: Usage
 
 /* The Usage function describes the program's calling syntax. */
@@ -633,7 +595,6 @@ void Usage ( void )
 }
 
 ///
-
 /// FUNC: wbmain
 
 /* Dice's entry point for workbench programs */
@@ -649,3 +610,4 @@ void wbmain ( struct WBStartup *wbmsg )
 }
 #endif
 ///
+
