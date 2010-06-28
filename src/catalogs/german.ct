@@ -168,11 +168,11 @@ Kann das Datum von %s nicht lesen
 ; Cannot get datestamp of '%s'
 ;
 MSG_ERR_TRAILINGELLIPSIS
-Originalstring hat eine Ellipse (...) am ende
+Originalstring hat eine Ellipse (...) am Zeilenende
 ; Original string has a trailing ellipsis ('...')
 ;
 MSG_ERR_TRAILINGBLANKS
-Originalstring hat Leerzeichen am ende
+Originalstring hat Leerzeichen am Zeilenende
 ; Original string has trailing blanks
 ;
 MSG_ERR_NOCTFILENAME

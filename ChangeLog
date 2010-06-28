@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
+
+    * catalogs/german.ct: fixed some translation quirks.
+
 2010-06-27 Thore Böckelmann <tboeckel@gmx.de>
 
     * utils.c: simplified catalog flushing a lot by simply calling
