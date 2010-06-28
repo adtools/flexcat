@@ -2,14 +2,73 @@
 ## language deutsch
 ## codeset 0
 ;
+;
+; FlexCat.cd - FlexCat catalog description file
 ; $Id$
 ;
+;#basename FlexCat
+;#language english
+;#version 3
 ;
-; Warnings
+;
+; Misc
+;
+MSG_USAGE_HEAD
+Benutzung
+; Usage:
+;
+MSG_USAGE
+  CDFILE         Einzulesende Katalogbeschreibung\n\
+  CTFILE         Einzulesende Katalogübersetzung\n\
+  CATALOG        Zu erzeugender Katalog\n\
+  NEWCTFILE      Zu erzeugende Katalogübersetzung\n\
+  SOURCES        Zu erzeugende Quelltexte; in der Form sfile=sdfile,\n\
+                 wobei sfile die zu erzeugende Quelltextdatei und sdfile\n\
+                 die zu verwendende Quelltextbeschreibung ist.\n\
+  WARNCTGAPS     Bei fehlenden Bezeichnern in der Katalogübersetzung warnen\n\
+  NOOPTIM        Auch unveränderte Texte (in #?.cd und #?.ct gleich) aufnehmen\n\
+  FILL           Text aus #?.cd verwenden falls die Übersetzung fehlt\n\
+  FLUSH          Katalog aus dem Speicher entfernen\n\
+  NOBEEP         DisplayBeep() bei Warnungen und Fehlern unterdrücken\n\
+  QUIET          Warnungen unterdrücken\n\
+  NOLANGTOLOWER  Parameter bei #language nicht in kleinschrift wandeln\n\
+  NOBUFFEREDIO   IO Puffer nicht verwenden\n\
+  MODIFIED       Katalog nur erzeugen wenn #?.c(d|t) Dateien geändert wurden\n\
+  COPYMSGNEW     ***NEW*** Markierung beim erneuern von #?.ct Dateien kopieren\n\
+  OLDNEWMSG      Wenn die #?.ct Datei einen anderen Marker benutzt, diesen hier angeben
+;   CDFILE         Catalog description file to scan\n\
+;   CTFILE         Catalog translation file to scan\n\
+;   CATALOG        Catalog file to create\n\
+;   NEWCTFILE      Catalog translation file to create\n\
+;   SOURCES        Sources to create; must be something like SFILE=SDFILE,\n\
+;                  where SFILE is a source file and SDFILE is a source\n\
+;                  description file\n\
+;   WARNCTGAPS     Warn about identifiers missing in translation\n\
+;   NOOPTIM        Do not skip unchanged strings in translation/description\n\
+;   FILL           Fill missing identifiers with original text\n\
+;   FLUSH          Flush memory after the catalog is created\n\
+;   NOBEEP         No DisplayBeep() on errors and warnings\n\
+;   QUIET          No warnings\n\
+;   NOLANGTOLOWER  Prevent #language name from being lowercased\n\
+;   NOBUFFEREDIO   Disable I/O buffers\n\
+;   MODIFIED       Create catalog only if description/translation have changed\n\
+;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
+;   OLDMSGNEW      Custom marker in old translation
+;
+MSG_FILEUPTODATE
+Datei %s ist auf dem neusten Stand
+; File '%s' is up to date
+;
+;
+; Error output
 ;
 MSG_ERR_WARNING
-%s, Zeile %d; Warnung:
+%s, Zeile %d - Warnung:
 ; %s, line %d - warning:
+;
+MSG_ERR_ERROR
+%s, Zeile %d - FEHLER:
+; %s, line %d - ERROR:
 ;
 MSG_ERR_EXPECTEDHEX
 Hex-Zeichen (eines von [0-9a-fA-F]) erwartet.
@@ -57,7 +116,7 @@ MaxLen (Zeichen '/') erwartet.
 ;
 MSG_ERR_NOTRAILINGBRACKET
 ')' erwartet.
-; expected ')'
+; missing ')'
 ;
 MSG_ERR_EXTRACHARACTERS
 Zusätzliche Zeichen am Zeilenende.
@@ -111,9 +170,6 @@ MSG_ERR_WRONGRCSID
 Inkorrekte rcs ID
 ; incorrect RCS Id
 ;
-;
-; Errors
-;
 MSG_ERR_NOMEMORY
 Zu wenig Speicher!
 ; Out of memory!
@@ -156,13 +212,6 @@ MSG_ERR_NOCTARGUMENT
 Zur Erzeugung eines Katalogs wird eine Katalogübersetzung benötigt.
 ; Creating a catalog requires a translation file.
 ;
-;
-; Misc
-;
-MSG_FILEUPTODATE
-Datei %s ist auf dem neusten Stand
-; File '%s' is up to date
-;
 MSG_ERR_CANTCHECKDATE
 Kann das Datum von %s nicht lesen
 ; Cannot get datestamp of '%s'
@@ -192,61 +241,61 @@ Muster:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
 ; Template:
 ;
-MSG_USAGE_HEAD
-Benutzung
-; Usage:
+MSG_ERR_NOTRAILINGBLANKS
+Originalstring hat keine Leerzeichen am Zeilenende
+; Original string doesn't have trailing blanks.
 ;
-MSG_USAGE
-  CDFILE         Einzulesende Katalogbeschreibung\n\
-  CTFILE         Einzulesende Katalogübersetzung\n\
-  CATALOG        Zu erzeugender Katalog\n\
-  NEWCTFILE      Zu erzeugende Katalogübersetzung\n\
-  SOURCES        Zu erzeugende Quelltexte; in der Form sfile=sdfile,\n\
-                 wobei sfile die zu erzeugende Quelltextdatei und sdfile\n\
-                 die zu verwendende Quelltextbeschreibung ist.\n\
-  WARNCTGAPS     Bei fehlenden Bezeichnern in der Katalogübersetzung warnen\n\
-  NOOPTIM        Auch unveränderte Texte (in #?.cd und #?.ct gleich) aufnehmen\n\
-  FILL           Text aus #?.cd verwenden falls die Übersetzung fehlt\n\
-  FLUSH          Katalog aus dem Speicher entfernen\n\
-  NOBEEP         DisplayBeep() bei Warnungen und Fehlern unterdrücken\n\
-  QUIET          Warnungen unterdrücken\n\
-  NOLANGTOLOWER  Parameter bei #language nicht in kleinschrift wandeln\n\
-  NOBUFFEREDIO   IO Puffer nicht verwenden\n\
-  MODIFIED       Katalog nur erzeugen wenn #?.c(d|t) Dateien geändert wurden\n\
-  COPYMSGNEW     ***NEW*** Markierung beim erneuern von #?.ct Dateien kopieren\n\
-  OLDNEWMSG      Wenn die #?.ct Datei einen anderen Marker benutzt, diesen hier angeben
-;   CDFILE         Catalog description file to scan\n\
-;   CTFILE         Catalog translation file to scan\n\
-;   CATALOG        Catalog file to create\n\
-;   NEWCTFILE      Catalog translation file to create\n\
-;   SOURCES        Sources to create; must be something like SFILE=SDFILE,\n\
-;                  where SFILE is a source file and SDFILE is a source\n\
-;                  description file\n\
-;   WARNCTGAPS     Warn about identifiers missing in translation\n\
-;   NOOPTIM        Do not skip unchanged strings in translation/description\n\
-;   FILL           Fill missing identifiers with original text\n\
-;   FLUSH          Flush memory after the catalog is created\n\
-;   NOBEEP         No DisplayBeep() on errors and warnings\n\
-;   QUIET          No warnings\n\
-;   NOLANGTOLOWER  Prevent #language name from being lowercased\n\
-;   NOBUFFEREDIO   Disable I/O buffers\n\
-;   MODIFIED       Create catalog only if description/translation have changed\n\
-;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
-;   OLDMSGNEW      Custom marker in old translation\n\
-;   AUTODATE       Use current date when compiling a catalog
+MSG_ERR_BADCTLANGUAGE
+Ungültige Sprachangabe in der Katalogübersetzungsdatei.\n\
+Die Sprachangabe MUSS eine Zeichenkette ohne Leerzeichen\n\
+in der Mitte oder am Ende sein.
+; Invalid language in catalog translation file.\n\
+; Language MUST be a string with alphabetical\n\
+; characters and no inlined or trailing spaces.
+;
+MSG_ERR_NOTRAILINGELLIPSIS
+Originalstring hat keine Ellipse (...) am Zeilenende
+; Original string doesn't have a trailing ellipsis ('...')
+;
+MSG_ERR_DOUBLECTCODESET
+Katalogcodeset doppelt deklariert
+; catalog codeset declared twice
+;
+MSG_ERR_BADCTCODESET
+Ungültiger Codeset in der Katalogübersetzungsdatei.\n\
+Der Codeset MUSS eine Dezimalzahl sein und darf keine\n\
+Leerzeichen am Ende haben.
+; Invalid codeset in catalog translation file.\n\
+; Codeset MUST be a decimal number, without any\n\
+; trailing spaces.
+;
+MSG_ERR_NOCTCODESET
+Fehlender Codeset in der Katalogübersetzungsdatei
+; Missing catalog translation codeset.
+;
+MSG_ERR_ERROR_QUICK
+%s - FEHLER:
+; %s - ERROR:
 ;
 MSG_ERR_BADCTVERSION
 Ungültiger Versionsstring in der Katalogübersetzungsdatei.\n\
 Die Version sollte folgendermaßen aussehen\n\
 ## version $VER: name version.revision (datum)\n\
 ohne Leerzeichen im Namen.
+; Invalid version string in catalog translation file.\n\
+; Version should be something like\n\
+; ## version $VER: name version.revision (date)\n\
+; without any spaces in the name.
 ;
 MSG_ERR_MISMATCHINGPLACEHOLDERS
 Unterschiedliche Platzhalter.
+; Mismatching placeholders.
 ;
 MSG_ERR_MISSINGPLACEHOLDERS
 Fehlende Platzhalter.
+; Missing placeholders.
 ;
 MSG_ERR_EXCESSIVEPLACEHOLDERS
 Überschüssige Platzhalter.
+; Excessive placeholders.
 ;
