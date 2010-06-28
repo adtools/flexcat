@@ -11,6 +11,7 @@ $URL$
     * scanct.c: implemented a simple placeholder check. FlexCat will now check
       for matching, missing and excessive placeholders, but only the very first
       character after the '%' sign will be checked. This fixes bug #747911.
+    * catalogs/german.ct: updated german translation.
 
 2010-06-27 Thore Böckelmann <tboeckel@gmx.de>
 

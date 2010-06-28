@@ -241,3 +241,12 @@ Die Version sollte folgendermaßen aussehen\n\
 ## version $VER: name version.revision (datum)\n\
 ohne Leerzeichen im Namen.
 ;
+MSG_ERR_MISMATCHINGPLACEHOLDERS
+Unterschiedliche Platzhalter.
+;
+MSG_ERR_MISSINGPLACEHOLDERS
+Fehlende Platzhalter.
+;
+MSG_ERR_EXCESSIVEPLACEHOLDERS
+Überschüssige Platzhalter.
+;
