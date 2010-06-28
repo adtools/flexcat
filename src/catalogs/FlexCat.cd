@@ -202,3 +202,12 @@ Version should be something like\n\
 ## version $VER: name version.revision (date)\n\
 without any spaces in the name.
 ;
+MSG_ERR_MISMATCHINGPLACEHOLDERS (//)
+Mismatching placeholders.
+;
+MSG_ERR_MISSINGPLACEHOLDERS (//)
+Missing placeholders.
+;
+MSG_ERR_EXCESSIVEPLACEHOLDERS (//)
+Excessive placeholders.
+;
