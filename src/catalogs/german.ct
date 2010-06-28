@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.1 (25.6.2010)
+## version $VER: FlexCat.catalog 3.3 (28.6.2010)
 ## language deutsch
 ## codeset 0
 ;
@@ -31,10 +31,10 @@ MSG_USAGE
   FLUSH          Katalog aus dem Speicher entfernen\n\
   NOBEEP         DisplayBeep() bei Warnungen und Fehlern unterdrücken\n\
   QUIET          Warnungen unterdrücken\n\
-  NOLANGTOLOWER  Parameter bei #language nicht in kleinschrift wandeln\n\
+  NOLANGTOLOWER  Parameter bei #language nicht in Kleinschrift wandeln\n\
   NOBUFFEREDIO   IO Puffer nicht verwenden\n\
   MODIFIED       Katalog nur erzeugen wenn #?.c(d|t) Dateien geändert wurden\n\
-  COPYMSGNEW     ***NEW*** Markierung beim erneuern von #?.ct Dateien kopieren\n\
+  COPYMSGNEW     ***NEW*** Markierung beim Erneuern von #?.ct Dateien kopieren\n\
   OLDNEWMSG      Wenn die #?.ct Datei einen anderen Marker benutzt, diesen hier angeben
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
@@ -56,7 +56,7 @@ MSG_USAGE
 ;   OLDMSGNEW      Custom marker in old translation
 ;
 MSG_FILEUPTODATE
-Datei %s ist auf dem neusten Stand
+Datei '%s' ist auf dem neusten Stand
 ; File '%s' is up to date
 ;
 ;
@@ -155,7 +155,7 @@ Binärzeichen beim Stringtyp None nicht erlaubt.
 ; binary characters in string type None
 ;
 MSG_ERR_CTGAP
-Bezeichner %s fehlt in der Katalogübersetzung.
+Bezeichner '%s' fehlt in der Katalogübersetzung.
 ; '%s' missing in catalog translation
 ;
 MSG_ERR_DOUBLECTLANGUAGE
@@ -167,7 +167,7 @@ Katalogversion mehrfach deklariert.
 ; catalog version declared twice
 ;
 MSG_ERR_WRONGRCSID
-Inkorrekte rcs ID
+Inkorrekte RCS ID
 ; incorrect RCS Id
 ;
 MSG_ERR_NOMEMORY
@@ -175,11 +175,11 @@ Zu wenig Speicher!
 ; Out of memory!
 ;
 MSG_ERR_NOCATALOGDESCRIPTION
-Kann Katalogbeschreibung %s nicht öffnen.
+Kann Katalogbeschreibung '%s' nicht öffnen.
 ; Cannot open catalog description '%s'.
 ;
 MSG_ERR_NOCATALOGTRANSLATION
-Kann Katalogübersetzung %s nicht öffnen.
+Kann Katalogübersetzung '%s' nicht öffnen.
 ; Cannot open catalog translation '%s'.
 ;
 MSG_ERR_NOCTVERSION
@@ -189,11 +189,11 @@ Es sollte entweder ##version oder ##rcsid und ##name benutzt werden.
 ; '## version' or '## rcsid' and '## name'.
 ;
 MSG_ERR_NOCATALOG
-Kann Katalog %s nicht erzeugen.
+Kann Katalog '%s' nicht erzeugen.
 ; Cannot open catalog file '%s'.
 ;
 MSG_ERR_NONEWCTFILE
-Kann Katalogübersetzung %s nicht erzeugen.
+Kann Katalogübersetzung '%s' nicht erzeugen.
 ; Cannot create catalog translation '%s'.
 ;
 MSG_ERR_NOCTLANGUAGE
@@ -201,11 +201,11 @@ Sprachangabe fehlt in der Katalogübersetzung.
 ; Missing catalog translation language.
 ;
 MSG_ERR_NOSOURCE
-Kann Quelltext %s nicht erzeugen.
+Kann Quelltext '%s' nicht erzeugen.
 ; Cannot open source file '%s'.
 ;
 MSG_ERR_NOSOURCEDESCRIPTION
-Kann Quelltextbeschreibung %s nicht öffnen.
+Kann Quelltextbeschreibung '%s' nicht öffnen.
 ; Cannot open source description file '%s'.
 ;
 MSG_ERR_NOCTARGUMENT
@@ -213,7 +213,7 @@ Zur Erzeugung eines Katalogs wird eine Katalogübersetzung benötigt.
 ; Creating a catalog requires a translation file.
 ;
 MSG_ERR_CANTCHECKDATE
-Kann das Datum von %s nicht lesen
+Kann das Datum von '%s' nicht lesen
 ; Cannot get datestamp of '%s'
 ;
 MSG_ERR_TRAILINGELLIPSIS
