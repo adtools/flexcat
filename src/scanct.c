@@ -302,7 +302,8 @@ int ScanCTFile ( char *ctfile )
                     }
                     else
                     {
-                        int reallen;
+                        size_t reallen;
+                        size_t cd_len;
 
                         if ( cs->CT_Str )
                         {
@@ -316,12 +317,13 @@ int ScanCTFile ( char *ctfile )
                         /* Get string length */
 
                         reallen = strlen ( cs->CT_Str);
+                        cd_len = strlen ( cs->CD_Str );
 
-                        if ( cs->MinLen > 0 && reallen < cs->MinLen )
+                        if ( cs->MinLen > 0 && reallen < (size_t)cs->MinLen )
                         {
                             ShowWarn ( MSG_ERR_STRINGTOOSHORT );
                         }
-                        if ( cs->MaxLen > 0 && reallen > cs->MaxLen )
+                        if ( cs->MaxLen > 0 && reallen > (size_t)cs->MaxLen )
                         {
                             ShowWarn ( MSG_ERR_STRINGTOOLONG );
                         }
@@ -329,50 +331,80 @@ int ScanCTFile ( char *ctfile )
 
                         /* Check for trailing ellipsis. */
 
-                        if ( reallen >= 3 )
+                        if(reallen >= 3 && cd_len >= 3)
                         {
-                            size_t cd_len = strlen ( cs->CD_Str );
-
-                            if ( cd_len >= 3 )
+                            if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) == 0 ) &&
+                                 ( strcmp ( &cs->CT_Str[reallen - 3], "..." ) != 0 ) )
                             {
-                                if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) == 0 ) &&
-                                     ( strcmp ( &cs->CT_Str[reallen - 3], "..." ) != 0 ) )
-                                {
-                                    /* printf("ORG: '%s'\nNEW: '%s'\n", cs->CD_Str, cs->CT_Str); */
-                                    ShowWarn ( MSG_ERR_TRAILINGELLIPSIS );
-                                }
-                                if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) != 0 ) &&
-                                     ( strcmp ( &cs->CT_Str[reallen - 3], "..." ) == 0 ) )
-                                {
-                                    ShowWarn ( MSG_ERR_NOTRAILINGELLIPSIS );
-                                }
+                                /* printf("ORG: '%s'\nNEW: '%s'\n", cs->CD_Str, cs->CT_Str); */
+                                ShowWarn ( MSG_ERR_TRAILINGELLIPSIS );
+                            }
+                            if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) != 0 ) &&
+                                 ( strcmp ( &cs->CT_Str[reallen - 3], "..." ) == 0 ) )
+                            {
+                                ShowWarn ( MSG_ERR_NOTRAILINGELLIPSIS );
                             }
                         }
 
 
                         /* Check for trailing spaces. */
 
-                        if ( reallen >= 1 )
+                        if(reallen >= 1 && cd_len >= 1)
                         {
-                            size_t cd_len = strlen ( cs->CD_Str );
+                            if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) == 0 ) &&
+                                 ( strcmp ( &cs->CT_Str[reallen - 1], " " ) != 0 ) )
 
-                            if ( cd_len >= 1 )
                             {
-                                if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) == 0 ) &&
-                                     ( strcmp ( &cs->CT_Str[reallen - 1], " " ) != 0 ) )
+                                ShowWarn ( MSG_ERR_TRAILINGBLANKS );
+                            }
+                            if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) != 0 ) &&
+                                 ( strcmp ( &cs->CT_Str[reallen - 1], " " ) == 0 ) )
 
-                                {
-                                    ShowWarn ( MSG_ERR_TRAILINGBLANKS );
-                                }
-                                if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) != 0 ) &&
-                                     ( strcmp ( &cs->CT_Str[reallen - 1], " " ) == 0 ) )
-
-                                {
-                                    ShowWarn ( MSG_ERR_NOTRAILINGBLANKS );
-                                }
+                            {
+                                ShowWarn ( MSG_ERR_NOTRAILINGBLANKS );
                             }
                         }
 
+                        /* Check for matching placeholders */
+                        if(reallen >= 1 && cd_len >= 1)
+                        {
+                            char *cdP = cs->CD_Str;
+                            char *ctP = cs->CT_Str;
+
+                            do
+                            {
+                                cdP = strchr(cdP, '%');
+                                ctP = strchr(ctP, '%');
+
+                                if(cdP == NULL && ctP == NULL)
+                                {
+                                    // no more placeholders, bail out
+                                    break;
+                                }
+                                else if(cdP != NULL && ctP != NULL)
+                                {
+                                    if(cdP[1] != ctP[1])
+                                    {
+                                    	ShowWarn(MSG_ERR_MISMATCHINGPLACEHOLDERS);
+                                    	break;
+                                    }
+                                    // skip the '%' sign
+                                    cdP++;
+                                    ctP++;
+                                }
+                                else if(cdP != NULL && ctP == NULL)
+                                {
+                                    ShowWarn(MSG_ERR_MISSINGPLACEHOLDERS);
+                                    break;
+                                }
+                                else if(cdP == NULL && ctP != NULL)
+                                {
+                                    ShowWarn(MSG_ERR_EXCESSIVEPLACEHOLDERS);
+                                    break;
+                                }
+                            }
+                            while(TRUE);
+                        }
                     }
                     free ( newstr );
                 }

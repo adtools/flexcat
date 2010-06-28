@@ -8,6 +8,9 @@ $URL$
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 
     * catalogs/german.ct: fixed some translation quirks.
+    * scanct.c: implemented a simple placeholder check. FlexCat will now check
+      for matching, missing and excessive placeholders, but only the very first
+      character after the '%' sign will be checked. This fixes bug #747911.
 
 2010-06-27 Thore Böckelmann <tboeckel@gmx.de>
 
