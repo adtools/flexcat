@@ -81,5 +81,8 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_NOCTCODESET FlexCat_Strings[51]
 #define MSG_ERR_ERROR_QUICK FlexCat_Strings[52]
 #define MSG_ERR_BADCTVERSION FlexCat_Strings[53]
+#define MSG_ERR_MISMATCHINGPLACEHOLDERS FlexCat_Strings[54]
+#define MSG_ERR_MISSINGPLACEHOLDERS FlexCat_Strings[55]
+#define MSG_ERR_EXCESSIVEPLACEHOLDERS FlexCat_Strings[56]
 
 #endif

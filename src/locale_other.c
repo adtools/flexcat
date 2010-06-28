@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-const char * FlexCat_Strings[54] = {
+const char * FlexCat_Strings[57] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -125,5 +125,8 @@ const char * FlexCat_Strings[54] = {
     "Invalid version string in catalog translation file.\n"\
 	"Version should be something like\n"\
 	"## version $VER: name version.revision (date)\n"\
-	"without any spaces in the name."
+	"without any spaces in the name.",
+    "Mismatching placeholders.",
+    "Missing placeholders.",
+    "Excessive placeholders."
 };

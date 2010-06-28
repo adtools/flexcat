@@ -100,6 +100,9 @@ struct FC_String FlexCat_Strings[] =
 	"Version should be something like\n"\
 	"## version $VER: name version.revision (date)\n"\
 	"without any spaces in the name.", 150 },
+   { "Mismatching placeholders.", 151 },
+   { "Missing placeholders.", 152 },
+   { "Excessive placeholders.", 153 },
    { NULL, 0 }
 };
 
