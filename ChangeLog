@@ -19,6 +19,7 @@ $URL$
     * misc: added necessary stuff for an automated build for all supported
       platforms.
     * dist/Install: added Installer script.
+    * added toplevel Makefile.
 
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 
