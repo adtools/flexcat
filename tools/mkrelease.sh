@@ -58,7 +58,7 @@ for language in croatian czech danish dutch finnish french german hungarian ital
 	cp -a src/catalogs/$language.catalog "release/FlexCat/Locale/Catalogs/$language/FlexCat.catalog"
 done
 
-cp -a -R dist/* "release/FlexCat/"
+cp -a -R dist/* "release/"
 cp -a src/catalogs/FlexCat.cd "release/FlexCat/Locale/"
 cp -a src/lib/* "release/FlexCat/Lib/"
 
