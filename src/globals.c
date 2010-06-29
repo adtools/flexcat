@@ -21,6 +21,7 @@
  */
 
 #include "flexcat.h"
+#include "SDI_compiler.h"
 
 /// Globals
 char           *BaseName = NULL;        /* Basename of catalog description */
@@ -34,6 +35,6 @@ int             NumberOfWarnings = 0;   /* We count warnings to be smart
                                            and avoid Beep bombing, but
                                            call DisplayBeep() only once */
 int             buffer_size = 2048;     /* Size of the I/O buffer */
-static const char VersTag[] = VERSTAG;
+static const char USED_VAR VersTag[] = VERSTAG;
 
 ///

@@ -27,6 +27,7 @@ $URL$
       platforms.
     * dist/Install: added Installer script.
     * added toplevel Makefile.
+    * globals.c: include SDI_compiler.h to be able to use the USED_VAR macro.
 
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 
