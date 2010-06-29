@@ -7,6 +7,8 @@ $URL$
 
 2010-06-29  Jens Langner <Jens.Langner@light-speed.de>
 
+    * lib/RexCat.sd: added RexCat.sd file kindly provided by AmigaPhil. This closes
+      feature request #2951260.
     * flexcat.h: fixed the version string creation to use the defines from
       version.h instead.
     * Makefile, tools/mkrelease.sh: more fixed to the Makefile to make it work
