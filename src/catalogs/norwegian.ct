@@ -215,8 +215,8 @@ MSG_USAGE
   NOLANGTOLOWER Forhindrer at #language navn skrives med små bokstaver\n\
   NOBUFFEREDIO  Deaktiverer IO buffre\n\
   MODIFIED      Oppretter språkfilen kun hvis #?.c(d|t) filer er endret\n\
-  COPYMSGNEW
-  OLDMSGNEW
+  COPYMSGNEW\n\
+  OLDMSGNEW\n\
   AUTODATE
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\

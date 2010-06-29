@@ -14,6 +14,8 @@ $URL$
     * scanct.c: slightly obfuscated the version cookie check to avoid having
       multiple version cookies in the final executable.
     * main.c, version.h: added proper version cookie for all executables.
+    * Makefile, catalogs/norwegian.ct: fixed norwegian translation and added it
+      to the build process.
 
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 
