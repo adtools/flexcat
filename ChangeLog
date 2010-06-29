@@ -13,6 +13,7 @@ $URL$
       process for the moment as they have displaced translations.
     * scanct.c: slightly obfuscated the version cookie check to avoid having
       multiple version cookies in the final executable.
+    * main.c, version.h: added proper version cookie for all executables.
 
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 

@@ -38,7 +38,9 @@
 #include "globals.h"
 #include "createcatsrc.h"
 #include "openlibs.h"
+#include "version.h"
 
+const char * const versionCookie = "$VER: FlexCat " EXE_REV_STRING " [" SYSTEMSHORT "/" CPU "] (" EXE_DATE ") " EXE_COPYRIGHT;
 
 int isParam ( char *input_string )
 {
