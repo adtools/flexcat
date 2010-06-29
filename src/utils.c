@@ -31,11 +31,8 @@
 #include "utils.h"
 #include "openlibs.h"
 
-char            VString[] =
-    VSTRING "\n(Original idea by Jochen Wiedmann and Marcin Orlowski)";
-char            EString[] =
-    "Contact: http://sourceforge.net/projects/flexcat/";
-
+const char VString[] = VERS " [" SYSTEMSHORT "/" CPU "] (" EXE_DATE ")\n" EXE_COPYRIGHT;
+const char EString[] = "Contact: http://sourceforge.net/projects/flexcat/";
 
 /// FUNC: MyExit
 
