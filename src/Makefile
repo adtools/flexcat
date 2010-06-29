@@ -67,6 +67,7 @@ ifeq ($(OS), mos)
   # will not be opened automatically. Don't remove it.
   CC          =   ppc-morphos-gcc
   STRIP       =   ppc-morphos-strip
+  CFLAGS      +=  -noixemul -mcpu=powerpc
   LDFLAGS     =   -noixemul
   LDLIBS      =   -lauto
   CATOBJS     =   locale.o
@@ -79,7 +80,7 @@ else
 
     CC          =   m68k-amigaos-gcc
     STRIP       =   m68k-amigaos-strip
-    CFLAGS      +=  -DNO_INLINE_STDARG -m68020-60 -msoft-float
+    CFLAGS      +=  -noixemul -DNO_INLINE_STDARG -m68020-60 -msoft-float
     LDFLAGS     =   -noixemul
     LDLIBS      =   -lamiga
     CATOBJS     =   locale.o getft.o openlibs.o vastubs.o

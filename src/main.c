@@ -38,7 +38,6 @@
 #include "globals.h"
 #include "createcatsrc.h"
 #include "openlibs.h"
-#include "version.h"
 
 int isParam ( char *input_string )
 {
