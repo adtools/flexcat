@@ -21,13 +21,14 @@
 #
 #***************************************************************************/
 
-CC          =   gcc
-STRIP       =   strip
-MAKEINFO    =   makeinfo
-DEBUG       =   -ggdb -O0
-CFLAGS      =   -O3 -fomit-frame-pointer -W -Wall -Wwrite-strings $(DEBUG)
-CATFILES    =   FlexCat_cat.h FlexCat_cat_other.h locale.c locale_other.c
-MKDIR       =   mkdir -p
+CC          = gcc
+STRIP       = strip
+MAKEINFO    = makeinfo
+DEBUG       = -ggdb -O0
+CFLAGS      = -O3 -fomit-frame-pointer -W -Wall -Wwrite-strings $(DEBUG)
+CATFILES    = FlexCat_cat.h FlexCat_cat_other.h locale.c locale_other.c
+MKDIR       = mkdir -p
+FLEXCAT     = flexcat
 
 # Might be replaced by 'delete'
 RM          =   rm -f
@@ -203,23 +204,23 @@ $(OBJDIR)/createcatsrc.o: createcatsrc.c flexcat.h readprefs.h swapfuncs.h showf
 
 locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
 	@echo "  FC $@"
-	@FlexCat catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
+	@$(FLEXCAT) catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
 
 FlexCat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd
 	@echo "  FC $@"
-	@FlexCat catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
+	@$(FLEXCAT) catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
 
 locale_other.c: catalogs/FlexCat.cd lib/Hardcode_c.sd
 	@echo "  FC $@"
-	@FlexCat catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
+	@$(FLEXCAT) catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
 
 FlexCat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
 	@echo "  FC $@"
-	@FlexCat catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
+	@$(FLEXCAT) catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
 
 catalogs/%.catalog: catalogs/%.ct catalogs/FlexCat.cd
 	@echo "  MK $@"
-	@FlexCat catalogs/FlexCat.cd $< CATALOG $@
+	@$(FLEXCAT) catalogs/FlexCat.cd $< CATALOG $@
 
 .IGNORE: $(CATALOGS)
 
@@ -227,10 +228,10 @@ catalogs: $(CATALOGS)
 
 clean:
 	-$(RM) $(addprefix $(OBJDIR)/,$(OBJS))
-	-$(RM) $(BINDIR)/FlexCat
+	-$(RM) $(BINDIR)/$(FLEXCAT)
 	-$(RM) ../doc/*.guide
 
-realclean: clean
+cleanall: clean
 	-$(RM) FlexCat_cat.h
 	-$(RM) FlexCat_cat_other.h
 	-$(RM) locale.c

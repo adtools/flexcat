@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-29  Jens Langner <Jens.Langner@light-speed.de>
+
+    * Makefile, tools/mkrelease.sh: more fixed to the Makefile to make it work
+      with the global makefile and use the right lowercase "flexcat" command.
+
 2010-06-29 Thore Böckelmann <tboeckel@gmx.de>
 
     * catalogs/FlexCat.cd: fixed some inconsistencies with some warnings and
