@@ -62,7 +62,7 @@ cp -a -R dist/* "release/"
 cp -a src/catalogs/FlexCat.cd "release/FlexCat/Locale/"
 cp -a src/lib/* "release/FlexCat/Lib/"
 cp -a doc/FlexCat.readme "release/FlexCat/"
-cp -a ChangeLog "release/FlexCat/"
+cp -a AUTHORS ChangeLog COPYING "release/FlexCat/"
 
 releasever=`grep "#define EXE_VERSION" src/version.h | awk '{ print $3 }'`
 releaserev=`grep "#define EXE_REVISION" src/version.h | awk '{ print $3 }'`
