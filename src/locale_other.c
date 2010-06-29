@@ -91,42 +91,40 @@ const char * FlexCat_Strings[57] = {
     "catalog language declared twice",
     "catalog version declared twice",
     "incorrect RCS Id",
-    "Out of memory!",
-    "Cannot open catalog description '%s'.",
-    "Cannot open catalog translation '%s'.",
-    "Missing catalog translation version. Use either\n"\
-	"'## version' or '## rcsid' and '## name'.",
-    "Cannot open catalog file '%s'.",
-    "Cannot create catalog translation '%s'.",
-    "Missing catalog translation language.",
-    "Cannot open source file '%s'.",
-    "Cannot open source description file '%s'.",
-    "Creating a catalog requires a translation file.",
-    "Cannot get datestamp of '%s'",
-    "Original string has a trailing ellipsis ('...')",
-    "Original string has trailing blanks",
+    "out of memory!",
+    "cannot open catalog description '%s'",
+    "cannot open catalog translation '%s'",
+    "missing catalog translation version\n"\
+	"Use either '## version' or '## rcsid' and '## name'",
+    "cannot open catalog file '%s'",
+    "cannot create catalog translation '%s'",
+    "missing catalog translation language",
+    "cannot open source file '%s'",
+    "cannot open source description file '%s'",
+    "creating a catalog requires a translation file",
+    "cannot get datestamp of '%s'",
+    "original string has a trailing ellipsis ('...')",
+    "original string has trailing blanks",
     "Catalog translation file name not specified at "\
-	"command line or as basename in description.",
-    "Catalog file name not specified at command line or "\
-	"as basename in description.",
-    "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
+	"command line or as basename in description",
+    "catalog file name not specified at command line or "\
+	"as basename in description",
+    "error processing 'FlexCat.prefs' variable, falling back to defaults\n"\
 	"Template:",
-    "Original string doesn't have trailing blanks.",
-    "Invalid language in catalog translation file.\n"\
-	"Language MUST be a string with alphabetical\n"\
-	"characters and no inlined or trailing spaces.",
-    "Original string doesn't have a trailing ellipsis ('...')",
+    "original string doesn't have trailing blanks",
+    "invalid language in catalog translation file\n"\
+	"Language MUST be a string with alphabetical characters and no inlined or trailing spaces",
+    "original string doesn't have a trailing ellipsis ('...')",
     "catalog codeset declared twice",
-    "Invalid codeset in catalog translation file.\n"\
-	"Codeset MUST be a decimal number, without any\n"\
-	"trailing spaces.",
-    "Missing catalog translation codeset.",
+    "invalid codeset in catalog translation file\n"\
+	"Codeset MUST be a decimal number without any trailing spaces",
+    "missing catalog translation codeset",
     "%s - ERROR:",
-    "Invalid version string in catalog translation file.\n"\
+    "invalid version string in catalog translation file\n"\
 	"Version should be something like\n"\
 	"## version $VER: name version.revision (date)\n"\
-	"without any spaces in the name.",
-    "Mismatching placeholders.",
-    "Missing placeholders.",
-    "Excessive placeholders."
+	"without any spaces in the name",
+    "mismatching placeholders",
+    "missing placeholders",
+    "excessive placeholders"
 };

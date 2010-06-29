@@ -120,94 +120,92 @@ MSG_ERR_WRONGRCSID (//)
 incorrect RCS Id
 ;
 MSG_ERR_NOMEMORY (//)
-Out of memory!
+out of memory!
 ;
 MSG_ERR_NOCATALOGDESCRIPTION (//)
-Cannot open catalog description '%s'.
+cannot open catalog description '%s'
 ;
 MSG_ERR_NOCATALOGTRANSLATION (//)
-Cannot open catalog translation '%s'.
+cannot open catalog translation '%s'
 ;
 MSG_ERR_NOCTVERSION (//)
-Missing catalog translation version. Use either\n\
-'## version' or '## rcsid' and '## name'.
+missing catalog translation version\n\
+Use either '## version' or '## rcsid' and '## name'
 ;
 MSG_ERR_NOCATALOG (//)
-Cannot open catalog file '%s'.
+cannot open catalog file '%s'
 ;
 MSG_ERR_NONEWCTFILE (//)
-Cannot create catalog translation '%s'.
+cannot create catalog translation '%s'
 ;
 MSG_ERR_NOCTLANGUAGE (//)
-Missing catalog translation language.
+missing catalog translation language
 ;
 MSG_ERR_NOSOURCE (//)
-Cannot open source file '%s'.
+cannot open source file '%s'
 ;
 MSG_ERR_NOSOURCEDESCRIPTION (//)
-Cannot open source description file '%s'.
+cannot open source description file '%s'
 ;
 MSG_ERR_NOCTARGUMENT (//)
-Creating a catalog requires a translation file.
+creating a catalog requires a translation file
 ;
 MSG_ERR_CANTCHECKDATE (//)
-Cannot get datestamp of '%s'
+cannot get datestamp of '%s'
 ;
 MSG_ERR_TRAILINGELLIPSIS (//)
-Original string has a trailing ellipsis ('...')
+original string has a trailing ellipsis ('...')
 ;
 MSG_ERR_TRAILINGBLANKS (//)
-Original string has trailing blanks
+original string has trailing blanks
 ;
 MSG_ERR_NOCTFILENAME (//)
 Catalog translation file name not specified at \
-command line or as basename in description.
+command line or as basename in description
 ;
 MSG_ERR_NOCATFILENAME (//)
-Catalog file name not specified at command line or \
-as basename in description.
+catalog file name not specified at command line or \
+as basename in description
 ;
 MSG_ERR_BADPREFS (//)
-Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
+error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 Template:
 ;
 MSG_ERR_NOTRAILINGBLANKS (//)
-Original string doesn't have trailing blanks.
+original string doesn't have trailing blanks
 ;
 MSG_ERR_BADCTLANGUAGE (//)
-Invalid language in catalog translation file.\n\
-Language MUST be a string with alphabetical\n\
-characters and no inlined or trailing spaces.
+invalid language in catalog translation file\n\
+Language MUST be a string with alphabetical characters and no inlined or trailing spaces
 ;
 MSG_ERR_NOTRAILINGELLIPSIS (//)
-Original string doesn't have a trailing ellipsis ('...')
+original string doesn't have a trailing ellipsis ('...')
 ;
 MSG_ERR_DOUBLECTCODESET (//)
 catalog codeset declared twice
 ;
 MSG_ERR_BADCTCODESET (//)
-Invalid codeset in catalog translation file.\n\
-Codeset MUST be a decimal number, without any\n\
-trailing spaces.
+invalid codeset in catalog translation file\n\
+Codeset MUST be a decimal number without any trailing spaces
 ;
 MSG_ERR_NOCTCODESET (//)
-Missing catalog translation codeset.
+missing catalog translation codeset
 ;
 MSG_ERR_ERROR_QUICK (//)
 %s - ERROR:
 ;
 MSG_ERR_BADCTVERSION (//)
-Invalid version string in catalog translation file.\n\
+invalid version string in catalog translation file\n\
 Version should be something like\n\
 ## version $VER: name version.revision (date)\n\
-without any spaces in the name.
+without any spaces in the name
 ;
 MSG_ERR_MISMATCHINGPLACEHOLDERS (//)
-Mismatching placeholders.
+mismatching placeholders
 ;
 MSG_ERR_MISSINGPLACEHOLDERS (//)
-Missing placeholders.
+missing placeholders
 ;
 MSG_ERR_EXCESSIVEPLACEHOLDERS (//)
-Excessive placeholders.
+excessive placeholders
 ;

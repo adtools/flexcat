@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-29 Thore Böckelmann <tboeckel@gmx.de>
+
+    * catalogs/FlexCat.cd: fixed some inconsistencies with some warnings and
+      error messages.
+
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 
     * catalogs/german.ct: fixed some translation quirks.

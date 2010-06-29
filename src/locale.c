@@ -65,44 +65,42 @@ struct FC_String FlexCat_Strings[] =
    { "catalog language declared twice", 124 },
    { "catalog version declared twice", 125 },
    { "incorrect RCS Id", 126 },
-   { "Out of memory!", 127 },
-   { "Cannot open catalog description '%s'.", 128 },
-   { "Cannot open catalog translation '%s'.", 129 },
-   { "Missing catalog translation version. Use either\n"\
-	"'## version' or '## rcsid' and '## name'.", 130 },
-   { "Cannot open catalog file '%s'.", 131 },
-   { "Cannot create catalog translation '%s'.", 132 },
-   { "Missing catalog translation language.", 133 },
-   { "Cannot open source file '%s'.", 134 },
-   { "Cannot open source description file '%s'.", 135 },
-   { "Creating a catalog requires a translation file.", 136 },
-   { "Cannot get datestamp of '%s'", 137 },
-   { "Original string has a trailing ellipsis ('...')", 138 },
-   { "Original string has trailing blanks", 139 },
+   { "out of memory!", 127 },
+   { "cannot open catalog description '%s'", 128 },
+   { "cannot open catalog translation '%s'", 129 },
+   { "missing catalog translation version\n"\
+	"Use either '## version' or '## rcsid' and '## name'", 130 },
+   { "cannot open catalog file '%s'", 131 },
+   { "cannot create catalog translation '%s'", 132 },
+   { "missing catalog translation language", 133 },
+   { "cannot open source file '%s'", 134 },
+   { "cannot open source description file '%s'", 135 },
+   { "creating a catalog requires a translation file", 136 },
+   { "cannot get datestamp of '%s'", 137 },
+   { "original string has a trailing ellipsis ('...')", 138 },
+   { "original string has trailing blanks", 139 },
    { "Catalog translation file name not specified at "\
-	"command line or as basename in description.", 140 },
-   { "Catalog file name not specified at command line or "\
-	"as basename in description.", 141 },
-   { "Error processing 'FlexCat.prefs' variable, falling back to defaults.\n"\
+	"command line or as basename in description", 140 },
+   { "catalog file name not specified at command line or "\
+	"as basename in description", 141 },
+   { "error processing 'FlexCat.prefs' variable, falling back to defaults\n"\
 	"Template:", 142 },
-   { "Original string doesn't have trailing blanks.", 143 },
-   { "Invalid language in catalog translation file.\n"\
-	"Language MUST be a string with alphabetical\n"\
-	"characters and no inlined or trailing spaces.", 144 },
-   { "Original string doesn't have a trailing ellipsis ('...')", 145 },
+   { "original string doesn't have trailing blanks", 143 },
+   { "invalid language in catalog translation file\n"\
+	"Language MUST be a string with alphabetical characters and no inlined or trailing spaces", 144 },
+   { "original string doesn't have a trailing ellipsis ('...')", 145 },
    { "catalog codeset declared twice", 146 },
-   { "Invalid codeset in catalog translation file.\n"\
-	"Codeset MUST be a decimal number, without any\n"\
-	"trailing spaces.", 147 },
-   { "Missing catalog translation codeset.", 148 },
+   { "invalid codeset in catalog translation file\n"\
+	"Codeset MUST be a decimal number without any trailing spaces", 147 },
+   { "missing catalog translation codeset", 148 },
    { "%s - ERROR:", 149 },
-   { "Invalid version string in catalog translation file.\n"\
+   { "invalid version string in catalog translation file\n"\
 	"Version should be something like\n"\
 	"## version $VER: name version.revision (date)\n"\
-	"without any spaces in the name.", 150 },
-   { "Mismatching placeholders.", 151 },
-   { "Missing placeholders.", 152 },
-   { "Excessive placeholders.", 153 },
+	"without any spaces in the name", 150 },
+   { "mismatching placeholders", 151 },
+   { "missing placeholders", 152 },
+   { "excessive placeholders", 153 },
    { NULL, 0 }
 };
 

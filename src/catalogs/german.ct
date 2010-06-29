@@ -71,149 +71,149 @@ MSG_ERR_ERROR
 ; %s, line %d - ERROR:
 ;
 MSG_ERR_EXPECTEDHEX
-Hex-Zeichen (eines von [0-9a-fA-F]) erwartet.
+Hex-Zeichen (eines von [0-9a-fA-F]) erwartet
 ; expected hex character (one of [0-9a-fA-F])
 ;
 MSG_ERR_EXPECTEDOCTAL
-Oktal-Zeichen (eines von [0-7]) erwartet.
+Oktal-Zeichen (eines von [0-7]) erwartet
 ; expected octal character (one of [0-7])
 ;
 MSG_ERR_NOLENGTHBYTES
-LengthBytes > %d (Größe einer 32-Bit-Integer) nicht möglich.
+LengthBytes > %d (Größe einer 32-Bit-Integer) nicht möglich
 ; lengthbytes cannot be larger than %d (sizeof long)
 ;
 MSG_ERR_UNKNOWNCDCOMMAND
-Unbekanntes Katalogbeschreibungskommando.
+unbekanntes Katalogbeschreibungskommando
 ; unknown catalog description command
 ;
 MSG_ERR_UNEXPECTEDBLANKS
-Leerzeichen nicht erwartet.
+Leerzeichen nicht erwartet
 ; unexpected blanks
 ;
 MSG_ERR_NOIDENTIFIER
-Bezeichner erwartet.
+Bezeichner erwartet
 ; missing identifier
 ;
 MSG_ERR_NOLEADINGBRACKET
-'(' erwartet.
+'(' erwartet
 ; missing '('
 ;
 MSG_ERR_DOUBLEID
-Bezeichnernummer kommt zweimal vor.
+Bezeichnernummer kommt zweimal vor
 ; ID number used twice
 ;
 MSG_ERR_DOUBLEIDENTIFIER
-Bezeichner kommt zweimal vor.
+Bezeichner kommt zweimal vor
 ; identifier declared twice
 ;
 MSG_ERR_NOMINLEN
-MinLen (Zeichen '/') erwartet.
+MinLen (Zeichen '/') erwartet
 ; expected MinLen (character '/')
 ;
 MSG_ERR_NOMAXLEN
-MaxLen (Zeichen '/') erwartet.
+MaxLen (Zeichen '/') erwartet
 ; expected MaxLen (character '/')
 ;
 MSG_ERR_NOTRAILINGBRACKET
-')' erwartet.
+')' erwartet
 ; missing ')'
 ;
 MSG_ERR_EXTRACHARACTERS
-Zusätzliche Zeichen am Zeilenende.
+zusätzliche Zeichen am Zeilenende
 ; extra characters at the end of the line
 ;
 MSG_ERR_MISSINGSTRING
-Unerwartetes Dateiende. (Fehlender Katalogstring)
+unerwartetes Dateiende (fehlender Katalogstring)
 ; unexpected end of file (missing catalog strings)
 ;
 MSG_ERR_STRINGTOOSHORT
-String kürzer als in Katalogbeschreibung erlaubt.
+String kürzer als in Katalogbeschreibung erlaubt
 ; string too short
 ;
 MSG_ERR_STRINGTOOLONG
-String länger als in Katalogbeschreibung erlaubt.
+String länger als in Katalogbeschreibung erlaubt
 ; string too long
 ;
 MSG_ERR_UNKNOWNCTCOMMAND
-Unbekanntes Katalogübersetzungskommando.
+unbekanntes Katalogübersetzungskommando
 ; unknown command in translation
 ;
 MSG_ERR_UNKNOWNIDENTIFIER
-%s fehlt in Katalogbeschreibung.
+%s fehlt in Katalogbeschreibung
 ; '%s' missing in catalog description
 ;
 MSG_ERR_UNKNOWNSTRINGTYPE
-Unbekannter Stringtyp.
+unbekannter Stringtyp
 ; unknown string type
 ;
 MSG_ERR_NOTERMINATEBRACKET
-Unerwartetes Zeilenende. (')' fehlt.)
+unerwartetes Zeilenende (')' fehlt)
 ; unexpected end of line (missing ')')
 ;
 MSG_ERR_NOBINCHARS
-Binärzeichen beim Stringtyp None nicht erlaubt.
+Binärzeichen beim Stringtyp None nicht erlaubt
 ; binary characters in string type None
 ;
 MSG_ERR_CTGAP
-Bezeichner '%s' fehlt in der Katalogübersetzung.
+Bezeichner '%s' fehlt in der Katalogübersetzung
 ; '%s' missing in catalog translation
 ;
 MSG_ERR_DOUBLECTLANGUAGE
-Katalogsprache mehrfach deklariert.
+Katalogsprache mehrfach deklariert
 ; catalog language declared twice
 ;
 MSG_ERR_DOUBLECTVERSION
-Katalogversion mehrfach deklariert.
+Katalogversion mehrfach deklariert
 ; catalog version declared twice
 ;
 MSG_ERR_WRONGRCSID
-Inkorrekte RCS ID
+inkorrekte RCS ID
 ; incorrect RCS Id
 ;
 MSG_ERR_NOMEMORY
-Zu wenig Speicher!
+zu wenig Speicher!
 ; Out of memory!
 ;
 MSG_ERR_NOCATALOGDESCRIPTION
-Kann Katalogbeschreibung '%s' nicht öffnen.
-; Cannot open catalog description '%s'.
+kann Katalogbeschreibung '%s' nicht öffnen
+; Cannot open catalog description '%s'
 ;
 MSG_ERR_NOCATALOGTRANSLATION
-Kann Katalogübersetzung '%s' nicht öffnen.
-; Cannot open catalog translation '%s'.
+kann Katalogübersetzung '%s' nicht öffnen
+; Cannot open catalog translation '%s'
 ;
 MSG_ERR_NOCTVERSION
-Versionsangabe fehlt in der Katalogübersetzung.\n\
-Es sollte entweder ##version oder ##rcsid und ##name benutzt werden.
-; Missing catalog translation version. Use either\n\
-; '## version' or '## rcsid' and '## name'.
+Versionsangabe fehlt in der Katalogübersetzung\n\
+Es sollte entweder ##version oder ##rcsid und ##name benutzt werden
+; Missing catalog translation version\n\
+; Use either '## version' or '## rcsid' and '## name'
 ;
 MSG_ERR_NOCATALOG
-Kann Katalog '%s' nicht erzeugen.
-; Cannot open catalog file '%s'.
+kann Katalog '%s' nicht erzeugen
+; Cannot open catalog file '%s'
 ;
 MSG_ERR_NONEWCTFILE
-Kann Katalogübersetzung '%s' nicht erzeugen.
-; Cannot create catalog translation '%s'.
+kann Katalogübersetzung '%s' nicht erzeugen
+; Cannot create catalog translation '%s'
 ;
 MSG_ERR_NOCTLANGUAGE
-Sprachangabe fehlt in der Katalogübersetzung.
-; Missing catalog translation language.
+Sprachangabe fehlt in der Katalogübersetzung
+; Missing catalog translation language
 ;
 MSG_ERR_NOSOURCE
-Kann Quelltext '%s' nicht erzeugen.
-; Cannot open source file '%s'.
+kann Quelltext '%s' nicht erzeugen
+; Cannot open source file '%s'
 ;
 MSG_ERR_NOSOURCEDESCRIPTION
-Kann Quelltextbeschreibung '%s' nicht öffnen.
-; Cannot open source description file '%s'.
+kann Quelltextbeschreibung '%s' nicht öffnen
+; Cannot open source description file '%s'
 ;
 MSG_ERR_NOCTARGUMENT
-Zur Erzeugung eines Katalogs wird eine Katalogübersetzung benötigt.
-; Creating a catalog requires a translation file.
+zur Erzeugung eines Katalogs wird eine Katalogübersetzung benötigt
+; Creating a catalog requires a translation file
 ;
 MSG_ERR_CANTCHECKDATE
-Kann das Datum von '%s' nicht lesen
+kann das Datum von '%s' nicht lesen
 ; Cannot get datestamp of '%s'
 ;
 MSG_ERR_TRAILINGELLIPSIS
@@ -225,33 +225,30 @@ Originalstring hat Leerzeichen am Zeilenende
 ; Original string has trailing blanks
 ;
 MSG_ERR_NOCTFILENAME
-Keine Katalogübersetzung in der Kommandozeile angegeben oder als Basisname der Beschreibung.
+keine Katalogübersetzung in der Kommandozeile angegeben oder als Basisname der Beschreibung
 ; Catalog translation file name not specified at \
-; command line or as basename in description.
+; command line or as basename in description
 ;
 MSG_ERR_NOCATFILENAME
-Kein Katalogname in der Kommandozeile angegeben oder als Basisname der Beschreibung.
+kein Katalogname in der Kommandozeile angegeben oder als Basisname der Beschreibung
 ; Catalog file name not specified at command line or \
-; as basename in description.
+; as basename in description
 ;
 MSG_ERR_BADPREFS
-Fehler beim bearbeiten der FlexCat.prefs Variable,\n\
-Standardwerte werden benutzt.\n\
+Fehler beim Bearbeiten der FlexCat.prefs Variable, Standardwerte werden benutzt\n\
 Muster:
-; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
+; Error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 ; Template:
 ;
 MSG_ERR_NOTRAILINGBLANKS
 Originalstring hat keine Leerzeichen am Zeilenende
-; Original string doesn't have trailing blanks.
+; Original string doesn't have trailing blanks
 ;
 MSG_ERR_BADCTLANGUAGE
-Ungültige Sprachangabe in der Katalogübersetzungsdatei.\n\
-Die Sprachangabe MUSS eine Zeichenkette ohne Leerzeichen\n\
-in der Mitte oder am Ende sein.
-; Invalid language in catalog translation file.\n\
-; Language MUST be a string with alphabetical\n\
-; characters and no inlined or trailing spaces.
+ungültige Sprachangabe in der Katalogübersetzungsdatei\n\
+Die Sprachangabe MUSS eine Zeichenkette ohne Leerzeichen in der Mitte oder am Ende sein
+; Invalid language in catalog translation file\n\
+; Language MUST be a string with alphabetical characters and no inlined or trailing spaces
 ;
 MSG_ERR_NOTRAILINGELLIPSIS
 Originalstring hat keine Ellipse (...) am Zeilenende
@@ -262,40 +259,38 @@ Katalogcodeset doppelt deklariert
 ; catalog codeset declared twice
 ;
 MSG_ERR_BADCTCODESET
-Ungültiger Codeset in der Katalogübersetzungsdatei.\n\
-Der Codeset MUSS eine Dezimalzahl sein und darf keine\n\
-Leerzeichen am Ende haben.
-; Invalid codeset in catalog translation file.\n\
-; Codeset MUST be a decimal number, without any\n\
-; trailing spaces.
+ungültiger Codeset in der Katalogübersetzungsdatei\n\
+Der Codeset MUSS eine Dezimalzahl sein und darf keine Leerzeichen am Ende haben
+; Invalid codeset in catalog translation file\n\
+; Codeset MUST be a decimal number without any trailing spaces
 ;
 MSG_ERR_NOCTCODESET
-Fehlender Codeset in der Katalogübersetzungsdatei
-; Missing catalog translation codeset.
+fehlender Codeset in der Katalogübersetzungsdatei
+; Missing catalog translation codeset
 ;
 MSG_ERR_ERROR_QUICK
 %s - FEHLER:
 ; %s - ERROR:
 ;
 MSG_ERR_BADCTVERSION
-Ungültiger Versionsstring in der Katalogübersetzungsdatei.\n\
+ungültiger Versionsstring in der Katalogübersetzungsdatei\n\
 Die Version sollte folgendermaßen aussehen\n\
 ## version $VER: name version.revision (datum)\n\
-ohne Leerzeichen im Namen.
-; Invalid version string in catalog translation file.\n\
+ohne Leerzeichen im Namen
+; Invalid version string in catalog translation file\n\
 ; Version should be something like\n\
 ; ## version $VER: name version.revision (date)\n\
-; without any spaces in the name.
+; without any spaces in the name
 ;
 MSG_ERR_MISMATCHINGPLACEHOLDERS
-Unterschiedliche Platzhalter.
-; Mismatching placeholders.
+unterschiedliche Platzhalter
+; mismatching placeholders
 ;
 MSG_ERR_MISSINGPLACEHOLDERS
-Fehlende Platzhalter.
-; Missing placeholders.
+fehlende Platzhalter
+; missing placeholders
 ;
 MSG_ERR_EXCESSIVEPLACEHOLDERS
-Überzählige Platzhalter.
-; Excessive placeholders.
+überzählige Platzhalter
+; excessive placeholders
 ;
