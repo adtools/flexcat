@@ -140,7 +140,6 @@ CATALOGS = catalogs/croatian.catalog \
            catalogs/finnish.catalog \
            catalogs/french.catalog \
            catalogs/german.catalog \
-           catalogs/greek.catalog \
            catalogs/hungarian.catalog \
            catalogs/italian.catalog \
            catalogs/polish.catalog \
@@ -150,7 +149,8 @@ CATALOGS = catalogs/croatian.catalog \
            catalogs/spanish.catalog \
            catalogs/swabian.catalog \
            catalogs/swedish.catalog \
-           catalogs/turkish.catalog
+           # catalogs/greek.catalog \
+           # catalogs/turkish.catalog
 
 all: $(OBJDIR) $(BINDIR) $(TARGET)
 

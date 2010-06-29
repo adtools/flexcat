@@ -9,6 +9,8 @@ $URL$
 
     * catalogs/FlexCat.cd: fixed some inconsistencies with some warnings and
       error messages.
+    * Makefile: excluded the greek and turkish translations from the build
+      process for the moment as they have displaced translations.
 
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 
