@@ -79,7 +79,7 @@ else
 
     CC          =   m68k-amigaos-gcc
     STRIP       =   m68k-amigaos-strip
-    CFLAGS      +=  -DNO_INLINE_STDARG
+    CFLAGS      +=  -DNO_INLINE_STDARG -m68020-60 -msoft-float
     LDFLAGS     =   -noixemul
     LDLIBS      =   -lamiga
     CATOBJS     =   locale.o getft.o openlibs.o vastubs.o
