@@ -32,13 +32,6 @@
  #include "FlexCat_cat_other.h"
 #endif
 
-#define VERSION                2
-#define REVISION               7
-#define DATE                   "21.01.2007"
-#define VERS                   "FlexCat 2.7-dev"
-#define VSTRING                VERS " (" DATE ") (C) 2002-2007 FlexCat Open Source Team"
-#define VERSTAG                "\0$VER: " VSTRING
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -47,6 +40,12 @@
 #ifdef __amigados
  #include <dos/dos.h>
 #endif
+
+#include "version.h"
+
+#define VERS      "FlexCat " EXE_REV_STRING
+#define VSTRING   VERS " [" SYSTEMSHORT "/" CPU "] (" EXE_DATE ") " EXE_COPYRIGHT
+#define VERSTAG   "\0$VER: " VSTRING
 
 #if ((defined(_DCC) && defined(AMIGA))       ||     \
         (defined(__SASC) && defined(_AMIGA)))      &&  \

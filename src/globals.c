@@ -34,6 +34,6 @@ int             NumberOfWarnings = 0;   /* We count warnings to be smart
                                            and avoid Beep bombing, but
                                            call DisplayBeep() only once */
 int             buffer_size = 2048;     /* Size of the I/O buffer */
-char            VersTag[] = VERSTAG;
+static const char VersTag[] = VERSTAG;
 
 ///

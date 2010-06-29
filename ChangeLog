@@ -7,6 +7,8 @@ $URL$
 
 2010-06-29  Jens Langner <Jens.Langner@light-speed.de>
 
+    * flexcat.h: fixed the version string creation to use the defines from
+      version.h instead.
     * Makefile, tools/mkrelease.sh: more fixed to the Makefile to make it work
       with the global makefile and use the right lowercase "flexcat" command.
 
