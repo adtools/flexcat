@@ -18,6 +18,7 @@ $URL$
       to the build process.
     * misc: added necessary stuff for an automated build for all supported
       platforms.
+    * dist/Install: added Installer script.
 
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 
