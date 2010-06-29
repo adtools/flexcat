@@ -109,7 +109,9 @@ int ScanCTFile ( char *ctfile )
                     }
                     line += 7;
                     OverSpace ( &line );
-                    if(Strnicmp(line, "$VER:", 5) == 0)
+                    // perform a slightly obfuscated check for the version cookie to
+                    // avoid having multiple cookies in the final binary
+                    if(line[0] == '$' && Strnicmp(&line[1], "VER:", 4) == 0)
                     {
                         CatVersionString = AllocString ( line );
                     }

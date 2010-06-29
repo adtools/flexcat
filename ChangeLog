@@ -11,6 +11,8 @@ $URL$
       error messages.
     * Makefile: excluded the greek and turkish translations from the build
       process for the moment as they have displaced translations.
+    * scanct.c: slightly obfuscated the version cookie check to avoid having
+      multiple version cookies in the final executable.
 
 2010-06-28 Thore Böckelmann <tboeckel@gmx.de>
 
