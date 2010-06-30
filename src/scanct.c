@@ -162,13 +162,6 @@ int ScanCTFile ( char *ctfile )
                 else if ( Strnicmp ( line, "language", 8 ) == 0 )
                 {
                     char *ptr;
-                    #ifdef __amigados
-                    struct LocaleBase *LocaleBase;
-                    struct Locale *my_locale;
-                    #if defined(__amigaos4__)
-                    struct LocaleIFace *ILocale;
-                    #endif
-                    #endif
 
                     if ( CatLanguage )
                     {
@@ -177,38 +170,6 @@ int ScanCTFile ( char *ctfile )
                     line += 8;
                     OverSpace ( &line );
                     CatLanguage = AddCatalogChunk ( strdup("LANG"), line );
-
-                    /* Check for a valid language spec. */
-
-                    #ifdef __amigados
-                    if((LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 38L)) != NULL)
-                    {
-                        if(GETINTERFACE(ILocale, LocaleBase))
-                        {
-                            if((my_locale = OpenLocale(NULL)) != NULL)
-                            {
-                                for(ptr = CatLanguage; *ptr; ptr++)
-                                {
-                                    if(!IsAlpha((struct Locale *)my_locale, *ptr))
-                                    {
-                                        /* Non-alphabetical char detected */
-                                        CloseLocale(my_locale);
-                                        DROPINTERFACE(ILocale);
-                                        CloseLibrary((struct Library *)LocaleBase);
-                                        ShowError(MSG_ERR_BADCTLANGUAGE);
-                                        // ShowError() does not return!
-                                    }
-                                }
-
-                                CloseLocale(my_locale);
-                            }
-
-                            DROPINTERFACE(ILocale);
-                        }
-
-                        CloseLibrary((struct Library *)LocaleBase);
-                    }
-                    #endif
 
                     if ( LANGToLower )
                         for ( ptr = CatLanguage; *ptr; ptr++ )
@@ -494,3 +455,4 @@ int ScanCTFile ( char *ctfile )
 }
 
 ///
+

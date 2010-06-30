@@ -18,6 +18,8 @@ $URL$
   * scanct.c: placeholders will only be checked if the '%' sign is followed by
     an alpha-numerical character or another '%' sign. Single '%' signs followed
     by other characters will no longer produce a warning.
+  * scanct.c: removed AmigaOS-only language name check. Otherwise accented
+    languages like "english-british" are not accepted due to the "-" character.
 
 #### FlexCat 2.7 RELEASE #################################################
 
