@@ -1,11 +1,12 @@
 ;
-; $VER: Install 1.0 (29.06.2010)
+; $VER: Install 1.1 (30.06.2010)
 ;
 ; $Id$
 ;
 ; History:
 ;
 ;   1.0   29.06.2010: initial release
+;   1.1   30.06.2010: ask the user whether the *.sd files should be installed
 
 ;----------------------------------------------------------------------------
 ; /// language bit definition, do not change these!!
@@ -77,6 +78,12 @@
                                  "detection of your operating system:"))
         (set #FlexCat_dir  (cat "Please select a directory for FlexCat\n"
                                 "(NO extra drawer will be created!)"))
+        (set #installSDFiles (cat "Do you want to install the #?.sd files?\n"
+                                  "\n"
+                                  "These are only required if you want to\n"
+                                  "use FlexCat to generate source code.\n"
+                                  "\n"
+                                  "Translators usually don't need these files."))
         (set #done          (cat "\n"
                                  @app-name " has been successfully installed."))
     )
@@ -90,6 +97,13 @@
                                  "Ermittlung Ihres Betriebssystems:"))
         (set #FlexCat_dir  (cat "Wählen Sie ein Verzeichnis für FlexCat\n"
                                 "(es wird KEIN eigenes Verzeichnis erstellt!)"))
+        (set #installSDFiles (cat "Wollen Sie die #?.sd Dateien installieren?\n"
+                                  "\n"
+                                  "Diese werden nur benötigt, wenn Sie FlexCat\n"
+                                  "zum Erstellen von Quellcode benutzen wollen.\n"
+                                  "\n"
+                                  "Übersetzer benötigen diese Dateien\n"
+                                  "üblicherweise nicht."))
         (set #done          (cat "\n"
                                  @app-name " wurde erfolgreich installiert."))
     )
@@ -220,6 +234,14 @@
         (prompt  #FlexCat_dir)
         (default "SYS:")
         (help    @askdir-help)
+    )
+)
+
+(set #installSD
+    (askbool
+        (prompt  #installSDFiles)
+        (default 0)
+        (help    #installSDFiles)
     )
 )
 
@@ -355,13 +377,17 @@
 )
 
 ; copy the .sd files
-(makedir (tackon #FlexCat_dest "Lib"))
-(foreach "Lib" "#?.sd"
-    (copyfiles
-        (prompt @each-name)
-        (source (tackon "Lib" @each-name))
-        (dest (tackon #FlexCat_dest "Lib"))
-        (help @copyfiles-help)
+(if (<> 0 #installSD)
+    (
+        (makedir (tackon #FlexCat_dest "Lib"))
+        (foreach "Lib" "#?.sd"
+            (copyfiles
+                (prompt @each-name)
+                (source (tackon "Lib" @each-name))
+                (dest (tackon #FlexCat_dest "Lib"))
+                (help @copyfiles-help)
+            )
+        )
     )
 )
 

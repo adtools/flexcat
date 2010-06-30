@@ -8,6 +8,8 @@ $URL$
 2010-06-30 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanct.c: added check for missing and empty translations.
+  * dist/Install: added a question about whether the #?.sd files should be
+    installed.
 
 #### FlexCat 2.7 RELEASE #################################################
 
