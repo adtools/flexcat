@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.7-dev'
+   This file was created automatically by `FlexCat 2.7'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -101,6 +101,9 @@ struct FC_String FlexCat_Strings[] =
    { "mismatching placeholders", 151 },
    { "missing placeholders", 152 },
    { "excessive placeholders", 153 },
+   { "%s - Warning:", 154 },
+   { "missing translation for identifier '%s'", 155 },
+   { "empty translation for identifier '%s'", 156 },
    { NULL, 0 }
 };
 

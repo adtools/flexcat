@@ -294,3 +294,9 @@ MSG_ERR_EXCESSIVEPLACEHOLDERS
 überzählige Platzhalter
 ; excessive placeholders
 ;
+MSG_ERR_MISSINGTRANSLATION
+fehlende Übersetzung für Bezeichner '%s'
+;
+MSG_ERR_EMPTYTRANSLATION
+leere Übersetzung für Bezeichner '%s'
+;

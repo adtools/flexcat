@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.7-dev'
+   This file was created automatically by `FlexCat 2.7'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -142,5 +142,11 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_MISSINGPLACEHOLDERS 55
 #define MSG_ERR_EXCESSIVEPLACEHOLDERS (FlexCat_Strings[56].Str)
 #define _MSG_ERR_EXCESSIVEPLACEHOLDERS 56
+#define MSG_ERR_WARNING_QUICK (FlexCat_Strings[57].Str)
+#define _MSG_ERR_WARNING_QUICK 57
+#define MSG_ERR_MISSINGTRANSLATION (FlexCat_Strings[58].Str)
+#define _MSG_ERR_MISSINGTRANSLATION 58
+#define MSG_ERR_EMPTYTRANSLATION (FlexCat_Strings[59].Str)
+#define _MSG_ERR_EMPTYTRANSLATION 59
 
 #endif

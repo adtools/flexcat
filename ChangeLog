@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-06-30 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanct.c: added check for missing and empty translations.
+
+#### FlexCat 2.7 RELEASE #################################################
+
 2010-06-29  Jens Langner <Jens.Langner@light-speed.de>
 
     * lib/RexCat.sd: added RexCat.sd file kindly provided by AmigaPhil. This closes

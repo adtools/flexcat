@@ -26,49 +26,48 @@
 #include "globals.h"
 #include "utils.h"
 
-/// FUNC: ShowError
+/// ShowError
 
 /* This shows an error message and quits. */
 
-void ShowError ( const char *msg, ... )
+void ShowError(const char *msg, ...)
 {
     va_list args;
 
 /* if(!Quiet) */
     {
-        va_start ( args, msg );
+        va_start(args, msg);
         fprintf(stderr,(char *)MSG_ERR_ERROR, ScanFile, ScanLine);
         putc(' ', stderr);
         vfprintf(stderr, msg, args);
         putc('\n', stderr);
-        va_end ( args );
+        va_end(args);
     }
 
 #ifdef __amigados
     NumberOfWarnings++;
 #endif
 
-    MyExit ( 10 );
+    MyExit(10);
 }
 
 ///
-
-/// FUNC: ShowErrorQuick
+/// ShowErrorQuick
 
 /* Same as ShowError but in this case we omit any line number. */
 
-void ShowErrorQuick ( const char *msg, ... )
+void ShowErrorQuick(const char *msg, ...)
 {
     va_list args;
 
 /* if(!Quiet) */
     {
-        va_start ( args, msg );
+        va_start(args, msg);
         fprintf(stderr, (char *)MSG_ERR_ERROR_QUICK, ScanFile);
         putc(' ', stderr);
         vfprintf(stderr, msg, args);
         putc('\n', stderr);
-        va_end ( args );
+        va_end(args);
     }
 
 #ifdef __amigados
@@ -79,34 +78,55 @@ void ShowErrorQuick ( const char *msg, ... )
 }
 
 ///
-
-/// FUNC: MemError
+/// MemError
 
 /* This shows the 'Memory error' message. */
 
-void MemError ( void )
+void MemError(void)
 {
-    ShowError ( MSG_ERR_NOMEMORY, NULL );
+    ShowError(MSG_ERR_NOMEMORY, NULL);
 }
 
 ///
-
-/// FUNC: ShowWarn
+/// ShowWarn
 
 /* This shows a warning. */
 
-void ShowWarn ( const char *msg, ... )
+void ShowWarn(const char *msg, ...)
 {
     va_list args;
 
-    if ( !Quiet )
+    if(!Quiet)
     {
-        va_start ( args, msg );
+        va_start(args, msg);
         fprintf(stderr, (char *)MSG_ERR_WARNING, ScanFile, ScanLine);
         putc(' ', stderr);
         vfprintf(stderr, msg, args);
         putc('\n', stderr);
-        va_end ( args );
+        va_end(args);
+    }
+
+    NumberOfWarnings++;
+    GlobalReturnCode = 5;
+}
+
+///
+/// ShowWarnQuick
+
+/* This shows a warning without line number. */
+
+void ShowWarnQuick(const char *msg, ...)
+{
+    va_list args;
+
+    if(!Quiet)
+    {
+        va_start(args, msg);
+        fprintf(stderr, (char *)MSG_ERR_WARNING_QUICK, ScanFile);
+        putc(' ', stderr);
+        vfprintf(stderr, msg, args);
+        putc('\n', stderr);
+        va_end(args);
     }
 
     NumberOfWarnings++;

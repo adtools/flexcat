@@ -24,9 +24,10 @@
 #define  FLEXCAT_SHOWFUNCS_H
 
 /* Functions */
-void            ShowError ( const char *msg, ... );
-void            ShowErrorQuick ( const char *msg, ... );
-void            MemError ( void );
-void            ShowWarn ( const char *msg, ... );
+void ShowError(const char *msg, ...);
+void ShowErrorQuick(const char *msg, ...);
+void MemError(void);
+void ShowWarn(const char *msg, ...);
+void ShowWarnQuick(const char *msg, ...);
 
 #endif  /* FLEXCAT_SHOWFUNCS_H */

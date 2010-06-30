@@ -209,3 +209,12 @@ missing placeholders
 MSG_ERR_EXCESSIVEPLACEHOLDERS (//)
 excessive placeholders
 ;
+MSG_ERR_WARNING_QUICK (//)
+%s - Warning:
+;
+MSG_ERR_MISSINGTRANSLATION (//)
+missing translation for identifier '%s'
+;
+MSG_ERR_EMPTYTRANSLATION (//)
+empty translation for identifier '%s'
+;

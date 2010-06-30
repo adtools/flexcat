@@ -332,7 +332,6 @@ int ScanCTFile ( char *ctfile )
 
 
                         /* Check for trailing ellipsis. */
-
                         if(reallen >= 3 && cd_len >= 3)
                         {
                             if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) == 0 ) &&
@@ -350,7 +349,6 @@ int ScanCTFile ( char *ctfile )
 
 
                         /* Check for trailing spaces. */
-
                         if(reallen >= 1 && cd_len >= 1)
                         {
                             if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) == 0 ) &&
@@ -434,8 +432,21 @@ int ScanCTFile ( char *ctfile )
         ShowErrorQuick ( MSG_ERR_NOCTVERSION );
     }
 
+    // check if a translation exists for all identifiers and if it is non-empty
+    for(cs = FirstCatString; cs != NULL; cs = cs->Next)
+    {
+        if(cs->CT_Str == NULL)
+        {
+            ShowWarnQuick(MSG_ERR_MISSINGTRANSLATION, cs->ID_Str);
+        }
+        else if(strlen(cs->CT_Str) == 0)
+        {
+            ShowWarnQuick(MSG_ERR_EMPTYTRANSLATION, cs->ID_Str);
+        }
+    }
+
     if(line != NULL)
-	    free ( line );
+	    free(line);
 
     fclose ( fp );
 
