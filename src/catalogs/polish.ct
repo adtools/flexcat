@@ -1,10 +1,10 @@
-## version $VER: FlexCat.catalog 3.2 (25.06.2010)
+## version $VER: FlexCat.catalog 3.3 (30.06.2010)
 ## language polski
 ## codeset 5
 ;
 ## chunk AUTH Mariusz Danilewicz <mandi@interia.pl>
 ;
-; FlexCat.ct - FlexCat catalog translation file
+; FlexCat.cd - FlexCat catalog description file
 ; $Id$
 ;
 ;#basename FlexCat
@@ -178,123 +178,144 @@ niew³a¶ciwy identyfikator RCS
 ; incorrect RCS Id
 ;
 MSG_ERR_NOMEMORY
-Brak pamiêci!
-; Out of memory!
+brak pamiêci!
+; out of memory!
 ;
 MSG_ERR_NOCATALOGDESCRIPTION
-Nie mo¿na otworzyæ pliku opisu katalogu \"%s\".
-; Cannot open catalog description '%s'.
+nie mo¿na otworzyæ pliku opisu katalogu \"%s\"
+; cannot open catalog description '%s'
 ;
 MSG_ERR_NOCATALOGTRANSLATION
-Nie mo¿na otworzyæ pliku t³umaczenia katalogu \"%s\".
-; Cannot open catalog translation '%s'.
+nie mo¿na otworzyæ pliku t³umaczenia katalogu \"%s\"
+; cannot open catalog translation '%s'
 ;
 MSG_ERR_NOCTVERSION
-Brak numeru wersji katalogu. U¿yj polecenia \"## version\"\n\
-albo poleceñ \"## rcsid\" i \"## name\".
-; Missing catalog translation version. Use either\n\
-; '## version' or '## rcsid' and '## name'.
+brak numeru wersji katalogu\n\
+U¿yj polecenia \"## version\" albo poleceñ \"## rcsid\" i \"## name\".
+; missing catalog translation version\n\
+; Use either '## version' or '## rcsid' and '## name'
 ;
 MSG_ERR_NOCATALOG
-Nie mo¿na otworzyæ pliku katalogu \"%s\".
-; Cannot open catalog file '%s'.
+nie mo¿na otworzyæ pliku katalogu \"%s\"
+; cannot open catalog file '%s'
 ;
 MSG_ERR_NONEWCTFILE
-Nie mo¿na utworzyæ pliku t³umaczenia \"%s\".
-; Cannot create catalog translation '%s'.
+nie mo¿na utworzyæ pliku t³umaczenia \"%s\"
+; cannot create catalog translation '%s'
 ;
 MSG_ERR_NOCTLANGUAGE
-Brak okre¶lenia jêzyka t³umaczenia katalogu.
-; Missing catalog translation language.
+brak okre¶lenia jêzyka t³umaczenia katalogu
+; missing catalog translation language
 ;
 MSG_ERR_NOSOURCE
-Nie mo¿na otworzyæ pliku ¼ród³owego \"%s\".
-; Cannot open source file '%s'.
+nie mo¿na otworzyæ pliku ¼ród³owego \"%s\"
+; cannot open source file '%s'
 ;
 MSG_ERR_NOSOURCEDESCRIPTION
-Nie mo¿na otworzyæ pliku ¼ród³owego opisu katalogu \"%s\".
-; Cannot open source description file '%s'.
+nie mo¿na otworzyæ pliku ¼ród³owego opisu katalogu \"%s\"
+; cannot open source description file '%s'
 ;
 MSG_ERR_NOCTARGUMENT
-Tworzenie pliku katalogu wymaga pliku z t³umaczeniem.
-; Creating a catalog requires a translation file.
+tworzenie pliku katalogu wymaga pliku z t³umaczeniem
+; creating a catalog requires a translation file
 ;
 MSG_ERR_CANTCHECKDATE
-Nie mo¿na pobraæ oznaczenia czasowego pliku \"%s\"
-; Cannot get datestamp of '%s'
+nie mo¿na pobraæ oznaczenia czasowego pliku \"%s\"
+; cannot get datestamp of '%s'
 ;
 MSG_ERR_TRAILINGELLIPSIS
-Oryginalny ci±g koñczy siê wielokropkiem (\"...\")
-; Original string has a trailing ellipsis ('...')
+oryginalny ci±g koñczy siê wielokropkiem (\"...\")
+; original string has a trailing ellipsis ('...')
 ;
 MSG_ERR_TRAILINGBLANKS
-Oryginalny ci±g koñczy siê stacjami
-; Original string has trailing blanks
+oryginalny ci±g koñczy siê spacjami
+; original string has trailing blanks
 ;
 MSG_ERR_NOCTFILENAME
-Nie okre¶lono nazwy pliku t³umaczenia jako argument \
+nie okre¶lono nazwy pliku t³umaczenia jako argument \
 w linii polecenia, lub jako nazwa bazowa w pliku \
-opisu.
+opisu
 ; Catalog translation file name not specified at \
-; command line or as basename in description.
+; command line or as basename in description
 ;
 MSG_ERR_NOCATFILENAME
-Nie okre¶lono nazwy pliku katalogu jako argument \
+nie okre¶lono nazwy pliku katalogu jako argument \
 w linii polecenia, lub jako nazwa bazowa w pliku \
-opisu.
-; Catalog file name not specified at command line or \
-; as basename in description.
+opisu
+; catalog file name not specified at command line or \
+; as basename in description
 ;
 MSG_ERR_BADPREFS
-B³±d podczas przetwarzania zmiennych w pliku \"FlexCat.orefs\",\n\
-zostan± u¿yte warto¶ci domy¶lne.\n\
+b³±d podczas przetwarzania zmiennych w pliku \"FlexCat.orefs\", \
+zostan± u¿yte warto¶ci domy¶lne\n\
 Szablon:
-; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
+; error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 ; Template:
 ;
 MSG_ERR_NOTRAILINGBLANKS
-Oryginalny ci±g nie koñczy siê spacjami.
-; Original string doesn't have trailing blanks.
+oryginalny ci±g nie koñczy siê spacjami
+; original string doesn't have trailing blanks
 ;
 MSG_ERR_BADCTLANGUAGE
-Niew³a¶ciwy jêzyk w pliku t³umaczenia katalogu.\n\
+niew³a¶ciwy jêzyk w pliku t³umaczenia katalogu\n\
 Nazwa jêzyka MUSI byæ ci±giem liter bez odstepów\n\
 ani spacji na koñcu linii.
-; Invalid language in catalog translation file.\n\
-; Language MUST be a string with alphabetical\n\
-; characters and no inlined or trailing spaces.
+; invalid language in catalog translation file\n\
+; Language MUST be a string with alphabetical characters and no inlined or trailing spaces
 ;
 MSG_ERR_NOTRAILINGELLIPSIS
-Oryginalny ci±g nie koñczy siê wielokropkiem (\"...\")
-; Original string doesn't have a trailing ellipsis ('...')
+oryginalny ci±g nie koñczy siê wielokropkiem (\"...\")
+; original string doesn't have a trailing ellipsis ('...')
 ;
 MSG_ERR_DOUBLECTCODESET
 strona kodowa katalogu zadeklarowana dwukrotnie
 ; catalog codeset declared twice
 ;
 MSG_ERR_BADCTCODESET
-Niew³a¶ciwa strona kodowa w pliku t³umaczenia katalogu.\n\
-Strona kodowa MUSI byæ liczb± bez odstepów\n\
-ani spacji na koñcu linii.
-; Invalid codeset in catalog translation file.\n\
-; Codeset MUST be a decimal number, without any\n\
-; trailing spaces.
+niew³a¶ciwa strona kodowa w pliku t³umaczenia katalogu\n\
+Strona kodowa MUSI byæ liczb± bez odstepów ani spacji na koñcu linii.
+; invalid codeset in catalog translation file\n\
+; Codeset MUST be a decimal number without any trailing spaces
 ;
 MSG_ERR_NOCTCODESET
-Brakuj±ca deklaracja strony kodowej w pliku opisu katalogu.
-; Missing catalog translation codeset.
+brakuj±ca deklaracja strony kodowej w pliku opisu katalogu
+; missing catalog translation codeset
 ;
 MSG_ERR_ERROR_QUICK
 %s - b³±d:
 ; %s - ERROR:
 ;
 MSG_ERR_BADCTVERSION
-Niew³a¶ciwa deklaracja wersji w pliku t³umaczenia katalogu.\n\
+niew³a¶ciwa deklaracja wersji w pliku t³umaczenia katalogu\n\
 Wersja powinna byæ wpisana w postaci\n\
 ## version $VER: nazwa wersja.rewizja (data)\n\
-bez spacji w nazwie.
-; Invalid version string in catalog translation file.\n\
+bez spacji w nazwie
+; invalid version string in catalog translation file\n\
 ; Version should be something like\n\
 ; ## version $VER: name version.revision (date)\n\
-; without any spaces in the name.
+; without any spaces in the name
+;
+MSG_ERR_MISMATCHINGPLACEHOLDERS
+niepasuj±cy symbol zastêpczy
+; mismatching placeholders
+;
+MSG_ERR_MISSINGPLACEHOLDERS
+brakuj±cy symbol zastêpczy
+; missing placeholders
+;
+MSG_ERR_EXCESSIVEPLACEHOLDERS
+nadmierne symbole zastêpcze
+; excessive placeholders
+;
+MSG_ERR_WARNING_QUICK
+%s - ostrze¿enie:
+; %s - Warning:
+;
+MSG_ERR_MISSINGTRANSLATION
+brakuj±ce t³umaczenie dla identyfikatora \"%s\"
+; missing translation for identifier '%s'
+;
+MSG_ERR_EMPTYTRANSLATION
+puste t³umaczenie dla identyfikatora \"%s\"
+; empty translation for identifier '%s'
 ;
