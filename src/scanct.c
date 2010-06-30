@@ -439,7 +439,7 @@ int ScanCTFile ( char *ctfile )
         {
             ShowWarnQuick(MSG_ERR_MISSINGTRANSLATION, cs->ID_Str);
         }
-        else if(strlen(cs->CT_Str) == 0)
+        else if(strlen(cs->CD_Str) != 0 && strlen(cs->CT_Str) == 0)
         {
             ShowWarnQuick(MSG_ERR_EMPTYTRANSLATION, cs->ID_Str);
         }
