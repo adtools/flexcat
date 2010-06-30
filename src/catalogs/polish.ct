@@ -1,10 +1,10 @@
-## version $VER: FlexCat.catalog 3.3 (30.06.2010)
+## version $VER: FlexCat.catalog 3.4 (30.06.2010)
 ## language polski
 ## codeset 5
 ;
 ## chunk AUTH Mariusz Danilewicz <mandi@interia.pl>
 ;
-; FlexCat.cd - FlexCat catalog description file
+; FlexCat.ct - FlexCat catalog Polish translation file
 ; $Id$
 ;
 ;#basename FlexCat
