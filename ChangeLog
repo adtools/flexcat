@@ -7,17 +7,17 @@ $URL$
 
 2010-06-30  Mariusz Danilewicz <mandi@interia.pl>
 
-    * catalogs\polish.ct: second update for Polish catalog translation
-
-2010-06-30  Mariusz Danilewicz <mandi@interia.pl>
-
-    * catalogs\polish.ct: updated the existing Polish catalog translation
+  * catalogs\polish.ct: updated the existing Polish catalog translation
+  * catalogs\polish.ct: second update for Polish catalog translation
 
 2010-06-30 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanct.c: added check for missing and empty translations.
   * dist/Install: added a question about whether the #?.sd files should be
     installed.
+  * scanct.c: placeholders will only be checked if the '%' sign is followed by
+    an alpha-numerical character or another '%' sign. Single '%' signs followed
+    by other characters will no longer produce a warning.
 
 #### FlexCat 2.7 RELEASE #################################################
 

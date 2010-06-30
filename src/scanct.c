@@ -50,7 +50,7 @@ int             CT_Scanned = FALSE;        /* If TRUE and we are going to
                                               #?.ct file, so we should write
                                               ***NEW*** wherever necessary. */
 
-/// FUNC: ScanCTFile
+/// ScanCTFile
 
 /* This scans a catalog translation file.
    Inputs: ctfile  - name of the translation file to scan.
@@ -183,8 +183,8 @@ int ScanCTFile ( char *ctfile )
                     #ifdef __amigados
                     if((LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 38L)) != NULL)
                     {
-                    	if(GETINTERFACE(ILocale, LocaleBase))
-                    	{
+                        if(GETINTERFACE(ILocale, LocaleBase))
+                        {
                             if((my_locale = OpenLocale(NULL)) != NULL)
                             {
                                 for(ptr = CatLanguage; *ptr; ptr++)
@@ -383,22 +383,48 @@ int ScanCTFile ( char *ctfile )
                                 }
                                 else if(cdP != NULL && ctP != NULL)
                                 {
-                                    if(cdP[1] != ctP[1])
-                                    {
-                                    	ShowWarn(MSG_ERR_MISMATCHINGPLACEHOLDERS);
-                                    	break;
-                                    }
                                     // skip the '%' sign
                                     cdP++;
                                     ctP++;
+
+                                    // check the placeholder only if the '%' is followed by an
+                                    // alpha-numerical character or another percent sign
+                                    if((*cdP >= '0' && *cdP <= '9') ||
+                                       (*cdP >= 'A' && *cdP <= 'Z') ||
+                                       (*cdP >= 'a' && *cdP <= 'z') ||
+                                       (*cdP == '%'))
+                                    {
+                                        if(*cdP != *ctP)
+                                        {
+                                            ShowWarn(MSG_ERR_MISMATCHINGPLACEHOLDERS);
+                                            break;
+                                        }
+                                        // skip the second '%' sign
+                                        if(*cdP == '%')
+                                            cdP++;
+                                        if(*ctP == '%')
+                                            ctP++;
+                                    }
+                                    else if((*ctP >= '0' && *ctP <= '9') ||
+                                            (*ctP >= 'A' && *ctP <= 'Z') ||
+                                            (*ctP >= 'a' && *ctP <= 'z') ||
+                                            (*ctP == '%'))
+                                    {
+                                        // the translation uses a placeholder while the description
+                                        // uses none.
+                                        ShowWarn(MSG_ERR_EXCESSIVEPLACEHOLDERS);
+                                        break;
+                                    }
                                 }
                                 else if(cdP != NULL && ctP == NULL)
                                 {
+                                    // the description uses at least one more placeholder than the translation
                                     ShowWarn(MSG_ERR_MISSINGPLACEHOLDERS);
                                     break;
                                 }
                                 else if(cdP == NULL && ctP != NULL)
                                 {
+                                    // the translation uses at least one more placeholder than the description
                                     ShowWarn(MSG_ERR_EXCESSIVEPLACEHOLDERS);
                                     break;
                                 }
@@ -446,7 +472,7 @@ int ScanCTFile ( char *ctfile )
     }
 
     if(line != NULL)
-	    free(line);
+        free(line);
 
     fclose ( fp );
 
