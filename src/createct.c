@@ -1,5 +1,5 @@
-
-/* $Id$
+/*
+ * $Id$
  *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2010 by the FlexCat Open Source Team
@@ -28,211 +28,176 @@
 #include "createcat.h"
 #include "globals.h"
 
-/// FUNC: CreateCTFile
+/// CreateCTFile
 
 /* This creates a new catalog translation file. */
 
-void CreateCTFile ( char *NewCTFile )
+void CreateCTFile(char *NewCTFile)
 {
-    FILE           *fp;
-    struct CDLine  *cd;
-    struct CatString *cs;
-    struct CatalogChunk *cc;
-    char           *line;
-    char           *ctlanguage = NULL;
+  FILE *fp;
+  struct CDLine *cd;
+  struct CatString *cs;
+  struct CatalogChunk *cc;
+  char*line;
+  char*ctlanguage = NULL;
 
-    if ( !CatVersionString && !CatRcsId )
-    {
-        ScanLine = 1;
-    }
+  if(CatVersionString == NULL && CatRcsId == NULL)
+  {
+    ScanLine = 1;
+  }
 
-    if ( CatLanguage == NULL )
-    {
+  if(CatLanguage == NULL)
+  {
 #ifdef __amigados
-        char            lang[80];
+    char lang[80];
 
-        if ( GetVar ( "language", lang, 80, 0 ) != 0 )
-        {
-            ctlanguage = lang;
-        }
+    if(GetVar("language", lang, 80, 0) != 0)
+    {
+      ctlanguage = lang;
+    }
 #else
-        char           *lang = NULL;
+    char *lang = NULL;
 
-        if ( ( lang = getenv ( "language" ) ) != NULL )
+    if((lang = getenv("language")) != NULL)
+    {
+      unsigned int i;
+
+      for(i = 0; i < strlen(lang); i++)
+      {
+        if(lang[i] == '\n')
         {
-            unsigned int i;
-
-            for ( i = 0; i < strlen ( lang ); i++ )
-            {
-                if ( lang[i] == '\n' )
-                {
-                    lang[i] = 0;
-                    break;
-                }
-            }
-            ctlanguage = lang;
+          lang[i] = 0;
+          break;
         }
+      }
+      ctlanguage = lang;
+    }
 #endif
+  }
+  else
+    ctlanguage = CatLanguage;
+
+  if(ctlanguage == NULL)
+    ctlanguage = (char *)"nolanguage";
+
+  if(NewCTFile == NULL)
+  {
+    if(BaseName == NULL)
+      ShowError(MSG_ERR_NOCTFILENAME);
+    else
+    {
+      NewCTFile = malloc(strlen(BaseName) + strlen(ctlanguage) + 10);
+      sprintf(NewCTFile, "%s_%s.catalog", BaseName, ctlanguage);
+    }
+  }
+  if((fp = fopen(NewCTFile, "w")) == NULL)
+  {
+    ShowError(MSG_ERR_NONEWCTFILE);
+  }
+
+  if(!NoBufferedIO)
+    setvbuf(fp, NULL, _IOFBF, buffer_size);
+
+  {
+    if(CatRcsId != NULL)
+    {
+      fprintf(fp, "## rcsid %s\n", CatRcsId);
+      if(CatName != NULL)
+        fprintf(fp, "## name %s\n", CatName);
     }
     else
-        ctlanguage = CatLanguage;
-       
-    if ( ctlanguage == NULL )
-        ctlanguage = (char *)"nolanguage";
-
-    if ( NewCTFile == NULL )
     {
-        if ( BaseName == NULL )
-            ShowError ( MSG_ERR_NOCTFILENAME );
-        else
+      if(CatVersionString != NULL)
+        fprintf(fp, "## version %s\n", CatVersionString);
+      else
+      {
+        char *dateStr;
+        time_t tim;
+        struct tm *t;
+
+        dateStr = calloc(15, 1);
+        time(&tim);
+        t = localtime(&tim);
+        strftime(dateStr, 12, "%d.%m.%Y", t);
+        fprintf(fp, "## version $V");
+        fprintf(fp, "%c", 50 + 19);  // E
+        if(CatVersion != 0L)
         {
-            NewCTFile =
-                malloc ( strlen ( BaseName ) + strlen ( ctlanguage ) + 5 );
-            sprintf ( NewCTFile, "%s_%s.catalog", BaseName, ctlanguage );
-        }
-    }
-    if ( !( fp = fopen ( NewCTFile, "w" ) ) )
-    {
-        ShowError ( MSG_ERR_NONEWCTFILE );
-    }
-
-    if ( !NoBufferedIO )
-        setvbuf ( fp, NULL, _IOFBF, buffer_size );
-
-    {
-        if ( CatRcsId )
-        {
-            fprintf ( fp, "## rcsid %s\n", CatRcsId ? CatRcsId : "" );
-            if ( CatName )
-                fprintf ( fp, "## name %s\n", CatName );
+          if(BaseName != NULL)
+            fprintf(fp, "R: %s.catalog %d.<rev>(%s)\n", BaseName, CatVersion, dateStr);
+          else
+            fprintf(fp, "R: <name>.catalog %d.<rev>(%s)\n", CatVersion, dateStr);
         }
         else
         {
-            if ( CatVersionString )
-                fprintf ( fp, "## version %s\n", CatVersionString );
-            else
+          if(BaseName != NULL)
+            fprintf(fp, "R: %s.catalog <ver>.0(%s)\n", BaseName, dateStr);
+          else
+            fprintf(fp, "R: <name>.catalog <ver>.0(%s)\n", dateStr);
+        }
+        free(dateStr);
+      }
+    }
+  }
+
+  fprintf(fp, "## language %s\n## codeset %d\n" \
+        ";\n", ctlanguage != NULL ? ctlanguage : "X", CodeSet);
+  for(cc = FirstChunk; cc != NULL; cc = cc->Next)
+  {
+    if(cc->ChunkStr != CatLanguage)
+    {
+      fprintf(fp, "## chunk ");
+      fwrite((char *)&cc->ID, sizeof(cc->ID), 1, fp);
+      fprintf(fp, " %s\n", cc->ChunkStr);
+    }
+  }
+
+  for(cd = FirstCDLine, cs = FirstCatString; cd != NULL; cd = cd->Next)
+  {
+    switch(*cd->Line)
+    {
+      case '#':
+        fprintf(fp, ";%s\n", cd->Line);
+        break;
+
+      case ';':
+        fprintf(fp, "%s\n", cd->Line);
+        break;
+
+      default:
+        if(cs != NULL)
+        {
+
+        /*
+           fprintf(fp, "%s\n", cs->ID_Str);
+           fprintf(fp, "%s\n", cs->CT_Str ? cs->CT_Str : "");
+           putc(';', fp);
+           putc(' ', fp);
+         */
+          fprintf(fp, "%s\n" \
+                "%s\n" \
+                "; ", cs->ID_Str, cs->CT_Str != NULL ? cs->CT_Str : "");
+          for(line = cs->CD_Str; *line; ++line)
+          {
+            putc((int)*line, fp);
+            if(*line == '\n')
             {
-                char           *dateStr;
-                time_t         tim;
-                struct tm      *t;
-
-                dateStr = calloc ( 15, 1 );
-                time ( &tim );
-                t = localtime ( &tim );
-                strftime ( dateStr, 12, "%d.%m.%Y", t );
-                fprintf ( fp, "## version $V" );
-                fprintf ( fp, "%c", 50 + 19 );  // E
-                if ( CatVersion )
-                {
-                    if ( BaseName )
-                    {
-                        fprintf ( fp, "R: %s.catalog %d.<rev> (%s)\n", BaseName,
-                                  CatVersion, dateStr );
-                    }
-                    else
-                    {
-                        fprintf ( fp, "R: <name>.catalog %d.<rev> (%s)\n", CatVersion,
-                                  dateStr );
-                    }
-                }
-                else
-                {
-                    if ( BaseName )
-                    {
-                        fprintf ( fp, "R: %s.catalog <ver>.0 (%s)\n", BaseName,
-                                  dateStr );
-                    }
-                    else
-                    {
-                        fprintf ( fp, "R: <name>.catalog <ver>.0 (%s)\n",
-                                  dateStr );
-                    }
-                }
-                free ( dateStr );
+              putc(';', fp);
+              putc(' ', fp);
             }
+          }
+          putc('\n', fp);
+          if(cs->NotInCT && CT_Scanned)
+            fprintf(fp, ";\n" \
+                  "; %s\n", Msg_New);
+          cs = cs->Next;
         }
+        break;
     }
-
-/* The following code breaks when using NEWCTFILE on a system where the
- * codeset doesn't match the target, as it forces a local codeset. This
- * needs a smarter approach. <tactica>
- */
-
-/* #ifdef __amigados
-     if ( CodeSet == 0 )
-     {
-         struct LocaleBase *LocaleBase;
-         struct Locale  *my_locale;
-
-         if ( ( LocaleBase =
-                ( struct LocaleBase * )OpenLibrary ( "locale.library",
-                                                     47L ) ) != NULL )
-         {
-             if ( ( my_locale = OpenLocale ( NULL ) ) != NULL )
-             {
-                 CodeSet = my_locale->loc_CodeSet;
-                 CloseLocale ( my_locale );
-             }
-             CloseLibrary ( ( struct Library * )LocaleBase );
-         }
-     }
- #endif
-*/
-
-    fprintf ( fp, "## language %s\n## codeset %d\n;\n",
-              ctlanguage ? ctlanguage : "X", CodeSet );
-    for ( cc = FirstChunk; cc != NULL; cc = cc->Next )
-    {
-        if ( cc->ChunkStr != CatLanguage )
-        {
-            fprintf ( fp, "## chunk " );
-            fwrite ( ( char * )&cc->ID, sizeof ( cc->ID ), 1, fp );
-            fprintf ( fp, " %s\n", cc->ChunkStr );
-        }
-    }
-
-    for ( cd = FirstCDLine, cs = FirstCatString; cd != NULL; cd = cd->Next )
-    {
-        switch ( *cd->Line )
-        {
-            case '#':
-                fprintf ( fp, ";%s\n", cd->Line );
-                break;
-            case ';':
-                fprintf ( fp, "%s\n", cd->Line );
-                break;
-            default:
-                if ( cs )
-                {
-
-                /*
-                   fprintf(fp, "%s\n", cs->ID_Str);
-                   fprintf(fp, "%s\n", cs->CT_Str ? cs->CT_Str : "");
-                   putc(';', fp);
-                   putc(' ', fp);
-                 */
-                    fprintf ( fp, "%s\n%s\n;", cs->ID_Str,
-                              cs->CT_Str ? cs->CT_Str : "" );
-                    putc ( ' ', fp );
-                    for ( line = cs->CD_Str; *line; ++line )
-                    {
-                        putc ( ( int )*line, fp );
-                        if ( *line == '\n' )
-                        {
-                            putc ( ';', fp );
-                            putc ( ' ', fp );
-                        }
-                    }
-                    putc ( '\n', fp );
-                    if ( cs->NotInCT && CT_Scanned )
-                        fprintf ( fp, ";\n; %s\n", Msg_New );
-                    cs = cs->Next;
-                }
-        }
-    }
-    fclose ( fp );
+  }
+  fclose(fp);
 #ifdef __amigados
-    SetProtection ( NewCTFile, FILE_MASK );
+  SetProtection(NewCTFile, FILE_MASK);
 #endif
 }
 

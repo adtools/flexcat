@@ -1,5 +1,5 @@
-
-/* $Id$
+/*
+ * $Id$
  *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2010 by the FlexCat Open Source Team
@@ -32,23 +32,23 @@
 
 void ShowError(const char *msg, ...)
 {
-    va_list args;
+  va_list args;
 
 /* if(!Quiet) */
-    {
-        va_start(args, msg);
-        fprintf(stderr,(char *)MSG_ERR_ERROR, ScanFile, ScanLine);
-        putc(' ', stderr);
-        vfprintf(stderr, msg, args);
-        putc('\n', stderr);
-        va_end(args);
-    }
+  {
+    va_start(args, msg);
+    fprintf(stderr,(char *)MSG_ERR_ERROR, ScanFile, ScanLine);
+    putc(' ', stderr);
+    vfprintf(stderr, msg, args);
+    putc('\n', stderr);
+    va_end(args);
+  }
 
 #ifdef __amigados
-    NumberOfWarnings++;
+  NumberOfWarnings++;
 #endif
 
-    MyExit(10);
+  MyExit(10);
 }
 
 ///
@@ -58,23 +58,23 @@ void ShowError(const char *msg, ...)
 
 void ShowErrorQuick(const char *msg, ...)
 {
-    va_list args;
+  va_list args;
 
 /* if(!Quiet) */
-    {
-        va_start(args, msg);
-        fprintf(stderr, (char *)MSG_ERR_ERROR_QUICK, ScanFile);
-        putc(' ', stderr);
-        vfprintf(stderr, msg, args);
-        putc('\n', stderr);
-        va_end(args);
-    }
+  {
+    va_start(args, msg);
+    fprintf(stderr, (char *)MSG_ERR_ERROR_QUICK, ScanFile);
+    putc(' ', stderr);
+    vfprintf(stderr, msg, args);
+    putc('\n', stderr);
+    va_end(args);
+  }
 
 #ifdef __amigados
-    NumberOfWarnings++;
+  NumberOfWarnings++;
 #endif
 
-    MyExit ( 10 );
+  MyExit ( 10 );
 }
 
 ///
@@ -84,7 +84,7 @@ void ShowErrorQuick(const char *msg, ...)
 
 void MemError(void)
 {
-    ShowError(MSG_ERR_NOMEMORY, NULL);
+  ShowError(MSG_ERR_NOMEMORY, NULL);
 }
 
 ///
@@ -94,20 +94,20 @@ void MemError(void)
 
 void ShowWarn(const char *msg, ...)
 {
-    va_list args;
+  va_list args;
 
-    if(!Quiet)
-    {
-        va_start(args, msg);
-        fprintf(stderr, (char *)MSG_ERR_WARNING, ScanFile, ScanLine);
-        putc(' ', stderr);
-        vfprintf(stderr, msg, args);
-        putc('\n', stderr);
-        va_end(args);
-    }
+  if(!Quiet)
+  {
+    va_start(args, msg);
+    fprintf(stderr, (char *)MSG_ERR_WARNING, ScanFile, ScanLine);
+    putc(' ', stderr);
+    vfprintf(stderr, msg, args);
+    putc('\n', stderr);
+    va_end(args);
+  }
 
-    NumberOfWarnings++;
-    GlobalReturnCode = 5;
+  NumberOfWarnings++;
+  GlobalReturnCode = 5;
 }
 
 ///
@@ -117,20 +117,20 @@ void ShowWarn(const char *msg, ...)
 
 void ShowWarnQuick(const char *msg, ...)
 {
-    va_list args;
+  va_list args;
 
-    if(!Quiet)
-    {
-        va_start(args, msg);
-        fprintf(stderr, (char *)MSG_ERR_WARNING_QUICK, ScanFile);
-        putc(' ', stderr);
-        vfprintf(stderr, msg, args);
-        putc('\n', stderr);
-        va_end(args);
-    }
+  if(!Quiet)
+  {
+    va_start(args, msg);
+    fprintf(stderr, (char *)MSG_ERR_WARNING_QUICK, ScanFile);
+    putc(' ', stderr);
+    vfprintf(stderr, msg, args);
+    putc('\n', stderr);
+    va_end(args);
+  }
 
-    NumberOfWarnings++;
-    GlobalReturnCode = 5;
+  NumberOfWarnings++;
+  GlobalReturnCode = 5;
 }
 
 ///

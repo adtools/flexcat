@@ -1,5 +1,5 @@
-
-/* $Id$
+/*
+ * $Id$
  *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2010 by the FlexCat Open Source Team
@@ -40,8 +40,7 @@ void            Usage ( void );
 #if defined(__amigados)
 #else // __amigados
 int             Stricmp ( const char *str1, const char *str2 );
-int             Strnicmp ( const char *str1, const char *str2,
-                           register int len );
+int             Strnicmp ( const char *str1, const char *str2, int len );
 #endif // __amigados
 
 #if defined(__amigaos4__)

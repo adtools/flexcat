@@ -1,5 +1,5 @@
-
-/* $Id$
+/*
+ * $Id$
  *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2010 by the FlexCat Open Source Team

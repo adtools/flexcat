@@ -1,5 +1,5 @@
-
-/* $Id$
+/*
+ * $Id$
  *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2010 by the FlexCat Open Source Team
@@ -30,6 +30,6 @@ unsigned short  SwapWord21 ( unsigned short r );
 unsigned short  SwapWord12 ( unsigned short r );
 uint32   SwapLong4321 ( uint32 r );
 uint32   SwapLong1234 ( uint32 r );
-int             SwapChoose ( void );
+int      SwapChoose ( void );
 
 #endif  /* FLEXCAT_SWAPFUNCS_H */

@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-07-01 Thore Böckelmann <tboeckel@gmx.de>
+
+  * all: HUGE code cleanup. Removed the excessive usage of space characters.
+    The code should be much more readable now.
+
 2010-06-30  Mariusz Danilewicz <mandi@interia.pl>
 
   * catalogs\polish.ct: updated the existing Polish catalog translation
