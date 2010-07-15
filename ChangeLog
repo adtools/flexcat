@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-07-15 Thore Böckelmann <tboeckel@gmx.de>
+
+  * createct.c: slightly simplified the header generation.
+
 2010-07-01 Thore Böckelmann <tboeckel@gmx.de>
 
   * all: HUGE code cleanup. Removed the excessive usage of space characters.

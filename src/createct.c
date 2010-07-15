@@ -29,9 +29,7 @@
 #include "globals.h"
 
 /// CreateCTFile
-
-/* This creates a new catalog translation file. */
-
+// This creates a new catalog translation file.
 void CreateCTFile(char *NewCTFile)
 {
   FILE *fp;
@@ -51,7 +49,7 @@ void CreateCTFile(char *NewCTFile)
 #ifdef __amigados
     char lang[80];
 
-    if(GetVar("language", lang, 80, 0) != 0)
+    if(GetVar("language", lang, sizeof(lang), 0) != 0)
     {
       ctlanguage = lang;
     }
@@ -66,7 +64,7 @@ void CreateCTFile(char *NewCTFile)
       {
         if(lang[i] == '\n')
         {
-          lang[i] = 0;
+          lang[i] = '\0';
           break;
         }
       }
@@ -119,29 +117,30 @@ void CreateCTFile(char *NewCTFile)
         time(&tim);
         t = localtime(&tim);
         strftime(dateStr, 12, "%d.%m.%Y", t);
-        fprintf(fp, "## version $V");
-        fprintf(fp, "%c", 50 + 19);  // E
+
         if(CatVersion != 0L)
         {
           if(BaseName != NULL)
-            fprintf(fp, "R: %s.catalog %d.<rev>(%s)\n", BaseName, CatVersion, dateStr);
+            fprintf(fp, "## version %cVER: %s.catalog %d.<rev> (%s)\n", '$', BaseName, CatVersion, dateStr);
           else
-            fprintf(fp, "R: <name>.catalog %d.<rev>(%s)\n", CatVersion, dateStr);
+            fprintf(fp, "## version %cVER: <name>.catalog %d.<rev> (%s)\n", '$', CatVersion, dateStr);
         }
         else
         {
           if(BaseName != NULL)
-            fprintf(fp, "R: %s.catalog <ver>.0(%s)\n", BaseName, dateStr);
+            fprintf(fp, "## version %cVER: %s.catalog <ver>.0 (%s)\n", '$', BaseName, dateStr);
           else
-            fprintf(fp, "R: <name>.catalog <ver>.0(%s)\n", dateStr);
+            fprintf(fp, "## version %cVER: <name>.catalog <ver>.0 (%s)\n", '$', dateStr);
         }
+
         free(dateStr);
       }
     }
   }
 
-  fprintf(fp, "## language %s\n## codeset %d\n" \
-        ";\n", ctlanguage != NULL ? ctlanguage : "X", CodeSet);
+  fprintf(fp, "## language %s\n" \
+              "## codeset %d\n" \
+              ";\n", ctlanguage != NULL ? ctlanguage : "X", CodeSet);
   for(cc = FirstChunk; cc != NULL; cc = cc->Next)
   {
     if(cc->ChunkStr != CatLanguage)
@@ -175,8 +174,8 @@ void CreateCTFile(char *NewCTFile)
            putc(' ', fp);
          */
           fprintf(fp, "%s\n" \
-                "%s\n" \
-                "; ", cs->ID_Str, cs->CT_Str != NULL ? cs->CT_Str : "");
+                      "%s\n" \
+                      "; ", cs->ID_Str, cs->CT_Str != NULL ? cs->CT_Str : "");
           for(line = cs->CD_Str; *line; ++line)
           {
             putc((int)*line, fp);
@@ -189,7 +188,7 @@ void CreateCTFile(char *NewCTFile)
           putc('\n', fp);
           if(cs->NotInCT && CT_Scanned)
             fprintf(fp, ";\n" \
-                  "; %s\n", Msg_New);
+                        "; %s\n", Msg_New);
           cs = cs->Next;
         }
         break;
@@ -202,3 +201,4 @@ void CreateCTFile(char *NewCTFile)
 }
 
 ///
+
