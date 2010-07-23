@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.3 (28.6.2010)
+## version $VER: FlexCat.catalog 3.4 (23.7.2010)
 ## language deutsch
 ## codeset 0
 ;
@@ -35,7 +35,7 @@ MSG_USAGE
   NOBUFFEREDIO   IO Puffer nicht verwenden\n\
   MODIFIED       Katalog nur erzeugen wenn #?.c(d|t) Dateien geändert wurden\n\
   COPYMSGNEW     ***NEW*** Markierung beim Erneuern von #?.ct Dateien kopieren\n\
-  OLDNEWMSG      Wenn die #?.ct Datei einen anderen Marker benutzt, diesen hier angeben
+  OLDMSGNEW      Wenn die #?.ct Datei einen anderen Marker benutzt, diesen hier angeben
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\

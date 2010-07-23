@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-07-23 Thore Böckelmann <tboeckel@gmx.de>
+
+  * catalogs/german.ct: fixed wrong translation of command line parameter name.
+
 2010-07-15 Thore Böckelmann <tboeckel@gmx.de>
 
   * createct.c: slightly simplified the header generation.
