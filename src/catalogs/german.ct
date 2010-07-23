@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.4 (23.7.2010)
+## version $VER: FlexCat.catalog 3.5 (23.7.2010)
 ## language deutsch
 ## codeset 0
 ;
@@ -293,6 +293,9 @@ fehlende Platzhalter
 MSG_ERR_EXCESSIVEPLACEHOLDERS
 überzählige Platzhalter
 ; excessive placeholders
+;
+MSG_ERR_WARNING_QUICK
+%s - Warnung:
 ;
 MSG_ERR_MISSINGTRANSLATION
 fehlende Übersetzung für Bezeichner '%s'

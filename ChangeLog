@@ -8,6 +8,7 @@ $URL$
 2010-07-23 Thore Böckelmann <tboeckel@gmx.de>
 
   * catalogs/german.ct: fixed wrong translation of command line parameter name.
+  * catalogs/german.ct: added missing translation.
 
 2010-07-15 Thore Böckelmann <tboeckel@gmx.de>
 
