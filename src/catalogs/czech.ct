@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.2 (5.12.2007)
+## version $VER: FlexCat.catalog 3.3 (4.8.2010)
 ## language czech
 ## codeset 5
 ;
@@ -27,9 +27,9 @@ MSG_USAGE
                  text souboru s popisem katalogu\n\
   WARNCTGAPS     Upozorní na chybìjící identifikátory v souboru .ct\n\
   NOOPTIM        Vypne optimalizace, tj. v katalogu zùstanou i taková slova,\n\
-                 která se vyskytují jak ve zdrojovém textu, tak i v pøekladu\n\
+                 která jsou stejná jak ve zdrojovém textu, tak i v pøekladu\n\
   FILL           Chybí-li pøeklad, doplní originální text ze zdrojového souboru\n\
-  FLUSH          Po vytvoøení katalogu za¾ádá systém o uvolnìní pamìti\n\
+  FLUSH          Po vytvoøení katalogu za¾ádá systém o uvolnìní zdrojù z pamìti\n\
   NOBEEP         Pøi chybových hlá¹eních vypne funkci DisplayBeep()\n\
   QUIET          Vypne upozornìní na chyby\n\
   NOLANGTOLOWER  Vypne pøevod direktivy language na malá písmena\n\
@@ -70,12 +70,6 @@ MSG_ERR_WARNING
 MSG_ERR_ERROR
 %s, øádek è.%d - CHYBA:
 ; %s, line %d - ERROR:
-;
-MSG_ERR_ERROR_QUICK
-
-; %s - ERROR:
-;
-; ***NEW***
 ;
 MSG_ERR_EXPECTEDHEX
 oèekáván ¹estnáctkový znak [0-9a-fA-F]
@@ -178,104 +172,140 @@ neplatné RCS Id
 ; incorrect RCS Id
 ;
 MSG_ERR_NOMEMORY
-Nedostatek volné pamìti!
-; Out of memory!
+nedostatek volné pamìti!
+; out of memory!
 ;
 MSG_ERR_NOCATALOGDESCRIPTION
-Nelze otevøít soubor '%s'.
-; Cannot open catalog description '%s'.
+nelze otevøít soubor '%s'.
+; cannot open catalog description '%s'
 ;
 MSG_ERR_NOCATALOGTRANSLATION
-Nelze otevøít soubor '%s'.
-; Cannot open catalog translation '%s'.
+nelze otevøít soubor '%s'.
+; cannot open catalog translation '%s'
 ;
 MSG_ERR_NOCTVERSION
-V pøekladu není definována direktiva version.\n\
+v pøekladu není definována direktiva version.\n\
 Zadejte buï '## version' or '## rcsid' and '## name'.
-; Missing catalog translation version. Use either\n\
-; '## version' or '## rcsid' and '## name'.
+; missing catalog translation version\n\
+; Use either '## version' or '## rcsid' and '## name'
 ;
 MSG_ERR_NOCATALOG
-Nelze otevøít soubor '%s'.
-; Cannot open catalog file '%s'.
+nelze otevøít soubor '%s'.
+; cannot open catalog file '%s'
 ;
 MSG_ERR_NONEWCTFILE
-Nelze vygenerovat prázdný soubor .ct (%s).
-; Cannot create catalog translation '%s'.
+nelze vygenerovat prázdný soubor .ct (%s).
+; cannot create catalog translation '%s'
 ;
 MSG_ERR_NOCTLANGUAGE
-V pøekladu není definována direktiva language.
-; Missing catalog translation language.
+v pøekladu není definována direktiva language.
+; missing catalog translation language
 ;
 MSG_ERR_NOSOURCE
-Nelze otevøít zdrojový text '%s'.
-; Cannot open source file '%s'.
+nelze otevøít zdrojový text '%s'.
+; cannot open source file '%s'
 ;
 MSG_ERR_NOSOURCEDESCRIPTION
-Nelze otevøít zdrojový text s popisem katalogu '%s'.
-; Cannot open source description file '%s'.
+nelze otevøít zdrojový text s popisem katalogu '%s'.
+; cannot open source description file '%s'
 ;
 MSG_ERR_NOCTARGUMENT
-K vygenerování katalogu je tøeba soubor s pøekladem.
-; Creating a catalog requires a translation file.
+k vygenerování katalogu je tøeba soubor s pøekladem.
+; creating a catalog requires a translation file
 ;
 MSG_ERR_CANTCHECKDATE
-Nelze zjistit datum a èas souboru '%s'
-; Cannot get datestamp of '%s'
+nelze zjistit datum a èas souboru '%s'
+; cannot get datestamp of '%s'
 ;
 MSG_ERR_TRAILINGELLIPSIS
-Originální text má na konci øádku teèky ('...')
-; Original string has a trailing ellipsis ('...')
+originální text má na konci øádku teèky ('...')
+; original string has a trailing ellipsis ('...')
 ;
 MSG_ERR_TRAILINGBLANKS
-Originální text má na konci øádku mezery
-; Original string has trailing blanks
+originální text má na konci øádku mezery
+; original string has trailing blanks
 ;
 MSG_ERR_NOCTFILENAME
-Chybí názvu souboru s pøekladem; zadejte ho buï na pøíkazovém \
+chybí názvu souboru s pøekladem; zadejte ho buï na pøíkazovém \
 øádku nebo jako direktivu basename do souboru s popisem katalogu.
 ; Catalog translation file name not specified at \
-; command line or as basename in description.
+; command line or as basename in description
 ;
 MSG_ERR_NOCATFILENAME
-Chybí definice název katalogu; zadejte ho buï na pøíkazovém \
+chybí definice název katalogu; zadejte ho buï na pøíkazovém \
 øádku nebo jako direktivu basename do souboru s popisem katalogu.
-; Catalog file name not specified at command line or \
-; as basename in description.
+; catalog file name not specified at command line or \
+; as basename in description
 ;
 MSG_ERR_BADPREFS
-Chyba pøi zpracování promìnné 'FlexCat.prefs'. Pou¾ito výchozí nastavení.\n\
+chyba pøi zpracování promìnné 'FlexCat.prefs'; pou¾ito výchozí nastavení.\n\
 Povinná ¹ablona:
-; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
+; error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 ; Template:
 ;
 MSG_ERR_NOTRAILINGBLANKS
-Originální text nemá na konci øádku mezery
-; Original string doesn't have trailing blanks
+originální text nemá na konci øádku mezery
+; original string doesn't have trailing blanks
 ;
 MSG_ERR_BADCTLANGUAGE
-Neplatná direktiva language v souboru s pøekladem.\n\
-Language musí být øetìzec obsahující pouze abecední\n\
-znaky a bez mezer.
-; Invalid language in catalog translation file.\n\
-; Language MUST be a string with alphabetical\n\
-; characters and no inlined or trailing spaces.
+neplatná direktiva language v souboru s pøekladem.\n\
+Language MUSÍ být øetìzec obsahující pouze abecední znaky a bez mezer uprostøed nebo na konci.
+; invalid language in catalog translation file\n\
+; Language MUST be a string with alphabetical characters and no inlined or trailing spaces
 ;
 MSG_ERR_NOTRAILINGELLIPSIS
-Originální text nemá na konci øádku teèky ('...')
-; Original string doesn't have a trailing ellipsis ('...')
+originální text nemá na konci øádku teèky ('...')
+; original string doesn't have a trailing ellipsis ('...')
 ;
 MSG_ERR_DOUBLECTCODESET
 dvojí deklarace direktivy codeset
 ; catalog codeset declared twice
 ;
 MSG_ERR_BADCTCODESET
-Neplatná direktiva codeset v souboru s pøekladem.\n\
-Codeset musí být dekadické èíslo a bez mezer.
-; Invalid codeset in catalog translation file.\n\
-; Codeset MUST be a decimal number, without any\n\
-; trailing spaces.
+neplatná direktiva codeset v souboru s pøekladem.\n\
+Codeset MUSÍ být dekadické èíslo a bez mezer uprostøed nebo na konci.
+; invalid codeset in catalog translation file\n\
+; Codeset MUST be a decimal number without any trailing spaces
 ;
 MSG_ERR_NOCTCODESET
-V pøekladu není definována direktiva codeset.
-; Missing catalog translation codeset.
+v pøekladu není definována direktiva codeset.
+; missing catalog translation codeset
+;
+MSG_ERR_ERROR_QUICK
+%s - CHYBA:
+; %s - ERROR:
+;
+MSG_ERR_BADCTVERSION
+neplatná direktiva version v souboru s pøekladem.\n\
+Øádek s Version by mìl být zapsán zhruba takto:\n\
+## version $VER: název verze.revize (datum)\n\
+a to bez mezer v názvu katalogu.
+; invalid version string in catalog translation file\n\
+; Version should be something like\n\
+; ## version $VER: name version.revision (date)\n\
+; without any spaces in the name
+;
+MSG_ERR_MISMATCHINGPLACEHOLDERS
+nesprávnì umístìné argumenty
+; mismatching placeholders
+;
+MSG_ERR_MISSINGPLACEHOLDERS
+chybìjící argumenty
+; missing placeholders
+;
+MSG_ERR_EXCESSIVEPLACEHOLDERS
+nesprávný poèet argumentù
+; excessive placeholders
+;
+MSG_ERR_WARNING_QUICK
+%s - upozornìní:
+; %s - Warning:
+;
+MSG_ERR_MISSINGTRANSLATION
+chybí pøeklad pro '%s'
+; missing translation for identifier '%s'
+;
+MSG_ERR_EMPTYTRANSLATION
+prázdný pøeklad pro '%s'
+; empty translation for identifier '%s'
+;

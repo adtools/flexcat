@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-08-04 Vit Sindlar <sindlarv at centrum dot cz>
+
+  * catalogs/czech.ct: added missing translation
+
 2010-07-23 Thore Böckelmann <tboeckel@gmx.de>
 
   * catalogs/german.ct: fixed wrong translation of command line parameter name.
