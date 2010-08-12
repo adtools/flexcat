@@ -52,6 +52,9 @@
 #elif defined(__linux__)
   #define SYSTEM      "Linux"
   #define SYSTEMSHORT "linux"
+#elif defined(_WIN32)
+  #define SYSTEM      "Windows"
+  #define SYSTEMSHORT "WIN"
 #else
   #warning "Unsupported System - check SYSTEM define"
   #define SYSTEM      "???"
