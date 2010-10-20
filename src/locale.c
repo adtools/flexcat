@@ -104,6 +104,7 @@ struct FC_String FlexCat_Strings[] =
    { "%s - Warning:", 154 },
    { "missing translation for identifier '%s'", 155 },
    { "empty translation for identifier '%s'", 156 },
+   { "mismatching trailing control characters", 157 },
    { NULL, 0 }
 };
 

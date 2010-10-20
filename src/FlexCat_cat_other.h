@@ -87,5 +87,6 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_WARNING_QUICK FlexCat_Strings[57]
 #define MSG_ERR_MISSINGTRANSLATION FlexCat_Strings[58]
 #define MSG_ERR_EMPTYTRANSLATION FlexCat_Strings[59]
+#define MSG_ERR_MISMATCHINGCONTROLCHARACTERS FlexCat_Strings[60]
 
 #endif

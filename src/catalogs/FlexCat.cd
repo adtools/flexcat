@@ -218,3 +218,6 @@ missing translation for identifier '%s'
 MSG_ERR_EMPTYTRANSLATION (//)
 empty translation for identifier '%s'
 ;
+MSG_ERR_MISMATCHINGCONTROLCHARACTERS (//)
+mismatching trailing control characters
+;

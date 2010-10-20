@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.5 (23.7.2010)
+## version $VER: FlexCat.catalog 3.6 (2.8.2010)
 ## language deutsch
 ## codeset 0
 ;
@@ -302,4 +302,7 @@ fehlende Übersetzung für Bezeichner '%s'
 ;
 MSG_ERR_EMPTYTRANSLATION
 leere Übersetzung für Bezeichner '%s'
+;
+MSG_ERR_MISMATCHINGCONTROLCHARACTERS
+unterschiedliche Kontrollzeichen am Zeilenende
 ;

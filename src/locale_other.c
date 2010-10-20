@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-const char * FlexCat_Strings[60] = {
+const char * FlexCat_Strings[61] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -129,5 +129,6 @@ const char * FlexCat_Strings[60] = {
     "excessive placeholders",
     "%s - Warning:",
     "missing translation for identifier '%s'",
-    "empty translation for identifier '%s'"
+    "empty translation for identifier '%s'",
+    "mismatching trailing control characters"
 };

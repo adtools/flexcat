@@ -7,6 +7,8 @@ $URL$
 
 2010-10-20 Thore Böckelmann <tboeckel@gmx.de>
 
+  * scanct.c: added warning about mismatching control characters (i.e. LF) at
+    the end of a line.
   * scanct.c: warnings about empty translations are now shown along with the
     line number.
 
