@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-10-20 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanct.c: warnings about empty translations are now shown along with the
+    line number.
+
 2010-09-08 Mariusz Danilewicz <mandi@interia.pl>
 
   * AUTHORS: added translators section (please check and update missing persons).

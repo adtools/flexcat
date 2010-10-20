@@ -56,7 +56,7 @@ int             CT_Scanned = FALSE;        /* If TRUE and we are going to
    Inputs: ctfile  - name of the translation file to scan.
    Result: TRUE if successful, FALSE otherwise. */
 
-int ScanCTFile ( char *ctfile )
+int ScanCTFile(char *ctfile)
 {
     FILE           *fp;
     char           *newline, *line, *idstr, *newidstr, *newstr;
@@ -67,21 +67,21 @@ int ScanCTFile ( char *ctfile )
     ScanFile = ctfile;
     ScanLine = 0;
 
-    if ( !( fp = fopen ( ctfile, "r" ) ) )
+    if((fp = fopen(ctfile, "r")) == NULL)
     {
-        ShowErrorQuick ( MSG_ERR_NOCATALOGTRANSLATION, ctfile );
+        ShowErrorQuick(MSG_ERR_NOCATALOGTRANSLATION, ctfile);
     }
 
-    if ( !NoBufferedIO )
-        setvbuf ( fp, NULL, _IOFBF, buffer_size );
+    if(!NoBufferedIO)
+        setvbuf(fp, NULL, _IOFBF, buffer_size);
 
 
-    while ( !feof ( fp ) && ( line = newline = ReadLine ( fp, TRUE ) ) )
+    while(!feof(fp) && (line = newline = ReadLine(fp, TRUE)) != NULL)
     {
-        switch ( *line )
+        switch(*line)
         {
             case ';':
-                if ( CopyNEWs == TRUE )
+                if(CopyNEWs == TRUE)
                 {
                     if(cs && Strnicmp(line, Old_Msg_New, strlen(Old_Msg_New)) == 0)
                     {
@@ -96,120 +96,120 @@ int ScanCTFile ( char *ctfile )
                 any number of # symbols, blank spaces and tabs afterwards are
                 skipped for compatibility with CatComp */
 
-                while ( ( ( *line ) == '#' ) || ( ( *line ) == ' ' ) || ( ( *line ) == '\t' ) )
+                while(*line == '#' || *line == ' ' || *line == '\t')
                 {
                     ++line;
                 }
 
-                if ( Strnicmp ( line, "version", 7 ) == 0 )
+                if(Strnicmp(line, "version", 7) == 0)
                 {
-                    if ( CatVersionString || CatRcsId || CatName )
+                    if(CatVersionString || CatRcsId || CatName)
                     {
-                        ShowError ( MSG_ERR_DOUBLECTVERSION );
+                        ShowError(MSG_ERR_DOUBLECTVERSION);
                     }
                     line += 7;
-                    OverSpace ( &line );
+                    OverSpace(&line);
                     // perform a slightly obfuscated check for the version cookie to
                     // avoid having multiple cookies in the final binary
                     if(line[0] == '$' && Strnicmp(&line[1], "VER:", 4) == 0)
                     {
-                        CatVersionString = AllocString ( line );
+                        CatVersionString = AllocString(line);
                     }
                     else
                     {
                         ShowError(MSG_ERR_BADCTVERSION);
                     }
                 }
-                else if ( Strnicmp ( line, "codeset", 7 ) == 0 )
+                else if(Strnicmp(line, "codeset", 7) == 0)
                 {
                     char *ptr;
 
-                    if ( CodeSet_checked )
+                    if(CodeSet_checked)
                     {
-                        ShowError ( MSG_ERR_DOUBLECTCODESET );
+                        ShowError(MSG_ERR_DOUBLECTCODESET);
                     }
                     line += 7;
-                    OverSpace ( &line );
+                    OverSpace(&line);
 
-                    if ( !*line )
+                    if(!*line)
                     /* Missing argument for "## codeset" */
                     {
-                        ShowError ( MSG_ERR_BADCTCODESET );
+                        ShowError(MSG_ERR_BADCTCODESET);
                     }
 
-                    for ( ptr = line; *ptr; ptr++ )
-                        if ( !isdigit ( (int)*ptr ) )
+                    for(ptr = line; *ptr; ptr++)
+                        if(!isdigit((int)*ptr))
                         /* Non-digit char detected */
                         {
-                            ShowError ( MSG_ERR_BADCTCODESET );
+                            ShowError(MSG_ERR_BADCTCODESET);
                         }
 
                     errno = 0;
 
-                    CodeSet = strtoul ( line, &line, 0 );
+                    CodeSet = strtoul(line, &line, 0);
 
 /*                  printf("ulong_max es %lu\n",ULONG_MAX);
                     printf("CodeSet obtenido de strtoul es %lu\n",CodeSet);*/
 
-                    if ( ( errno == ERANGE ) && (CodeSet == ULONG_MAX ) )
+                    if(errno == ERANGE && CodeSet == ULONG_MAX)
                     {
-                        ShowError ( MSG_ERR_BADCTCODESET );
+                        ShowError(MSG_ERR_BADCTCODESET);
                     }
 
                     CodeSet_checked = 1;
                     // errno = 0;
                 }
-                else if ( Strnicmp ( line, "language", 8 ) == 0 )
+                else if(Strnicmp(line, "language", 8) == 0)
                 {
                     char *ptr;
 
-                    if ( CatLanguage )
+                    if(CatLanguage)
                     {
-                        ShowError ( MSG_ERR_DOUBLECTLANGUAGE );
+                        ShowError(MSG_ERR_DOUBLECTLANGUAGE);
                     }
                     line += 8;
-                    OverSpace ( &line );
-                    CatLanguage = AddCatalogChunk ( strdup("LANG"), line );
+                    OverSpace(&line);
+                    CatLanguage = AddCatalogChunk(strdup("LANG"), line);
 
-                    if ( LANGToLower )
-                        for ( ptr = CatLanguage; *ptr; ptr++ )
-                            *ptr = tolower ( ( int )*ptr );
+                    if(LANGToLower)
+                        for(ptr = CatLanguage; *ptr; ptr++)
+                            *ptr = tolower((int)*ptr);
                 }
-                else if ( Strnicmp ( line, "chunk", 5 ) == 0 )
+                else if(Strnicmp(line, "chunk", 5) == 0)
                 {
                     char           *ID;
 
                     line += 5;
-                    OverSpace ( &line );
+                    OverSpace(&line);
                     ID = line;
-                    line += sizeof ( ULONG );
-                    OverSpace ( &line );
+                    line += sizeof(ULONG);
+                    OverSpace(&line);
 
-                    AddCatalogChunk ( ID, AllocString ( line ) );
+                    AddCatalogChunk(ID, AllocString(line));
                 }
-                else if ( Strnicmp ( line, "rcsid", 5 ) == 0 )
+                else if(Strnicmp(line, "rcsid", 5) == 0)
                 {
-                    if ( CatVersionString || CatRcsId )
+                    if(CatVersionString || CatRcsId)
                     {
-                        ShowError ( MSG_ERR_DOUBLECTVERSION );
+                        ShowError(MSG_ERR_DOUBLECTVERSION);
                     }
                     line += 5;
-                    OverSpace ( &line );
-                    CatRcsId = AllocString ( line );
+                    OverSpace(&line);
+                    CatRcsId = AllocString(line);
                 }
-                else if ( Strnicmp ( line, "name", 5 ) == 0 )
+                else if(Strnicmp(line, "name", 5) == 0)
                 {
-                    if ( CatVersionString || CatName )
+                    if(CatVersionString || CatName)
                     {
-                        ShowError ( MSG_ERR_DOUBLECTVERSION );
+                        ShowError(MSG_ERR_DOUBLECTVERSION);
                     }
                     line += 4;
-                    OverSpace ( &line );
-                    CatName = AllocString ( line );
+                    OverSpace(&line);
+                    CatName = AllocString(line);
                 }
                 else
                 {
-                    ShowWarn ( MSG_ERR_UNKNOWNCTCOMMAND );
+                    ShowWarn(MSG_ERR_UNKNOWNCTCOMMAND);
                 }
 
                 /* Stop looking for commands */
@@ -217,94 +217,100 @@ int ScanCTFile ( char *ctfile )
                 break;
 
             default:
-                if ( *line == ' ' || *line == '\t' )
+                if(*line == ' ' || *line == '\t')
                 {
-                    ShowError ( MSG_ERR_UNEXPECTEDBLANKS );
-                    OverSpace ( &line );
+                    ShowError(MSG_ERR_UNEXPECTEDBLANKS);
+                    OverSpace(&line);
                 }
                 idstr = line;
 
-                while ( ( *line >= 'a' && *line <= 'z' ) ||
-                        ( *line >= 'A' && *line <= 'Z' ) ||
-                        ( *line >= '0' && *line <= '9' ) || *line == '_' )
+                while((*line >= 'a' && *line <= 'z') ||
+                      (*line >= 'A' && *line <= 'Z') ||
+                      (*line >= '0' && *line <= '9') || *line == '_')
                 {
                     ++line;
                 }
-                if ( idstr == line )
+                if(idstr == line)
                 {
-                    ShowError ( MSG_ERR_NOIDENTIFIER );
+                    ShowError(MSG_ERR_NOIDENTIFIER);
                     break;
                 }
 
-                if ( !( newidstr = malloc ( line - idstr + 1 ) ) )
+                if((newidstr = malloc(line - idstr + 1)) == NULL)
                 {
-                    MemError (  );
+                    MemError();
                 }
 
-                strncpy ( newidstr, idstr, line - idstr );
+                strncpy(newidstr, idstr, line - idstr);
                 newidstr[line - idstr] = '\0';
-                OverSpace ( &line );
+                OverSpace(&line);
 
-                if ( *line )
+                if(*line)
                 {
-                    ShowError ( MSG_ERR_EXTRACHARACTERS );
+                    ShowError(MSG_ERR_EXTRACHARACTERS);
                 }
 
-                if ( ( newstr = ReadLine ( fp, FALSE ) ) )
+                if((newstr = ReadLine(fp, FALSE)) != NULL)
                 {
-                    for ( cs = FirstCatString; cs != NULL; cs = cs->Next )
+                    for(cs = FirstCatString; cs != NULL; cs = cs->Next)
                     {
-                        if ( strcmp ( cs->ID_Str, newidstr ) == 0 )
+                        if(strcmp(cs->ID_Str, newidstr) == 0)
                         {
                             break;
                         }
                     }
-                    if ( cs == NULL )
+                    if(cs == NULL)
                     {
-                        ShowWarn ( MSG_ERR_UNKNOWNIDENTIFIER, newidstr );
+                        ShowWarn(MSG_ERR_UNKNOWNIDENTIFIER, newidstr);
                     }
                     else
                     {
                         size_t reallen;
                         size_t cd_len;
 
-                        if ( cs->CT_Str )
+                        if(cs->CT_Str)
                         {
-                            ShowError ( MSG_ERR_DOUBLEIDENTIFIER );
+                            ShowError(MSG_ERR_DOUBLEIDENTIFIER);
                             Result = FALSE;
-                            free ( cs->CT_Str );
+                            free(cs->CT_Str);
                         }
-                        cs->CT_Str = AllocString ( newstr );
+                        cs->CT_Str = AllocString(newstr);
                         cs->NotInCT = FALSE;
 
                         /* Get string length */
 
-                        reallen = strlen ( cs->CT_Str);
-                        cd_len = strlen ( cs->CD_Str );
+                        reallen = strlen(cs->CT_Str);
+                        cd_len = strlen(cs->CD_Str);
 
-                        if ( cs->MinLen > 0 && reallen < (size_t)cs->MinLen )
+                        if(cs->MinLen > 0 && reallen < (size_t)cs->MinLen)
                         {
-                            ShowWarn ( MSG_ERR_STRINGTOOSHORT );
+                            ShowWarn(MSG_ERR_STRINGTOOSHORT);
                         }
-                        if ( cs->MaxLen > 0 && reallen > (size_t)cs->MaxLen )
+                        if(cs->MaxLen > 0 && reallen > (size_t)cs->MaxLen)
                         {
-                            ShowWarn ( MSG_ERR_STRINGTOOLONG );
+                            ShowWarn(MSG_ERR_STRINGTOOLONG);
                         }
 
+
+                        // check for empty translations
+                        if(cd_len > 0 && reallen == 0)
+                        {
+                            ShowWarn(MSG_ERR_EMPTYTRANSLATION, cs->ID_Str);
+                        }
 
                         /* Check for trailing ellipsis. */
                         if(reallen >= 3 && cd_len >= 3)
                         {
-                            if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) == 0 ) &&
-                                 ( strcmp ( &cs->CT_Str[reallen - 3], "..." ) != 0 ) )
+                            if(strcmp(&cs->CD_Str[cd_len - 3], "...") == 0 &&
+                               strcmp(&cs->CT_Str[reallen - 3], "...") != 0)
                             {
                                 /* printf("ORG: '%s'\nNEW: '%s'\n", cs->CD_Str, cs->CT_Str); */
-                                ShowWarn ( MSG_ERR_TRAILINGELLIPSIS );
+                                ShowWarn(MSG_ERR_TRAILINGELLIPSIS);
                             }
-                            if ( ( strcmp ( &cs->CD_Str[cd_len - 3], "..." ) != 0 ) &&
-                                 ( strcmp ( &cs->CT_Str[reallen - 3], "..." ) == 0 ) )
+                            if(strcmp(&cs->CD_Str[cd_len - 3], "...") != 0 &&
+                               strcmp(&cs->CT_Str[reallen - 3], "...") == 0)
                             {
-                                ShowWarn ( MSG_ERR_NOTRAILINGELLIPSIS );
+                                ShowWarn(MSG_ERR_NOTRAILINGELLIPSIS);
                             }
                         }
 
@@ -312,17 +318,17 @@ int ScanCTFile ( char *ctfile )
                         /* Check for trailing spaces. */
                         if(reallen >= 1 && cd_len >= 1)
                         {
-                            if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) == 0 ) &&
-                                 ( strcmp ( &cs->CT_Str[reallen - 1], " " ) != 0 ) )
+                            if(strcmp(&cs->CD_Str[cd_len - 1], " ") == 0 &&
+                               strcmp(&cs->CT_Str[reallen - 1], " ") != 0)
 
                             {
-                                ShowWarn ( MSG_ERR_TRAILINGBLANKS );
+                                ShowWarn(MSG_ERR_TRAILINGBLANKS);
                             }
-                            if ( ( strcmp ( &cs->CD_Str[cd_len - 1], " " ) != 0 ) &&
-                                 ( strcmp ( &cs->CT_Str[reallen - 1], " " ) == 0 ) )
+                            if(strcmp(&cs->CD_Str[cd_len - 1], " ") != 0 &&
+                               strcmp(&cs->CT_Str[reallen - 1], " ") == 0)
 
                             {
-                                ShowWarn ( MSG_ERR_NOTRAILINGBLANKS );
+                                ShowWarn(MSG_ERR_NOTRAILINGBLANKS);
                             }
                         }
 
@@ -393,65 +399,62 @@ int ScanCTFile ( char *ctfile )
                             while(TRUE);
                         }
                     }
-                    free ( newstr );
+
+                    free(newstr);
                 }
                 else
                 {
-                    ShowWarn ( MSG_ERR_MISSINGSTRING );
-                    if ( cs )
+                    ShowWarn(MSG_ERR_MISSINGSTRING);
+                    if(cs)
                         cs->CT_Str = (char *)"";
                 }
-                free ( newidstr );
+                free(newidstr);
         }
-        free ( newline );
+        free(newline);
         // forget the pointers as we just freed them and 'line' must not be freed again after the loop
         newline = NULL;
         line = NULL;
     }
 
-    if ( !CodeSet_checked )
+    if(!CodeSet_checked)
     {
-        ShowErrorQuick ( MSG_ERR_NOCTCODESET );
+        ShowErrorQuick(MSG_ERR_NOCTCODESET);
     }
 
-    if ( !( CatVersionString || ( CatRcsId && CatName ) ) )
+    if(!(CatVersionString || (CatRcsId && CatName)))
     {
-        ShowErrorQuick ( MSG_ERR_NOCTVERSION );
+        ShowErrorQuick(MSG_ERR_NOCTVERSION);
     }
 
-    // check if a translation exists for all identifiers and if it is non-empty
+    // check if a translation exists for all identifiers
     for(cs = FirstCatString; cs != NULL; cs = cs->Next)
     {
         if(cs->CT_Str == NULL)
         {
             ShowWarnQuick(MSG_ERR_MISSINGTRANSLATION, cs->ID_Str);
         }
-        else if(strlen(cs->CD_Str) != 0 && strlen(cs->CT_Str) == 0)
-        {
-            ShowWarnQuick(MSG_ERR_EMPTYTRANSLATION, cs->ID_Str);
-        }
     }
 
     if(line != NULL)
         free(line);
 
-    fclose ( fp );
+    fclose(fp);
 
-    if ( WarnCTGaps )
+    if(WarnCTGaps)
     {
-        for ( cs = FirstCatString; cs != NULL; cs = cs->Next )
+        for(cs = FirstCatString; cs != NULL; cs = cs->Next)
         {
-            if ( cs->CT_Str == NULL )
+            if(cs->CT_Str == NULL)
             {
-                ShowWarn ( MSG_ERR_CTGAP, cs->ID_Str );
+                ShowWarn(MSG_ERR_CTGAP, cs->ID_Str);
             }
         }
     }
 
-    if ( Result )
+    if(Result)
         CT_Scanned = TRUE;
 
-    return ( Result );
+    return(Result);
 }
 
 ///
