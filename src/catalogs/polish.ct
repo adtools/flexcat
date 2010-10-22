@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.4 (30.06.2010)
+## version $VER: FlexCat.catalog 3.5 (22.10.2010)
 ## language polski
 ## codeset 5
 ;
@@ -6,6 +6,7 @@
 ;
 ; FlexCat.ct - FlexCat catalog Polish translation file
 ; $Id$
+; in sync with .cd in revision 184
 ;
 ;#basename FlexCat
 ;#language english
@@ -318,4 +319,8 @@ brakuj±ce t³umaczenie dla identyfikatora \"%s\"
 MSG_ERR_EMPTYTRANSLATION
 puste t³umaczenie dla identyfikatora \"%s\"
 ; empty translation for identifier '%s'
+;
+MSG_ERR_MISMATCHINGCONTROLCHARACTERS
+niepasuj±ce koñcz±ce znaki kontrolne
+; mismatching trailing control characters
 ;

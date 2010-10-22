@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-10-22 Mariusz Danilewicz <mandi@interia.pl>
+
+  * catalogs/polish.ct: update to the latest changes.
+
 2010-10-20 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanct.c: added warning about mismatching control characters (i.e. LF) at
