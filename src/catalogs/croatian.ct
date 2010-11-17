@@ -173,24 +173,6 @@ MSG_ERR_CANTCHECKDATE
 Ne mogu odrediti od kada je %s
 ; Cannot get datestamp of '%s'
 ;
-MSG_ERR_TRAILINGELLIPSIS
-
-; Original string has a trailing ellipsis ('...')
-;
-MSG_ERR_TRAILINGBLANKS
-
-; Original string has trailing blanks
-;
-MSG_ERR_NOCTFILENAME
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-;
-MSG_ERR_NOCATFILENAME
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
 MSG_ERR_BADPREFS
 Gre¹ka pri obradi FlexCat.prefs varijable, vraæam vrijednosti na ugraðene.\n\
 Oblik postavki:

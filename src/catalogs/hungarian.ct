@@ -175,16 +175,6 @@ MSG_ERR_TRAILINGBLANKS
 Az eredeti sztringnek vannak bevezetõ szóközei.
 ; Original string has trailing blanks
 ;
-MSG_ERR_NOCTFILENAME
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-;
-MSG_ERR_NOCATFILENAME
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
 MSG_ERR_BADPREFS
 Hiba a FlexCat.prefs változó feldolgozásánál, visszatérek az alapértelmezetthez.\n\
 Beállítás minta:

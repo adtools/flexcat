@@ -168,24 +168,6 @@ MSG_ERR_CANTCHECKDATE
 Kan het datumstempel van %s niet verkrijgen
 ; Cannot get datestamp of '%s'
 ;
-MSG_ERR_TRAILINGELLIPSIS
-
-; Original string has a trailing ellipsis ('...')
-;
-MSG_ERR_TRAILINGBLANKS
-
-; Original string has trailing blanks
-;
-MSG_ERR_NOCTFILENAME
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-;
-MSG_ERR_NOCATFILENAME
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
 MSG_ERR_BADPREFS
 Fout bij verwerking FlexCat.prefs variabele, val terug naar standaardwaarden.\n\
 Instellingenstramien:

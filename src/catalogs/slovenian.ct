@@ -175,16 +175,6 @@ MSG_ERR_TRAILINGBLANKS
 Izvirni niz ima na koncu presledke
 ; Original string has trailing blanks
 ;
-MSG_ERR_NOCTFILENAME
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-;
-MSG_ERR_NOCATFILENAME
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
 MSG_ERR_BADPREFS
 Napaka pri obdelavi spremenljivke FlexCat.prefs, uporabljam privzete vrednosti.\n\
 Predloga nastavitev:

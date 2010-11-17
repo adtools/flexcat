@@ -107,9 +107,6 @@ MSG_ERR_DOUBLECTVERSION
 Catalog version angivet to gange. ('version')
 ; catalog version declared twice
 ;
-MSG_ERR_WRONGRCSID
-
-; incorrect RCS Id
 ;
 ;
 ; Errors
@@ -157,37 +154,6 @@ Oprettelse af et catalog kræver en catalog oversættelses fil som argument.
 ;
 ;
 ; Misc
-;
-MSG_FILEUPTODATE
-
-; File '%s' is up to date
-;
-MSG_ERR_CANTCHECKDATE
-
-; Cannot get datestamp of '%s'
-;
-MSG_ERR_TRAILINGELLIPSIS
-
-; Original string has a trailing ellipsis ('...')
-;
-MSG_ERR_TRAILINGBLANKS
-
-; Original string has trailing blanks
-;
-MSG_ERR_NOCTFILENAME
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-;
-MSG_ERR_NOCATFILENAME
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
-MSG_ERR_BADPREFS
-
-; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
-; Template:
 ;
 MSG_USAGE_HEAD
 Brug

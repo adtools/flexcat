@@ -175,16 +175,6 @@ MSG_ERR_TRAILINGBLANKS
 Orginalsträngen har avslutande mellanslag
 ; Original string has trailing blanks
 ;
-MSG_ERR_NOCTFILENAME
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-;
-MSG_ERR_NOCATFILENAME
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
 MSG_ERR_BADPREFS
 Kunde inte tolka miljövariabeln FlexCat.prefs;\n\
 använder förinställda värden. Inställningsmall:

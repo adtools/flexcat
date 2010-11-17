@@ -175,16 +175,6 @@ MSG_ERR_TRAILINGBLANKS
 La stringa originale contiene spazi finali
 ; Original string has trailing blanks
 ;
-MSG_ERR_NOCTFILENAME
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-;
-MSG_ERR_NOCATFILENAME
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
 MSG_ERR_BADPREFS
 Errore nel trattamento della varibile FlexCat.prefs,\n\
 uso i parametri predefiniti.\n\

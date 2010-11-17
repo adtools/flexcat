@@ -5,6 +5,14 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2010-11-17 Thore Böckelmann <tboeckel@gmx.de>
+
+  * catalogs/#?.ct: removed all empty translations for all supported languages.
+    Otherwise one will get an empty warning or error message and will get
+    absolutely no hint about what is wrong. This mainly affects the following
+    strings: MSG_ERR_NOCTFILENAME, MSG_ERR_NOCATFILENAME
+    Translators, please retranslate these strings!
+
 2010-10-22 Mariusz Danilewicz <mandi@interia.pl>
 
   * catalogs/polish.ct: update to the latest changes.

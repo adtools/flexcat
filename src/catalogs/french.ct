@@ -175,16 +175,6 @@ MSG_ERR_TRAILINGBLANKS
 La chaîne originale à des espaces en trop.
 ; Original string has trailing blanks
 ;
-MSG_ERR_NOCTFILENAME
-
-; Catalog translation file name not specified at \
-; command line or as basename in description.
-;
-MSG_ERR_NOCATFILENAME
-
-; Catalog file name not specified at command line or \
-; as basename in description.
-;
 MSG_ERR_BADPREFS
 Erreur en traitant la variable FlexCat.prefs, les valeurs par défaut\n\
 seront utilisées. Modèle de préférences :

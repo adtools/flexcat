@@ -114,10 +114,6 @@ MSG_ERR_NOCATALOG
     NOBEEP      Hata ve uyarýlarda bip sesi çýkarma.\n\
     QUIET       Uyarý mesajlarýný gösterme.
 ;
-MSG_ERR_NONEWCTFILE
-Katalog oluþturabilmek için bir çeviri dosyasý gerekir.\n\
-
-;
 MSG_ERR_NOCTLANGUAGE
 Binary karakterler.
 ;
