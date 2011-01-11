@@ -345,7 +345,7 @@ int main(int argc, char *argv[])
   {
     if(ctfile == NULL)
     {
-      fprintf(stderr, MSG_ERR_NOCTARGUMENT);
+      fprintf(stderr, "%s\n", MSG_ERR_NOCTARGUMENT);
       Usage();
     }
     CreateCat(catalog);

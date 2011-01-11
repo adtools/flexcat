@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2011-01-11 Thore Böckelmann <tboeckel@gmx.de>
+
+  * main.c: fixed a warning.
+
 2010-11-17 Thore Böckelmann <tboeckel@gmx.de>
 
   * catalogs/#?.ct: removed all empty translations for all supported languages.
