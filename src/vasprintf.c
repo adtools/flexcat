@@ -1,5 +1,5 @@
 /*
- * $Id: utils.c 190 2011-01-19 08:40:45Z thboeckel $
+ * $Id$
  *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
  * Copyright (C) 2002-2010 by the FlexCat Open Source Team
