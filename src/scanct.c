@@ -83,7 +83,7 @@ int ScanCTFile(char *ctfile)
             case ';':
                 if(CopyNEWs == TRUE)
                 {
-                    if(cs && Strnicmp(line, Old_Msg_New, strlen(Old_Msg_New)) == 0)
+                    if(cs && Strnicmp(line, Old_Msg_New, (int)strlen(Old_Msg_New)) == 0)
                     {
                         cs->NotInCT = TRUE;
                     }

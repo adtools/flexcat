@@ -70,6 +70,13 @@
   #undef tolower
  #endif
  #define tolower ToLower
+#elif defined(WIN32) && defined(VISUAL_STUDIO)
+  // VisualStudio doesn't know (v)asprintf
+  int asprintf(char **ptr, const char * format, ...);
+  int vasprintf(char **ptr, const char * format, va_list ap);
+  // VisualStudio has strdup() declared as being deprecated
+  #undef strdup
+  #define strdup(s) _strdup(s)
 #endif
 
 
