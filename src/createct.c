@@ -83,10 +83,7 @@ void CreateCTFile(char *NewCTFile)
     if(BaseName == NULL)
       ShowError(MSG_ERR_NOCTFILENAME);
     else
-    {
-      NewCTFile = malloc(strlen(BaseName) + strlen(ctlanguage) + 10);
-      sprintf(NewCTFile, "%s_%s.catalog", BaseName, ctlanguage);
-    }
+      asprintf(&NewCTFile, "%s_%s.catalog", BaseName, ctlanguage);
   }
   if((fp = fopen(NewCTFile, "w")) == NULL)
   {

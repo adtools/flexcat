@@ -134,10 +134,7 @@ void CreateCat(char *CatFile)
     if(BaseName == NULL)
       ShowError(MSG_ERR_NOCATFILENAME);
     else
-    {
-      CatFile = malloc(strlen(BaseName) + 10);
-      sprintf(CatFile, "%s.catalog", BaseName);
-    }
+      asprintf(&CatFile, "%s.catalog", BaseName);
   }
 
   if((fp = fopen(CatFile, "w")) == NULL)
@@ -154,8 +151,7 @@ void CreateCat(char *CatFile)
   if(CatVersionString !=NULL)
   {
     struct CatalogChunk cc;
-    char       *verStr;
-    char       *found;
+    char *found;
 
     cc.ID = MAKE_ID('F', 'V', 'E', 'R');
 
@@ -166,19 +162,19 @@ void CreateCat(char *CatFile)
     found = strstr(cc.ChunkStr, "$TODAY");
     if(found != NULL)
     {
-      if((verStr = malloc(strlen(cc.ChunkStr) + 128)) != NULL)
+      char dateStr[12];
+      time_t tim;
+      struct tm *t;
+      char *verStr = NULL;
+
+      time(&tim);
+      t = localtime(&tim);
+
+      *found = '\0';
+      strftime(dateStr, sizeof(dateStr), "%d.%m.%Y", t);
+
+      if(asprintf(&verStr, "%s%s%s", cc.ChunkStr, dateStr, found + strlen("$TODAY")) != -1)
       {
-        char dateStr[12];
-        time_t tim;
-        struct tm *t;
-
-        time(&tim);
-        t = localtime(&tim);
-
-        *found = '\0';
-        strftime(dateStr, sizeof(dateStr), "%d.%m.%Y", t);
-
-        sprintf(verStr, "%s%s%s", cc.ChunkStr, dateStr, found + strlen("$TODAY"));
         free(cc.ChunkStr);
         cc.ChunkStr = verStr;
       }
@@ -191,10 +187,11 @@ void CreateCat(char *CatFile)
     found = strstr(cc.ChunkStr, ".ct ");
     if(found != NULL)
     {
-      if((verStr = malloc(strlen(cc.ChunkStr) + 128)) != NULL)
+      char *verStr = NULL;
+
+      *found = '\0';
+      if(asprintf(&verStr, "%s.catalog%s", cc.ChunkStr, found + 3) != -1)
       {
-        *found = '\0';
-        sprintf(verStr, "%s.catalog%s", cc.ChunkStr, found + 3);
         free(cc.ChunkStr);
         cc.ChunkStr = verStr;
       }
@@ -207,7 +204,7 @@ void CreateCat(char *CatFile)
   else
   {
     struct CatalogChunk cc;
-    char *verStr;
+    char *verStr = NULL;
     int year = 0, month = 0, day = 0;
     int version = 0, revision = 0;
     char *name = NULL;
@@ -258,17 +255,16 @@ void CreateCat(char *CatFile)
       ShowError(MSG_ERR_NOCTVERSION);
       name = (char *)"";
     }
-    if((verStr = malloc(strlen(name) + 256)) == NULL)
+
+    if(asprintf(&verStr, "%cVER: %s %d.%d(%d.%d.%d)", '$', name, version, revision, day, month, year) != -1)
     {
-      MemError();
+      cc.ID = MAKE_ID('F', 'V', 'E', 'R');
+      cc.ID = SwapLong(cc.ID);
+      cc.ChunkStr = verStr;
+      CatLen += PutCatalogChunk(fp, &cc);
     }
-
-    sprintf(verStr, "%cVER: %s %d.%d(%d.%d.%d)", '$', name, version, revision, day, month, year);
-
-    cc.ID = MAKE_ID('F', 'V', 'E', 'R');
-    cc.ID = SwapLong(cc.ID);
-    cc.ChunkStr = verStr;
-    CatLen += PutCatalogChunk(fp, &cc);
+    else
+      MemError();
   }
 
   for(cc = FirstChunk; cc != NULL; cc = cc->Next)

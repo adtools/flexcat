@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2011-01-19 Thore Böckelmann <tboeckel@gmx.de>
+
+  * createcat.c, createct.c, utils.c: replaced all malloc/sprintf combinations
+    by asprintf() calls.
+
 2011-01-11 Thore Böckelmann <tboeckel@gmx.de>
 
   * main.c: fixed a warning.

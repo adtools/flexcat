@@ -117,7 +117,7 @@ else
 
         # Building on UNIX ##############################################
 
-        CFLAGS      +=  -m32
+        CFLAGS      +=  -m32 -D_GNU_SOURCE
         LDFLAGS     =   -m32
         CATOBJS     =   locale_other.o
         OS          =   unix

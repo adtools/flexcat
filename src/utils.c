@@ -514,6 +514,8 @@ char *AllocFileName(char *filename, int howto)
 char *AddFileName(char *pathname, char *filename)
 {
   char *buffer;
+
+#ifdef __amigados
   int size = strlen(pathname) + strlen(filename) + 2;
 
   if((buffer = malloc(size)) == NULL)
@@ -522,14 +524,13 @@ char *AddFileName(char *pathname, char *filename)
     MyExit(10);
   }
 
-#ifdef __amigados
   strcpy(buffer, pathname);
   AddPart((char *)buffer, (char *)filename, size);
 #else
-  sprintf(buffer, "%s/%s", pathname, filename);
+  asprintf(&buffer, "%s/%s", pathname, filename);
 #endif
 
-  return(buffer);
+  return buffer;
 }
 
 ///
