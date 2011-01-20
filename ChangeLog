@@ -14,6 +14,9 @@ $URL$
 
   * createcat.c, createct.c, utils.c: replaced all malloc/sprintf combinations
     by asprintf() calls.
+  * misc: added a project file for Microsoft VisualStudio to be able to build
+    FlexCat for Windows systems. A custom implementation of (v)asprintf had to
+    be added as well, since VS is too dump to know these functions.
 
 2011-01-11 Thore Böckelmann <tboeckel@gmx.de>
 
