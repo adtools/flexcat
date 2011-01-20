@@ -137,7 +137,7 @@ void CreateCat(char *CatFile)
       asprintf(&CatFile, "%s.catalog", BaseName);
   }
 
-  if((fp = fopen(CatFile, "w")) == NULL)
+  if((fp = fopen(CatFile, "wb")) == NULL)
   {
     ShowError(MSG_ERR_NOCATALOG, CatFile);
   }

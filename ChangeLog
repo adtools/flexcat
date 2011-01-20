@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2011-01-20 Thore Böckelmann <tboeckel@gmx.de>
+
+  * createcat.c: use "wb" instead of "w" to create the catalog file. Otherwise
+    Windows systems will generate invalid catalog files.
+
 2011-01-19 Thore Böckelmann <tboeckel@gmx.de>
 
   * createcat.c, createct.c, utils.c: replaced all malloc/sprintf combinations
