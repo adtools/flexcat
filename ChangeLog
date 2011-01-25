@@ -11,6 +11,7 @@ $URL$
     of asprintf().
   * Makefile: added support for Windows/mingw32 target being crosscompiled on a
     Linux host.
+  * mkrelease.sh, Makefile: extended release script to build a Windows binary.
 
 2011-01-20 Thore Böckelmann <tboeckel@gmx.de>
 

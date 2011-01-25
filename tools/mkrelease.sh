@@ -46,6 +46,7 @@ for os in os3 os4 mos aros-i386 aros-ppc aros-x86_64 unix; do
 	    aros-ppc)    fullsys="AROS-ppc";;
 	    aros-x86_64) fullsys="AROS-x86_64";;
 	    unix)        fullsys="Linux-i386";;
+            mingw32)     fullsys="Windows-i386";;
 	esac
 	mkdir -p "release/FlexCat/$fullsys"
 	cp -a src/bin_$os/flexcat "release/FlexCat/$fullsys/"
