@@ -9,6 +9,8 @@ $URL$
 
   * createcat.c, createct.c, utils.c: added some security checks to all calls 
     of asprintf().
+  * Makefile: added support for Windows/mingw32 target being crosscompiled on a
+    Linux host.
 
 2011-01-20 Thore Böckelmann <tboeckel@gmx.de>
 

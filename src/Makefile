@@ -54,6 +54,29 @@ ifndef (OS)
 
 endif
 
+OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
+      scancd.o scanct.o showfuncs.o swapfuncs.o utils.o $(CATOBJS)
+
+CATALOGS = catalogs/croatian.catalog \
+           catalogs/czech.catalog \
+           catalogs/danish.catalog \
+           catalogs/dutch.catalog \
+           catalogs/finnish.catalog \
+           catalogs/french.catalog \
+           catalogs/german.catalog \
+           catalogs/hungarian.catalog \
+           catalogs/italian.catalog \
+           catalogs/norwegian.catalog \
+           catalogs/polish.catalog \
+           catalogs/portuguese.catalog \
+           catalogs/serbian.catalog \
+           catalogs/slovenian.catalog \
+           catalogs/spanish.catalog \
+           catalogs/swedish.catalog
+           # catalogs/greek.catalog
+           # catalogs/swabian.catalog
+           # catalogs/turkish.catalog
+
 # Default CPU for AROS
 ifndef (CPU)
   CPU = i386
@@ -114,15 +137,29 @@ else
         ###############################################################
 
       else
+        ifeq ($(OS), mingw32)
 
-        # Building on UNIX ##############################################
+          # Building on AROS ############################################
 
-        CFLAGS      +=  -m32 -D_GNU_SOURCE
-        LDFLAGS     =   -m32
-        CATOBJS     =   locale_other.o
-        OS          =   unix
+          CC          =   i586-mingw32msvc-gcc
+          LDFLAGS     =
+          OBJS        +=  asprintf.o vasprintf.o
+          CATOBJS     =   locale_other.o
+          EXE         =   .exe
 
-        #################################################################
+          ###############################################################
+
+        else
+
+          # Building on UNIX ##############################################
+
+          CFLAGS      +=  -m32 -D_GNU_SOURCE
+          LDFLAGS     =   -m32
+          CATOBJS     =   locale_other.o
+          OS          =   unix
+
+          #################################################################
+        endif
       endif
     endif
   endif
@@ -130,30 +167,7 @@ endif
 
 OBJDIR = .obj_$(OS)
 BINDIR = bin_$(OS)
-TARGET = $(BINDIR)/flexcat
-
-OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
-      scancd.o scanct.o showfuncs.o swapfuncs.o utils.o $(CATOBJS)
-
-CATALOGS = catalogs/croatian.catalog \
-           catalogs/czech.catalog \
-           catalogs/danish.catalog \
-           catalogs/dutch.catalog \
-           catalogs/finnish.catalog \
-           catalogs/french.catalog \
-           catalogs/german.catalog \
-           catalogs/hungarian.catalog \
-           catalogs/italian.catalog \
-           catalogs/norwegian.catalog \
-           catalogs/polish.catalog \
-           catalogs/portuguese.catalog \
-           catalogs/serbian.catalog \
-           catalogs/slovenian.catalog \
-           catalogs/spanish.catalog \
-           catalogs/swedish.catalog
-           # catalogs/greek.catalog
-           # catalogs/swabian.catalog
-           # catalogs/turkish.catalog
+TARGET = $(BINDIR)/flexcat$(EXE)
 
 all: $(OBJDIR) $(BINDIR) $(TARGET)
 
@@ -180,6 +194,9 @@ release:
 	@echo "  CC $<"
 	make OS=unix clean
 	make OS=unix DEBUG=
+	@echo "  CC $<"
+	make OS=mingw32 clean
+	make OS=mingw32 DEBUG=
 
 # make the object directories
 $(OBJDIR):

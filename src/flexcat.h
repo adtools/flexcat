@@ -70,7 +70,8 @@
   #undef tolower
  #endif
  #define tolower ToLower
-#elif defined(WIN32) && defined(VISUAL_STUDIO)
+#elif defined(WIN32) 
+  #include <stdarg.h>
   // VisualStudio doesn't know (v)asprintf
   int asprintf(char **ptr, const char * format, ...);
   int vasprintf(char **ptr, const char * format, va_list ap);
