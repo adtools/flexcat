@@ -134,7 +134,10 @@ void CreateCat(char *CatFile)
     if(BaseName == NULL)
       ShowError(MSG_ERR_NOCATFILENAME);
     else
-      asprintf(&CatFile, "%s.catalog", BaseName);
+    {
+      if(asprintf(&CatFile, "%s.catalog", BaseName) < 0)
+        MemError();
+    }
   }
 
   if((fp = fopen(CatFile, "wb")) == NULL)

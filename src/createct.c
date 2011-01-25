@@ -83,7 +83,10 @@ void CreateCTFile(char *NewCTFile)
     if(BaseName == NULL)
       ShowError(MSG_ERR_NOCTFILENAME);
     else
-      asprintf(&NewCTFile, "%s_%s.catalog", BaseName, ctlanguage);
+    {
+      if(asprintf(&NewCTFile, "%s_%s.catalog", BaseName, ctlanguage) < 0)
+        MemError();
+    }
   }
   if((fp = fopen(NewCTFile, "w")) == NULL)
   {

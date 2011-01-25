@@ -527,7 +527,11 @@ char *AddFileName(char *pathname, char *filename)
   strcpy(buffer, pathname);
   AddPart((char *)buffer, (char *)filename, size);
 #else
-  asprintf(&buffer, "%s/%s", pathname, filename);
+  if(asprintf(&buffer, "%s/%s", pathname, filename) < 0)
+  {
+    MemError();
+    MyExit(10);
+  }
 #endif
 
   return buffer;
