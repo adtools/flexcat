@@ -37,7 +37,9 @@ mkdir -p "release/FlexCat/Lib"
 
 make -C src release
 
-for os in os3 os4 mos aros-i386 aros-ppc aros-x86_64 unix; do
+exe="flexcat"
+
+for os in os3 os4 mos aros-i386 aros-ppc aros-x86_64 unix mingw32; do
 	case $os in
 	    os3)         fullsys="AmigaOS3";;
 	    os4)         fullsys="AmigaOS4";;
@@ -46,10 +48,10 @@ for os in os3 os4 mos aros-i386 aros-ppc aros-x86_64 unix; do
 	    aros-ppc)    fullsys="AROS-ppc";;
 	    aros-x86_64) fullsys="AROS-x86_64";;
 	    unix)        fullsys="Linux-i386";;
-            mingw32)     fullsys="Windows-i386";;
+      mingw32)     fullsys="Windows"; exe="flexcat.exe";;
 	esac
 	mkdir -p "release/FlexCat/$fullsys"
-	cp -a src/bin_$os/flexcat "release/FlexCat/$fullsys/"
+	cp -a src/bin_$os/$exe "release/FlexCat/$fullsys/"
 done
 
 make -C src catalogs
