@@ -70,16 +70,19 @@
   #undef tolower
  #endif
  #define tolower ToLower
-#elif defined(WIN32) 
-  #include <stdarg.h>
-  // VisualStudio doesn't know (v)asprintf
-  int asprintf(char **ptr, const char * format, ...);
-  int vasprintf(char **ptr, const char * format, va_list ap);
+#endif
+
+#if defined(__MORPHOS__) || defined(__AROS__) || defined(WIN32)
+#include <stdarg.h>
+int asprintf(char **ptr, const char * format, ...);
+int vasprintf(char **ptr, const char * format, va_list ap);
+#endif
+      
+#if defined(WIN32)
   // VisualStudio has strdup() declared as being deprecated
   #undef strdup
   #define strdup(s) _strdup(s)
 #endif
-
 
 #ifndef FALSE
  #define FALSE 0

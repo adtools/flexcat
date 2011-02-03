@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2011-02-03  Jens Langner <Jens.Langner@light-speed.de>
+
+  * flexcat.h: fixed MorphOS and AROS build which don't seem to deal with
+    asprintf().
+
 2011-01-25 Thore Böckelmann <tboeckel@gmx.de>
 
   * createcat.c, createct.c, utils.c: added some security checks to all calls 

@@ -92,6 +92,7 @@ ifeq ($(OS), mos)
   STRIP       =   ppc-morphos-strip
   CFLAGS      +=  -noixemul -mcpu=powerpc
   LDFLAGS     =   -noixemul
+  OBJS        +=  asprintf.o vasprintf.o
   LDLIBS      =   -lauto
   CATOBJS     =   locale.o
 
@@ -131,6 +132,7 @@ else
 
         CC          =   $(CPU)-aros-gcc
         LDFLAGS     =
+        OBJS        +=  asprintf.o vasprintf.o
         LDLIBS      =   -lamiga
         CATOBJS     =   locale.o
 
