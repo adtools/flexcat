@@ -1,15 +1,79 @@
-## version $VER: FlexCat.catalog 3.0 (XX.XX.2003)
+## version $VER: FlexCat.catalog 3.1 (07.02.2011) - Translated by:Mrodfr-ATOFR
 ## language français
 ## codeset 0
 ;
+;
+; FlexCat.cd - FlexCat catalog description file
 ; $Id$
 ;
+;#basename FlexCat
+;#language english
+;#version 3
 ;
-; Warnings
+;
+; Misc
+;
+MSG_USAGE_HEAD
+Utilisation :
+; Usage:
+;
+MSG_USAGE
+  CDFILE         Fichier de description de catalogue à utiliser.\n\
+  CTFILE         Fichier de traduction de catalogue à utiliser.\n\
+  CATALOG        Fichier catalogue à créer.\n\
+  NEWCTFILE      Fichier de traduction de catalogue à créer.\n\
+  SOURCES        Sources à créer ; doit être de la forme sfichier=sdfichier,\n\
+                 où sfichier est un fichier source et sdfichier est un fichier\n\
+                 de description de source.\n\
+  WARNCTGAPS     Signale l'absence des symbôles dans le fichier « #?.ct ».\n\
+  NOOPTIM        Ne pas ignorer les chaînes identiques dans « #?.cd et #?.ct ».\n\
+  FILL           Utilise le texte de la description si la traduction\n\
+                 n'existe pas dans « #?.ct ».\n\
+  FLUSH          Purge la mémoire, une fois le catalogue créé.\n\
+  NOBEEP         Désactive le bip et le clignotement de l'écran en cas\n\
+                 d'avertissements.\n\
+  QUIET          Supprime les messages d'avertissement.\n\
+  NOLANGTOLOWER  Empêche le nom de « #language » de passer en minuscules.\n\
+  NOBUFFEREDIO   Désactive les tampons d'entrée/sortie.\n\
+  MODIFIED       Ne créé le catalogue que lorsque les fichiers « #?.c(d|t) »\n\
+                 ont été modifiés.\n\
+  COPYMSGNEW     Conserve les anciens marqueurs ***NEW*** lors de la mise\n\
+                 à jour d'un fichier « #?.ct ».\n\
+  OLDMSGNEW      Si un ancien fichier « #?.ct » utilise un autre marqueur,\n\
+                 spécifiez-le ici. (OLDMSGNEW=--Nvx--).
+;   CDFILE         Catalog description file to scan\n\
+;   CTFILE         Catalog translation file to scan\n\
+;   CATALOG        Catalog file to create\n\
+;   NEWCTFILE      Catalog translation file to create\n\
+;   SOURCES        Sources to create; must be something like SFILE=SDFILE,\n\
+;                  where SFILE is a source file and SDFILE is a source\n\
+;                  description file\n\
+;   WARNCTGAPS     Warn about identifiers missing in translation\n\
+;   NOOPTIM        Do not skip unchanged strings in translation/description\n\
+;   FILL           Fill missing identifiers with original text\n\
+;   FLUSH          Flush memory after the catalog is created\n\
+;   NOBEEP         No DisplayBeep() on errors and warnings\n\
+;   QUIET          No warnings\n\
+;   NOLANGTOLOWER  Prevent #language name from being lowercased\n\
+;   NOBUFFEREDIO   Disable I/O buffers\n\
+;   MODIFIED       Create catalog only if description/translation have changed\n\
+;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
+;   OLDMSGNEW      Custom marker in old translation
+;
+MSG_FILEUPTODATE
+Le fichier %s est mis à jour.
+; File '%s' is up to date
+;
+;
+; Error output
 ;
 MSG_ERR_WARNING
-%s, ligne %d. Attention :
+%s, Ligne %d - ATTENTION :
 ; %s, line %d - warning:
+;
+MSG_ERR_ERROR
+%s, Ligne %d - ERREUR :
+; %s, line %d - ERROR:
 ;
 MSG_ERR_EXPECTEDHEX
 Caractère hexadécimal attendu (parmi [0-9a-fA-F]).
@@ -20,7 +84,7 @@ Caractère octal attendu (parmi [0-7]).
 ; expected octal character (one of [0-7])
 ;
 MSG_ERR_NOLENGTHBYTES
-Longueur en octets > %d (sizeof long) impossible.
+Longueur (octets) ne peut être plus large que %d
 ; lengthbytes cannot be larger than %d (sizeof long)
 ;
 MSG_ERR_UNKNOWNCDCOMMAND
@@ -28,15 +92,15 @@ Commande de description de catalogue inconnue.
 ; unknown catalog description command
 ;
 MSG_ERR_UNEXPECTEDBLANKS
-Espacements inattendus.
+Espacemements inattendus.
 ; unexpected blanks
 ;
 MSG_ERR_NOIDENTIFIER
-Indentificateur absent.
+Identificateur absent.
 ; missing identifier
 ;
 MSG_ERR_NOLEADINGBRACKET
-Il manque une « ( ».
+Il manque une '('
 ; missing '('
 ;
 MSG_ERR_DOUBLEID
@@ -44,23 +108,23 @@ Numéro d'identificateur utilisé deux fois.
 ; ID number used twice
 ;
 MSG_ERR_DOUBLEIDENTIFIER
-Identificateur redéclaré.
+Identificateur déclaré deux fois.
 ; identifier declared twice
 ;
 MSG_ERR_NOMINLEN
-Longueur minimale attendue (caractère « / »).
+Longueur minimale attendue (caractère '/').
 ; expected MinLen (character '/')
 ;
 MSG_ERR_NOMAXLEN
-Longueur maximale attendue (caractère « / »).
+Longueur maximale attendue (caractère '/').
 ; expected MaxLen (character '/')
 ;
 MSG_ERR_NOTRAILINGBRACKET
-Il manque une « ) ».
-; expected ')'
+Il manque une ')'.
+; missing ')'
 ;
 MSG_ERR_EXTRACHARACTERS
-Caractères en trop, en fin de ligne.
+Caractères en trop en fin de ligne.
 ; extra characters at the end of the line
 ;
 MSG_ERR_MISSINGSTRING
@@ -88,7 +152,7 @@ Type de chaîne inconnu.
 ; unknown string type
 ;
 MSG_ERR_NOTERMINATEBRACKET
-Fin de ligne inattendue. Il manque une « ) ».
+Fin de ligne inattendue (manque ')').
 ; unexpected end of line (missing ')')
 ;
 MSG_ERR_NOBINCHARS
@@ -96,7 +160,7 @@ Aucun caractère binaire dans un type chaîne.
 ; binary characters in string type None
 ;
 MSG_ERR_CTGAP
-ID %s, absent du « #?.ct ».
+'%s' absent du fichier de traduction
 ; '%s' missing in catalog translation
 ;
 MSG_ERR_DOUBLECTLANGUAGE
@@ -108,124 +172,139 @@ Version du catalogue déclarée deux fois.
 ; catalog version declared twice
 ;
 MSG_ERR_WRONGRCSID
-ID rcs incorrect
+Id RCS incorrect
 ; incorrect RCS Id
-;
-;
-; Errors
 ;
 MSG_ERR_NOMEMORY
 Mémoire insuffisante !
-; Out of memory!
+; out of memory!
 ;
 MSG_ERR_NOCATALOGDESCRIPTION
 Impossible d'ouvrir le fichier de description : %s.
-; Cannot open catalog description '%s'.
+; cannot open catalog description '%s'
 ;
 MSG_ERR_NOCATALOGTRANSLATION
 Impossible d'ouvrir le fichier de traduction : %s.
-; Cannot open catalog translation '%s'.
+; cannot open catalog translation '%s'
 ;
 MSG_ERR_NOCTVERSION
-Version absente du fichier de traduction. Utilisez ##version\n\
-ou ##rcsid et ##name.
-; Missing catalog translation version. Use either\n\
-; '## version' or '## rcsid' and '## name'.
+Version absente du fichier de traduction.\nUtilisez '## version' ou '## rcsid' et '## name'.
+; missing catalog translation version\n\
+; Use either '## version' or '## rcsid' and '## name'
 ;
 MSG_ERR_NOCATALOG
-Impossible d'ouvrir le fichier catalogue : %s.
-; Cannot open catalog file '%s'.
+Impossible d'ouvrir le fichier du catalogue '%s'.
+; cannot open catalog file '%s'
 ;
 MSG_ERR_NONEWCTFILE
-Impossible de créer le ficher de traduction : %s.
-; Cannot create catalog translation '%s'.
+Impossible de créer le ficher de traduction '%s'.
+; cannot create catalog translation '%s'
 ;
 MSG_ERR_NOCTLANGUAGE
 Langage absent du fichier de traduction.
-; Missing catalog translation language.
+; missing catalog translation language
 ;
 MSG_ERR_NOSOURCE
-Impossible d'ouvrir le fichier source : %s.
-; Cannot open source file '%s'.
+Impossible d'ouvrir le fichier source '%s'.
+; cannot open source file '%s'
 ;
 MSG_ERR_NOSOURCEDESCRIPTION
-Impossible d'ouvrir le fichier source de description : %s.
-; Cannot open source description file '%s'.
+Impossible d'ouvrir le fichier de description source '%s'.
+; cannot open source description file '%s'
 ;
 MSG_ERR_NOCTARGUMENT
-Créer un catalogue nécessite un fichier de traduction comme paramètre.
-; Creating a catalog requires a translation file.
-;
-;
-; Misc
-;
-MSG_FILEUPTODATE
-Le fichier %s, est à jour.
-; File '%s' is up to date
+Créer un catalogue nécessite un fichier de traduction.
+; creating a catalog requires a translation file
 ;
 MSG_ERR_CANTCHECKDATE
-Impossible d'obtenir la date de %s.
-; Cannot get datestamp of '%s'
+Impossible d'obtenir une date pour '%s'.
+; cannot get datestamp of '%s'
 ;
 MSG_ERR_TRAILINGELLIPSIS
-La chaîne originale a une suite de points (...).
-; Original string has a trailing ellipsis ('...')
+La chaîne originale a une suite de points ('...').
+; original string has a trailing ellipsis ('...')
 ;
 MSG_ERR_TRAILINGBLANKS
 La chaîne originale à des espaces en trop.
-; Original string has trailing blanks
+; original string has trailing blanks
+;
+MSG_ERR_NOCTFILENAME
+Le nom du fichier de traduction non spécifié comme ligne\nde commande ou nom de base dans la description
+; Catalog translation file name not specified at \
+; command line or as basename in description
+;
+MSG_ERR_NOCATFILENAME
+Le nom du fichier catalogue non spécifié comme ligne de\ncommande ou comme nom de base dans la description
+; catalog file name not specified at command line or \
+; as basename in description
 ;
 MSG_ERR_BADPREFS
-Erreur en traitant la variable FlexCat.prefs, les valeurs par défaut\n\
-seront utilisées. Modèle de préférences :
-; Error processing 'FlexCat.prefs' variable, falling back to defaults.\n\
+Erreur en traitant la variable 'FlexCat.prefs'.\nLes valeurs par défaut seront utilisées.\nModèle de préférences :
+; error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 ; Template:
 ;
-MSG_USAGE_HEAD
-Utilisation :
-; Usage:
+MSG_ERR_NOTRAILINGBLANKS
+La chaîne d'origine n'a pas de suite d'espaces
+; original string doesn't have trailing blanks
 ;
-MSG_USAGE
-  CDFILE         Fichier de description de catalogue à utiliser.\n\
-  CTFILE         Fichier de traduction de catalogue à utiliser.\n\
-  CATALOG        Fichier catalogue à créer.\n\
-  NEWCTFILE      Fichier de traduction de catalogue à créer.\n\
-  SOURCES        Sources à créer ; doit être de la forme sfichier=sdfichier,\n\
-                 où sfichier est un fichier source et sdfichier est un fichier\n\
-                 de description de source.\n\
-  WARNCTGAPS     Signale l'absence des symbôles dans le fichier « #?.ct ».\n\
-  NOOPTIM        Ne pas ignorer les chaînes identiques dans « #?.cd et #?.ct ».\n\
-  FILL           Utilise le texte de la description si la traduction.\n\
-                 n'existe pas dans « #?.ct ».\n\
-  FLUSH          Purge la mémoire, une fois le catalogue créé.\n\
-  NOBEEP         Désactive le bip et le clignotement de l'écran en cas\n\
-                 d'avertissements.\n\
-  QUIET          Supprime les messages d'avertissement.\n\
-  NOLANGTOLOWER  Empêche le nom de « #language » de passer en minuscules.\n\
-  NOBUFFEREDIO   Désactive les tampons d'entrée/sortie.\n\
-  MODIFIED       Ne créé le catalogue que lorsque les fichiers « #?.c(d|t) »\n\
-                 ont été modifiés.\n\
-  COPYMSGNEW     Conserve les anciens marqueurs ***NEW*** lors de la mise\n\
-                 à jour d'un fichier « #?.ct ».\n\
-  OLDMSGNEW      Si un ancien fichier « #?.ct » utilise un autre marqueur,\n\
-                 spécifiez-le ici. (OLDMSGNEW=--Nvx--).\n\
-  AUTODATE
-;   CDFILE         Catalog description file to scan\n\
-;   CTFILE         Catalog translation file to scan\n\
-;   CATALOG        Catalog file to create\n\
-;   NEWCTFILE      Catalog translation file to create\n\
-;   SOURCES        Sources to create; must be something like SFILE=SDFILE,\n\
-;                  where SFILE is a source file and SDFILE is a source\n\
-;                  description file\n\
-;   WARNCTGAPS     Warn about identifiers missing in translation\n\
-;   NOOPTIM        Do not skip unchanged strings in translation/description\n\
-;   FILL           Fill missing identifiers with original text\n\
-;   FLUSH          Flush memory after the catalog is created\n\
-;   NOBEEP         No DisplayBeep() on errors and warnings\n\
-;   QUIET          No warnings\n\
-;   NOLANGTOLOWER  Prevent #language name from being lowercased\n\
-;   NOBUFFEREDIO   Disable I/O buffers\n\
-;   MODIFIED       Create catalog only if description/translation have changed\n\
-;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
-;   OLDMSGNEW      Custom marker in old translation\n\
-;   AUTODATE       Use current date when compiling a catalog
+MSG_ERR_BADCTLANGUAGE
+Langage non valide dans le fichier de traduction.\nLanguage doit être une suite de caractères alphabétique\nsans chiffre ou suite d'espaces.
+; invalid language in catalog translation file\n\
+; Language MUST be a string with alphabetical characters and no inlined or trailing spaces
+;
+MSG_ERR_NOTRAILINGELLIPSIS
+La chaîne d'origine n'a pas de suite de points ('...')
+; original string doesn't have a trailing ellipsis ('...')
+;
+MSG_ERR_DOUBLECTCODESET
+Référence (CODESET) de catalogue déclarée deux fois
+; catalog codeset declared twice
+;
+MSG_ERR_BADCTCODESET
+Référence (CODESET) invalide dans le fichier de traduction.\nCODESET doit être un nombre décimal sans aucune suite d'espaces
+; invalid codeset in catalog translation file\n\
+; Codeset MUST be a decimal number without any trailing spaces
+;
+MSG_ERR_NOCTCODESET
+Référence (CODESET) manquant dans le fichier de traduction
+; missing catalog translation codeset
+;
+MSG_ERR_ERROR_QUICK
+%s - ERREUR:
+; %s - ERROR:
+;
+MSG_ERR_BADCTVERSION
+Version dans le fichier de traduction invalide.\nVersion doit être quelque chose comme\n## version $VER: name version.revision (date)\nsans aucun espaces dans le nom
+; invalid version string in catalog translation file\n\
+; Version should be something like\n\
+; ## version $VER: name version.revision (date)\n\
+; without any spaces in the name
+;
+MSG_ERR_MISMATCHINGPLACEHOLDERS
+Décalage de l'espace réservé
+; mismatching placeholders
+;
+MSG_ERR_MISSINGPLACEHOLDERS
+Espace réservé manquant
+; missing placeholders
+;
+MSG_ERR_EXCESSIVEPLACEHOLDERS
+Espace réservé excessif
+; excessive placeholders
+;
+MSG_ERR_WARNING_QUICK
+%s - Attention:
+; %s - Warning:
+;
+MSG_ERR_MISSINGTRANSLATION
+Traduction manquante pour l'identifiant '%s'
+; missing translation for identifier '%s'
+;
+MSG_ERR_EMPTYTRANSLATION
+Traduction vide pour l'identifiant '%s'
+; empty translation for identifier '%s'
+;
+MSG_ERR_MISMATCHINGCONTROLCHARACTERS
+Problèmes sur les caractères de controle
+; mismatching trailing control characters
+;
