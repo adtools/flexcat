@@ -66,12 +66,19 @@ int LongStrings = TRUE;   /* Generate long or short strings */
 int CalcRealLength(char *source)
 {
   int count = 0;
+  int len;
   char *src = source;
   char bytes[10];
 
   while(*src != '\0')
-    count += ReadChar(&src, bytes);
-
+  {
+    len = ReadChar(&src, bytes);
+    if(len == 2)
+      len--;
+    
+    count += len;
+  }
+  
 /* printf("%ld: '%s'\n", count, source); */
   return count;
 }

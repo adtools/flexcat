@@ -373,39 +373,51 @@ int ReadChar(char **strptr, char *dest)
   switch(c = *((*strptr)++))
   {
     case '\\':
-
+    {
       switch(c = tolower((int)*((*strptr)++)))
       {
         case '\n':
           return(0);
+        break;
+          
         case 'b':
           *dest = '\b';
-          break;
+        break;
+          
         case 'c':
           *dest = '\233';
-          break;
+        break;
+          
         case 'e':
           *dest = '\033';
-          break;
+        break;
+          
         case 'f':
           *dest = '\f';
-          break;
+        break;
+          
         case 'g':
           *dest = '\007';
-          break;
+        break;
+          
         case 'n':
           *dest = '\n';
-          break;
+        break;
+          
         case 'r':
           *dest = '\r';
-          break;
+        break;
+          
         case 't':
           *dest = '\t';
-          break;
+        break;
+          
         case 'v':
           *dest = '\013';
-          break;
+        break;
+          
         case 'x':
+        {
           *dest = gethex((int)**strptr);
           (*strptr)++;
           c = **strptr;
@@ -416,7 +428,9 @@ int ReadChar(char **strptr, char *dest)
             *dest =(*dest << 4) + gethex((int)c);
             (*strptr)++;
           }
-          break;
+        }
+        break;
+          
         case '0':
         case '1':
         case '2':
@@ -425,6 +439,7 @@ int ReadChar(char **strptr, char *dest)
         case '5':
         case '6':
         case '7':
+        {
           *dest = getoctal((int)c);
 
           for(i = 0; i < 2; i++)
@@ -436,19 +451,28 @@ int ReadChar(char **strptr, char *dest)
               (*strptr)++;
             }
           }
-          break;
+        }
+        break;
+          
         case ')':
         case '\\':
           *(dest++) = '\\';
           *dest = c;
           return(2);
+        break;
+          
         default:
           *dest = c;
+        break;
       }
-      break;
+    }
+    break;
 
     default:
+    {
       *dest = c;
+    }
+    break;
   }
   return(1);
 }

@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2011-08-15 Thore Böckelmann <tboeckel@gmx.de>
+
+  * src/createcatsrc.c: fixed the length of double backslashes to be one instead
+    of two for the CatComp blocks. Otherwise the offsets would be wrong.
+
 2011-02-08 Thore Böckelmann <tboeckel@gmx.de>
 
   * src/catalogs/french.ct: updated french catalog kindly provided by 
