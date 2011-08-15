@@ -73,6 +73,7 @@ int CalcRealLength(char *source)
   while(*src != '\0')
   {
     len = ReadChar(&src, bytes);
+    // substract one byte for double backslashes
     if(len == 2)
       len--;
     

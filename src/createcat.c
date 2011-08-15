@@ -57,6 +57,7 @@ int CatPuts(FILE *fp, char *str, int padbytes, int countnul, int lenbytes)
   while(*oldstr != '\0')
   {
     bytesread = ReadChar(&oldstr, bytes);
+    // substract one byte for double backslashes
     if(bytesread == 2)
       bytesread--;
 
