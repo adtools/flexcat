@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2011-08-22 Mariusz Danilewicz <mandi@interia.pl>
+
+  * src/catalogs/polish.ct: update to the latest changes.
+
 2011-08-22 Thore Böckelmann <tboeckel@gmx.de>
 
   * src/scancd.c: non-ASCII characters in the .cd file's original strings will
