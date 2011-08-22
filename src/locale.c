@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.7'
+   This file was created automatically by `FlexCat 2.8'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -105,6 +105,7 @@ struct FC_String FlexCat_Strings[] =
    { "missing translation for identifier '%s'", 155 },
    { "empty translation for identifier '%s'", 156 },
    { "mismatching trailing control characters", 157 },
+   { "non-ASCII characters found", 158 },
    { NULL, 0 }
 };
 

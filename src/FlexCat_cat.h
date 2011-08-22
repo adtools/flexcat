@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.7'
+   This file was created automatically by `FlexCat 2.8'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -150,5 +150,7 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_EMPTYTRANSLATION 59
 #define MSG_ERR_MISMATCHINGCONTROLCHARACTERS (FlexCat_Strings[60].Str)
 #define _MSG_ERR_MISMATCHINGCONTROLCHARACTERS 60
+#define MSG_ERR_NONASCIISTRING (FlexCat_Strings[61].Str)
+#define _MSG_ERR_NONASCIISTRING 61
 
 #endif

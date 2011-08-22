@@ -103,7 +103,6 @@ int ScanCDFile(char *cdfile)
         }
     	CheckExtra = FALSE;
       }
-
       else if(Strnicmp(line, "version", 7) == 0)
       {
         line += 8;
@@ -351,6 +350,21 @@ int ScanCDFile(char *cdfile)
           }
           else
           {
+            // Check if there are any non-ASCII characters contained in the line.
+            // This will cause a warning only, since non-ASCII characters in the
+            // default language are discouraged.
+            char *p = newline;
+            char c;
+
+            while((c = *p++) != '\0')
+            {
+              if(!isascii(c))
+              {
+                ShowWarn(MSG_ERR_NONASCIISTRING);
+                break;
+              }
+            }
+
             cs->CD_Str = AllocString(newline);
             free(newline);
           }

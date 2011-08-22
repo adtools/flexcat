@@ -221,3 +221,6 @@ empty translation for identifier '%s'
 MSG_ERR_MISMATCHINGCONTROLCHARACTERS (//)
 mismatching trailing control characters
 ;
+MSG_ERR_NONASCIISTRING (//)
+non-ASCII characters found in original string
+;

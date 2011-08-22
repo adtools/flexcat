@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.7'
+   This file was created automatically by `FlexCat 2.8'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-const char * FlexCat_Strings[61] = {
+const char * FlexCat_Strings[62] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -130,5 +130,6 @@ const char * FlexCat_Strings[61] = {
     "%s - Warning:",
     "missing translation for identifier '%s'",
     "empty translation for identifier '%s'",
-    "mismatching trailing control characters"
+    "mismatching trailing control characters",
+    "non-ASCII characters found"
 };

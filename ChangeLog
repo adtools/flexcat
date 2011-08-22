@@ -5,6 +5,13 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2011-08-22 Thore Böckelmann <tboeckel@gmx.de>
+
+  * src/scancd.c: non-ASCII characters in the .cd file's original strings will
+    now cause a warning to be printed as such characters are discouraged for the
+    .cd file. A very prominent example is the Copyright sign '©' which should be
+    encoded as '(c)' instead.
+
 2011-08-15 Thore Böckelmann <tboeckel@gmx.de>
 
   * src/createcatsrc.c: fixed the length of double backslashes to be one instead
