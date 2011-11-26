@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+#### FlexCat 2.9 RELEASE #################################################
+
+2011-11-26  Jens Langner <Jens.Langner@light-speed.de>
+
+  * misc: bumped revision for final 2.9 release.
+ 
 2011-08-22 Mariusz Danilewicz <mandi@interia.pl>
 
   * src/catalogs/polish.ct: update to the latest changes.

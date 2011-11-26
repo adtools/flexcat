@@ -1,8 +1,8 @@
-Short:        2.8 - Flexible catalogs (C, Asm, Oberon, E, ARexx, Modula...)
+Short:        2.9 - Flexible catalogs (C, Asm, Oberon, E, ARexx, Modula...)
 Author:       FlexCat Open Source Team (http://sourceforge.net/projects/flexcat/)
 Uploader:     Jens Langner <Jens.Langner@light-speed.de>
 Type:         dev/misc
-Version:      2.8
+Version:      2.9
 Replaces:     dev/misc/FlexCat*
 Requires:     AmigaOS 2.0+, MorphOS, AROS, or Linux ; 68020+/PPC604e+ or x86
 Architecture: ppc-amigaos >= 4.0.5; m68k-amigaos >= 2.0; ppc-morphos >= 1.4.2; i386-aros; ppc-aros; x86_64-aros
