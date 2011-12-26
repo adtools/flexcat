@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2011-12-26  Pär Boberg <pbobbenb@spray.se>
+
+  * src/catalogs/swedish.ct: updated to the latest changes.
+
 #### FlexCat 2.9 RELEASE #################################################
 
 2011-11-26  Jens Langner <Jens.Langner@light-speed.de>
