@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.8'
+   This file was created automatically by `FlexCat 2.9'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -88,6 +88,6 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_MISSINGTRANSLATION FlexCat_Strings[58]
 #define MSG_ERR_EMPTYTRANSLATION FlexCat_Strings[59]
 #define MSG_ERR_MISMATCHINGCONTROLCHARACTERS FlexCat_Strings[60]
-#define MSG_ERR_NONASCIISTRING FlexCat_Strings[61]
+#define MSG_ERR_NONASCIICHARACTER FlexCat_Strings[61]
 
 #endif

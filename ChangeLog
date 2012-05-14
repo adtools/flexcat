@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2012-05-14 Thore Böckelmann <tboeckel@gmx.de>
+
+  * src/scancd.c: non-ASCII characters will now be displayed with their value.
+
 2011-12-26  Pär Boberg <pbobbenb@spray.se>
 
   * src/catalogs/swedish.ct: updated to the latest changes.
@@ -14,7 +18,7 @@ $URL$
 2011-11-26  Jens Langner <Jens.Langner@light-speed.de>
 
   * misc: bumped revision for final 2.9 release.
- 
+
 2011-08-22 Mariusz Danilewicz <mandi@interia.pl>
 
   * src/catalogs/polish.ct: update to the latest changes.
@@ -33,9 +37,9 @@ $URL$
 
 2011-02-08 Thore Böckelmann <tboeckel@gmx.de>
 
-  * src/catalogs/french.ct: updated french catalog kindly provided by 
+  * src/catalogs/french.ct: updated french catalog kindly provided by
     Mrodfr-ATOFR
-  
+
 #### FlexCat 2.8 RELEASE #################################################
 
 2011-02-03  Jens Langner <Jens.Langner@light-speed.de>
@@ -48,7 +52,7 @@ $URL$
 
 2011-01-25 Thore Böckelmann <tboeckel@gmx.de>
 
-  * createcat.c, createct.c, utils.c: added some security checks to all calls 
+  * createcat.c, createct.c, utils.c: added some security checks to all calls
     of asprintf().
   * Makefile: added support for Windows/mingw32 target being crosscompiled on a
     Linux host.

@@ -9,10 +9,10 @@
 ;
 ; Misc
 ;
-MSG_USAGE_HEAD (//)
+MSG_USAGE_HEAD (0//)
 Usage:
 ;
-MSG_USAGE (//)
+MSG_USAGE (1//)
   CDFILE         Catalog description file to scan\n\
   CTFILE         Catalog translation file to scan\n\
   CATALOG        Catalog file to create\n\
@@ -32,7 +32,7 @@ MSG_USAGE (//)
   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
   OLDMSGNEW      Custom marker in old translation
 ;
-MSG_FILEUPTODATE (//)
+MSG_FILEUPTODATE (2//)
 File '%s' is up to date
 ;
 ;
@@ -41,186 +41,186 @@ File '%s' is up to date
 MSG_ERR_WARNING (100//)
 %s, line %d - warning:
 ;
-MSG_ERR_ERROR (//)
+MSG_ERR_ERROR (101//)
 %s, line %d - ERROR:
 ;
-MSG_ERR_EXPECTEDHEX (//)
+MSG_ERR_EXPECTEDHEX (102//)
 expected hex character (one of [0-9a-fA-F])
 ;
-MSG_ERR_EXPECTEDOCTAL (//)
+MSG_ERR_EXPECTEDOCTAL (103//)
 expected octal character (one of [0-7])
 ;
-MSG_ERR_NOLENGTHBYTES (//)
+MSG_ERR_NOLENGTHBYTES (104//)
 lengthbytes cannot be larger than %d (sizeof long)
 ;
-MSG_ERR_UNKNOWNCDCOMMAND (//)
+MSG_ERR_UNKNOWNCDCOMMAND (105//)
 unknown catalog description command
 ;
-MSG_ERR_UNEXPECTEDBLANKS (//)
+MSG_ERR_UNEXPECTEDBLANKS (106//)
 unexpected blanks
 ;
-MSG_ERR_NOIDENTIFIER (//)
+MSG_ERR_NOIDENTIFIER (107//)
 missing identifier
 ;
-MSG_ERR_NOLEADINGBRACKET (//)
+MSG_ERR_NOLEADINGBRACKET (108//)
 missing '('
 ;
-MSG_ERR_DOUBLEID (//)
+MSG_ERR_DOUBLEID (109//)
 ID number used twice
 ;
-MSG_ERR_DOUBLEIDENTIFIER (//)
+MSG_ERR_DOUBLEIDENTIFIER (110//)
 identifier declared twice
 ;
-MSG_ERR_NOMINLEN (//)
+MSG_ERR_NOMINLEN (111//)
 expected MinLen (character '/')
 ;
-MSG_ERR_NOMAXLEN (//)
+MSG_ERR_NOMAXLEN (112//)
 expected MaxLen (character '/')
 ;
-MSG_ERR_NOTRAILINGBRACKET (//)
+MSG_ERR_NOTRAILINGBRACKET (113//)
 missing ')'
 ;
-MSG_ERR_EXTRACHARACTERS (//)
+MSG_ERR_EXTRACHARACTERS (114//)
 extra characters at the end of the line
 ;
-MSG_ERR_MISSINGSTRING (//)
+MSG_ERR_MISSINGSTRING (115//)
 unexpected end of file (missing catalog strings)
 ;
-MSG_ERR_STRINGTOOSHORT (//)
+MSG_ERR_STRINGTOOSHORT (116//)
 string too short
 ;
-MSG_ERR_STRINGTOOLONG (//)
+MSG_ERR_STRINGTOOLONG (117//)
 string too long
 ;
-MSG_ERR_UNKNOWNCTCOMMAND (//)
+MSG_ERR_UNKNOWNCTCOMMAND (118//)
 unknown command in translation
 ;
-MSG_ERR_UNKNOWNIDENTIFIER (//)
+MSG_ERR_UNKNOWNIDENTIFIER (119//)
 '%s' missing in catalog description
 ;
-MSG_ERR_UNKNOWNSTRINGTYPE (//)
+MSG_ERR_UNKNOWNSTRINGTYPE (120//)
 unknown string type
 ;
-MSG_ERR_NOTERMINATEBRACKET (//)
+MSG_ERR_NOTERMINATEBRACKET (121//)
 unexpected end of line (missing ')')
 ;
-MSG_ERR_NOBINCHARS (//)
+MSG_ERR_NOBINCHARS (122//)
 binary characters in string type None
 ;
-MSG_ERR_CTGAP (//)
+MSG_ERR_CTGAP (123//)
 '%s' missing in catalog translation
 ;
-MSG_ERR_DOUBLECTLANGUAGE (//)
+MSG_ERR_DOUBLECTLANGUAGE (124//)
 catalog language declared twice
 ;
-MSG_ERR_DOUBLECTVERSION (//)
+MSG_ERR_DOUBLECTVERSION (125//)
 catalog version declared twice
 ;
-MSG_ERR_WRONGRCSID (//)
+MSG_ERR_WRONGRCSID (126//)
 incorrect RCS Id
 ;
-MSG_ERR_NOMEMORY (//)
+MSG_ERR_NOMEMORY (127//)
 out of memory!
 ;
-MSG_ERR_NOCATALOGDESCRIPTION (//)
+MSG_ERR_NOCATALOGDESCRIPTION (128//)
 cannot open catalog description '%s'
 ;
-MSG_ERR_NOCATALOGTRANSLATION (//)
+MSG_ERR_NOCATALOGTRANSLATION (129//)
 cannot open catalog translation '%s'
 ;
-MSG_ERR_NOCTVERSION (//)
+MSG_ERR_NOCTVERSION (130//)
 missing catalog translation version\n\
 Use either '## version' or '## rcsid' and '## name'
 ;
-MSG_ERR_NOCATALOG (//)
+MSG_ERR_NOCATALOG (131//)
 cannot open catalog file '%s'
 ;
-MSG_ERR_NONEWCTFILE (//)
+MSG_ERR_NONEWCTFILE (132//)
 cannot create catalog translation '%s'
 ;
-MSG_ERR_NOCTLANGUAGE (//)
+MSG_ERR_NOCTLANGUAGE (133//)
 missing catalog translation language
 ;
-MSG_ERR_NOSOURCE (//)
+MSG_ERR_NOSOURCE (134//)
 cannot open source file '%s'
 ;
-MSG_ERR_NOSOURCEDESCRIPTION (//)
+MSG_ERR_NOSOURCEDESCRIPTION (135//)
 cannot open source description file '%s'
 ;
-MSG_ERR_NOCTARGUMENT (//)
+MSG_ERR_NOCTARGUMENT (136//)
 creating a catalog requires a translation file
 ;
-MSG_ERR_CANTCHECKDATE (//)
+MSG_ERR_CANTCHECKDATE (137//)
 cannot get datestamp of '%s'
 ;
-MSG_ERR_TRAILINGELLIPSIS (//)
+MSG_ERR_TRAILINGELLIPSIS (138//)
 original string has a trailing ellipsis ('...')
 ;
-MSG_ERR_TRAILINGBLANKS (//)
+MSG_ERR_TRAILINGBLANKS (139//)
 original string has trailing blanks
 ;
-MSG_ERR_NOCTFILENAME (//)
+MSG_ERR_NOCTFILENAME (140//)
 Catalog translation file name not specified at \
 command line or as basename in description
 ;
-MSG_ERR_NOCATFILENAME (//)
+MSG_ERR_NOCATFILENAME (141//)
 catalog file name not specified at command line or \
 as basename in description
 ;
-MSG_ERR_BADPREFS (//)
+MSG_ERR_BADPREFS (142//)
 error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 Template:
 ;
-MSG_ERR_NOTRAILINGBLANKS (//)
+MSG_ERR_NOTRAILINGBLANKS (143//)
 original string doesn't have trailing blanks
 ;
-MSG_ERR_BADCTLANGUAGE (//)
+MSG_ERR_BADCTLANGUAGE (144//)
 invalid language in catalog translation file\n\
 Language MUST be a string with alphabetical characters and no inlined or trailing spaces
 ;
-MSG_ERR_NOTRAILINGELLIPSIS (//)
+MSG_ERR_NOTRAILINGELLIPSIS (145//)
 original string doesn't have a trailing ellipsis ('...')
 ;
-MSG_ERR_DOUBLECTCODESET (//)
+MSG_ERR_DOUBLECTCODESET (146//)
 catalog codeset declared twice
 ;
-MSG_ERR_BADCTCODESET (//)
+MSG_ERR_BADCTCODESET (147//)
 invalid codeset in catalog translation file\n\
 Codeset MUST be a decimal number without any trailing spaces
 ;
-MSG_ERR_NOCTCODESET (//)
+MSG_ERR_NOCTCODESET (148//)
 missing catalog translation codeset
 ;
-MSG_ERR_ERROR_QUICK (//)
+MSG_ERR_ERROR_QUICK (149//)
 %s - ERROR:
 ;
-MSG_ERR_BADCTVERSION (//)
+MSG_ERR_BADCTVERSION (150//)
 invalid version string in catalog translation file\n\
 Version should be something like\n\
 ## version $VER: name version.revision (date)\n\
 without any spaces in the name
 ;
-MSG_ERR_MISMATCHINGPLACEHOLDERS (//)
+MSG_ERR_MISMATCHINGPLACEHOLDERS (151//)
 mismatching placeholders
 ;
-MSG_ERR_MISSINGPLACEHOLDERS (//)
+MSG_ERR_MISSINGPLACEHOLDERS (152//)
 missing placeholders
 ;
-MSG_ERR_EXCESSIVEPLACEHOLDERS (//)
+MSG_ERR_EXCESSIVEPLACEHOLDERS (153//)
 excessive placeholders
 ;
-MSG_ERR_WARNING_QUICK (//)
+MSG_ERR_WARNING_QUICK (154//)
 %s - Warning:
 ;
-MSG_ERR_MISSINGTRANSLATION (//)
+MSG_ERR_MISSINGTRANSLATION (155//)
 missing translation for identifier '%s'
 ;
-MSG_ERR_EMPTYTRANSLATION (//)
+MSG_ERR_EMPTYTRANSLATION (156//)
 empty translation for identifier '%s'
 ;
-MSG_ERR_MISMATCHINGCONTROLCHARACTERS (//)
+MSG_ERR_MISMATCHINGCONTROLCHARACTERS (157//)
 mismatching trailing control characters
 ;
-MSG_ERR_NONASCIISTRING (//)
-non-ASCII characters found in original string
+MSG_ERR_NONASCIICHARACTER (158//)
+non-ASCII character 0x%02x found in original string
 ;

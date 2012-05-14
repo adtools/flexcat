@@ -306,6 +306,6 @@ leere Übersetzung für Bezeichner '%s'
 MSG_ERR_MISMATCHINGCONTROLCHARACTERS
 unterschiedliche Kontrollzeichen am Zeilenende
 ;
-MSG_ERR_NONASCIISTRING
-nicht-ASCII-Zeichen im Originalstring gefunden
+MSG_ERR_NONASCIICHARACTER
+nicht-ASCII-Zeichen 0x%02x im Originalstring gefunden
 ;

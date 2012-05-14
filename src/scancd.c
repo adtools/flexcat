@@ -360,7 +360,9 @@ int ScanCDFile(char *cdfile)
             {
               if(!isascii(c))
               {
-                ShowWarn(MSG_ERR_NONASCIISTRING);
+                int v = (int)c;
+
+                ShowWarn(MSG_ERR_NONASCIICHARACTER, v & 0xff);
                 break;
               }
             }

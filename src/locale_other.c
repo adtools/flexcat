@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.8'
+   This file was created automatically by `FlexCat 2.9'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -131,5 +131,5 @@ const char * FlexCat_Strings[62] = {
     "missing translation for identifier '%s'",
     "empty translation for identifier '%s'",
     "mismatching trailing control characters",
-    "non-ASCII characters found"
+    "non-ASCII character 0x%02x found in original string"
 };
