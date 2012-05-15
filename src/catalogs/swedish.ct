@@ -1,8 +1,10 @@
-## version $VER: FlexCat.catalog 3.1 (26.12.2011)
+## version $VER: FlexCat.catalog 3.2 (16.05.2012)
 ## language svenska
 ## codeset 0
+;
 ## chunk AUTH Pär Boberg
 ;
+; FlexCat.cd - FlexCat catalog description file
 ; $Id$
 ;
 ;#basename FlexCat
@@ -57,6 +59,9 @@ MSG_USAGE
 MSG_FILEUPTODATE
 Filen '%s' behöver inte uppdateras
 ; File '%s' is up to date
+;
+;
+; Error output
 ;
 MSG_ERR_WARNING
 %s, rad %d - varning:
@@ -306,7 +311,7 @@ MSG_ERR_MISMATCHINGCONTROLCHARACTERS
 avslutande kontrolltecken matchar inte
 ; mismatching trailing control characters
 ;
-MSG_ERR_NONASCIISTRING
-icke ASCII tecken hittade i originalsträng
-; non-ASCII characters found in original string
+MSG_ERR_NONASCIICHARACTER
+icke ASCII tecken 0x%02x hittat i originalsträngen
+; non-ASCII character 0x%02x found in original string
 ;
