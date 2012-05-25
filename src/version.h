@@ -55,6 +55,9 @@
 #elif defined(_WIN32)
   #define SYSTEM      "Windows"
   #define SYSTEMSHORT "WIN"
+#elif defined(__APPLE__) && defined(__MACH__)
+  #define SYSTEM      "MacOSX"
+  #define SYSTEMSHORT "OSX"
 #else
   #warning "Unsupported System - check SYSTEM define"
   #define SYSTEM      "???"
