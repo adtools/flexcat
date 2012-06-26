@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2012-06-26  Mariusz Danilewicz <mandi@interia.pl>
+
+  * src/catalogs/polish.ct: updated to the latest changes.
+
 2012-05-16  Pär Boberg <pbobbenb@spray.se>
 
   * src/catalogs/swedish.ct: updated to the latest changes.

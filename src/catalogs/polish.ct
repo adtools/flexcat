@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.6 (22.08.2011)
+## version $VER: FlexCat.catalog 3.7 (26.06.2012)
 ## language polski
 ## codeset 5
 ;
@@ -6,7 +6,7 @@
 ;
 ; FlexCat.ct - FlexCat catalog Polish translation file
 ; $Id$
-; in sync with .cd in revision 205
+; in sync with .cd in revision 210
 ;
 ;#basename FlexCat
 ;#language english
@@ -324,7 +324,7 @@ MSG_ERR_MISMATCHINGCONTROLCHARACTERS
 niepasuj±ce koñcz±ce znaki kontrolne
 ; mismatching trailing control characters
 ;
-MSG_ERR_NONASCIISTRING
-odnaleziono znak spoza tabeli ASCII w oryginalnym ci±gu
-; non-ASCII characters found in original string
+MSG_ERR_NONASCIICHARACTER
+w oryginalnym ci±gu znaleziono znak 0x%02x spoza tabeli ASCII
+; non-ASCII character 0x%02x found in original string
 ;
