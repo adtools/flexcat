@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.8 (3.8.2012)
+## version $VER: FlexCat.catalog 3.9 (3.8.2012)
 ## language deutsch
 ## codeset 0
 ;
@@ -273,13 +273,13 @@ ohne Leerzeichen im Namen
 ; without any spaces in the name
 ;
 MSG_ERR_MISMATCHING_PLACEHOLDERS
-unterschiedliche Platzhalter für Bezeichner '%s'
+unterschiedliche Platzhalter bei Bezeichner '%s'
 ;
 MSG_ERR_MISSING_PLACEHOLDERS
-fehlende Platzhalter für Bezeichner '%s'
+fehlende Platzhalter bei Bezeichner '%s'
 ;
 MSG_ERR_EXCESSIVE_PLACEHOLDERS
-überzählige Platzhalter für Bezeichner '%s'
+überzählige Platzhalter bei Bezeichner '%s'
 ;
 MSG_ERR_WARNING_QUICK
 %s - Warnung:
