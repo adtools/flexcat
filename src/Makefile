@@ -141,7 +141,7 @@ else
       else
         ifeq ($(OS), mingw32)
 
-          # Building on AROS ############################################
+          # Building on Windows/mingw32 #################################
 
           CC          =   i586-mingw32msvc-gcc
           LDFLAGS     =
