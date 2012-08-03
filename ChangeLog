@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2012-08-03 Thore Böckelmann <tboeckel@gmx.de>
+
+  * src/showfuncs.c: slightly streamlined the error/warning output functions.
+
 2012-06-26  Mariusz Danilewicz <mandi@interia.pl>
 
   * src/catalogs/polish.ct: updated to the latest changes.

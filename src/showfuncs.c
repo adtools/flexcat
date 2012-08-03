@@ -33,16 +33,14 @@
 void ShowError(const char *msg, ...)
 {
   va_list args;
+  char header[256];
+  char message[256];
 
-/* if(!Quiet) */
-  {
-    va_start(args, msg);
-    fprintf(stderr,(char *)MSG_ERR_ERROR, ScanFile, ScanLine);
-    putc(' ', stderr);
-    vfprintf(stderr, msg, args);
-    putc('\n', stderr);
-    va_end(args);
-  }
+  snprintf(header, sizeof(header), MSG_ERR_ERROR, ScanFile, ScanLine);
+  va_start(args, msg);
+  vsnprintf(message, sizeof(message), msg, args);
+  va_end(args);
+  fprintf(stderr, "%s %s\n", header, message);
 
 #ifdef __amigados
   NumberOfWarnings++;
@@ -59,16 +57,14 @@ void ShowError(const char *msg, ...)
 void ShowErrorQuick(const char *msg, ...)
 {
   va_list args;
+  char header[256];
+  char message[256];
 
-/* if(!Quiet) */
-  {
-    va_start(args, msg);
-    fprintf(stderr, (char *)MSG_ERR_ERROR_QUICK, ScanFile);
-    putc(' ', stderr);
-    vfprintf(stderr, msg, args);
-    putc('\n', stderr);
-    va_end(args);
-  }
+  snprintf(header, sizeof(header), MSG_ERR_ERROR_QUICK, ScanFile);
+  va_start(args, msg);
+  vsnprintf(message, sizeof(message), msg, args);
+  va_end(args);
+  fprintf(stderr, "%s %s\n", header, message);
 
 #ifdef __amigados
   NumberOfWarnings++;
@@ -84,7 +80,7 @@ void ShowErrorQuick(const char *msg, ...)
 
 void MemError(void)
 {
-  ShowError(MSG_ERR_NOMEMORY, NULL);
+  ShowError(MSG_ERR_NOMEMORY);
 }
 
 ///
@@ -94,16 +90,17 @@ void MemError(void)
 
 void ShowWarn(const char *msg, ...)
 {
-  va_list args;
-
   if(!Quiet)
   {
+    va_list args;
+    char header[256];
+    char message[256];
+
+    snprintf(header, sizeof(header), MSG_ERR_WARNING, ScanFile, ScanLine);
     va_start(args, msg);
-    fprintf(stderr, (char *)MSG_ERR_WARNING, ScanFile, ScanLine);
-    putc(' ', stderr);
-    vfprintf(stderr, msg, args);
-    putc('\n', stderr);
+    vsnprintf(message, sizeof(message), msg, args);
     va_end(args);
+    fprintf(stderr, "%s %s\n", header, message);
   }
 
   NumberOfWarnings++;
@@ -117,16 +114,17 @@ void ShowWarn(const char *msg, ...)
 
 void ShowWarnQuick(const char *msg, ...)
 {
-  va_list args;
-
   if(!Quiet)
   {
+    va_list args;
+    char header[256];
+    char message[256];
+
+    snprintf(header, sizeof(header), MSG_ERR_WARNING_QUICK, ScanFile);
     va_start(args, msg);
-    fprintf(stderr, (char *)MSG_ERR_WARNING_QUICK, ScanFile);
-    putc(' ', stderr);
-    vfprintf(stderr, msg, args);
-    putc('\n', stderr);
+    vsnprintf(message, sizeof(message), msg, args);
     va_end(args);
+    fprintf(stderr, "%s %s\n", header, message);
   }
 
   NumberOfWarnings++;
