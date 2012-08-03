@@ -46,16 +46,7 @@ struct FC_String FlexCat_Strings[] =
    { "unknown catalog description command", 105 },
    { "unexpected blanks", 106 },
    { "missing identifier", 107 },
-   { "missing '('", 108 },
-   { "ID number used twice", 109 },
-   { "identifier declared twice", 110 },
-   { "expected MinLen (character '/')", 111 },
-   { "expected MaxLen (character '/')", 112 },
-   { "missing ')'", 113 },
-   { "extra characters at the end of the line", 114 },
    { "unexpected end of file (missing catalog strings)", 115 },
-   { "string too short", 116 },
-   { "string too long", 117 },
    { "unknown command in translation", 118 },
    { "'%s' missing in catalog description", 119 },
    { "unknown string type", 120 },
@@ -77,18 +68,14 @@ struct FC_String FlexCat_Strings[] =
    { "cannot open source description file '%s'", 135 },
    { "creating a catalog requires a translation file", 136 },
    { "cannot get datestamp of '%s'", 137 },
-   { "original string has a trailing ellipsis ('...')", 138 },
-   { "original string has trailing blanks", 139 },
    { "Catalog translation file name not specified at "\
 	"command line or as basename in description", 140 },
    { "catalog file name not specified at command line or "\
 	"as basename in description", 141 },
    { "error processing 'FlexCat.prefs' variable, falling back to defaults\n"\
 	"Template:", 142 },
-   { "original string doesn't have trailing blanks", 143 },
    { "invalid language in catalog translation file\n"\
 	"Language MUST be a string with alphabetical characters and no inlined or trailing spaces", 144 },
-   { "original string doesn't have a trailing ellipsis ('...')", 145 },
    { "catalog codeset declared twice", 146 },
    { "invalid codeset in catalog translation file\n"\
 	"Codeset MUST be a decimal number without any trailing spaces", 147 },
@@ -98,14 +85,28 @@ struct FC_String FlexCat_Strings[] =
 	"Version should be something like\n"\
 	"## version $VER: name version.revision (date)\n"\
 	"without any spaces in the name", 150 },
-   { "mismatching placeholders", 151 },
-   { "missing placeholders", 152 },
-   { "excessive placeholders", 153 },
    { "%s - Warning:", 154 },
    { "missing translation for identifier '%s'", 155 },
    { "empty translation for identifier '%s'", 156 },
    { "mismatching trailing control characters", 157 },
-   { "non-ASCII character 0x%02x found in original string", 158 },
+   { "identifier '%s' declared twice", 159 },
+   { "string too short for identifier '%s'", 160 },
+   { "string too long for identifier '%s'", 161 },
+   { "original string has a trailing ellipsis ('...') for identifier '%s'", 162 },
+   { "original string doesn't have a trailing ellipsis ('...') for identifier '%s'", 163 },
+   { "original string has trailing blanks for identifier '%s'", 164 },
+   { "original string doesn't have trailing blanks for identifier '%s'", 165 },
+   { "mismatching placeholders for identifier '%s'", 166 },
+   { "missing placeholders for identifier '%s'", 167 },
+   { "excessive placeholders for identifier '%s'", 168 },
+   { "missing '(' for identifier '%s'", 169 },
+   { "missing ')' for identifier '%s'", 170 },
+   { "ID number used twice for identifier '%s'", 171 },
+   { "expected MinLen (character '/') for identifier '%s'", 172 },
+   { "expected MaxLen (character '/') for identifier '%s'", 173 },
+   { "extra characters at the end of the line", 174 },
+   { "extra characters at the end of the line for identifier '%s'", 175 },
+   { "non-ASCII character 0x%02x found in original string for identifier '%s'", 176 },
    { NULL, 0 }
 };
 

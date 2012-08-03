@@ -247,7 +247,7 @@ int ScanCTFile(char *ctfile)
 
                 if(*line)
                 {
-                    ShowError(MSG_ERR_EXTRACHARACTERS);
+                    ShowError(MSG_ERR_EXTRA_CHARACTERS_ID, newidstr);
                 }
 
                 if((newstr = ReadLine(fp, FALSE)) != NULL)
@@ -270,7 +270,7 @@ int ScanCTFile(char *ctfile)
 
                         if(cs->CT_Str)
                         {
-                            ShowError(MSG_ERR_DOUBLEIDENTIFIER);
+                            ShowError(MSG_ERR_DOUBLE_IDENTIFIER, cs->ID_Str);
                             Result = FALSE;
                             free(cs->CT_Str);
                         }
@@ -284,13 +284,12 @@ int ScanCTFile(char *ctfile)
 
                         if(cs->MinLen > 0 && reallen < (size_t)cs->MinLen)
                         {
-                            ShowWarn(MSG_ERR_STRINGTOOSHORT);
+                            ShowWarn(MSG_ERR_STRING_TOO_SHORT, cs->ID_Str);
                         }
                         if(cs->MaxLen > 0 && reallen > (size_t)cs->MaxLen)
                         {
-                            ShowWarn(MSG_ERR_STRINGTOOLONG);
+                            ShowWarn(MSG_ERR_STRING_TOO_LONG, cs->ID_Str);
                         }
-
 
                         // check for empty translations
                         if(cd_len > 0 && reallen == 0)
@@ -304,13 +303,12 @@ int ScanCTFile(char *ctfile)
                             if(strcmp(&cs->CD_Str[cd_len - 3], "...") == 0 &&
                                strcmp(&cs->CT_Str[reallen - 3], "...") != 0)
                             {
-                                /* printf("ORG: '%s'\nNEW: '%s'\n", cs->CD_Str, cs->CT_Str); */
-                                ShowWarn(MSG_ERR_TRAILINGELLIPSIS);
+                                ShowWarn(MSG_ERR_TRAILING_ELLIPSIS, cs->ID_Str);
                             }
                             if(strcmp(&cs->CD_Str[cd_len - 3], "...") != 0 &&
                                strcmp(&cs->CT_Str[reallen - 3], "...") == 0)
                             {
-                                ShowWarn(MSG_ERR_NOTRAILINGELLIPSIS);
+                                ShowWarn(MSG_ERR_NO_TRAILING_ELLIPSIS, cs->ID_Str);
                             }
                         }
 
@@ -322,13 +320,13 @@ int ScanCTFile(char *ctfile)
                                strcmp(&cs->CT_Str[reallen - 1], " ") != 0)
 
                             {
-                                ShowWarn(MSG_ERR_TRAILINGBLANKS);
+                                ShowWarn(MSG_ERR_TRAILING_BLANKS, cs->ID_Str);
                             }
                             if(strcmp(&cs->CD_Str[cd_len - 1], " ") != 0 &&
                                strcmp(&cs->CT_Str[reallen - 1], " ") == 0)
 
                             {
-                                ShowWarn(MSG_ERR_NOTRAILINGBLANKS);
+                                ShowWarn(MSG_ERR_NO_TRAILING_BLANKS, cs->ID_Str);
                             }
                         }
 
@@ -363,7 +361,7 @@ int ScanCTFile(char *ctfile)
                                     {
                                         if(*cdP != *ctP)
                                         {
-                                            ShowWarn(MSG_ERR_MISMATCHINGPLACEHOLDERS);
+                                            ShowWarn(MSG_ERR_MISMATCHING_PLACEHOLDERS, cs->ID_Str);
                                             break;
                                         }
                                         // skip the second '%' sign
@@ -379,20 +377,20 @@ int ScanCTFile(char *ctfile)
                                     {
                                         // the translation uses a placeholder while the description
                                         // uses none.
-                                        ShowWarn(MSG_ERR_EXCESSIVEPLACEHOLDERS);
+                                        ShowWarn(MSG_ERR_EXCESSIVE_PLACEHOLDERS, cs->ID_Str);
                                         break;
                                     }
                                 }
                                 else if(cdP != NULL && ctP == NULL)
                                 {
                                     // the description uses at least one more placeholder than the translation
-                                    ShowWarn(MSG_ERR_MISSINGPLACEHOLDERS);
+                                    ShowWarn(MSG_ERR_MISSING_PLACEHOLDERS, cs->ID_Str);
                                     break;
                                 }
                                 else if(cdP == NULL && ctP != NULL)
                                 {
                                     // the translation uses at least one more placeholder than the description
-                                    ShowWarn(MSG_ERR_EXCESSIVEPLACEHOLDERS);
+                                    ShowWarn(MSG_ERR_EXCESSIVE_PLACEHOLDERS, cs->ID_Str);
                                     break;
                                 }
                             }

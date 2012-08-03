@@ -76,10 +76,10 @@ int CalcRealLength(char *source)
     // substract one byte for double backslashes
     if(len == 2)
       len--;
-    
+
     count += len;
   }
-  
+
 /* printf("%ld: '%s'\n", count, source); */
   return count;
 }
@@ -535,7 +535,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
           OverSpace(&currentline);
           if(*currentline != '\0')
           {
-            ShowError(MSG_ERR_EXTRACHARACTERS);
+            ShowError(MSG_ERR_EXTRA_CHARACTERS);
           }
           continue;
         }
@@ -546,7 +546,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
           OverSpace(&currentline);
           if(*currentline != '\0')
           {
-            ShowError(MSG_ERR_EXTRACHARACTERS);
+            ShowError(MSG_ERR_EXTRA_CHARACTERS);
           }
           continue;
         }

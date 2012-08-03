@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.7 (22.8.2011)
+## version $VER: FlexCat.catalog 3.8 (3.8.2012)
 ## language deutsch
 ## codeset 0
 ;
@@ -94,45 +94,39 @@ MSG_ERR_NOIDENTIFIER
 Bezeichner erwartet
 ; missing identifier
 ;
-MSG_ERR_NOLEADINGBRACKET
-'(' erwartet
-; missing '('
+MSG_ERR_NO_LEADING_BRACKET
+'(' erwartet für Bezeichner '%s'
 ;
-MSG_ERR_DOUBLEID
-Bezeichnernummer kommt zweimal vor
-; ID number used twice
+MSG_ERR_DOUBLE_ID
+Bezeichnernummer kommt zweimal vor für Bezeichner '%s'
 ;
-MSG_ERR_DOUBLEIDENTIFIER
-Bezeichner kommt zweimal vor
-; identifier declared twice
+MSG_ERR_DOUBLE_IDENTIFIER
+Bezeichner kommt zweimal vor für Bezeichner '%s'
 ;
-MSG_ERR_NOMINLEN
-MinLen (Zeichen '/') erwartet
-; expected MinLen (character '/')
+MSG_ERR_NO_MIN_LEN
+MinLen (Zeichen '/') erwartet für Bezeichner '%s'
 ;
-MSG_ERR_NOMAXLEN
-MaxLen (Zeichen '/') erwartet
-; expected MaxLen (character '/')
+MSG_ERR_NO_MAX_LEN
+MaxLen (Zeichen '/') erwartet für Bezeichner '%s'
 ;
-MSG_ERR_NOTRAILINGBRACKET
-')' erwartet
-; missing ')'
+MSG_ERR_NO_TRAILING_BRACKET
+')' erwartet für Bezeichner '%s'
 ;
-MSG_ERR_EXTRACHARACTERS
+MSG_ERR_EXTRA_CHARACTERS
 zusätzliche Zeichen am Zeilenende
-; extra characters at the end of the line
+;
+MSG_ERR_EXTRA_CHARACTERS_ID
+zusätzliche Zeichen am Zeilenende bei Bezeichner '%s'
 ;
 MSG_ERR_MISSINGSTRING
 unerwartetes Dateiende (fehlender Katalogstring)
 ; unexpected end of file (missing catalog strings)
 ;
-MSG_ERR_STRINGTOOSHORT
-String kürzer als in Katalogbeschreibung erlaubt
-; string too short
+MSG_ERR_STRING_TOO_SHORT
+String kürzer als in Katalogbeschreibung erlaubt für Bezeichner '%s'
 ;
-MSG_ERR_STRINGTOOLONG
-String länger als in Katalogbeschreibung erlaubt
-; string too long
+MSG_ERR_STRING_TOO_LONG
+String länger als in Katalogbeschreibung erlaubtfür Bezeichner '%s'
 ;
 MSG_ERR_UNKNOWNCTCOMMAND
 unbekanntes Katalogübersetzungskommando
@@ -216,13 +210,11 @@ MSG_ERR_CANTCHECKDATE
 kann das Datum von '%s' nicht lesen
 ; Cannot get datestamp of '%s'
 ;
-MSG_ERR_TRAILINGELLIPSIS
-Originalstring hat eine Ellipse (...) am Zeilenende
-; Original string has a trailing ellipsis ('...')
+MSG_ERR_TRAILING_ELLIPSIS
+Originalstring hat eine Ellipse (...) am Zeilenende für Bezeichner '%s'
 ;
-MSG_ERR_TRAILINGBLANKS
-Originalstring hat Leerzeichen am Zeilenende
-; Original string has trailing blanks
+MSG_ERR_TRAILING_BLANKS
+Originalstring hat Leerzeichen am Zeilenende für Bezeichner '%s'
 ;
 MSG_ERR_NOCTFILENAME
 keine Katalogübersetzung in der Kommandozeile angegeben oder als Basisname der Beschreibung
@@ -240,9 +232,8 @@ Muster:
 ; Error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 ; Template:
 ;
-MSG_ERR_NOTRAILINGBLANKS
-Originalstring hat keine Leerzeichen am Zeilenende
-; Original string doesn't have trailing blanks
+MSG_ERR_NO_TRAILING_BLANKS
+Originalstring hat keine Leerzeichen am Zeilenende für Bezeichner '%s'
 ;
 MSG_ERR_BADCTLANGUAGE
 ungültige Sprachangabe in der Katalogübersetzungsdatei\n\
@@ -250,9 +241,8 @@ Die Sprachangabe MUSS eine Zeichenkette ohne Leerzeichen in der Mitte oder am En
 ; Invalid language in catalog translation file\n\
 ; Language MUST be a string with alphabetical characters and no inlined or trailing spaces
 ;
-MSG_ERR_NOTRAILINGELLIPSIS
-Originalstring hat keine Ellipse (...) am Zeilenende
-; Original string doesn't have a trailing ellipsis ('...')
+MSG_ERR_NO_TRAILING_ELLIPSIS
+Originalstring hat keine Ellipse (...) am Zeilenende für Bezeichner '%s'
 ;
 MSG_ERR_DOUBLECTCODESET
 Katalogcodeset doppelt deklariert
@@ -282,17 +272,14 @@ ohne Leerzeichen im Namen
 ; ## version $VER: name version.revision (date)\n\
 ; without any spaces in the name
 ;
-MSG_ERR_MISMATCHINGPLACEHOLDERS
-unterschiedliche Platzhalter
-; mismatching placeholders
+MSG_ERR_MISMATCHING_PLACEHOLDERS
+unterschiedliche Platzhalter für Bezeichner '%s'
 ;
-MSG_ERR_MISSINGPLACEHOLDERS
-fehlende Platzhalter
-; missing placeholders
+MSG_ERR_MISSING_PLACEHOLDERS
+fehlende Platzhalter für Bezeichner '%s'
 ;
-MSG_ERR_EXCESSIVEPLACEHOLDERS
-überzählige Platzhalter
-; excessive placeholders
+MSG_ERR_EXCESSIVE_PLACEHOLDERS
+überzählige Platzhalter für Bezeichner '%s'
 ;
 MSG_ERR_WARNING_QUICK
 %s - Warnung:
@@ -306,6 +293,6 @@ leere Übersetzung für Bezeichner '%s'
 MSG_ERR_MISMATCHINGCONTROLCHARACTERS
 unterschiedliche Kontrollzeichen am Zeilenende
 ;
-MSG_ERR_NONASCIICHARACTER
-nicht-ASCII-Zeichen 0x%02x im Originalstring gefunden
+MSG_ERR_NON_ASCII_CHARACTER
+nicht-ASCII-Zeichen 0x%02x im Originalstring für Bezeichner '%s' gefunden
 ;

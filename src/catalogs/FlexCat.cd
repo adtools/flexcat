@@ -62,35 +62,8 @@ unexpected blanks
 MSG_ERR_NOIDENTIFIER (107//)
 missing identifier
 ;
-MSG_ERR_NOLEADINGBRACKET (108//)
-missing '('
-;
-MSG_ERR_DOUBLEID (109//)
-ID number used twice
-;
-MSG_ERR_DOUBLEIDENTIFIER (110//)
-identifier declared twice
-;
-MSG_ERR_NOMINLEN (111//)
-expected MinLen (character '/')
-;
-MSG_ERR_NOMAXLEN (112//)
-expected MaxLen (character '/')
-;
-MSG_ERR_NOTRAILINGBRACKET (113//)
-missing ')'
-;
-MSG_ERR_EXTRACHARACTERS (114//)
-extra characters at the end of the line
-;
 MSG_ERR_MISSINGSTRING (115//)
 unexpected end of file (missing catalog strings)
-;
-MSG_ERR_STRINGTOOSHORT (116//)
-string too short
-;
-MSG_ERR_STRINGTOOLONG (117//)
-string too long
 ;
 MSG_ERR_UNKNOWNCTCOMMAND (118//)
 unknown command in translation
@@ -153,12 +126,6 @@ creating a catalog requires a translation file
 MSG_ERR_CANTCHECKDATE (137//)
 cannot get datestamp of '%s'
 ;
-MSG_ERR_TRAILINGELLIPSIS (138//)
-original string has a trailing ellipsis ('...')
-;
-MSG_ERR_TRAILINGBLANKS (139//)
-original string has trailing blanks
-;
 MSG_ERR_NOCTFILENAME (140//)
 Catalog translation file name not specified at \
 command line or as basename in description
@@ -171,15 +138,9 @@ MSG_ERR_BADPREFS (142//)
 error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 Template:
 ;
-MSG_ERR_NOTRAILINGBLANKS (143//)
-original string doesn't have trailing blanks
-;
 MSG_ERR_BADCTLANGUAGE (144//)
 invalid language in catalog translation file\n\
 Language MUST be a string with alphabetical characters and no inlined or trailing spaces
-;
-MSG_ERR_NOTRAILINGELLIPSIS (145//)
-original string doesn't have a trailing ellipsis ('...')
 ;
 MSG_ERR_DOUBLECTCODESET (146//)
 catalog codeset declared twice
@@ -200,15 +161,6 @@ Version should be something like\n\
 ## version $VER: name version.revision (date)\n\
 without any spaces in the name
 ;
-MSG_ERR_MISMATCHINGPLACEHOLDERS (151//)
-mismatching placeholders
-;
-MSG_ERR_MISSINGPLACEHOLDERS (152//)
-missing placeholders
-;
-MSG_ERR_EXCESSIVEPLACEHOLDERS (153//)
-excessive placeholders
-;
 MSG_ERR_WARNING_QUICK (154//)
 %s - Warning:
 ;
@@ -221,6 +173,57 @@ empty translation for identifier '%s'
 MSG_ERR_MISMATCHINGCONTROLCHARACTERS (157//)
 mismatching trailing control characters
 ;
-MSG_ERR_NONASCIICHARACTER (158//)
-non-ASCII character 0x%02x found in original string
+MSG_ERR_DOUBLE_IDENTIFIER (159//)
+identifier '%s' declared twice
+;
+MSG_ERR_STRING_TOO_SHORT (160//)
+string too short for identifier '%s'
+;
+MSG_ERR_STRING_TOO_LONG (161//)
+string too long for identifier '%s'
+;
+MSG_ERR_TRAILING_ELLIPSIS (162//)
+original string has a trailing ellipsis ('...') for identifier '%s'
+;
+MSG_ERR_NO_TRAILING_ELLIPSIS (163//)
+original string doesn't have a trailing ellipsis ('...') for identifier '%s'
+;
+MSG_ERR_TRAILING_BLANKS (164//)
+original string has trailing blanks for identifier '%s'
+;
+MSG_ERR_NO_TRAILING_BLANKS (165//)
+original string doesn't have trailing blanks for identifier '%s'
+;
+MSG_ERR_MISMATCHING_PLACEHOLDERS (166//)
+mismatching placeholders for identifier '%s'
+;
+MSG_ERR_MISSING_PLACEHOLDERS (167//)
+missing placeholders for identifier '%s'
+;
+MSG_ERR_EXCESSIVE_PLACEHOLDERS (168//)
+excessive placeholders for identifier '%s'
+;
+MSG_ERR_NO_LEADING_BRACKET (169//)
+missing '(' for identifier '%s'
+;
+MSG_ERR_NO_TRAILING_BRACKET (170//)
+missing ')' for identifier '%s'
+;
+MSG_ERR_DOUBLE_ID (171//)
+ID number used twice for identifier '%s'
+;
+MSG_ERR_NO_MIN_LEN (172//)
+expected MinLen (character '/') for identifier '%s'
+;
+MSG_ERR_NO_MAX_LEN (173//)
+expected MaxLen (character '/') for identifier '%s'
+;
+MSG_ERR_EXTRA_CHARACTERS (174//)
+extra characters at the end of the line
+;
+MSG_ERR_EXTRA_CHARACTERS_ID (175//)
+extra characters at the end of the line for identifier '%s'
+;
+MSG_ERR_NON_ASCII_CHARACTER (176//)
+non-ASCII character 0x%02x found in original string for identifier '%s'
 ;

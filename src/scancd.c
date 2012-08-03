@@ -166,7 +166,7 @@ int ScanCDFile(char *cdfile)
         OverSpace(&line);
         if(*line != '\0')
         {
-          ShowError(MSG_ERR_EXTRACHARACTERS);
+          ShowError(MSG_ERR_EXTRA_CHARACTERS);
           Result = FALSE;
         }
       }
@@ -244,7 +244,7 @@ int ScanCDFile(char *cdfile)
 
         if(*line != '(')
         {
-          ShowError(MSG_ERR_NOLEADINGBRACKET);
+          ShowError(MSG_ERR_NO_LEADING_BRACKET, cs->ID_Str);
           Result = FALSE;
         }
         else
@@ -283,12 +283,12 @@ int ScanCDFile(char *cdfile)
           {
             if(scs->ID == cs->ID)
             {
-              ShowError(MSG_ERR_DOUBLEID);
+              ShowError(MSG_ERR_DOUBLE_ID, cs->ID_Str);
               Result = FALSE;
             }
             if(strcmp(cs->ID_Str, scs->ID_Str) == 0)
             {
-              ShowError(MSG_ERR_DOUBLEIDENTIFIER);
+              ShowError(MSG_ERR_DOUBLE_IDENTIFIER, cs->ID_Str);
               Result = FALSE;
             }
           }
@@ -297,7 +297,7 @@ int ScanCDFile(char *cdfile)
 
           if(*line != '/')
           {
-            ShowWarn(MSG_ERR_NOMINLEN);
+            ShowWarn(MSG_ERR_NO_MIN_LEN, cs->ID_Str);
             Result = FALSE;
           }
           else
@@ -311,7 +311,7 @@ int ScanCDFile(char *cdfile)
             }
             if(*line != '/')
             {
-              ShowWarn(MSG_ERR_NOMAXLEN);
+              ShowWarn(MSG_ERR_NO_MAX_LEN, cs->ID_Str);
               Result = FALSE;
             }
             else
@@ -325,7 +325,7 @@ int ScanCDFile(char *cdfile)
               }
               if(*line != ')')
               {
-                ShowError(MSG_ERR_NOTRAILINGBRACKET);
+                ShowError(MSG_ERR_NO_TRAILING_BRACKET, cs->ID_Str);
                 Result = FALSE;
               }
               else
@@ -334,7 +334,7 @@ int ScanCDFile(char *cdfile)
                 OverSpace(&line);
                 if(*line)
                 {
-                  ShowError(MSG_ERR_EXTRACHARACTERS);
+                  ShowError(MSG_ERR_EXTRA_CHARACTERS_ID, cs->ID_Str);
                 }
               }
             }
@@ -362,7 +362,7 @@ int ScanCDFile(char *cdfile)
               {
                 int v = (int)c;
 
-                ShowWarn(MSG_ERR_NONASCIICHARACTER, v & 0xff);
+                ShowWarn(MSG_ERR_NON_ASCII_CHARACTER, v & 0xff, cs->ID_Str);
                 break;
               }
             }
@@ -389,14 +389,14 @@ int ScanCDFile(char *cdfile)
 
           if(cs->MinLen > 0 && reallen < cs->MinLen)
           {
-            ShowWarn(MSG_ERR_STRINGTOOSHORT);
+            ShowWarn(MSG_ERR_STRING_TOO_SHORT, cs->ID_Str);
           }
 
           /* String too long. */
 
           if(cs->MaxLen > 0 && reallen > cs->MaxLen)
           {
-            ShowWarn(MSG_ERR_STRINGTOOLONG);
+            ShowWarn(MSG_ERR_STRING_TOO_LONG, cs->ID_Str);
           }
 
           cs->Nr = NumStrings;

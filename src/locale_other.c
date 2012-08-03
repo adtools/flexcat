@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-const char * FlexCat_Strings[62] = {
+const char * FlexCat_Strings[63] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
@@ -72,16 +72,7 @@ const char * FlexCat_Strings[62] = {
     "unknown catalog description command",
     "unexpected blanks",
     "missing identifier",
-    "missing '('",
-    "ID number used twice",
-    "identifier declared twice",
-    "expected MinLen (character '/')",
-    "expected MaxLen (character '/')",
-    "missing ')'",
-    "extra characters at the end of the line",
     "unexpected end of file (missing catalog strings)",
-    "string too short",
-    "string too long",
     "unknown command in translation",
     "'%s' missing in catalog description",
     "unknown string type",
@@ -103,18 +94,14 @@ const char * FlexCat_Strings[62] = {
     "cannot open source description file '%s'",
     "creating a catalog requires a translation file",
     "cannot get datestamp of '%s'",
-    "original string has a trailing ellipsis ('...')",
-    "original string has trailing blanks",
     "Catalog translation file name not specified at "\
 	"command line or as basename in description",
     "catalog file name not specified at command line or "\
 	"as basename in description",
     "error processing 'FlexCat.prefs' variable, falling back to defaults\n"\
 	"Template:",
-    "original string doesn't have trailing blanks",
     "invalid language in catalog translation file\n"\
 	"Language MUST be a string with alphabetical characters and no inlined or trailing spaces",
-    "original string doesn't have a trailing ellipsis ('...')",
     "catalog codeset declared twice",
     "invalid codeset in catalog translation file\n"\
 	"Codeset MUST be a decimal number without any trailing spaces",
@@ -124,12 +111,26 @@ const char * FlexCat_Strings[62] = {
 	"Version should be something like\n"\
 	"## version $VER: name version.revision (date)\n"\
 	"without any spaces in the name",
-    "mismatching placeholders",
-    "missing placeholders",
-    "excessive placeholders",
     "%s - Warning:",
     "missing translation for identifier '%s'",
     "empty translation for identifier '%s'",
     "mismatching trailing control characters",
-    "non-ASCII character 0x%02x found in original string"
+    "identifier '%s' declared twice",
+    "string too short for identifier '%s'",
+    "string too long for identifier '%s'",
+    "original string has a trailing ellipsis ('...') for identifier '%s'",
+    "original string doesn't have a trailing ellipsis ('...') for identifier '%s'",
+    "original string has trailing blanks for identifier '%s'",
+    "original string doesn't have trailing blanks for identifier '%s'",
+    "mismatching placeholders for identifier '%s'",
+    "missing placeholders for identifier '%s'",
+    "excessive placeholders for identifier '%s'",
+    "missing '(' for identifier '%s'",
+    "missing ')' for identifier '%s'",
+    "ID number used twice for identifier '%s'",
+    "expected MinLen (character '/') for identifier '%s'",
+    "expected MaxLen (character '/') for identifier '%s'",
+    "extra characters at the end of the line",
+    "extra characters at the end of the line for identifier '%s'",
+    "non-ASCII character 0x%02x found in original string for identifier '%s'"
 };

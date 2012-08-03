@@ -8,6 +8,8 @@ $URL$
 2012-08-03 Thore Böckelmann <tboeckel@gmx.de>
 
   * src/showfuncs.c: slightly streamlined the error/warning output functions.
+  * src/scancd.c, src/scanct.c, src/createcatsrc.c: error/warning messages now
+    include the currently handled identifier name.
 
 2012-06-26  Mariusz Danilewicz <mandi@interia.pl>
 
