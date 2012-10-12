@@ -75,3 +75,4 @@ find release -nowarn -name ".svn" -exec rm -rf {} \; 2>/dev/null
 cd release
 lha -aq ../FlexCat-$releasever.$releaserev.lha *
 cp FlexCat/FlexCat.readme ../FlexCat-$releasever.$releaserev.readme
+cd ..
