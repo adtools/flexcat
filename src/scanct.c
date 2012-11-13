@@ -50,6 +50,10 @@ int             CT_Scanned = FALSE;        /* If TRUE and we are going to
                                               #?.ct file, so we should write
                                               ***NEW*** wherever necessary. */
 
+#define IS_NUMBER_OR_LETTER(c) (((c) >= '0' && (c) <= '9') || \
+                                ((c) >= 'a' && (c) <= 'z') || \
+                                ((c) >= 'A' && (c) <= 'Z'))
+
 /// ScanCTFile
 
 /* This scans a catalog translation file.
@@ -224,9 +228,7 @@ int ScanCTFile(char *ctfile)
                 }
                 idstr = line;
 
-                while((*line >= 'a' && *line <= 'z') ||
-                      (*line >= 'A' && *line <= 'Z') ||
-                      (*line >= '0' && *line <= '9') || *line == '_')
+                while(IS_NUMBER_OR_LETTER(*line) || *line == '_')
                 {
                     ++line;
                 }
@@ -354,10 +356,7 @@ int ScanCTFile(char *ctfile)
 
                                     // check the placeholder only if the '%' is followed by an
                                     // alpha-numerical character or another percent sign
-                                    if((*cdP >= '0' && *cdP <= '9') ||
-                                       (*cdP >= 'A' && *cdP <= 'Z') ||
-                                       (*cdP >= 'a' && *cdP <= 'z') ||
-                                       (*cdP == '%'))
+                                    if(IS_NUMBER_OR_LETTER(*cdP) || *cdP == '%')
                                     {
                                         if(*cdP != *ctP)
                                         {
@@ -370,10 +369,7 @@ int ScanCTFile(char *ctfile)
                                         if(*ctP == '%')
                                             ctP++;
                                     }
-                                    else if((*ctP >= '0' && *ctP <= '9') ||
-                                            (*ctP >= 'A' && *ctP <= 'Z') ||
-                                            (*ctP >= 'a' && *ctP <= 'z') ||
-                                            (*ctP == '%'))
+                                    else if(IS_NUMBER_OR_LETTER(*ctP) || *ctP == '%')
                                     {
                                         // the translation uses a placeholder while the description
                                         // uses none.
@@ -383,14 +379,30 @@ int ScanCTFile(char *ctfile)
                                 }
                                 else if(cdP != NULL && ctP == NULL)
                                 {
-                                    // the description uses at least one more placeholder than the translation
-                                    ShowWarn(MSG_ERR_MISSING_PLACEHOLDERS, cs->ID_Str);
+                                    // skip the '%' sign
+                                    cdP++;
+
+                                    // check if really a placeholder follows or just another percent sign
+                                    // the original string is allowed to contain more single percent signs than the translated string
+                                    if(IS_NUMBER_OR_LETTER(*cdP))
+                                    {
+                                        // the description uses at least one more placeholder than the translation
+                                        ShowWarn(MSG_ERR_MISSING_PLACEHOLDERS, cs->ID_Str);
+                                    }
                                     break;
                                 }
                                 else if(cdP == NULL && ctP != NULL)
                                 {
-                                    // the translation uses at least one more placeholder than the description
-                                    ShowWarn(MSG_ERR_EXCESSIVE_PLACEHOLDERS, cs->ID_Str);
+                                    // skip the '%' sign
+                                    ctP++;
+
+                                    // check if really a placeholder follows or just another percent sign
+                                    // the translated string is allowed to contain more single percent signs than the original string
+                                    if(IS_NUMBER_OR_LETTER(*ctP))
+                                    {
+                                        // the translation uses at least one more placeholder than the description
+                                        ShowWarn(MSG_ERR_EXCESSIVE_PLACEHOLDERS, cs->ID_Str);
+                                    }
                                     break;
                                 }
                             }

@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2012-11-13 Thore Böckelmann <tboeckel@gmx.de>
+
+  * src/scanct.c: don't output a warning about missing or excessive placeholders
+    if either the original string or the translated string contains more single
+    percent signs than the other string (bug #21).
+
 2012-08-07 Thore Böckelmann <tboeckel@gmx.de>
 
   * src/Makefile: added automatic dependency generation.
