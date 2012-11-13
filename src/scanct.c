@@ -384,7 +384,7 @@ int ScanCTFile(char *ctfile)
 
                                     // check if really a placeholder follows or just another percent sign
                                     // the original string is allowed to contain more single percent signs than the translated string
-                                    if(IS_NUMBER_OR_LETTER(*cdP))
+                                    if(IS_NUMBER_OR_LETTER(*cdP) || *cdP == '%')
                                     {
                                         // the description uses at least one more placeholder than the translation
                                         ShowWarn(MSG_ERR_MISSING_PLACEHOLDERS, cs->ID_Str);
@@ -398,7 +398,7 @@ int ScanCTFile(char *ctfile)
 
                                     // check if really a placeholder follows or just another percent sign
                                     // the translated string is allowed to contain more single percent signs than the original string
-                                    if(IS_NUMBER_OR_LETTER(*ctP))
+                                    if(IS_NUMBER_OR_LETTER(*ctP) || *ctP == '%')
                                     {
                                         // the translation uses at least one more placeholder than the description
                                         ShowWarn(MSG_ERR_EXCESSIVE_PLACEHOLDERS, cs->ID_Str);
