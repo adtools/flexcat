@@ -7,6 +7,7 @@
 ;
 ;   1.0   29.06.2010: initial release
 ;   1.1   30.06.2010: ask the user whether the *.sd files should be installed
+;   1.2   20.12.2012: added 3.x to MorphOS install decription
 
 ;----------------------------------------------------------------------------
 ; /// language bit definition, do not change these!!
@@ -139,7 +140,7 @@
         (help @askchoice-help)
         (choices "AmigaOS 3.x"
                  "AmigaOS 4.x"
-                 "MorphOS 1.x/2.x"
+                 "MorphOS 1.x/2.x/3.x"
                  "AROS i386"
                  "AROS PPC"
                  "AROS x86_64"
