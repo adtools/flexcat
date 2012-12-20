@@ -73,6 +73,6 @@ releaserev=`grep "#define EXE_REVISION" src/version.h | awk '{ print $3 }'`
 echo "  MK FlexCat-$releasever.$releaserev.lha"
 find release -nowarn -name ".svn" -exec rm -rf {} \; 2>/dev/null
 cd release
-lha -aq ../FlexCat-$releasever.$releaserev.lha *
+lha -ao5q ../FlexCat-$releasever.$releaserev.lha *
 cp FlexCat/FlexCat.readme ../FlexCat-$releasever.$releaserev.readme
 cd ..
