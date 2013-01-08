@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.9 (3.8.2012)
+## version $VER: FlexCat.catalog 3.10 (8.1.2013)
 ## language deutsch
 ## codeset 0
 ;
@@ -35,7 +35,9 @@ MSG_USAGE
   NOBUFFEREDIO   IO Puffer nicht verwenden\n\
   MODIFIED       Katalog nur erzeugen wenn #?.c(d|t) Dateien geändert wurden\n\
   COPYMSGNEW     ***NEW*** Markierung beim Erneuern von #?.ct Dateien kopieren\n\
-  OLDMSGNEW      Wenn die #?.ct Datei einen anderen Marker benutzt, diesen hier angeben
+  OLDMSGNEW      Wenn die #?.ct Datei einen anderen Marker benutzt, diesen hier angeben\n\
+  NOAUTODATE     keine Funktion - nur zur Kompatibilität\n\
+  NOSPACES       keine Funktion - nur zur Kompatibilität
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\
@@ -53,7 +55,9 @@ MSG_USAGE
 ;   NOBUFFEREDIO   Disable I/O buffers\n\
 ;   MODIFIED       Create catalog only if description/translation have changed\n\
 ;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
-;   OLDMSGNEW      Custom marker in old translation
+;   OLDMSGNEW      Custom marker in old translation\n\
+;   NOAUTODATE     no operation - kept for compatibility\n\
+;   NOSPACES       no operation - kept for compatibility
 ;
 MSG_FILEUPTODATE
 Datei '%s' ist auf dem neusten Stand

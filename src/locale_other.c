@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.9'
+   This file was created automatically by `FlexCat 2.10'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
@@ -62,7 +62,9 @@ const char * FlexCat_Strings[63] = {
 	"  NOBUFFEREDIO   Disable I/O buffers\n"\
 	"  MODIFIED       Create catalog only if description/translation have changed\n"\
 	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
-	"  OLDMSGNEW      Custom marker in old translation",
+	"  OLDMSGNEW      Custom marker in old translation\n"\
+	"  NOAUTODATE     no operation - kept for compatibility\n"\
+	"  NOSPACES       no operation - kept for compatibility",
     "File '%s' is up to date",
     "%s, line %d - warning:",
     "%s, line %d - ERROR:",

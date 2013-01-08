@@ -234,6 +234,11 @@ int main(int argc, char *argv[])
     {
       snprintf(Old_Msg_New, sizeof(Old_Msg_New), "; %s", argv[++i]);
     }
+    else if(Stricmp(argv[i], "noautodate") == 0 || Stricmp(argv[i], "nospaces") == 0)
+    {
+      // just swallow some no longer supported options to
+      // keep old scripts alive and happy
+    }
     else if(cdfile == NULL)
     {
       if(Stricmp(argv[i], "?") == 0 ||

@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.9'
+   This file was created automatically by `FlexCat 2.10'
    from "catalogs/FlexCat.cd".
 
    Do NOT edit by hand!
