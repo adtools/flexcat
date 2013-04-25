@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+#### FlexCat 2.12 RELEASE ################################################
+
+2013-04-25  Jens Langner <Jens.Langner@light-speed.de>
+
+  * misc: bumped revision for final 2.12 release.
+
 2013-01-08 Thore Böckelmann <tboeckel@gmx.de>
 
   * main.c, readprefs.c: readded the NOAUTODATE and NOSPACES options as dummy
