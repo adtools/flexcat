@@ -68,6 +68,7 @@ CATALOGS = catalogs/croatian.catalog \
            catalogs/finnish.catalog \
            catalogs/french.catalog \
            catalogs/german.catalog \
+           catalogs/greek.catalog \
            catalogs/hungarian.catalog \
            catalogs/italian.catalog \
            catalogs/norwegian.catalog \
@@ -77,7 +78,6 @@ CATALOGS = catalogs/croatian.catalog \
            catalogs/slovenian.catalog \
            catalogs/spanish.catalog \
            catalogs/swedish.catalog
-           # catalogs/greek.catalog
            # catalogs/swabian.catalog
            # catalogs/turkish.catalog
 

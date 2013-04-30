@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2013-04-30 Thore Böckelmann <tboeckel@gmx.de>
+
+  * catalogs/greek.ct: updated greek translation kindly provided by Antonis
+    Iliakis.
+
 #### FlexCat 2.12 RELEASE ################################################
 
 2013-04-25  Jens Langner <Jens.Langner@light-speed.de>

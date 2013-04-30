@@ -56,7 +56,7 @@ done
 
 make -C src catalogs
 
-for language in croatian czech danish dutch finnish french german hungarian italian norwegian polish portuguese serbian slovenian spanish swedish; do
+for language in croatian czech danish dutch finnish french german greek hungarian italian norwegian polish portuguese serbian slovenian spanish swedish; do
 	mkdir -p "release/FlexCat/Locale/Catalogs/$language"
 	cp -a src/catalogs/$language.catalog "release/FlexCat/Locale/Catalogs/$language/FlexCat.catalog"
 done
