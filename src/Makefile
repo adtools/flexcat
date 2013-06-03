@@ -124,7 +124,7 @@ else
       STRIP       =   ppc-amigaos-strip
       CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
       LDFLAGS     =   -mcrt=newlib
-      LDLIBS      =   -lauto -lunix
+      LDLIBS      =   -lauto
       CATOBJS     =   locale.o getft.o
 
       #######################################################################
