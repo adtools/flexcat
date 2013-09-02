@@ -1,4 +1,4 @@
-## version $VER: FlexCat.catalog 3.2 (16.05.2012)
+## version $VER: FlexCat.catalog 3.3 (02.09.2013)
 ## language svenska
 ## codeset 0
 ;
@@ -36,7 +36,9 @@ MSG_USAGE
   NOBUFFEREDIO   Inaktivera IO-buffrar\n\
   MODIFIED       Skapa bara katalogen om beskrivning/översättning har ändrats\n\
   COPYMSGNEW     Kopiera **NEW** markörer över från tidigare översättning\n\
-  OLDMSGNEW      Egen markör i tidigare översättning
+  OLDMSGNEW      Egen markör i tidigare översättning\n\
+  NOAUTODATE     ingen operation - kvar för kompabilitet\n\
+  NOSPACES       ingen operation - kvar för kompabilitet
 ;   CDFILE         Catalog description file to scan\n\
 ;   CTFILE         Catalog translation file to scan\n\
 ;   CATALOG        Catalog file to create\n\
@@ -54,7 +56,9 @@ MSG_USAGE
 ;   NOBUFFEREDIO   Disable I/O buffers\n\
 ;   MODIFIED       Create catalog only if description/translation have changed\n\
 ;   COPYMSGNEW     Copy ***NEW*** markers over from old translation\n\
-;   OLDMSGNEW      Custom marker in old translation
+;   OLDMSGNEW      Custom marker in old translation\n\
+;   NOAUTODATE     no operation - kept for compatibility\n\
+;   NOSPACES       no operation - kept for compatibility
 ;
 MSG_FILEUPTODATE
 Filen '%s' behöver inte uppdateras
@@ -95,45 +99,9 @@ MSG_ERR_NOIDENTIFIER
 identifierare saknas
 ; missing identifier
 ;
-MSG_ERR_NOLEADINGBRACKET
-'(' saknas
-; missing '('
-;
-MSG_ERR_DOUBLEID
-ID-nummer använt två gånger
-; ID number used twice
-;
-MSG_ERR_DOUBLEIDENTIFIER
-identifierare har angetts två gånger
-; identifier declared twice
-;
-MSG_ERR_NOMINLEN
-MinLen förväntades (tecknet '/')
-; expected MinLen (character '/')
-;
-MSG_ERR_NOMAXLEN
-MaxLen förväntades (tecknet '/')
-; expected MaxLen (character '/')
-;
-MSG_ERR_NOTRAILINGBRACKET
-')' saknas
-; missing ')'
-;
-MSG_ERR_EXTRACHARACTERS
-extra tecken vid radslut
-; extra characters at the end of the line
-;
 MSG_ERR_MISSINGSTRING
 oväntat filslut (katalogsträng saknas)
 ; unexpected end of file (missing catalog strings)
-;
-MSG_ERR_STRINGTOOSHORT
-strängen är för kort
-; string too short
-;
-MSG_ERR_STRINGTOOLONG
-strängen är för lång
-; string too long
 ;
 MSG_ERR_UNKNOWNCTCOMMAND
 okänt kommando i översättning
@@ -164,7 +132,7 @@ katalogspråk har angetts två gånger
 ; catalog language declared twice
 ;
 MSG_ERR_DOUBLECTVERSION
-katalogversion har angivits två gånger
+katalogversion har angetts två gånger
 ; catalog version declared twice
 ;
 MSG_ERR_WRONGRCSID
@@ -217,21 +185,15 @@ MSG_ERR_CANTCHECKDATE
 kan inte läsa datumet för '%s'
 ; cannot get datestamp of '%s'
 ;
-MSG_ERR_TRAILINGELLIPSIS
-orginalsträngen har avslutande punkter ('...')
-; original string has a trailing ellipsis ('...')
-;
-MSG_ERR_TRAILINGBLANKS
-orginalsträngen har avslutande mellanslag
-; original string has trailing blanks
-;
 MSG_ERR_NOCTFILENAME
-Namn för katalogöversättningsfil inte specifierat på kommandoraden eller som basnamn i beskrivning
+Namn för katalogöversättningsfil inte specifierat \
+på kommandoraden eller som basnamn i beskrivning
 ; Catalog translation file name not specified at \
 ; command line or as basename in description
 ;
 MSG_ERR_NOCATFILENAME
-namn för katalogfil inte specifierat på kommandoraden eller som basnamn i beskrivning
+namn för katalogfil inte specifierat på kommandoraden \
+eller som basnamn i beskrivning
 ; catalog file name not specified at command line or \
 ; as basename in description
 ;
@@ -241,22 +203,14 @@ använder förinställda värden. Inställningsmall:
 ; error processing 'FlexCat.prefs' variable, falling back to defaults\n\
 ; Template:
 ;
-MSG_ERR_NOTRAILINGBLANKS
-originalsträngen har inga avslutande mellanslag
-; original string doesn't have trailing blanks
-;
 MSG_ERR_BADCTLANGUAGE
 ogiltigt språk i katalogöversättningsfilen\n\
 Språk MÅSTE vara en sträng med alfanumeriska tecken och inga infogade eller avslutande mellanslag
 ; invalid language in catalog translation file\n\
 ; Language MUST be a string with alphabetical characters and no inlined or trailing spaces
 ;
-MSG_ERR_NOTRAILINGELLIPSIS
-originalsträngen har inga avslutande punkter ('...')
-; original string doesn't have a trailing ellipsis ('...')
-;
 MSG_ERR_DOUBLECTCODESET
-katalogens teckenuppsättning har angivits två gånger
+katalogens teckenuppsättning har angetts två gånger
 ; catalog codeset declared twice
 ;
 MSG_ERR_BADCTCODESET
@@ -283,18 +237,6 @@ utan några mellanrum i namnet
 ; ## version $VER: name version.revision (date)\n\
 ; without any spaces in the name
 ;
-MSG_ERR_MISMATCHINGPLACEHOLDERS
-platshållare matchar inte
-; mismatching placeholders
-;
-MSG_ERR_MISSINGPLACEHOLDERS
-platshållare saknas
-; missing placeholders
-;
-MSG_ERR_EXCESSIVEPLACEHOLDERS
-platshållare överdrivna
-; excessive placeholders
-;
 MSG_ERR_WARNING_QUICK
 %s - Varning:
 ; %s - Warning:
@@ -311,7 +253,75 @@ MSG_ERR_MISMATCHINGCONTROLCHARACTERS
 avslutande kontrolltecken matchar inte
 ; mismatching trailing control characters
 ;
-MSG_ERR_NONASCIICHARACTER
-icke ASCII tecken 0x%02x hittat i originalsträngen
-; non-ASCII character 0x%02x found in original string
+MSG_ERR_DOUBLE_IDENTIFIER
+identifierare '%s' har angetts två gånger
+; identifier '%s' declared twice
+;
+MSG_ERR_STRING_TOO_SHORT
+sträng för kort för identifierare '%s'
+; string too short for identifier '%s'
+;
+MSG_ERR_STRING_TOO_LONG
+sträng för lång för identifierare '%s'
+; string too long for identifier '%s'
+;
+MSG_ERR_TRAILING_ELLIPSIS
+originalsträng har en avslutande ellips ('...') för identifierare '%s'
+; original string has a trailing ellipsis ('...') for identifier '%s'
+;
+MSG_ERR_NO_TRAILING_ELLIPSIS
+originalsträng har inte en avslutande ellips ('...') för identifierare '%s'
+; original string doesn't have a trailing ellipsis ('...') for identifier '%s'
+;
+MSG_ERR_TRAILING_BLANKS
+originalsträng har avslutande mellanslag för identifierare '%s'
+; original string has trailing blanks for identifier '%s'
+;
+MSG_ERR_NO_TRAILING_BLANKS
+originalsträng har inte avslutande mellanslag för identifierare '%s'
+; original string doesn't have trailing blanks for identifier '%s'
+;
+MSG_ERR_MISMATCHING_PLACEHOLDERS
+Felmatchande platshållare för identifierare '%s'
+; mismatching placeholders for identifier '%s'
+;
+MSG_ERR_MISSING_PLACEHOLDERS
+saknade platshållare för identifierare '%s'
+; missing placeholders for identifier '%s'
+;
+MSG_ERR_EXCESSIVE_PLACEHOLDERS
+överdrivna platshållare för identifierare '%s'
+; excessive placeholders for identifier '%s'
+;
+MSG_ERR_NO_LEADING_BRACKET
+saknad '(' för identifierare '%s'
+; missing '(' for identifier '%s'
+;
+MSG_ERR_NO_TRAILING_BRACKET
+saknad ')' för identifierare '%s'
+; missing ')' for identifier '%s'
+;
+MSG_ERR_DOUBLE_ID
+ID nummer har angetts två gånger för identifierare '%s'
+; ID number used twice for identifier '%s'
+;
+MSG_ERR_NO_MIN_LEN
+förväntade MinLen (tecken '/') för identifierare '%s'
+; expected MinLen (character '/') for identifier '%s'
+;
+MSG_ERR_NO_MAX_LEN
+förväntade MaxLen (tecken '/') för identifierare '%s'
+; expected MaxLen (character '/') for identifier '%s'
+;
+MSG_ERR_EXTRA_CHARACTERS
+extra tecken vid radslut
+; extra characters at the end of the line
+;
+MSG_ERR_EXTRA_CHARACTERS_ID
+extra tecken vid radslut för identifierare '%s'
+; extra characters at the end of the line for identifier '%s'
+;
+MSG_ERR_NON_ASCII_CHARACTER
+icke ASCII tecken 0x%02x hittad i originalsträng för identifierare '%s'
+; non-ASCII character 0x%02x found in original string for identifier '%s'
 ;
