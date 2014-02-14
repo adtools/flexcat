@@ -102,6 +102,9 @@ int vasprintf(char **ptr, const char * format, va_list ap);
 #define FLEXCAT_SDDIR          "FLEXCAT_SDDIR"
 
 #if defined(__amigados)
+ #if defined(__amigaos4__)
+ #include <dos/obsolete.h>
+ #endif
  #define FILE_MASK             FIBF_EXECUTE
  #define DEFAULT_FLEXCAT_SDDIR "PROGDIR:lib"
 #else

@@ -20,6 +20,12 @@
  *
  */
 
+#ifndef AMIGA
+  #include <iconv.h>
+#else
+  #include <proto/codesets.h>
+#endif
+
 #include "flexcat.h"
 #include "readprefs.h"
 #include "swapfuncs.h"
@@ -33,7 +39,7 @@
 #include "SDI_compiler.h"
 
 const char VString[] = VERS " [" SYSTEMSHORT "/" CPU "] (" EXE_DATE ")\n" EXE_COPYRIGHT;
-const char EString[] = "Contact: http://sourceforge.net/projects/flexcat/";
+const char EString[] = "Contact: http://sf.net/p/flexcat/";
 
 /// MyExit
 
@@ -152,6 +158,135 @@ char *AllocString(const char *str)
 
   return ptr;
 }
+
+///
+/// Add a string to an already allocated one
+
+char *AddString(char *str, const char *astr)
+{
+  char *ptr;
+
+  if((ptr = malloc(strlen(str) + strlen(astr) + 1)) == NULL)
+    MemError();
+
+  strcpy(ptr, str);
+  strcat(ptr, astr);
+
+  free(str);
+
+  return ptr;
+}
+
+///
+/// Convert a string from one charset to another
+
+#ifdef AMIGA
+char *ConvertString(char *str, const char *from_charset, const char *to_charset)
+{
+  char *result = NULL;
+  struct Library *CodesetsBase = NULL;
+  #if defined(__amigaos4__)
+  struct CodesetsIFace *ICodesets = NULL;
+  #endif
+
+  if((CodesetsBase = OpenLibrary(CODESETSNAME, CODESETSVER)) &&
+     GETINTERFACE(ICodesets, CodesetsBase))
+  {
+    struct codeset *dstCodeset;
+
+    dstCodeset = CodesetsFind((STRPTR)to_charset,
+                              CSA_FallbackToDefault, FALSE,
+                              TAG_DONE);
+    if(dstCodeset != NULL)
+    {
+      ULONG dstLen = 0;
+      char *dstText = NULL;
+
+      if(Stricmp(from_charset, "UTF-8") == 0 || Stricmp(from_charset, "UTF8") == 0)
+      {
+        dstText = CodesetsUTF8ToStr(CSA_Source,      str,
+                                    CSA_DestCodeset, dstCodeset,
+                                    CSA_DestLenPtr,  &dstLen,
+                                    TAG_DONE);
+      }
+      else
+      {
+        struct codeset *srcCodeset;
+ 
+        srcCodeset = CodesetsFind((STRPTR)from_charset,
+                                  CSA_FallbackToDefault, FALSE,
+                                  TAG_DONE);
+
+        if(srcCodeset != NULL)
+        {
+          dstText = CodesetsConvertStr(CSA_Source,        str,
+                                       CSA_SourceCodeset, srcCodeset,
+                                       CSA_DestCodeset,   dstCodeset,
+                                       CSA_DestLenPtr,    &dstLen,
+                                       TAG_DONE);
+        }
+      }
+
+      if(dstText != NULL && dstLen != 0)
+      {
+        char *buf;
+
+        // copy the converted string into a separate alloced string
+        if((buf = malloc(dstLen*sizeof(char))) != NULL)
+        {
+          memcpy(buf, dstText, dstLen*sizeof(char));
+          buf[dstLen] = '\0';
+          result = buf;
+        }
+
+        CodesetsFreeA(dstText, NULL);
+      }
+    }
+
+    DROPINTERFACE(ICodesets);
+    CloseLibrary(CodesetsBase);
+  }
+
+  return result;
+}
+#else
+char *ConvertString(char *str, const char *from_charset, const char *to_charset)
+{
+  char *result = NULL;
+  iconv_t ict;
+
+  if((ict = iconv_open(to_charset, from_charset)) != (iconv_t)-1)
+  {
+    size_t inleft = strlen(str);
+    char *buf;
+
+    if((buf = malloc((inleft+1)*sizeof(char))) != NULL)
+    {
+      size_t outleft = inleft;
+      char *outbuf = buf;
+
+      if(iconv(ict, &str, &inleft, &outbuf, &outleft) != (size_t)-1)
+      {
+        *outbuf = '\0';
+        result = buf;
+      }
+      else
+      {
+        printf("ERROR: iconv()\n");
+        free(buf);
+      }
+    }
+    else
+      MemError();
+    
+    iconv_close(ict);
+  }
+  else
+    printf("ERROR: iconv_open()\n");
+  
+  return result;
+}
+#endif
 
 ///
 /// Add catalog chunk

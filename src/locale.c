@@ -21,6 +21,7 @@ struct FC_String FlexCat_Strings[] =
    { "Usage:", 0 },
    { "  CDFILE         Catalog description file to scan\n"\
 	"  CTFILE         Catalog translation file to scan\n"\
+	"  POFILE         Catalog translation in PO-style format\n"\
 	"  CATALOG        Catalog file to create\n"\
 	"  NEWCTFILE      Catalog translation file to create\n"\
 	"  SOURCES        Sources to create; must be something like SFILE=SDFILE,\n"\

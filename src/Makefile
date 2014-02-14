@@ -29,7 +29,7 @@ WARN        = -W -Wall -Wwrite-strings
 OPTFLAGS    = -O3 -fomit-frame-pointer
 DEBUG       = -DDEBUG -fno-omit-frame-pointer #-O0
 DEBUGSYM    = -g -gstabs
-CFLAGS      = $(WARN) $(OPTFLAGS) $(DEBUG) $(DEBUGSYM)
+CFLAGS      = -Iinclude $(WARN) $(OPTFLAGS) $(DEBUG) $(DEBUGSYM)
 CATFILES    = FlexCat_cat.h FlexCat_cat_other.h locale.c locale_other.c
 MKDIR       = mkdir -p
 FLEXCAT     = flexcat
@@ -58,8 +58,19 @@ ifndef (OS)
 
 endif
 
-OBJS= createcat.o createcatsrc.o createct.o globals.o main.o readprefs.o \
-      scancd.o scanct.o showfuncs.o swapfuncs.o utils.o $(CATOBJS)
+OBJS = createcat.o \
+       createcatsrc.o \
+       createct.o \
+       globals.o \
+       main.o \
+       readprefs.o \
+       scancd.o \
+       scanct.o \
+       scanpo.o \
+       showfuncs.o \
+       swapfuncs.o \
+       utils.o \
+       $(CATOBJS)
 
 CATALOGS = catalogs/croatian.catalog \
            catalogs/czech.catalog \
@@ -78,7 +89,6 @@ CATALOGS = catalogs/croatian.catalog \
            catalogs/slovenian.catalog \
            catalogs/spanish.catalog \
            catalogs/swedish.catalog
-           # catalogs/swabian.catalog
            # catalogs/turkish.catalog
 
 # Default CPU for AROS

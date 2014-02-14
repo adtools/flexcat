@@ -26,6 +26,8 @@
 /* Functions */
 void            MyExit ( int Code );
 char           *AllocString ( const char *str );
+char           *AddString ( char *str, const char *addedstr );
+char           *ConvertString ( char *str, const char *from_charset, const char *to_charset);
 char           *AddCatalogChunk ( char *ID, const char *string );
 int             gethex ( int c );
 int             getoctal ( int c );

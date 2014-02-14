@@ -20,20 +20,12 @@
  *
  */
 
-#ifndef  FLEXCAT_GLOBALS_H
-#define  FLEXCAT_GLOBALS_H
+#ifndef  FLEXCAT_SCANPO_H
+#define  FLEXCAT_SCANPO_H
+
+/* Functions */
+int ScanPOFile(char *pofile);
 
 /* Variables */
-extern int      buffer_size;
-extern char    *ScanFile;
-extern int      ScanLine;
-extern char    *BaseName;
-extern int      LengthBytes;
-extern int      NumStrings;
-extern char    *Language;
-extern int      CatVersion;
-extern int      CatRevision;
-extern int      GlobalReturnCode;
-extern int      NumberOfWarnings;
 
-#endif  /* FLEXCAT_GLOBALS_H */
+#endif  /* FLEXCAT_SCANPO_H */

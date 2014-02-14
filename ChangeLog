@@ -5,7 +5,19 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
-2013-09-02  Pär Boberg <pbobbenb@spray.se>
+2014-02-14 Jens Maus <mail@jens-maus.de>
+
+  * scanpo.c, misc: implemented the PO-style translation file format which
+    is now used by e.g. YAM and will be probably used by other upcoming
+    projects using transifex as their translation service. Now a POFILE
+    command line option has been added so that a user can run flexcat with
+    just the PO file in the form "flexcat POFILE german.po CATALOG test.catalog"
+    and will end up with a catalog file containing all translations. Please
+    note that these conversion routines are in beta quality right now and
+    will require some testing before a final release. Especially support for
+    different platforms running flexcat haven't been widely tested.
+
+2013-09-02 Pär Boberg <pbobbenb@spray.se>
 
   * src/catalogs/swedish.ct: updated to the latest changes.
 

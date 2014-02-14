@@ -32,6 +32,7 @@
 #include "swapfuncs.h"
 #include "scanct.h"
 #include "scancd.h"
+#include "scanpo.h"
 #include "createcat.h"
 #include "createct.h"
 #include "utils.h"
@@ -45,6 +46,10 @@ int isParam(char *input_string)
   if(Stricmp(input_string, "catalog") == 0)
     return TRUE;
   if(Strnicmp(input_string, "catalog=", 8) == 0)
+    return TRUE;
+  if(Stricmp(input_string, "pofile") == 0)
+    return TRUE;
+  if(Strnicmp(input_string, "pofile=", 7) == 0)
     return TRUE;
   if(Stricmp(input_string, "nooptim") == 0)
     return TRUE;
@@ -93,6 +98,7 @@ int main(int argc, char *argv[])
 {
   char *cdfile = NULL;
   char *ctfile = NULL;
+  char *pofile = NULL;
   char *newctfile = NULL;
   char *catalog = NULL;
   char *source;
@@ -154,12 +160,30 @@ int main(int argc, char *argv[])
           i++;
           makecatalog = TRUE;
         }
-
         else
         {
           catalog = NULL;
           makecatalog = TRUE;
         }
+      }
+    }
+    else if(Strnicmp(argv[i], "pofile=", 7) == 0)
+    {
+      pofile = argv[i] + 7;
+    }
+    else if(Stricmp(argv[i], "pofile") == 0)
+    {
+      if(i == argc - 1)
+        pofile = NULL;
+      else if(i < argc - 1)
+      {
+        if(isParam(argv[i + 1]) != TRUE)
+        {
+          pofile = argv[i + 1];
+          i++;
+        }
+        else
+          pofile = NULL;
       }
     }
     else if(Stricmp(argv[i], "nooptim") == 0)
@@ -206,7 +230,6 @@ int main(int argc, char *argv[])
           i++;
           makenewct = TRUE;
         }
-
         else
         {
           newctfile = NULL;
@@ -346,9 +369,15 @@ int main(int argc, char *argv[])
       MyExit(10);
   }
 
+  if(pofile != NULL)
+  {
+    if(!ScanPOFile(pofile))
+      MyExit(10);
+  }
+
   if(makecatalog == TRUE)
   {
-    if(ctfile == NULL)
+    if(ctfile == NULL && pofile == NULL)
     {
       fprintf(stderr, "%s\n", MSG_ERR_NOCTARGUMENT);
       Usage();
