@@ -271,17 +271,25 @@ int main(int argc, char *argv[])
       {
         Usage();
       }
+
       cdfile = argv[i];
-      if(!ScanCDFile(cdfile))
+
+      // find out file extension and depending on it
+      // we eiterh scan a CD file or the supplied pot file
+      if(strstr(cdfile, ".pot") != NULL)
       {
-        MyExit(10);
+        if(!ScanPOFile(cdfile))
+          MyExit(10);
+      }
+      else
+      {
+        if(!ScanCDFile(cdfile))
+          MyExit(10);
       }
     }
     else if(strchr(argv[i], '=') != NULL)
     {
-
       /* Determine basename. */
-
       if(BaseName == NULL && cdfile != NULL)
       {
         char *lslash = strrchr(cdfile, '/');

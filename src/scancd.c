@@ -231,6 +231,7 @@ int ScanCDFile(char *cdfile)
         cs->CD_Str = (char *)"";
         cs->CT_Str = NULL;
         cs->NotInCT = TRUE;
+        cs->POformat = FALSE;
 
         if((cs->ID_Str = malloc((line - idstr) + 1)) == NULL)
         {

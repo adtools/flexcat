@@ -361,7 +361,7 @@ void TerminateCatStringOutput(void)
 
 /* This writes a source string. */
 
-void WriteString(FILE * fpout, char *str, int32 Len, int lenbytes)
+static void WriteString(FILE * fpout, char *str, int32 Len, int lenbytes, int allbytes)
 {
   char bytes[10];
   int bytesread;
@@ -384,24 +384,28 @@ void WriteString(FILE * fpout, char *str, int32 Len, int lenbytes)
     bytesread = ReadChar(&str, bytes);
     if(bytesread > 0)
     {
-      unsigned char c;
-
       if(needseparate == TRUE)
       {
         SeparateCatStringOutput();
         needseparate = FALSE;
       }
-      c = bytes[bytesread - 1];
-      if((c >= 0x20 && c < 0x7f) || c >= 0xa0)
-        WriteAsciiChar((int)c);
-      else
-        WriteBinChar((int)c);
+
+      do
+      {
+        unsigned char c = bytes[bytesread - 1];
+
+        if((c >= 0x20 && c < 0x7f) || c >= 0xa0)
+          WriteAsciiChar((int)c);
+        else
+          WriteBinChar((int)c);
+
+        if(allbytes == 0)
+          break;
+      }
+      while(--bytesread > 0);
     }
     else
-    {
       needseparate = TRUE;
-    }
-
   }
 
   TerminateCatStringOutput();
@@ -576,7 +580,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
                 break;
 
               case 'l':
-                WriteString(fpout, Language, -1, cs->LenBytes);
+                WriteString(fpout, Language, -1, cs->LenBytes, cs->POformat);
                 break;
 
               case 'f':
@@ -713,7 +717,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
                     }
                   }
 
-                  WriteString(fpout, cs->CD_Str,  cs->LenBytes ? len : (uint32)-1, cs->LenBytes);
+                  WriteString(fpout, cs->CD_Str,  cs->LenBytes ? len : (uint32)-1, cs->LenBytes, cs->POformat);
                 }
                 break;
 

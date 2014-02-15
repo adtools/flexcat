@@ -180,6 +180,7 @@ struct CatString
     int               MinLen, MaxLen, ID, Nr, LenBytes;
     int               NotInCT;    /* If a string is not present, we write NEW
                                      while updating the CT file for easier work. */
+    int               POformat;   /* Is this string a po-format string */
 
 };
 

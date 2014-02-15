@@ -361,6 +361,7 @@ int ScanPOFile(char *pofile)
           cs->CD_Str = (char *)"";
           cs->CT_Str = NULL;
           cs->NotInCT = TRUE;
+          cs->POformat = TRUE;
 
           if((cs->ID_Str = malloc((line - idstr) + 1)) == NULL)
             MemError();
@@ -473,7 +474,7 @@ int ScanPOFile(char *pofile)
 
         // make sure double-backslashes end up in single
         // back slashes
-        while((p = strstr(line, "\\\\")))
+        while((p = strstr(line, "\\\\033")))
           memmove(p, p+1, strlen(p));
 
         // unquote the string
@@ -483,6 +484,11 @@ int ScanPOFile(char *pofile)
         if(Strnicmp(line, "msgid \"", 7) == 0)
         {
           line += 7;
+
+          // if the string starts with <EMPTY> we out to remove
+          // the rest of the string!
+          if(strncmp(line, "<EMPTY>", 7) == 0)
+            *line = '\0';
 
           if(strlen(line) > 0)
             cs->CD_Str = ConvertString(line, PoSrcCharset, CatDstCharset);
