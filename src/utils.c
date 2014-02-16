@@ -708,7 +708,7 @@ void Usage(void)
   fprintf(stderr,
       "\n" \
       "%s\n" \
-      "     FlexCat CDFILE/A,CTFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n" \
+      "     FlexCat CDFILE/A,CTFILE,POFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n" \
       "             WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,\n" \
       "             QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,\n" \
       "             COPYMSGNEW/S,OLDMSGNEW/K\n" \
