@@ -156,6 +156,10 @@ int ScanPOFile(char *pofile)
             if(CatLanguage)
               ShowError(MSG_ERR_DOUBLECTLANGUAGE);
 
+            // set iso-8859-1 as default
+            CodeSet = 0;
+            CatDstCharset = "iso-8859-1";
+
             line += 11;
             p = strchr(line, '\\');
             if(p != NULL)
@@ -234,8 +238,6 @@ int ScanPOFile(char *pofile)
               language = "svenska";
             else if(Stricmp(line, "tr") == 0)
               language = "türkçe";
-            else
-              CatDstCharset = "iso-8859-1";
 
             if(language != NULL)
               CatLanguage = AddCatalogChunk(strdup("LANG"), language);
