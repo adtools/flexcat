@@ -7,6 +7,8 @@ $URL$
 
 2014-02-16 Jens Maus <mail@jens-maus.de>
 
+  * contrib/cd2po, scanpo.c: synchronized charset translation tables of
+    scanpo.c routines and cd2po shell conversion routines.
   * scanpo.c: optimized the charset conversion routines to better match the
     default charsets and MIBenum numbers of each language.
   * contrib/cd2po: added the cd2po.sh shell script to convert between the cd

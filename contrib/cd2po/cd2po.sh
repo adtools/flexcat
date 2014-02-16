@@ -23,7 +23,7 @@
 # $Id$
 #
 
-VERSION="1.3"
+VERSION="1.4"
 
 ########################################################
 # Script starts here
@@ -799,22 +799,19 @@ identifyCharset()
   charset=""
   
   case "${file}" in
+    bosnian)
+      charset="iso-8859-2"
+    ;;
     czech)
       charset="iso-8859-2"
     ;;
-    polish)
-      charset="iso-8859-2"
-    ;;
-    slovenian)
-      charset="iso-8859-2"
-    ;;
-    russian)
-      charset="windows-1251"
-    ;;
-    greek)
-      charset="iso-8859-7"
-    ;;
     danish)
+      charset="iso-8859-15"
+    ;;
+    dutch)
+      charset="iso-8859-15"
+    ;;
+    finnish)
       charset="iso-8859-15"
     ;;
     french)
@@ -822,6 +819,39 @@ identifyCharset()
     ;;
     german)
       charset="iso-8859-15"
+    ;;
+    greek)
+      charset="iso-8859-7"
+    ;;
+    hungarian)
+      charset="iso-8859-16"
+    ;;
+    italian)
+      charset="iso-8859-15"
+    ;;
+    norwegian)
+      charset="iso-8859-15"
+    ;;
+    polish)
+      charset="iso-8859-16"
+    ;;
+    russian)
+      charset="iso-8859-5"
+    ;;
+    serbian)
+      charset="iso-8859-16"
+    ;;
+    slovenian)
+      charset="iso-8859-2"
+    ;;
+    spanish)
+      charset="iso-8859-15"
+    ;;
+    swedish)
+      charset="iso-8859-15"
+    ;;
+    turkish)
+      charset="iso-8859-9"
     ;;
     *)
       charset="iso-8859-1"
@@ -835,21 +865,21 @@ identifyCodeset()
 {
   file="$1"
   codeset=""
-  
+ 
   case "${file}" in
+    bosnian)
+      codeset="5"
+    ;;
     czech)
       codeset="5"
     ;;
-    polish)
-      codeset="5"
-    ;;
-    slovenian)
-      codeset="5"
-    ;;
-    greek)
-      codeset="10"
-    ;;
     danish)
+      codeset="111"
+    ;;
+    dutch)
+      codeset="111"
+    ;;
+    finnish)
       codeset="111"
     ;;
     french)
@@ -858,8 +888,41 @@ identifyCodeset()
     german)
       codeset="111"
     ;;
+    greek)
+      codeset="10"
+    ;;
+    hungarian)
+      codeset="112"
+    ;;
+    italian)
+      codeset="111"
+    ;;
+    norwegian)
+      codeset="111"
+    ;;
+    polish)
+      codeset="112"
+    ;;
+    russian)
+      codeset="8"
+    ;;
+    serbian)
+      codeset="112"
+    ;;
+    slovenian)
+      codeset="5"
+    ;;
+    spanish)
+      codeset="111"
+    ;;
+    swedish)
+      codeset="111"
+    ;;
+    turkish)
+      codeset="12"
+    ;;
     *)
-      codeset="0"
+      codeset="4"
     ;;
   esac
 

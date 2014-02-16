@@ -229,7 +229,7 @@ int ScanPOFile(char *pofile)
             }
             else if(Stricmp(line, "no") == 0)
             {
-              language = "norwegian";
+              language = "norsk";
               CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
