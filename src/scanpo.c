@@ -157,7 +157,7 @@ int ScanPOFile(char *pofile)
               ShowError(MSG_ERR_DOUBLECTLANGUAGE);
 
             // set iso-8859-1 as default
-            CodeSet = 0;
+            CodeSet = 4;
             CatDstCharset = "iso-8859-1";
 
             line += 11;
@@ -166,7 +166,11 @@ int ScanPOFile(char *pofile)
               *p = '\0';
 
             if(Stricmp(line, "bs") == 0)
+            {
               language = "bosanski";
+              CodeSet = 5;
+              CatDstCharset = "iso-8859-2";
+            }
             else if(Stricmp(line, "cs") == 0)
             {
               language = "czech";
@@ -180,11 +184,19 @@ int ScanPOFile(char *pofile)
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "nl") == 0)
+            {
               language = "dutch";
+              CodeSet = 111;
+              CatDstCharset = "iso-8859-15";
+            }
             else if(Stricmp(line, "en_GB") == 0)
               language = "english-british";
             else if(Stricmp(line, "fi") == 0)
+            {
               language = "suomi";
+              CodeSet = 111;
+              CatDstCharset = "iso-8859-15";
+            }
             else if(Stricmp(line, "fr") == 0)
             {
               language = "français";
@@ -204,16 +216,28 @@ int ScanPOFile(char *pofile)
               CatDstCharset = "iso-8859-7";
             }
             else if(Stricmp(line, "hu") == 0)
+            {
               language = "magyar";
+              CodeSet = 112;
+              CatDstCharset = "iso-8859-16";
+            }
             else if(Stricmp(line, "it") == 0)
+            {
               language = "italiano";
+              CodeSet = 111;
+              CatDstCharset = "iso-8859-15";
+            }
             else if(Stricmp(line, "no") == 0)
+            {
               language = "norwegian";
+              CodeSet = 111;
+              CatDstCharset = "iso-8859-15";
+            }
             else if(Stricmp(line, "pl") == 0)
             {
               language = "polski";
-              CodeSet = 5;
-              CatDstCharset = "iso-8859-2";
+              CodeSet = 112;
+              CatDstCharset = "iso-8859-16";
             }
             else if(Stricmp(line, "pt_BR") == 0)
               language = "português-brasil";
@@ -222,10 +246,15 @@ int ScanPOFile(char *pofile)
             else if(Stricmp(line, "ru") == 0)
             {
               language = "russian";
-              CatDstCharset = "windows-1251";
+              CodeSet = 8;
+              CatDstCharset = "iso-8859-5";
             }
             else if(Stricmp(line, "sr") == 0)
+            {
               language = "srpski";
+              CodeSet = 112;
+              CatDstCharset = "iso-8859-16";
+            }
             else if(Stricmp(line, "sl") == 0)
             {
               language = "slovensko";
@@ -233,11 +262,23 @@ int ScanPOFile(char *pofile)
               CatDstCharset = "iso-8859-2";
             }
             else if(Stricmp(line, "es") == 0)
+            {
               language = "español";
+              CodeSet = 111;
+              CatDstCharset = "iso-8859-15";
+            }
             else if(Stricmp(line, "sv") == 0)
+            {
               language = "svenska";
+              CodeSet = 111;
+              CatDstCharset = "iso-8859-15";
+            }
             else if(Stricmp(line, "tr") == 0)
+            {
               language = "türkçe";
+              CodeSet = 12;
+              CatDstCharset = "iso-8859-9";
+            }
 
             if(language != NULL)
               CatLanguage = AddCatalogChunk(strdup("LANG"), language);

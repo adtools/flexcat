@@ -7,6 +7,8 @@ $URL$
 
 2014-02-16 Jens Maus <mail@jens-maus.de>
 
+  * scanpo.c: optimized the charset conversion routines to better match the
+    default charsets and MIBenum numbers of each language.
   * contrib/cd2po: added the cd2po.sh shell script to convert between the cd
     and po format as a contribution. This script was previously part of the
     YAM project but has been moved here because that's the place it belongs.
