@@ -199,7 +199,7 @@ int ScanPOFile(char *pofile)
             }
             else if(Stricmp(line, "fr") == 0)
             {
-              language = "franÃ§ais";
+              language = "français";
               CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
@@ -240,9 +240,9 @@ int ScanPOFile(char *pofile)
               CatDstCharset = "iso-8859-16";
             }
             else if(Stricmp(line, "pt_BR") == 0)
-              language = "portuguÃªs-brasil";
+              language = "português-brasil";
             else if(Stricmp(line, "pt") == 0)
-              language = "portuguÃªs";
+              language = "português";
             else if(Stricmp(line, "ru") == 0)
             {
               language = "russian";
@@ -263,7 +263,7 @@ int ScanPOFile(char *pofile)
             }
             else if(Stricmp(line, "es") == 0)
             {
-              language = "espaÃ±ol";
+              language = "español";
               CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
@@ -275,7 +275,7 @@ int ScanPOFile(char *pofile)
             }
             else if(Stricmp(line, "tr") == 0)
             {
-              language = "tÃ¼rkÃ§e";
+              language = "türkçe";
               CodeSet = 12;
               CatDstCharset = "iso-8859-9";
             }
