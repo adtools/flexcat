@@ -125,7 +125,7 @@ int ScanPOFile(char *pofile)
                   Strnicmp(line, "$Id: ", 5) == 0)
           {
             char *p;
-            
+
             line += 6;
             p = line;
 
@@ -313,7 +313,7 @@ int ScanPOFile(char *pofile)
 
               PoSrcCharset = strdup(p);
             }
- 
+
             CodeSet_checked = TRUE;
           }
           else if(Strnicmp(line, "\"PO-Revision-Date: ", 19) == 0)
@@ -573,7 +573,7 @@ int ScanPOFile(char *pofile)
           {
             char *t = ConvertString(line, PoSrcCharset, CatDstCharset);
 
-            cs->CD_Str = AddString(cs->CD_Str, t); 
+            cs->CD_Str = AddString(cs->CD_Str, t);
 
             //printf("CD_Str2: '%s' '%s'\n", cs->CD_Str, line);
 
@@ -583,7 +583,7 @@ int ScanPOFile(char *pofile)
           {
             char *t = ConvertString(line, PoSrcCharset, CatDstCharset);
 
-            cs->CT_Str = AddString(cs->CD_Str, t); 
+            cs->CT_Str = AddString(cs->CD_Str, t);
 
             //printf("CT_Str2: '%s' '%s'\n", cs->CT_Str, line);
 

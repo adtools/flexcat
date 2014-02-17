@@ -121,7 +121,7 @@ else
     CFLAGS      +=  -noixemul -DNO_INLINE_STDARG -m68020-60 -msoft-float -D__amigaos3__
     LDFLAGS     =   -noixemul
     LDLIBS      =   -lamiga
-    CATOBJS     =   locale.o getft.o openlibs.o vastubs.o
+    CATOBJS     =   locale.o getft.o openlibs.o strptime.o vastubs.o
 
     #########################################################################
 

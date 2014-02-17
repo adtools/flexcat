@@ -9,6 +9,8 @@ $URL$
 
   * openlibs.c, utils.c: partly fixed the broken AmigaOS3 build. There are still
     unresolved references to strptime.
+  * strptime.c: added a simple custom implementation of strptime() based on a
+    similar function in YAM.
 
 2014-02-16 Jens Maus <mail@jens-maus.de>
 
