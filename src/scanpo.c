@@ -46,6 +46,10 @@ extern int   CT_Scanned;
                                 ((c) >= 'a' && (c) <= 'z') || \
                                 ((c) >= 'A' && (c) <= 'Z'))
 
+#if defined(__amigaos3__) || defined(__MORPHOS__)
+char *strptime(const char *string, const char *fmt, struct tm *res);
+#endif
+
 /// ScanCTFile
 
 /* This function scans a PO-style format catalog description/translation file.
@@ -246,8 +250,12 @@ int ScanPOFile(char *pofile)
             else if(Stricmp(line, "ru") == 0)
             {
               language = "russian";
-              CodeSet = 8;
-              CatDstCharset = "iso-8859-5";
+              CodeSet = 2104;
+              #if defined(AMIGA)
+              CatDstCharset = "Amiga-1251";
+              #else
+              CatDstCharset = "windows-1251"; // iconv doesn't know anything about Amiga-1251 :(
+              #endif
             }
             else if(Stricmp(line, "sr") == 0)
             {

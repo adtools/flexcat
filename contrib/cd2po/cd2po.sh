@@ -836,7 +836,7 @@ identifyCharset()
       charset="iso-8859-16"
     ;;
     russian)
-      charset="iso-8859-5"
+      charset="windows-1251" # this should be "Amiga-1251" but iconv doesn't support it :(
     ;;
     serbian)
       charset="iso-8859-16"
@@ -904,7 +904,7 @@ identifyCodeset()
       codeset="112"
     ;;
     russian)
-      codeset="8"
+      codeset="2104" # 'Amiga-1251'
     ;;
     serbian)
       codeset="112"

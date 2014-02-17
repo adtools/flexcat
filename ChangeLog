@@ -5,6 +5,14 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-02-17 Jens Maus <mail@jens-maus.de>
+
+  * contrib/cd2po, scanpo.c: now "Amiga-1251" will be used for the charset
+    conversion of russian catalogs. This however is currently only possible for
+    the native builds of FlexCat. For the cd2po script and for the unix version
+    where the iconv library is used for charset conversion "windows-1251" will
+    be used instead which should be fine for most cases (non-console apps)
+
 2014-02-17 Thore Böckelmann <tboeckel@gmx.de>
 
   * openlibs.c, utils.c: partly fixed the broken AmigaOS3 build. There are still
