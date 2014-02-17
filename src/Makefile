@@ -105,9 +105,9 @@ ifeq ($(OS), mos)
   CC          =   ppc-morphos-gcc
   STRIP       =   ppc-morphos-strip
   CFLAGS      +=  -noixemul -mcpu=powerpc
-  LDFLAGS     =   -noixemul
+  LDFLAGS     =   -noixemul -Llib/mos
   OBJS        +=  asprintf.o vasprintf.o
-  LDLIBS      =   -lauto -Llib -lcodesets
+  LDLIBS      =   -lauto -lcodesets
   CATOBJS     =   locale.o openlibs.o strptime.o
 
   ###########################################################################
