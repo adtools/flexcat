@@ -108,7 +108,7 @@ ifeq ($(OS), mos)
   LDFLAGS     =   -noixemul
   OBJS        +=  asprintf.o vasprintf.o
   LDLIBS      =   -lauto
-  CATOBJS     =   locale.o
+  CATOBJS     =   locale.o openlibs.o
 
   ###########################################################################
 else
@@ -118,7 +118,7 @@ else
 
     CC          =   m68k-amigaos-gcc
     STRIP       =   m68k-amigaos-strip
-    CFLAGS      +=  -noixemul -DNO_INLINE_STDARG -m68020-60 -msoft-float
+    CFLAGS      +=  -noixemul -DNO_INLINE_STDARG -m68020-60 -msoft-float -D__amigaos3__
     LDFLAGS     =   -noixemul
     LDLIBS      =   -lamiga
     CATOBJS     =   locale.o getft.o openlibs.o vastubs.o
@@ -135,7 +135,7 @@ else
       CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
       LDFLAGS     =   -mcrt=newlib
       LDLIBS      =   -lauto
-      CATOBJS     =   locale.o getft.o
+      CATOBJS     =   locale.o getft.o openlibs.o
 
       #######################################################################
 
@@ -148,7 +148,7 @@ else
         LDFLAGS     =
         OBJS        +=  asprintf.o vasprintf.o
         LDLIBS      =   -lamiga
-        CATOBJS     =   locale.o
+        CATOBJS     =   locale.o openlibs.o
 
         ###############################################################
 

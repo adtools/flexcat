@@ -20,25 +20,41 @@
  *
  */
 
+#if defined(AMIGA)
 #include "flexcat.h"
 #include "openlibs.h"
+#include "utils.h"
 #include <proto/exec.h>
 #include <proto/utility.h>
 #include <proto/intuition.h>
 #include <proto/locale.h>
+#include <proto/codesets.h>
 
+#if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
 struct Library *UtilityBase = NULL;
 struct IntuitionBase *IntuitionBase = NULL;
 struct LocaleBase *LocaleBase = NULL;
+#endif
+struct Library *CodesetsBase = NULL;
 
-#if defined(__amigados) && !defined(__amigaos4__) && !defined(__MORPHOS__)
+#if defined(__amigaos4__)
+struct CodesetsIFace *ICodesets = NULL;
+#endif
+
+
 BOOL OpenLibs(void)
 {
+  #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
   if((UtilityBase = OpenLibrary("utility.library", 37)) != NULL &&
      (IntuitionBase = (struct IntuitionBase *)OpenLibrary("intuition.library", 37)) != NULL &&
      (LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 37)) != NULL)
+  #endif
   {
-    return TRUE;
+    if((CodesetsBase = OpenLibrary(CODESETSNAME, CODESETSVER)) &&
+       GETINTERFACE(ICodesets, CodesetsBase))
+    {
+      return TRUE;
+    }
   }
 
   return FALSE;
@@ -46,6 +62,7 @@ BOOL OpenLibs(void)
 
 void CloseLibs(void)
 {
+  #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
   if(UtilityBase != NULL)
   {
     CloseLibrary(UtilityBase);
@@ -61,5 +78,14 @@ void CloseLibs(void)
     CloseLibrary((struct Library *)LocaleBase);
     LocaleBase = NULL;
   }
+  #endif
+
+  if(CodesetsBase != NULL)
+  {
+    DROPINTERFACE(ICodesets);
+    CloseLibrary(CodesetsBase);
+    CodesetsBase = NULL;
+  }
 }
-#endif
+
+#endif // AMIGA

@@ -33,10 +33,13 @@ $URL$
 
 2013-06-03 Thore Böckelmann <tboeckel@gmx.de>
 
-2013-04-30 Thore Böckelmann <tboeckel@gmx.de>
-
   * Makefile: removed -lunix from LDFLAGS for the AmigaOS4 build. This closes
     #22.
+
+2013-04-30 Thore Böckelmann <tboeckel@gmx.de>
+
+  * catalogs/greek.ct: updated greek translation kindly provided by Antonis
+    Iliakis.
 
 #### FlexCat 2.12 RELEASE ################################################
 

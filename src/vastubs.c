@@ -45,6 +45,14 @@
 struct Catalog *OpenCatalog(struct Locale *locale, STRPTR name, Tag tag1, ...)
 { return OpenCatalogA(locale, name, (struct TagItem *)&tag1); }
 
+#include <proto/codesets.h>
+struct codeset *CodesetsFind(STRPTR name, Tag tag1, ...)
+{ return CodesetsFindA(name, (struct TagItem *)&tag1); }
+STRPTR CodesetsConvertStr(Tag tag1, ...)
+{ return CodesetsConvertStrA((struct TagItem *)&tag1); }
+STRPTR CodesetsUTF8ToStr(Tag tag1, ...)
+{ return CodesetsUTF8ToStrA((struct TagItem *)&tag1); }
+
 #else
   #error "VARGS stubs are only save on m68k systems!"
 #endif // !defined(__PPC__)

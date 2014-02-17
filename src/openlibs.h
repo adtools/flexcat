@@ -20,10 +20,15 @@
  *
  */
 
-#if defined(__amigados) && !defined(__amigaos4__) && !defined(__MORPHOS__)
+#ifndef OPENLIBS_H
+#define OPENLIBS_H 1
+
+#if defined(AMIGA)
 BOOL OpenLibs(void);
 void CloseLibs(void);
 #else
 #define OpenLibs()    TRUE
 #define CloseLibs()   ((void)0)
 #endif
+
+#endif /* OPENLIBS_H */

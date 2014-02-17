@@ -20,10 +20,10 @@
  *
  */
 
-#ifndef AMIGA
-  #include <iconv.h>
-#else
+#if defined(AMIGA)
   #include <proto/codesets.h>
+#else
+  #include <iconv.h>
 #endif
 
 #include "flexcat.h"
@@ -184,67 +184,55 @@ char *AddString(char *str, const char *astr)
 char *ConvertString(char *str, const char *from_charset, const char *to_charset)
 {
   char *result = NULL;
-  struct Library *CodesetsBase = NULL;
-  #if defined(__amigaos4__)
-  struct CodesetsIFace *ICodesets = NULL;
-  #endif
+  struct codeset *dstCodeset;
 
-  if((CodesetsBase = OpenLibrary(CODESETSNAME, CODESETSVER)) &&
-     GETINTERFACE(ICodesets, CodesetsBase))
+  dstCodeset = CodesetsFind((STRPTR)to_charset,
+                            CSA_FallbackToDefault, FALSE,
+                            TAG_DONE);
+  if(dstCodeset != NULL)
   {
-    struct codeset *dstCodeset;
+    ULONG dstLen = 0;
+    char *dstText = NULL;
 
-    dstCodeset = CodesetsFind((STRPTR)to_charset,
-                              CSA_FallbackToDefault, FALSE,
-                              TAG_DONE);
-    if(dstCodeset != NULL)
+    if(Stricmp(from_charset, "UTF-8") == 0 || Stricmp(from_charset, "UTF8") == 0)
     {
-      ULONG dstLen = 0;
-      char *dstText = NULL;
-
-      if(Stricmp(from_charset, "UTF-8") == 0 || Stricmp(from_charset, "UTF8") == 0)
-      {
-        dstText = CodesetsUTF8ToStr(CSA_Source,      str,
-                                    CSA_DestCodeset, dstCodeset,
-                                    CSA_DestLenPtr,  &dstLen,
-                                    TAG_DONE);
-      }
-      else
-      {
-        struct codeset *srcCodeset;
- 
-        srcCodeset = CodesetsFind((STRPTR)from_charset,
-                                  CSA_FallbackToDefault, FALSE,
+      dstText = CodesetsUTF8ToStr(CSA_Source,      str,
+                                  CSA_DestCodeset, dstCodeset,
+                                  CSA_DestLenPtr,  &dstLen,
                                   TAG_DONE);
+    }
+    else
+    {
+      struct codeset *srcCodeset;
 
-        if(srcCodeset != NULL)
-        {
-          dstText = CodesetsConvertStr(CSA_Source,        str,
-                                       CSA_SourceCodeset, srcCodeset,
-                                       CSA_DestCodeset,   dstCodeset,
-                                       CSA_DestLenPtr,    &dstLen,
-                                       TAG_DONE);
-        }
-      }
+      srcCodeset = CodesetsFind((STRPTR)from_charset,
+                                CSA_FallbackToDefault, FALSE,
+                                TAG_DONE);
 
-      if(dstText != NULL && dstLen != 0)
+      if(srcCodeset != NULL)
       {
-        char *buf;
-
-        // copy the converted string into a separate alloced string
-        if((buf = malloc(dstLen*sizeof(char))) != NULL)
-        {
-          memcpy(buf, dstText, dstLen*sizeof(char));
-          buf[dstLen] = '\0';
-          result = buf;
-        }
-
-        CodesetsFreeA(dstText, NULL);
+        dstText = CodesetsConvertStr(CSA_Source,        str,
+                                     CSA_SourceCodeset, srcCodeset,
+                                     CSA_DestCodeset,   dstCodeset,
+                                     CSA_DestLenPtr,    &dstLen,
+                                     TAG_DONE);
       }
     }
 
-    DROPINTERFACE(ICodesets);
-    CloseLibrary(CodesetsBase);
+    if(dstText != NULL && dstLen != 0)
+    {
+      char *buf;
+
+      // copy the converted string into a separate alloced string
+      if((buf = malloc(dstLen*sizeof(char))) != NULL)
+      {
+        memcpy(buf, dstText, dstLen*sizeof(char));
+        buf[dstLen] = '\0';
+        result = buf;
+      }
+
+      CodesetsFreeA(dstText, NULL);
+    }
   }
 
   return result;
@@ -278,12 +266,12 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
     }
     else
       MemError();
-    
+
     iconv_close(ict);
   }
   else
     printf("ERROR: iconv_open()\n");
-  
+
   return result;
 }
 #endif
@@ -514,43 +502,43 @@ int ReadChar(char **strptr, char *dest)
         case '\n':
           return(0);
         break;
-          
+
         case 'b':
           *dest = '\b';
         break;
-          
+
         case 'c':
           *dest = '\233';
         break;
-          
+
         case 'e':
           *dest = '\033';
         break;
-          
+
         case 'f':
           *dest = '\f';
         break;
-          
+
         case 'g':
           *dest = '\007';
         break;
-          
+
         case 'n':
           *dest = '\n';
         break;
-          
+
         case 'r':
           *dest = '\r';
         break;
-          
+
         case 't':
           *dest = '\t';
         break;
-          
+
         case 'v':
           *dest = '\013';
         break;
-          
+
         case 'x':
         {
           *dest = gethex((int)**strptr);
@@ -565,7 +553,7 @@ int ReadChar(char **strptr, char *dest)
           }
         }
         break;
-          
+
         case '0':
         case '1':
         case '2':
@@ -588,14 +576,14 @@ int ReadChar(char **strptr, char *dest)
           }
         }
         break;
-          
+
         case ')':
         case '\\':
           *(dest++) = '\\';
           *dest = c;
           return(2);
         break;
-          
+
         default:
           *dest = c;
         break;
