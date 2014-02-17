@@ -24,6 +24,7 @@
 #include "flexcat.h"
 #include "openlibs.h"
 #include "utils.h"
+#define __NOLIBBASE__
 #include <proto/exec.h>
 #include <proto/utility.h>
 #include <proto/intuition.h>

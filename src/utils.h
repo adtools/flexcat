@@ -45,6 +45,10 @@ int             Stricmp ( const char *str1, const char *str2 );
 int             Strnicmp ( const char *str1, const char *str2, int len );
 #endif // __amigados
 
+#if defined(__amigaos3__) || defined(__MORPHOS__)
+char *strptime(const char *string, const char *fmt, struct tm *res);
+#endif
+
 #if defined(__amigaos4__)
 #define GETINTERFACE(iface, base) (iface = (APTR)GetInterface((struct Library *)(base), "main", 1L, NULL))
 #define DROPINTERFACE(iface)      (DropInterface((struct Interface *)iface), iface = NULL)
