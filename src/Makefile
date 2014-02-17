@@ -107,8 +107,8 @@ ifeq ($(OS), mos)
   CFLAGS      +=  -noixemul -mcpu=powerpc
   LDFLAGS     =   -noixemul
   OBJS        +=  asprintf.o vasprintf.o
-  LDLIBS      =   -lauto
-  CATOBJS     =   locale.o openlibs.o
+  LDLIBS      =   -lauto -Llib -lcodesets
+  CATOBJS     =   locale.o openlibs.o strptime.o
 
   ###########################################################################
 else

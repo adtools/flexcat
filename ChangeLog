@@ -7,6 +7,8 @@ $URL$
 
 2014-02-17 Jens Maus <mail@jens-maus.de>
 
+  * Makefile, lib/libcodesets.a: modified build environment to also perfectly
+    build FlexCat for MorphOS again.
   * contrib/cd2po, scanpo.c: now "Amiga-1251" will be used for the charset
     conversion of russian catalogs. This however is currently only possible for
     the native builds of FlexCat. For the cd2po script and for the unix version

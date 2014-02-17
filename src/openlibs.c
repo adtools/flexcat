@@ -33,7 +33,11 @@
 #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
 struct Library *UtilityBase = NULL;
 struct IntuitionBase *IntuitionBase = NULL;
+#if defined(__MORPHOS__)
+struct Library *LocaleBase = NULL;
+#else
 struct LocaleBase *LocaleBase = NULL;
+#endif
 #endif
 struct Library *CodesetsBase = NULL;
 
@@ -47,7 +51,11 @@ BOOL OpenLibs(void)
   #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
   if((UtilityBase = OpenLibrary("utility.library", 37)) != NULL &&
      (IntuitionBase = (struct IntuitionBase *)OpenLibrary("intuition.library", 37)) != NULL &&
+     #if defined(__MORPHOS__)
+     (LocaleBase = (struct Library *)OpenLibrary("locale.library", 37)) != NULL)
+     #else
      (LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 37)) != NULL)
+     #endif
   #endif
   {
     if((CodesetsBase = OpenLibrary(CODESETSNAME, CODESETSVER)) &&
