@@ -72,24 +72,7 @@ OBJS = createcat.o \
        utils.o \
        $(CATOBJS)
 
-CATALOGS = catalogs/croatian.catalog \
-           catalogs/czech.catalog \
-           catalogs/danish.catalog \
-           catalogs/dutch.catalog \
-           catalogs/finnish.catalog \
-           catalogs/french.catalog \
-           catalogs/german.catalog \
-           catalogs/greek.catalog \
-           catalogs/hungarian.catalog \
-           catalogs/italian.catalog \
-           catalogs/norwegian.catalog \
-           catalogs/polish.catalog \
-           catalogs/portuguese.catalog \
-           catalogs/serbian.catalog \
-           catalogs/slovenian.catalog \
-           catalogs/spanish.catalog \
-           catalogs/swedish.catalog
-           # catalogs/turkish.catalog
+CATALOGS = $(patsubst %.po,%.catalog,$(wildcard locale/*.po))
 
 # Default CPU for AROS
 ifndef (CPU)
@@ -234,25 +217,25 @@ $(TARGET): $(CATFILES) $(addprefix $(OBJDIR)/,$(OBJS))
 	@echo "  LD $@"
 	@$(STRIP) --preserve-dates -R.comment -R.sdata2 -S -o $@ $@.debug
 
-locale.c: catalogs/FlexCat.cd lib/NoAutoC_c.sd
+locale.c: locale/FlexCat.pot sd/NoAutoC_c.sd
 	@echo "  FC $@"
-	@$(FLEXCAT) catalogs/FlexCat.cd locale.c=lib/NoAutoC_c.sd
+	@$(FLEXCAT) locale/FlexCat.pot locale.c=sd/NoAutoC_c.sd
 
-FlexCat_cat.h: catalogs/FlexCat.cd lib/NoAutoC_h.sd
+FlexCat_cat.h: locale/FlexCat.pot sd/NoAutoC_h.sd
 	@echo "  FC $@"
-	@$(FLEXCAT) catalogs/FlexCat.cd FlexCat_cat.h=lib/NoAutoC_h.sd
+	@$(FLEXCAT) locale/FlexCat.pot FlexCat_cat.h=sd/NoAutoC_h.sd
 
-locale_other.c: catalogs/FlexCat.cd lib/Hardcode_c.sd
+locale_other.c: locale/FlexCat.pot sd/Hardcode_c.sd
 	@echo "  FC $@"
-	@$(FLEXCAT) catalogs/FlexCat.cd locale_other.c=lib/Hardcode_c.sd
+	@$(FLEXCAT) locale/FlexCat.pot locale_other.c=sd/Hardcode_c.sd
 
-FlexCat_cat_other.h: catalogs/FlexCat.cd lib/Hardcode_h.sd
+FlexCat_cat_other.h: locale/FlexCat.pot sd/Hardcode_h.sd
 	@echo "  FC $@"
-	@$(FLEXCAT) catalogs/FlexCat.cd FlexCat_cat_other.h=lib/Hardcode_h.sd
+	@$(FLEXCAT) locale/FlexCat.pot FlexCat_cat_other.h=sd/Hardcode_h.sd
 
-catalogs/%.catalog: catalogs/%.ct catalogs/FlexCat.cd
+locale/%.catalog: locale/%.po
 	@echo "  MK $@"
-	@$(FLEXCAT) catalogs/FlexCat.cd $< CATALOG $@
+	@$(FLEXCAT) POFILE $< CATALOG $@
 
 .IGNORE: $(CATALOGS)
 
@@ -268,6 +251,7 @@ cleanall: clean
 	-$(RM) FlexCat_cat_other.h
 	-$(RM) locale.c
 	-$(RM) locale_other.c
+	-$(RM) locale/*.catalog
 	-$(RMDIR) $(OBJDIR)
 
 doc:

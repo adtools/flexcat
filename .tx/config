@@ -1,0 +1,24 @@
+[main]
+host = https://www.transifex.com
+
+[flexcat.trunk]
+source_file = src/locale/FlexCat.pot
+source_lang = en
+trans.cs = src/locale/czech.po
+trans.da = src/locale/danish.po
+trans.de = src/locale/german.po
+trans.el = src/locale/greek.po
+trans.es = src/locale/spanish.po
+trans.fi = src/locale/finnish.po
+trans.fr = src/locale/french.po
+trans.hu = src/locale/hungarian.po
+trans.hr = src/locale/croatian.po
+trans.it = src/locale/italian.po
+trans.nl = src/locale/dutch.po
+trans.no = src/locale/norwegian.po
+trans.pl = src/locale/polish.po
+trans.pt = src/locale/portuguese.po
+trans.sl = src/locale/slovenian.po
+trans.sr = src/locale/serbian.po
+trans.sv = src/locale/swedish.po
+trans.tr = src/locale/turkish.po

@@ -1,8 +1,8 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.12'
-   from "catalogs/FlexCat.cd".
+   This file was created automatically by `FlexCat 2.13'
+   from "locale/FlexCat.pot".
 
    Do NOT edit by hand!
 
@@ -19,27 +19,7 @@
 struct FC_String FlexCat_Strings[] =
 {
    { "Usage:", 0 },
-   { "  CDFILE         Catalog description file to scan\n"\
-	"  CTFILE         Catalog translation file to scan\n"\
-	"  POFILE         Catalog translation in PO-style format\n"\
-	"  CATALOG        Catalog file to create\n"\
-	"  NEWCTFILE      Catalog translation file to create\n"\
-	"  SOURCES        Sources to create; must be something like SFILE=SDFILE,\n"\
-	"                 where SFILE is a source file and SDFILE is a source\n"\
-	"                 description file\n"\
-	"  WARNCTGAPS     Warn about identifiers missing in translation\n"\
-	"  NOOPTIM        Do not skip unchanged strings in translation/description\n"\
-	"  FILL           Fill missing identifiers with original text\n"\
-	"  FLUSH          Flush memory after the catalog is created\n"\
-	"  NOBEEP         No DisplayBeep() on errors and warnings\n"\
-	"  QUIET          No warnings\n"\
-	"  NOLANGTOLOWER  Prevent #language name from being lowercased\n"\
-	"  NOBUFFEREDIO   Disable I/O buffers\n"\
-	"  MODIFIED       Create catalog only if description/translation have changed\n"\
-	"  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"\
-	"  OLDMSGNEW      Custom marker in old translation\n"\
-	"  NOAUTODATE     no operation - kept for compatibility\n"\
-	"  NOSPACES       no operation - kept for compatibility", 1 },
+   { "  CDFILE         Catalog description file to scan\n  CTFILE         Catalog translation file to scan\n  POFILE         Catalog translation in PO-style format\n  CATALOG        Catalog file to create\n  NEWCTFILE      Catalog translation file to create\n  SOURCES        Sources to create; must be something like SFILE=SDFILE,\n                 where SFILE is a source file and SDFILE is a source\n                 description file\n  WARNCTGAPS     Warn about identifiers missing in translation\n  NOOPTIM        Do not skip unchanged strings in translation/description\n  FILL           Fill missing identifiers with original text\n  FLUSH          Flush memory after the catalog is created\n  NOBEEP         No DisplayBeep() on errors and warnings\n  QUIET          No warnings\n  NOLANGTOLOWER  Prevent #language name from being lowercased\n  NOBUFFEREDIO   Disable I/O buffers\n  MODIFIED       Create catalog only if description/translation have changed\n  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n  OLDMSGNEW      Custom marker in old translation\n  NOAUTODATE     no operation - kept for compatibility\n  NOSPACES       no operation - kept for compatibility", 1 },
    { "File '%s' is up to date", 2 },
    { "%s, line %d - warning:", 100 },
    { "%s, line %d - ERROR:", 101 },
@@ -62,8 +42,7 @@ struct FC_String FlexCat_Strings[] =
    { "out of memory!", 127 },
    { "cannot open catalog description '%s'", 128 },
    { "cannot open catalog translation '%s'", 129 },
-   { "missing catalog translation version\n"\
-	"Use either '## version' or '## rcsid' and '## name'", 130 },
+   { "missing catalog translation version\nUse either '## version' or '## rcsid' and '## name'", 130 },
    { "cannot open catalog file '%s'", 131 },
    { "cannot create catalog translation '%s'", 132 },
    { "missing catalog translation language", 133 },
@@ -71,23 +50,15 @@ struct FC_String FlexCat_Strings[] =
    { "cannot open source description file '%s'", 135 },
    { "creating a catalog requires a translation file", 136 },
    { "cannot get datestamp of '%s'", 137 },
-   { "Catalog translation file name not specified at "\
-	"command line or as basename in description", 140 },
-   { "catalog file name not specified at command line or "\
-	"as basename in description", 141 },
-   { "error processing 'FlexCat.prefs' variable, falling back to defaults\n"\
-	"Template:", 142 },
-   { "invalid language in catalog translation file\n"\
-	"Language MUST be a string with alphabetical characters and no inlined or trailing spaces", 144 },
+   { "Catalog translation file name not specified at command line or as basename in description", 140 },
+   { "catalog file name not specified at command line or as basename in description", 141 },
+   { "error processing 'FlexCat.prefs' variable, falling back to defaults\nTemplate:", 142 },
+   { "invalid language in catalog translation file\nLanguage MUST be a string with alphabetical characters and no inlined or trailing spaces", 144 },
    { "catalog codeset declared twice", 146 },
-   { "invalid codeset in catalog translation file\n"\
-	"Codeset MUST be a decimal number without any trailing spaces", 147 },
+   { "invalid codeset in catalog translation file\nCodeset MUST be a decimal number without any trailing spaces", 147 },
    { "missing catalog translation codeset", 148 },
    { "%s - ERROR:", 149 },
-   { "invalid version string in catalog translation file\n"\
-	"Version should be something like\n"\
-	"## version $VER: name version.revision (date)\n"\
-	"without any spaces in the name", 150 },
+   { "invalid version string in catalog translation file\nVersion should be something like\n## version $VER: name version.revision (date)\nwithout any spaces in the name", 150 },
    { "%s - Warning:", 154 },
    { "missing translation for identifier '%s'", 155 },
    { "empty translation for identifier '%s'", 156 },

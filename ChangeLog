@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-02-18 Jens Maus <mail@jens-maus.de>
+
+  * locale: moved all ct/cd based translation files over to po/pot files now
+    that the FlexCat is managed on transifex as well:
+    (https://www.transifex.com/projects/p/flexcat/).
+
 2014-02-17 Jens Maus <mail@jens-maus.de>
 
   * Makefile, lib/libcodesets.a: modified build environment to also perfectly
