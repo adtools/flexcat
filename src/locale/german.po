@@ -7,7 +7,6 @@
 # language english
 # 
 # Translators:
-# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
