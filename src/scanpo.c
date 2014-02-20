@@ -597,7 +597,7 @@ int ScanPOFile(char *pofile)
           {
             char *t = ConvertString(line, PoSrcCharset, CatDstCharset);
 
-            cs->CT_Str = AddString(cs->CD_Str, t);
+            cs->CT_Str = AddString(cs->CT_Str, t);
 
             //printf("CT_Str2: '%s' '%s'\n", cs->CT_Str, line);
 
