@@ -40,5 +40,6 @@ extern int      Modified;
 extern char     Msg_New[MAX_NEW_STR_LEN];
 extern int      CopyNEWs;
 extern char     Old_Msg_New[MAX_NEW_STR_LEN];
+extern char     DestCodeset[MAX_NEW_STR_LEN];
 
 #endif  /* FLEXCAT_READPREFS_H */

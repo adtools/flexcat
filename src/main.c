@@ -51,6 +51,10 @@ int isParam(char *input_string)
     return TRUE;
   if(Strnicmp(input_string, "pofile=", 7) == 0)
     return TRUE;
+  if(Stricmp(input_string, "codeset") == 0)
+    return TRUE;
+  if(Strnicmp(input_string, "codeset=", 8) == 0)
+    return TRUE;
   if(Stricmp(input_string, "nooptim") == 0)
     return TRUE;
   if(Stricmp(input_string, "fill") == 0)
@@ -85,6 +89,7 @@ int isParam(char *input_string)
     return TRUE;
   if(Stricmp(input_string, "--help") == 0)
     return TRUE;
+
   return FALSE;
 }
 
@@ -184,6 +189,25 @@ int main(int argc, char *argv[])
         }
         else
           pofile = NULL;
+      }
+    }
+    else if(Strnicmp(argv[i], "codeset=", 8) == 0)
+    {
+      strcpy(DestCodeset, argv[i] + 8);
+    }
+    else if(Stricmp(argv[i], "codeset") == 0)
+    {
+      if(i == argc - 1)
+        DestCodeset[0] = '\0';
+      else if(i < argc - 1)
+      {
+        if(isParam(argv[i + 1]) != TRUE)
+        {
+          strcpy(DestCodeset, argv[i + 1]);
+          i++;
+        }
+        else
+          DestCodeset[0] = '\0';
       }
     }
     else if(Stricmp(argv[i], "nooptim") == 0)

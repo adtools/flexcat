@@ -699,7 +699,7 @@ void Usage(void)
       "     FlexCat CDFILE/A,CTFILE,POFILE,CATALOG/K,NEWCTFILE/K,SOURCES/M,\n" \
       "             WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,\n" \
       "             QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,\n" \
-      "             COPYMSGNEW/S,OLDMSGNEW/K\n" \
+      "             CODESET/K,COPYMSGNEW/S,OLDMSGNEW/K\n" \
       "\n", MSG_USAGE_HEAD);
   fprintf(stderr, "%s\n", MSG_USAGE);
   MyExit(5);

@@ -5,6 +5,13 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-02-21 Jens Maus <mail@jens-maus.de>
+
+  * scanpo.c, main.c, misc: implemented a new "CODESET" command line option
+    which allows to force the output codeset. By specifying this option a
+    user can force FlexCat to output the catalog strings in a certain
+    codeset encoding (e.g. UTF-8).
+
 2014-02-18 Jens Maus <mail@jens-maus.de>
 
   * locale: moved all ct/cd based translation files over to po/pot files now

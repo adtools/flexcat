@@ -66,8 +66,8 @@ int ScanPOFile(char *pofile)
   int revision_found = FALSE;
   int inHeader = TRUE;
   int NextID = 0;
-  const char *PoSrcCharset = NULL;
-  const char *CatDstCharset = NULL;
+  const char *PoSrcCharset = "utf-8";
+  const char *CatDstCharset = "iso-8859-1";
   char CatVersionDate[255] = "";
   char CatProjectName[255] = "";
   struct CatString *cs = NULL;
@@ -160,10 +160,6 @@ int ScanPOFile(char *pofile)
             if(CatLanguage)
               ShowError(MSG_ERR_DOUBLECTLANGUAGE);
 
-            // set iso-8859-1 as default
-            CodeSet = 4;
-            CatDstCharset = "iso-8859-1";
-
             line += 11;
             p = strchr(line, '\\');
             if(p != NULL)
@@ -172,31 +168,26 @@ int ScanPOFile(char *pofile)
             if(Stricmp(line, "bs") == 0)
             {
               language = "bosanski";
-              CodeSet = 5;
               CatDstCharset = "iso-8859-2";
             }
             else if(Stricmp(line, "hr") == 0)
             {
               language = "croatian";
-              CodeSet = 112;
               CatDstCharset = "iso-8859-16";
             }
             else if(Stricmp(line, "cs") == 0)
             {
               language = "czech";
-              CodeSet = 5;
               CatDstCharset = "iso-8859-2";
             }
             else if(Stricmp(line, "da") == 0)
             {
               language = "danish";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "nl") == 0)
             {
               language = "dutch";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "en_GB") == 0)
@@ -204,49 +195,41 @@ int ScanPOFile(char *pofile)
             else if(Stricmp(line, "fi") == 0)
             {
               language = "suomi";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "fr") == 0)
             {
               language = "français";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "de") == 0)
             {
               language = "deutsch";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "el") == 0)
             {
               language = "greek";
-              CodeSet = 10;
               CatDstCharset = "iso-8859-7";
             }
             else if(Stricmp(line, "hu") == 0)
             {
               language = "magyar";
-              CodeSet = 112;
               CatDstCharset = "iso-8859-16";
             }
             else if(Stricmp(line, "it") == 0)
             {
               language = "italiano";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "no") == 0)
             {
               language = "norsk";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "pl") == 0)
             {
               language = "polski";
-              CodeSet = 112;
               CatDstCharset = "iso-8859-16";
             }
             else if(Stricmp(line, "pt_BR") == 0)
@@ -256,7 +239,6 @@ int ScanPOFile(char *pofile)
             else if(Stricmp(line, "ru") == 0)
             {
               language = "russian";
-              CodeSet = 2104;
               #if defined(AMIGA)
               CatDstCharset = "Amiga-1251";
               #else
@@ -266,31 +248,26 @@ int ScanPOFile(char *pofile)
             else if(Stricmp(line, "sr") == 0)
             {
               language = "srpski";
-              CodeSet = 112;
               CatDstCharset = "iso-8859-16";
             }
             else if(Stricmp(line, "sl") == 0)
             {
               language = "slovensko";
-              CodeSet = 5;
               CatDstCharset = "iso-8859-2";
             }
             else if(Stricmp(line, "es") == 0)
             {
               language = "español";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "sv") == 0)
             {
               language = "svenska";
-              CodeSet = 111;
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "tr") == 0)
             {
               language = "türkçe";
-              CodeSet = 12;
               CatDstCharset = "iso-8859-9";
             }
 
@@ -529,6 +506,11 @@ int ScanPOFile(char *pofile)
       {
         char *p;
 
+        // if the user want to force a certain output (destination)
+        // codeset we set it here.
+        if(DestCodeset[0] != '\0')
+          CatDstCharset = DestCodeset;
+
         // make sure double-backslashes end up in single
         // back slashes
         while((p = strstr(line, "\\\\033")))
@@ -623,6 +605,26 @@ int ScanPOFile(char *pofile)
   if(!(CatVersionString || (CatRcsId && CatName)))
     ShowErrorQuick(MSG_ERR_NOCTVERSION);
 
+  // lets translate CatDstCharset to CodeSet number
+  if(Stricmp(CatDstCharset, "iso-8859-1") == 0)
+    CodeSet = 4;
+  else if(Stricmp(CatDstCharset, "iso-8859-2") == 0)
+    CodeSet = 5;
+  else if(Stricmp(CatDstCharset, "iso-8859-7") == 0)
+    CodeSet = 10;
+  else if(Stricmp(CatDstCharset, "iso-8859-9") == 0)
+    CodeSet = 12;
+  else if(Stricmp(CatDstCharset, "utf-8") == 0 || Stricmp(CatDstCharset, "utf8") == 0)
+    CodeSet = 106;
+  else if(Stricmp(CatDstCharset, "iso-8859-15") == 0)
+    CodeSet = 111;
+  else if(Stricmp(CatDstCharset, "iso-8859-16") == 0)
+    CodeSet = 112;
+  else if(Stricmp(CatDstCharset, "amiga-1251") == 0 || Stricmp(CatDstCharset, "windows-1251"))
+    CodeSet = 2104;
+  else
+    CodeSet = 0;
+ 
   // check consistenty of translations found
   for(cs = FirstCatString; cs != NULL; cs = cs->Next)
   {

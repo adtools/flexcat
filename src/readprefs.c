@@ -48,6 +48,10 @@ char  Old_Msg_New[MAX_NEW_STR_LEN] = "; ***NEW***"; /* Old new string(above) use
                                                        CT file. Now we look if it's present
                                                        and copy it into new CT if the user
                                                        upgrades(flexcat CD CT newctfile CT */
+char DestCodeset[MAX_NEW_STR_LEN] = "";             /* To which codeset should we convert to
+                                                       If empty then this signals that FlexCat
+                                                       should automatically find out which codeset
+                                                       to be used */
 
 
 char prefs_sddir[MAXPATHLEN] = "\0";
@@ -69,6 +73,7 @@ char ReadPrefs(void)
   {
     SDDIR,
     MSG_NEW,
+    CODESET,
     WARNCTGAPS,
     NOOPTIM,
     FILL,
@@ -85,7 +90,7 @@ char ReadPrefs(void)
     ARGS_COUNT
   };
 
-  const char template[] = "SDDIR/K,MSG_NEW/K,WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,COPYMSGNEW/S,OLDMSGNEW/K,NOAUTODATE/S,NOSPACES/S";
+  const char template[] = "SDDIR/K,MSG_NEW/K,CODESET/K,WARNCTGAPS/S,NOOPTIM/S,FILL/S,FLUSH/S,NOBEEP/S,QUIET/S,NOLANGTOLOWER/S,NOBUFFEREDIO/S,MODIFIED/S,COPYMSGNEW/S,OLDMSGNEW/K,NOAUTODATE/S,NOSPACES/S";
   LONG Results[ARGS_COUNT] = { 0 };
   char *prefs;
   struct RDArgs *rda;
@@ -112,6 +117,9 @@ char ReadPrefs(void)
 
           if(Results[MSG_NEW])
             strlcpy(Msg_New, (char *)Results[MSG_NEW], MAX_NEW_STR_LEN);
+
+          if(Results[CODESET])
+            strlcpy(DstCodeset, (char *)Results[CODESET], MAX_NEW_STR_LEN);
 
           WarnCTGaps = Results[WARNCTGAPS];
           NoOptim = Results[NOOPTIM];
