@@ -639,15 +639,29 @@ int ScanPOFile(char *pofile)
       reallen = strlen(cs->CT_Str);
       cd_len = strlen(cs->CD_Str);
 
+      // check for empty translations
+      if(cd_len > 0)
+      {
+        if(reallen == 0)
+        {
+          ShowWarnQuick(MSG_ERR_EMPTYTRANSLATION, cs->ID_Str);
+
+          // now remove the cs from the list
+          cs->NotInCT = TRUE;
+          continue;
+        }
+        else if(strcmp(cs->CT_Str, "<EMPTY>") == 0)
+        {
+          // string should be intentionally empty
+          cs->CT_Str[0] = '\0';
+        }
+      }
+      
       if(cs->MinLen > 0 && reallen < (size_t)cs->MinLen)
         ShowWarnQuick(MSG_ERR_STRING_TOO_SHORT, cs->ID_Str);
 
       if(cs->MaxLen > 0 && reallen > (size_t)cs->MaxLen)
         ShowWarnQuick(MSG_ERR_STRING_TOO_LONG, cs->ID_Str);
-
-      // check for empty translations
-      if(cd_len > 0 && reallen == 0)
-        ShowWarnQuick(MSG_ERR_EMPTYTRANSLATION, cs->ID_Str);
 
       /* Check for trailing ellipsis. */
       if(reallen >= 3 && cd_len >= 3)

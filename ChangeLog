@@ -7,6 +7,10 @@ $URL$
 
 2014-02-21 Jens Maus <mail@jens-maus.de>
 
+  * scanpo.c: if an empty msgstr is found this string will be now omitted
+    when creating a catalog. If, however, a string should be intentionally
+    empty a translator have to use "<EMPTY>" to signal that this string
+    should be empty.
   * scanpo.c, main.c, misc: implemented a new "CODESET" command line option
     which allows to force the output codeset. By specifying this option a
     user can force FlexCat to output the catalog strings in a certain

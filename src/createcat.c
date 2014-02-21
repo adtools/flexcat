@@ -304,7 +304,7 @@ void CreateCat(char *CatFile)
 
     if(Fill)
     {
-      if(cs->CT_Str != NULL)
+      if(cs->CT_Str != NULL && cs->NotInCT == FALSE)
       {
         if(strlen(cs->CT_Str) == 0)
         {
@@ -321,7 +321,8 @@ void CreateCat(char *CatFile)
       }
     }
 
-    if(FillUsed == FALSE && cs->CT_Str != NULL && (NoOptim ? TRUE : strcmp(cs->CT_Str, cs->CD_Str)))
+    if(FillUsed == FALSE && cs->CT_Str != NULL && cs->NotInCT == FALSE &&
+       (NoOptim ? TRUE : strcmp(cs->CT_Str, cs->CD_Str)))
     {
       fwrite(&tmp_ID, sizeof(tmp_ID), 1, fp);
       CatLen += 4 + CatPuts(fp, cs->CT_Str, 4, FALSE, cs->LenBytes);
