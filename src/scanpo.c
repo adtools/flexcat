@@ -170,6 +170,11 @@ int ScanPOFile(char *pofile)
               language = "bosanski";
               CatDstCharset = "iso-8859-2";
             }
+            else if(Stricmp(line, "ca") == 0)
+            {
+              language = "català";
+              CatDstCharset = "iso-8859-15";
+            }
             else if(Stricmp(line, "hr") == 0)
             {
               language = "croatian";

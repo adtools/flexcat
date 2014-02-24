@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-02-24 Jens Maus <mail@jens-maus.de>
+
+  * scanpo.c, contrib/cd2po: added 'catalan' language to recognized
+    translation languages.
+
 2014-02-21 Jens Maus <mail@jens-maus.de>
 
   * scanpo.c: if an empty msgstr is found this string will be now omitted

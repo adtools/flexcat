@@ -816,6 +816,9 @@ identifyCharset()
     bosnian)
       charset="iso-8859-2"
     ;;
+    catalan)
+      charset="iso-8859-15"
+    ;;
     croatian)
       charset="iso-8859-16"
     ;;
@@ -887,6 +890,9 @@ identifyCodeset()
     bosnian)
       codeset="5"
     ;;
+    catalan)
+      codeset="111"
+    ;;
     croatian)
       codeset="112"
     ;;
@@ -957,6 +963,9 @@ identifyLanguage()
   case "${file}" in
     bosnian)
       language="bosanski"
+    ;;
+    catalan)
+      language="català"
     ;;
     croatian)
       language="hrvatski"
