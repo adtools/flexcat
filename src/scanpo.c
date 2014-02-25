@@ -629,7 +629,7 @@ int ScanPOFile(char *pofile)
     CodeSet = 2104;
   else
     CodeSet = 0;
- 
+
   // check consistenty of translations found
   for(cs = FirstCatString; cs != NULL; cs = cs->Next)
   {
@@ -661,7 +661,7 @@ int ScanPOFile(char *pofile)
           cs->CT_Str[0] = '\0';
         }
       }
-      
+
       if(cs->MinLen > 0 && reallen < (size_t)cs->MinLen)
         ShowWarnQuick(MSG_ERR_STRING_TOO_SHORT, cs->ID_Str);
 

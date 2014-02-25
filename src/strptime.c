@@ -22,6 +22,7 @@
 
 #include <string.h>
 #include <time.h>
+#include <stdio.h>
 
 /// strptime
 // parse a date string produced by strftime() and put the success in a struct tm
@@ -150,6 +151,7 @@ char *strptime(const char *string, const char *fmt, struct tm *res)
         else if(sc == ' ')
         {
           // ignore any spaces within the day spec
+          sc = *string++;
         }
         else if(sc >= '0' && sc <= '9')
         {

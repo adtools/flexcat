@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-02-25 Thore Böckelmann <tboeckel@gmx.de>
+
+  * strptime.c: fixed a possible endless loop in the custom strptime
+    implementation.
+
 2014-02-24 Jens Maus <mail@jens-maus.de>
 
   * scanpo.c, contrib/cd2po: added 'catalan' language to recognized
