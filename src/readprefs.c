@@ -119,7 +119,7 @@ char ReadPrefs(void)
             strlcpy(Msg_New, (char *)Results[MSG_NEW], MAX_NEW_STR_LEN);
 
           if(Results[CODESET])
-            strlcpy(DstCodeset, (char *)Results[CODESET], MAX_NEW_STR_LEN);
+            strlcpy(DestCodeset, (char *)Results[CODESET], MAX_NEW_STR_LEN);
 
           WarnCTGaps = Results[WARNCTGAPS];
           NoOptim = Results[NOOPTIM];
