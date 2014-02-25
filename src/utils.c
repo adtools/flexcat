@@ -223,10 +223,10 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
     {
       char *buf;
 
-      // copy the converted string into a separate alloced string
-      if((buf = malloc(dstLen*sizeof(char))) != NULL)
+      // copy the converted string into a separate allocated string
+      if((buf = malloc(dstLen+1)) != NULL)
       {
-        memcpy(buf, dstText, dstLen*sizeof(char));
+        memcpy(buf, dstText, dstLen);
         buf[dstLen] = '\0';
         result = buf;
       }

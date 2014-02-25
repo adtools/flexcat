@@ -9,6 +9,8 @@ $URL$
 
   * strptime.c: fixed a possible endless loop in the custom strptime
     implementation.
+  * utils.c: fixed a buffer overrun in the AmigaOS builds when converting
+    strings to the destination codeset.
 
 2014-02-24 Jens Maus <mail@jens-maus.de>
 
