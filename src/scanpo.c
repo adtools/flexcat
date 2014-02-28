@@ -165,83 +165,98 @@ int ScanPOFile(char *pofile)
             if(p != NULL)
               *p = '\0';
 
-            if(Stricmp(line, "bs") == 0)
+            if(Stricmp(line, "bs") == 0) // bosnian
             {
               language = "bosanski";
               CatDstCharset = "iso-8859-2";
             }
-            else if(Stricmp(line, "ca") == 0)
+            else if(Stricmp(line, "ca") == 0) // catalan
             {
               language = "català";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "hr") == 0)
+            else if(Stricmp(line, "hr") == 0) // croatian
             {
               language = "hrvatski";
               CatDstCharset = "iso-8859-16";
             }
-            else if(Stricmp(line, "cs") == 0)
+            else if(Stricmp(line, "cs") == 0) // czech
             {
               language = "czech";
               CatDstCharset = "iso-8859-2";
             }
-            else if(Stricmp(line, "da") == 0)
+            else if(Stricmp(line, "da") == 0) // danish
             {
               language = "dansk";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "nl") == 0)
+            else if(Stricmp(line, "nl") == 0) // dutch
             {
               language = "nederlands";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "en_GB") == 0)
+            else if(Stricmp(line, "en_GB") == 0) // english-british
               language = "english-british";
-            else if(Stricmp(line, "fi") == 0)
+            else if(Stricmp(line, "fi") == 0) // finnish
             {
               language = "suomi";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "fr") == 0)
+            else if(Stricmp(line, "fr") == 0) // french
             {
               language = "français";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "de") == 0)
+            else if(Stricmp(line, "de") == 0) // german
             {
               language = "deutsch";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "el") == 0)
+            else if(Stricmp(line, "el") == 0) // greek
             {
               language = "greek";
               CatDstCharset = "iso-8859-7";
             }
-            else if(Stricmp(line, "hu") == 0)
+            else if(Stricmp(line, "hu") == 0) // hungarian
             {
               language = "magyar";
               CatDstCharset = "iso-8859-16";
             }
-            else if(Stricmp(line, "it") == 0)
+            else if(Stricmp(line, "it") == 0) // italian
             {
               language = "italiano";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "no") == 0)
+            else if(Stricmp(line, "ja") == 0) // japanese
+            {
+              language = "nihongo";
+              CatDstCharset = "utf-8";
+            }
+            else if(Stricmp(line, "ko") == 0) // korean
+            {
+              language = "hangul";
+              CatDstCharset = "utf-8";
+            }
+            else if(Stricmp(line, "no") == 0) // norwegian
             {
               language = "norsk";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "pl") == 0)
+            else if(Stricmp(line, "fa") == 0) // persian
+            {
+              language = "farsi";
+              CatDstCharset = "utf-8";
+            }
+            else if(Stricmp(line, "pl") == 0) // polish
             {
               language = "polski";
               CatDstCharset = "iso-8859-16";
             }
-            else if(Stricmp(line, "pt_BR") == 0)
-              language = "português-brasil";
-            else if(Stricmp(line, "pt") == 0)
+            else if(Stricmp(line, "pt") == 0) // portuguese
               language = "português";
-            else if(Stricmp(line, "ru") == 0)
+            else if(Stricmp(line, "pt_BR") == 0) // portuguese-brazil
+              language = "português-brasil";
+            else if(Stricmp(line, "ru") == 0) // russian
             {
               language = "russian";
               #if defined(AMIGA)
@@ -250,27 +265,27 @@ int ScanPOFile(char *pofile)
               CatDstCharset = "windows-1251"; // iconv doesn't know anything about Amiga-1251 :(
               #endif
             }
-            else if(Stricmp(line, "sr") == 0)
+            else if(Stricmp(line, "sr") == 0) // serbian
             {
               language = "srpski";
               CatDstCharset = "iso-8859-16";
             }
-            else if(Stricmp(line, "sl") == 0)
+            else if(Stricmp(line, "sl") == 0) // slovenian
             {
               language = "slovensko";
               CatDstCharset = "iso-8859-2";
             }
-            else if(Stricmp(line, "es") == 0)
+            else if(Stricmp(line, "es") == 0) // spanish
             {
               language = "español";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "sv") == 0)
+            else if(Stricmp(line, "sv") == 0) // swedish
             {
               language = "svenska";
               CatDstCharset = "iso-8859-15";
             }
-            else if(Stricmp(line, "tr") == 0)
+            else if(Stricmp(line, "tr") == 0) // turkish
             {
               language = "türkçe";
               CatDstCharset = "iso-8859-9";

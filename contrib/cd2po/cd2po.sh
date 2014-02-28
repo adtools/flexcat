@@ -23,7 +23,7 @@
 # $Id$
 #
 
-VERSION="1.5"
+VERSION="1.6"
 
 ########################################################
 # Script starts here
@@ -970,14 +970,11 @@ identifyLanguage()
     croatian)
       language="hrvatski"
     ;;
-    czech)
-      language="czech"
-    ;;
     danish)
       language="dansk"
     ;;
     dutch)
-      language="dutch"
+      language="nederlands"
     ;;
     english-british)
       language="english-british"
@@ -991,29 +988,32 @@ identifyLanguage()
     german)
       language="deutsch"
     ;;
-    greek)
-      language="greek"
-    ;;
     hungarian)
       language="magyar"
     ;;
     italian)
       language="italiano"
     ;;
+    japanese)
+      language="nihongo"
+    ;;
+    korean)
+      language="hangul"
+    ;;
     norwegian)
       language="norsk"
+    ;;
+    persian)
+      language="farsi"
     ;;
     polish)
       language="polski"
     ;;
-    portuguese-brazil)
-      language="português-brasil"
-    ;;
     portuguese)
       language="português"
     ;;
-    russian)
-      language="russian"
+    portuguese-brazil)
+      language="português-brasil"
     ;;
     serbian)
       language="srpski"
@@ -1029,6 +1029,9 @@ identifyLanguage()
     ;;
     turkish)
       language="türkçe"
+    ;;
+    *)
+      language=${file}
     ;;
   esac
 
