@@ -28,6 +28,10 @@ all: src
 src:
 	@$(MAKE) -C src --no-print-directory
 
+.PHONY: catalogs
+catalogs:
+	@$(MAKE) -C src --no-print-directory catalogs
+
 .PHONY: clean
 clean:
 	@$(MAKE) -C src --no-print-directory clean
