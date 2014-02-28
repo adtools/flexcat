@@ -57,13 +57,15 @@ done
 
 make -C src catalogs
 
-for language in croatian czech danish dutch finnish french german greek hungarian italian norwegian polish portuguese serbian slovenian spanish swedish; do
-	mkdir -p "release/FlexCat/Locale/Catalogs/$language"
-	cp -a src/catalogs/$language.catalog "release/FlexCat/Locale/Catalogs/$language/FlexCat.catalog"
+for language in `ls src/locale/*.catalog`; do
+  catalog=$(basename "$language")
+  lang="${catalog%.*}"
+  mkdir -p "release/FlexCat/Locale/Catalogs/${lang}"
+  cp -a ${language} "release/FlexCat/Locale/Catalogs/${lang}/FlexCat.catalog"
 done
 
 cp -a -R dist/* "release/"
-cp -a src/catalogs/FlexCat.cd "release/FlexCat/Locale/"
+cp -a src/locale/FlexCat.pot "release/FlexCat/Locale/"
 cp -a src/sd/* "release/FlexCat/Lib/"
 cp -a doc/FlexCat.readme "release/FlexCat/"
 cp -a AUTHORS ChangeLog COPYING "release/FlexCat/"
