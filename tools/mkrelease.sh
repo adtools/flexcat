@@ -69,7 +69,7 @@ cp -a src/locale/FlexCat.pot "release/FlexCat/Locale/"
 cp -a src/sd/* "release/FlexCat/Lib/"
 cp -a doc/FlexCat.readme "release/FlexCat/"
 cp -a AUTHORS ChangeLog COPYING "release/FlexCat/"
-cp -a contrib "release/FlexCat/Contribution/"
+cp -a contrib/* "release/FlexCat/Contribution/"
 
 releasever=`grep "#define EXE_VERSION" src/version.h | awk '{ print $3 }'`
 releaserev=`grep "#define EXE_REVISION" src/version.h | awk '{ print $3 }'`
