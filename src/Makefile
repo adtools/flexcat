@@ -91,7 +91,8 @@ ifeq ($(OS), mos)
   LDFLAGS     =   -noixemul -Llib/mos
   OBJS        +=  asprintf.o vasprintf.o
   LDLIBS      =   -lauto -lcodesets
-  CATOBJS     =   locale.o openlibs.o strptime.o
+  OBJS        +=  openlibs.o strptime.o
+  CATOBJS     =   locale.o
 
   ###########################################################################
 else
@@ -104,7 +105,8 @@ else
     CFLAGS      +=  -noixemul -DNO_INLINE_STDARG -m68020-60 -msoft-float -D__amigaos3__
     LDFLAGS     =   -noixemul
     LDLIBS      =   -lamiga
-    CATOBJS     =   locale.o getft.o openlibs.o strptime.o vastubs.o
+    OBJS        +=  getft.o openlibs.o strptime.o vastubs.o
+    CATOBJS     =   locale.o
 
     #########################################################################
 
@@ -118,7 +120,8 @@ else
       CFLAGS      +=  -mcrt=newlib -D__USE_INLINE__
       LDFLAGS     =   -mcrt=newlib
       LDLIBS      =   -lauto
-      CATOBJS     =   locale.o getft.o openlibs.o
+      OBJS        +=  getft.o openlibs.o
+      CATOBJS     =   locale.o
 
       #######################################################################
 
@@ -131,7 +134,8 @@ else
         LDFLAGS     =
         OBJS        +=  asprintf.o vasprintf.o
         LDLIBS      =   -lamiga
-        CATOBJS     =   locale.o openlibs.o
+        OBJS        +=  openlibs.o
+        CATOBJS     =   locale.o
 
         ###############################################################
 
@@ -142,7 +146,7 @@ else
 
           CC          =   i586-mingw32msvc-gcc
           LDFLAGS     =
-          OBJS        +=  asprintf.o vasprintf.o
+          OBJS        +=  asprintf.o vasprintf.o strptime.o
           CATOBJS     =   locale_other.o
           EXE         =   .exe
 

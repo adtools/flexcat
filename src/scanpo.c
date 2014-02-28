@@ -46,7 +46,7 @@ extern int   CT_Scanned;
                                 ((c) >= 'a' && (c) <= 'z') || \
                                 ((c) >= 'A' && (c) <= 'Z'))
 
-#if defined(__amigaos3__) || defined(__MORPHOS__)
+#if defined(__amigaos3__) || defined(__MORPHOS__) || defined(WIN32)
 char *strptime(const char *string, const char *fmt, struct tm *res);
 #endif
 
