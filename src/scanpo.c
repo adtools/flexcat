@@ -187,12 +187,12 @@ int ScanPOFile(char *pofile)
             }
             else if(Stricmp(line, "da") == 0)
             {
-              language = "danish";
+              language = "dansk";
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "nl") == 0)
             {
-              language = "dutch";
+              language = "nederlands";
               CatDstCharset = "iso-8859-15";
             }
             else if(Stricmp(line, "en_GB") == 0)

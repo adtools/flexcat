@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-02-28 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: changed some english language names to their local names.
+
 2014-02-25 Thore Böckelmann <tboeckel@gmx.de>
 
   * strptime.c: fixed a possible endless loop in the custom strptime
