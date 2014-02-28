@@ -230,12 +230,12 @@ int ScanPOFile(char *pofile)
             else if(Stricmp(line, "ja") == 0) // japanese
             {
               language = "nihongo";
-              CatDstCharset = "utf-8";
+              CatDstCharset = "euc-jp";
             }
             else if(Stricmp(line, "ko") == 0) // korean
             {
               language = "hangul";
-              CatDstCharset = "utf-8";
+              CatDstCharset = "euc-kr";
             }
             else if(Stricmp(line, "no") == 0) // norwegian
             {
