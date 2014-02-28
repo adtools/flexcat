@@ -346,7 +346,7 @@ void CreateCat(char *CatFile)
   }
 
   fclose(fp);
-#ifdef __amigados
+#ifdef AMIGA
   SetProtection(CatFile, FILE_MASK);
 #endif
   Expunge();

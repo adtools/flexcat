@@ -42,7 +42,7 @@ void ShowError(const char *msg, ...)
   va_end(args);
   fprintf(stderr, "%s %s\n", header, message);
 
-#ifdef __amigados
+#ifdef AMIGA
   NumberOfWarnings++;
 #endif
 
@@ -66,7 +66,7 @@ void ShowErrorQuick(const char *msg, ...)
   va_end(args);
   fprintf(stderr, "%s %s\n", header, message);
 
-#ifdef __amigados
+#ifdef AMIGA
   NumberOfWarnings++;
 #endif
 

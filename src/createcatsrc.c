@@ -429,7 +429,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
 
   if((fpin = fopen(TemplateFile, "r")) == NULL)
   {
-#ifdef __amigados
+#ifdef AMIGA
     if(*prefs_sddir != '\0')
     {
       TemplateFile = AddFileName(prefs_sddir, OrigTemplateFile);
@@ -440,7 +440,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
 
   if(fpin == NULL)
   {
-#ifdef __amigados
+#ifdef AMIGA
     char sddir[80];
 
     if(GetVar(FLEXCAT_SDDIR, sddir, 80, 0) != 0)
@@ -780,7 +780,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
   fclose(fpin);
   fclose(fpout);
 
-#ifdef __amigados
+#ifdef AMIGA
   SetProtection(SourceFile, FILE_MASK);
 #endif
 }

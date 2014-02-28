@@ -32,7 +32,11 @@
 #include <proto/codesets.h>
 
 #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
+#if defined(__AROS__)
+struct UtilityBase *UtilityBase = NULL;
+#else
 struct Library *UtilityBase = NULL;
+#endif
 struct IntuitionBase *IntuitionBase = NULL;
 #if defined(__MORPHOS__)
 struct Library *LocaleBase = NULL;
@@ -50,7 +54,12 @@ struct CodesetsIFace *ICodesets = NULL;
 BOOL OpenLibs(void)
 {
   #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
-  if((UtilityBase = OpenLibrary("utility.library", 37)) != NULL &&
+  if(
+     #if defined(__AROS__)
+     (UtilityBase = (struct UtilityBase *)OpenLibrary("utility.library", 37)) != NULL &&
+     #else
+     (UtilityBase = OpenLibrary("utility.library", 37)) != NULL &&
+     #endif
      (IntuitionBase = (struct IntuitionBase *)OpenLibrary("intuition.library", 37)) != NULL &&
      #if defined(__MORPHOS__)
      (LocaleBase = (struct Library *)OpenLibrary("locale.library", 37)) != NULL)
@@ -74,7 +83,7 @@ void CloseLibs(void)
   #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
   if(UtilityBase != NULL)
   {
-    CloseLibrary(UtilityBase);
+    CloseLibrary((struct Library *)UtilityBase);
     UtilityBase = NULL;
   }
   if(IntuitionBase != NULL)

@@ -46,7 +46,7 @@ void CreateCTFile(char *NewCTFile)
 
   if(CatLanguage == NULL)
   {
-#ifdef __amigados
+#ifdef AMIGA
     char lang[80];
 
     if(GetVar("language", lang, sizeof(lang), 0) != 0)
@@ -195,7 +195,7 @@ void CreateCTFile(char *NewCTFile)
     }
   }
   fclose(fp);
-#ifdef __amigados
+#ifdef AMIGA
   SetProtection(NewCTFile, FILE_MASK);
 #endif
 }

@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
             "It's neither Little nor Big Endian?!.\n");
     exit(5);
   }
-#ifdef __amigados
+#ifdef AMIGA
   ReadPrefs();
 #endif
   if(argc == 1)
@@ -350,7 +350,7 @@ int main(int argc, char *argv[])
     }
   }
 
-#ifdef __amigados
+#ifdef AMIGA
   if(Modified)
   {
     if(cdfile != NULL && ctfile != NULL && catalog != NULL)

@@ -10,6 +10,8 @@ $URL$
 2014-02-28  Jens Maus <mail@jens-maus.de>
 
   * misc: bumped revision for final 2.13 release.
+  * Makefile: updated Makefile to be somehwat more generic and compile
+    everything a bit more smoothly.
 
 2014-02-28 Thore Böckelmann <tboeckel@gmx.de>
 

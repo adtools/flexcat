@@ -25,10 +25,8 @@
 
 /* Amiga enviroment? */
 #ifdef AMIGA
- #define __amigados
  #include "FlexCat_cat.h"
 #else
- #undef __amigados
  #include "FlexCat_cat_other.h"
 #endif
 
@@ -37,7 +35,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
-#ifdef __amigados
+#ifdef AMIGA
  #include <dos/dos.h>
 #endif
 
@@ -47,13 +45,7 @@
 #define VSTRING   VERS " [" SYSTEMSHORT "/" CPU "] (" EXE_DATE ") " EXE_COPYRIGHT
 #define VERSTAG   "\0$VER: " VSTRING
 
-#if ((defined(_DCC) && defined(AMIGA))       ||     \
-        (defined(__SASC) && defined(_AMIGA)))      &&  \
-        !defined(__amigados)
- #define __amigados
-#endif
-
-#if defined(__amigados)
+#if defined(AMIGA)
  #include <exec/types.h>
  #if defined(_DCC) || defined(__SASC) || defined(__GNUC__)
   #include <proto/exec.h>
@@ -101,7 +93,7 @@ int vasprintf(char **ptr, const char * format, va_list ap);
 
 #define FLEXCAT_SDDIR          "FLEXCAT_SDDIR"
 
-#if defined(__amigados)
+#if defined(AMIGA)
  #if defined(__amigaos4__)
  #include <dos/obsolete.h>
  #endif
@@ -143,7 +135,7 @@ typedef struct { unsigned long hi,lo; } uint64; /* Not exactly scalar data
 typedef struct { long hi,lo; }           int64;
 #endif
 
-#ifndef __amigados
+#ifndef AMIGA
 typedef uint8  UBYTE;
 typedef  int8   BYTE;
 typedef uint8   BYTEBITS;

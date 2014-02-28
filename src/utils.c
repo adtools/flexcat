@@ -45,10 +45,9 @@ const char EString[] = "Contact: http://sf.net/p/flexcat/";
 
 void MyExit(int Code)
 {
-#ifdef __amigados
+#ifdef AMIGA
   if((NumberOfWarnings > 0 || Code != 0) && !NoBeep)
     DisplayBeep(NULL);
-
 #endif
   CloseFlexCatCatalog();
   CloseLibs();
@@ -57,7 +56,7 @@ void MyExit(int Code)
 
 ///
 
-#ifndef __amigados
+#ifndef AMIGA
 
 /*
  * This array is designed for mapping upper and lower case letters
@@ -458,7 +457,7 @@ void OverSpace(char **strptr)
 
 void Expunge(void)
 {
-#ifdef __amigados
+#ifdef AMIGA
   if(DoExpunge)
   {
     struct Library *localeBase;
@@ -474,7 +473,7 @@ void Expunge(void)
       CloseLibrary(localeBase);
     }
   }
-#endif // __amigados
+#endif // AMIGA
 }
 
 ///
@@ -662,7 +661,7 @@ char *AddFileName(char *pathname, char *filename)
 {
   char *buffer;
 
-#ifdef __amigados
+#ifdef AMIGA
   int size = strlen(pathname) + strlen(filename) + 2;
 
   if((buffer = malloc(size)) == NULL)
@@ -710,7 +709,7 @@ void Usage(void)
 
 /* Dice's entry point for workbench programs */
 
-#if defined(__amigados)  &&  defined(_DCC)
+#if defined(AMIGA)  &&  defined(_DCC)
 void wbmain(struct WBStartup *wbmsg)
 {
   fprintf(stderr, "FlexCat can't be run from Workbench!\n\n");

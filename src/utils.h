@@ -39,11 +39,10 @@ char           *AllocFileName ( char *filename, int howto );
 char           *AddFileName ( char *pathname, char *filename );
 void            Usage ( void );
 
-#if defined(__amigados)
-#else // __amigados
+#if !defined(AMIGA)
 int             Stricmp ( const char *str1, const char *str2 );
 int             Strnicmp ( const char *str1, const char *str2, int len );
-#endif // __amigados
+#endif // AMIGA
 
 #if defined(__amigaos3__) || defined(__MORPHOS__)
 char *strptime(const char *string, const char *fmt, struct tm *res);
