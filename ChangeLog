@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+#### FlexCat 2.13 RELEASE ################################################
+
+2014-02-28  Jens Maus <mail@jens-maus.de>
+
+  * misc: bumped revision for final 2.13 release.
+
 2014-02-28 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: changed some english language names to their local names.

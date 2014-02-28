@@ -926,6 +926,9 @@ identifyCodeset()
     norwegian)
       codeset="111"
     ;;
+    persian)
+      codeset="0"
+    ;;
     polish)
       codeset="112"
     ;;

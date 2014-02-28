@@ -34,6 +34,7 @@ mkdir -p "release/FlexCat/Locale"
 mkdir -p "release/FlexCat/Locale/Catalogs"
 mkdir -p "release/FlexCat/Docs"
 mkdir -p "release/FlexCat/Lib"
+mkdir -p "release/FlexCat/Contribution"
 
 make -C src release
 
@@ -63,16 +64,18 @@ done
 
 cp -a -R dist/* "release/"
 cp -a src/catalogs/FlexCat.cd "release/FlexCat/Locale/"
-cp -a src/lib/* "release/FlexCat/Lib/"
+cp -a src/sd/* "release/FlexCat/Lib/"
 cp -a doc/FlexCat.readme "release/FlexCat/"
 cp -a AUTHORS ChangeLog COPYING "release/FlexCat/"
+cp -a contrib "release/FlexCat/Contribution/"
 
 releasever=`grep "#define EXE_VERSION" src/version.h | awk '{ print $3 }'`
 releaserev=`grep "#define EXE_REVISION" src/version.h | awk '{ print $3 }'`
 
 echo "  MK FlexCat-$releasever.$releaserev.lha"
-find release -nowarn -name ".svn" -exec rm -rf {} \; 2>/dev/null
+find release -nowarn -name ".svn" -or -name ".AppleDouble" -exec rm -rf {} \; 2>/dev/null
 cd release
+rm -f ../FlexCat-$releasever.$releaserev.lha
 lha -ao5q ../FlexCat-$releasever.$releaserev.lha *
 cp FlexCat/FlexCat.readme ../FlexCat-$releasever.$releaserev.readme
 cd ..
