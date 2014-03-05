@@ -759,9 +759,9 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
 
               default:
                 {
-                  int c = *currentline++;
+                  int ch = *currentline++;
 
-                  putc(c, fpout);
+                  putc(ch, fpout);
                 }
             }
           }

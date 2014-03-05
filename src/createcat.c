@@ -154,16 +154,16 @@ void CreateCat(char *CatFile)
 
   if(CatVersionString !=NULL)
   {
-    struct CatalogChunk cc;
+    struct CatalogChunk verChunk;
     char *found;
 
-    cc.ID = MAKE_ID('F', 'V', 'E', 'R');
+    verChunk.ID = MAKE_ID('F', 'V', 'E', 'R');
 
-    cc.ChunkStr = strdup(CatVersionString);
+    verChunk.ChunkStr = strdup(CatVersionString);
 
     /* Replace $TODAY placeholder */
 
-    found = strstr(cc.ChunkStr, "$TODAY");
+    found = strstr(verChunk.ChunkStr, "$TODAY");
     if(found != NULL)
     {
       char dateStr[12];
@@ -177,10 +177,10 @@ void CreateCat(char *CatFile)
       *found = '\0';
       strftime(dateStr, sizeof(dateStr), "%d.%m.%Y", t);
 
-      if(asprintf(&verStr, "%s%s%s", cc.ChunkStr, dateStr, found + strlen("$TODAY")) != -1)
+      if(asprintf(&verStr, "%s%s%s", verChunk.ChunkStr, dateStr, found + strlen("$TODAY")) != -1)
       {
-        free(cc.ChunkStr);
-        cc.ChunkStr = verStr;
+        free(verChunk.ChunkStr);
+        verChunk.ChunkStr = verStr;
       }
       else
         MemError();
@@ -188,26 +188,26 @@ void CreateCat(char *CatFile)
 
     /* Replace ".ct" with ".catalog" */
 
-    found = strstr(cc.ChunkStr, ".ct ");
+    found = strstr(verChunk.ChunkStr, ".ct ");
     if(found != NULL)
     {
       char *verStr = NULL;
 
       *found = '\0';
-      if(asprintf(&verStr, "%s.catalog%s", cc.ChunkStr, found + 3) != -1)
+      if(asprintf(&verStr, "%s.catalog%s", verChunk.ChunkStr, found + 3) != -1)
       {
-        free(cc.ChunkStr);
-        cc.ChunkStr = verStr;
+        free(verChunk.ChunkStr);
+        verChunk.ChunkStr = verStr;
       }
     }
 
-    cc.ID = SwapLong(cc.ID);
-    CatLen += PutCatalogChunk(fp, &cc);
-    free(cc.ChunkStr);
+    verChunk.ID = SwapLong(verChunk.ID);
+    CatLen += PutCatalogChunk(fp, &verChunk);
+    free(verChunk.ChunkStr);
   }
   else
   {
-    struct CatalogChunk cc;
+    struct CatalogChunk verChunk;
     char *verStr = NULL;
     int year = 0, month = 0, day = 0;
     int version = 0, revision = 0;
@@ -262,10 +262,10 @@ void CreateCat(char *CatFile)
 
     if(asprintf(&verStr, "%cVER: %s %d.%d(%d.%d.%d)", '$', name, version, revision, day, month, year) != -1)
     {
-      cc.ID = MAKE_ID('F', 'V', 'E', 'R');
-      cc.ID = SwapLong(cc.ID);
-      cc.ChunkStr = verStr;
-      CatLen += PutCatalogChunk(fp, &cc);
+      verChunk.ID = MAKE_ID('F', 'V', 'E', 'R');
+      verChunk.ID = SwapLong(verChunk.ID);
+      verChunk.ChunkStr = verStr;
+      CatLen += PutCatalogChunk(fp, &verChunk);
     }
     else
       MemError();

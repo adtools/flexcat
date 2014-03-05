@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-03-05 Thore Böckelmann <tboeckel@gmx.de>
+
+  * createcat.c, createcatsrc.c: fixed some warnings about shadowed variables.
+
 #### FlexCat 2.13 RELEASE ################################################
 
 2014-02-28  Jens Maus <mail@jens-maus.de>
