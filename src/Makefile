@@ -207,9 +207,9 @@ ifeq ($(OS), os4)
   CDUP     = ../
   CDTHIS   = ./
 
-  OBJS += locale.o \
-          getft.o \
-          openlibs.o
+  SYSDEPOBJS = locale.o \
+               getft.o \
+               openlibs.o
 
 else
 ifeq ($(OS), os3)
@@ -231,11 +231,11 @@ ifeq ($(OS), os3)
   LDLIBS  += -lamiga
   GCCVER  = 2
 
-  OBJS += locale.o \
-          getft.o \
-          openlibs.o \
-          strptime.o \
-          vastubs.o
+  SYSDEPOBJS = locale.o \
+               getft.o \
+               openlibs.o \
+               strptime.o \
+               vastubs.o
 
 else
 ifeq ($(OS), mos)
@@ -257,12 +257,12 @@ ifeq ($(OS), mos)
   LDLIBS  += -lauto -lcodesets
   GCCVER  = 2
 
-  OBJS += locale.o \
-          asprintf.o \
-          vasprintf.o \
-          openlibs.o \
-          strptime.o \
-                
+  SYSDEPOBJS = locale.o \
+               asprintf.o \
+               vasprintf.o \
+               openlibs.o \
+               strptime.o \
+
 else
 ifeq ($(OS), aros-i386)
 
@@ -280,12 +280,12 @@ ifeq ($(OS), aros-i386)
   CFLAGS += -Wno-pointer-sign -DNO_INLINE_STDARG -D__BSD_VISIBLE=1 -DAMIGA
   LDLIBS += -lamiga -larossupport -larosc
 
-  OBJS += locale.o \
-          getft.o \
-          asprintf.o \
-          vasprintf.o \
-          vastubs.o \
-          openlibs.o
+  SYSDEPOBJS = locale.o \
+               getft.o \
+               asprintf.o \
+               vasprintf.o \
+               vastubs.o \
+               openlibs.o
 
 else
 ifeq ($(OS), aros-ppc)
@@ -304,12 +304,12 @@ ifeq ($(OS), aros-ppc)
   CFLAGS += -Wno-pointer-sign -DNO_INLINE_STDARG -D__BSD_VISIBLE=1 -DAMIGA
   LDLIBS += -lamiga -larossupport -larosc
 
-  OBJS += locale.o \
-          getft.o \
-          asprintf.o \
-          vasprintf.o \
-          vastubs.o \
-          openlibs.o
+  SYSDEPOBJS = locale.o \
+               getft.o \
+               asprintf.o \
+               vasprintf.o \
+               vastubs.o \
+               openlibs.o
 
 else
 ifeq ($(OS), aros-x86_64)
@@ -328,12 +328,12 @@ ifeq ($(OS), aros-x86_64)
   CFLAGS += -Wno-pointer-sign -DNO_INLINE_STDARG -D__BSD_VISIBLE=1 -DAMIGA
   LDLIBS += -lamiga -larossupport -larosc
 
-  OBJS += locale.o \
-          getft.o \
-          asprintf.o \
-          vasprintf.o \
-          vastubs.o \
-          openlibs.o
+  SYSDEPOBJS = locale.o \
+               getft.o \
+               asprintf.o \
+               vasprintf.o \
+               vastubs.o \
+               openlibs.o
 
 else
 ifeq ($(OS), aros-arm)
@@ -352,12 +352,12 @@ ifeq ($(OS), aros-arm)
   CFLAGS += -Wno-pointer-sign -DNO_INLINE_STDARG -D__BSD_VISIBLE=1 -DAMIGA
   LDLIBS += -lamiga -larossupport -larosc
 
-  OBJS += locale.o \
-          getft.o \
-          asprintf.o \
-          vasprintf.o \
-          vastubs.o \
-          openlibs.o
+  SYSDEPOBJS = locale.o \
+               getft.o \
+               asprintf.o \
+               vasprintf.o \
+               vastubs.o \
+               openlibs.o
 
 else
 ifeq ($(OS), mingw32)
@@ -376,10 +376,10 @@ ifeq ($(OS), mingw32)
   OPTFLAGS = -O2 -fomit-frame-pointer
   LDFLAGS =
 
-  OBJS += locale_other.o \
-          asprintf.o \
-          vasprintf.o \
-          strptime.o
+  SYSDEPOBJS = locale_other.o \
+               asprintf.o \
+               vasprintf.o \
+               strptime.o
 
 else
 ifeq ($(OS), unix)
@@ -398,7 +398,7 @@ ifeq ($(OS), unix)
   CFLAGS += -m32 -D_GNU_SOURCE
   LDFLAGS = -m32
 
-  OBJS += locale_other.o
+  SYSDEPOBJS = locale_other.o
 
 endif
 endif
@@ -420,18 +420,19 @@ CATFILES = FlexCat_cat.h \
            locale.c \
            locale_other.c
 
-OBJS += createcat.o \
-        createcatsrc.o \
-        createct.o \
-        globals.o \
-        main.o \
-        readprefs.o \
-        scancd.o \
-        scanct.o \
-        scanpo.o \
-        showfuncs.o \
-        swapfuncs.o \
-        utils.o
+OBJS = main.o \
+       createcat.o \
+       createcatsrc.o \
+       createct.o \
+       globals.o \
+       readprefs.o \
+       scancd.o \
+       scanct.o \
+       scanpo.o \
+       showfuncs.o \
+       swapfuncs.o \
+       utils.o \
+       $(SYSDEPOBJS)
 
 CATALOGS = $(patsubst %.po,%.catalog,$(wildcard locale/*.po))
 

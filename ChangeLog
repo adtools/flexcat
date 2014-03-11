@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-03-11 Thore Böckelmann <tboeckel@gmx.de>
+
+  * Makefile: reordered the object files to make sure that the version tag
+    in an error string of FlexCat's own internal string is not accidentally
+    used by the C:Version command.
+
 2014-03-05 Thore Böckelmann <tboeckel@gmx.de>
 
   * createcat.c, createcatsrc.c: fixed some warnings about shadowed variables.
