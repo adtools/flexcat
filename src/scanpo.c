@@ -531,9 +531,11 @@ int ScanPOFile(char *pofile)
         if(DestCodeset[0] != '\0')
           CatDstCharset = DestCodeset;
 
-        // make sure double-backslashes end up in single
-        // back slashes
-        while((p = strstr(line, "\\\\033")))
+        // Make sure double backslashes end up in a single backslash.
+        // We catch any double backslash followed by a zero character,
+        // which covers strings like "\\0" and "\\033" as these are
+        // common strings in MUI applications.
+        while((p = strstr(line, "\\\\0")) != NULL)
           memmove(p, p+1, strlen(p));
 
         // unquote the string

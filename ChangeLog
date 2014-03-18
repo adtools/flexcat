@@ -5,6 +5,13 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-03-18 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: convert any double backslash followed by a zero character ('0') to
+    a single backslash. This covers the most common usages in MUI applications,
+    like "Q\0Quit" for combined menu item plus shortcut strings and "\033bbold"
+    for styled MUI texts.
+
 2014-03-11 Thore Böckelmann <tboeckel@gmx.de>
 
   * Makefile: reordered the object files to make sure that the version tag
