@@ -533,9 +533,9 @@ int ScanPOFile(char *pofile)
 
         // Make sure double backslashes end up in a single backslash.
         // We catch any double backslash followed by a zero character,
-        // which covers strings like "\\0" and "\\033" as these are
+        // which covers strings like "\\0" and "\\033" or "\\33" as these are
         // common strings in MUI applications.
-        while((p = strstr(line, "\\\\0")) != NULL)
+        while((p = strstr(line, "\\\\0")) != NULL || (p = strstr(line, "\\\\33")) != NULL)
           memmove(p, p+1, strlen(p));
 
         // unquote the string

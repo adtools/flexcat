@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-03-23  Jens Maus <mail@jens-maus.de>
+
+  * scanpo.c: added "\\33" to the double backslash strings that should be converted
+    to single backslash strings when scanning a .po file.
+
 2014-03-18 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: convert any double backslash followed by a zero character ('0') to
