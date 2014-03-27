@@ -7,13 +7,14 @@
 # language english
 # 
 # Translators:
+# tboeckel <tboeckel@gmx.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2014-02-21 09:32+0000\n"
-"Last-Translator: damato <mail@jens-maus.de>\n"
+"PO-Revision-Date: 2014-03-27 14:27+0000\n"
+"Last-Translator: tboeckel <tboeckel@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/flexcat/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +50,7 @@ msgid ""
 "  CODESET        Codeset to force in output file (e.g. 'UTF-8')\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr ""
+msgstr "  CDFILE         Einzulesende Katalogbeschreibung\n  CTFILE         Einzulesende Katalogübersetzung\n  POFILE         Einzulesende Katalogübersetzung im PO-Format\n  CATALOG        Zu erzeugender Katalog\n  NEWCTFILE      Zu erzeugende Katalogübersetzung\n  SOURCES        Zu erzeugende Quelltexte; in der Form SFILE=SDFILE,\n                 wobei SFILE die zu erzeugende Quelltextdatei und SDFILE\n                 die zu verwendende Quelltextbeschreibung ist.\n  WARNCTGAPS     Bei fehlenden Bezeichnern in der Katalogübersetzung warnen\n  NOOPTIM        Unveränderte Texte in Übersetzung/Beschreibung nicht überspringen\n  FILL           Text aus #?.cd verwenden falls die Übersetzung fehlt\n  FLUSH          Katalog aus dem Speicher entfernen\n  NOBEEP         DisplayBeep() bei Warnungen und Fehlern unterdrücken\n  QUIET          Warnungen unterdrücken\n  NOLANGTOLOWER  Parameter bei #language nicht in Kleinschrift wandeln\n  NOBUFFEREDIO   IO Puffer nicht verwenden\n  MODIFIED       Katalog nur erzeugen wenn Übersetzung/Beschreibung geändert wurden\n  COPYMSGNEW     ***NEW*** Markierung beim Erneuern von #?.ct Dateien kopieren\n  OLDMSGNEW      Wenn die #?.ct Datei einen anderen Marker benutzt, diesen hier angeben\n  CODESET        Zeichenkodierung in der Ausgabedatei erzwingen (z.B. 'UTF-8')\n  NOAUTODATE     keine Funktion - nur zur Kompatibilität\n  NOSPACES       keine Funktion - nur zur Kompatibilität"
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"

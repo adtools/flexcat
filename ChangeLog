@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-03-27 Thore Böckelmann <tboeckel@gmx.de>
+
+  * locale/german.po: updated german translation.
+
 2014-03-23  Jens Maus <mail@jens-maus.de>
 
   * scanpo.c: added "\\33" to the double backslash strings that should be converted
