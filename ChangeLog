@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-03-30 Thore Böckelmann <tboeckel@gmx.de>
+
+  * utils.c: don't convert from UTF8 to UTF8 in the AmigaOS builds, but use a
+    plain copy the supplied string. This fixes the wrong umlauts in YAM's german
+    catalog when doing a native build on AmigaOS4.
+
 2014-03-27 Thore Böckelmann <tboeckel@gmx.de>
 
   * locale/german.po: updated german translation.

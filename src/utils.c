@@ -183,54 +183,65 @@ char *AddString(char *str, const char *astr)
 char *ConvertString(char *str, const char *from_charset, const char *to_charset)
 {
   char *result = NULL;
-  struct codeset *dstCodeset;
 
-  dstCodeset = CodesetsFind((STRPTR)to_charset,
-                            CSA_FallbackToDefault, FALSE,
-                            TAG_DONE);
-  if(dstCodeset != NULL)
+  if((Stricmp(from_charset, "UTF-8") == 0 || Stricmp(from_charset, "UTF8") == 0) &&
+  	 (Stricmp(to_charset, "UTF-8") == 0   || Stricmp(to_charset, "UTF8") == 0))
   {
-    ULONG dstLen = 0;
-    char *dstText = NULL;
+    // no need to convert from UTF8 to UTF8
+    // just return a plain copy of the string
+    result = strdup(str);
+  }
+  else
+  {
+    struct codeset *dstCodeset;
 
-    if(Stricmp(from_charset, "UTF-8") == 0 || Stricmp(from_charset, "UTF8") == 0)
+    dstCodeset = CodesetsFind((STRPTR)to_charset,
+                              CSA_FallbackToDefault, FALSE,
+                              TAG_DONE);
+    if(dstCodeset != NULL)
     {
-      dstText = CodesetsUTF8ToStr(CSA_Source,      str,
-                                  CSA_DestCodeset, dstCodeset,
-                                  CSA_DestLenPtr,  &dstLen,
+      ULONG dstLen = 0;
+      char *dstText = NULL;
+
+      if(Stricmp(from_charset, "UTF-8") == 0 || Stricmp(from_charset, "UTF8") == 0)
+      {
+        dstText = CodesetsUTF8ToStr(CSA_Source,      str,
+                                    CSA_DestCodeset, dstCodeset,
+                                    CSA_DestLenPtr,  &dstLen,
+                                    TAG_DONE);
+      }
+      else
+      {
+        struct codeset *srcCodeset;
+
+        srcCodeset = CodesetsFind((STRPTR)from_charset,
+                                  CSA_FallbackToDefault, FALSE,
                                   TAG_DONE);
-    }
-    else
-    {
-      struct codeset *srcCodeset;
 
-      srcCodeset = CodesetsFind((STRPTR)from_charset,
-                                CSA_FallbackToDefault, FALSE,
-                                TAG_DONE);
-
-      if(srcCodeset != NULL)
-      {
-        dstText = CodesetsConvertStr(CSA_Source,        str,
-                                     CSA_SourceCodeset, srcCodeset,
-                                     CSA_DestCodeset,   dstCodeset,
-                                     CSA_DestLenPtr,    &dstLen,
-                                     TAG_DONE);
-      }
-    }
-
-    if(dstText != NULL && dstLen != 0)
-    {
-      char *buf;
-
-      // copy the converted string into a separate allocated string
-      if((buf = malloc(dstLen+1)) != NULL)
-      {
-        memcpy(buf, dstText, dstLen);
-        buf[dstLen] = '\0';
-        result = buf;
+        if(srcCodeset != NULL)
+        {
+          dstText = CodesetsConvertStr(CSA_Source,        str,
+                                       CSA_SourceCodeset, srcCodeset,
+                                       CSA_DestCodeset,   dstCodeset,
+                                       CSA_DestLenPtr,    &dstLen,
+                                       TAG_DONE);
+        }
       }
 
-      CodesetsFreeA(dstText, NULL);
+      if(dstText != NULL && dstLen != 0)
+      {
+        char *buf;
+
+        // copy the converted string into a separate allocated string
+        if((buf = malloc(dstLen+1)) != NULL)
+        {
+          memcpy(buf, dstText, dstLen);
+          buf[dstLen] = '\0';
+          result = buf;
+        }
+
+        CodesetsFreeA(dstText, NULL);
+      }
     }
   }
 
