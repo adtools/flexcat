@@ -98,7 +98,10 @@ int ScanPOFile(char *pofile)
         {
           char buf[255];
 
-          snprintf(buf, sizeof(buf), "$VER: %s.catalog %d.%d (%s)", CatProjectName, CatVersion, CatRevision, CatVersionDate);
+          if(strstr(CatProjectName, ".catalog") != NULL)
+            snprintf(buf, sizeof(buf), "$VER: %s %d.%d (%s)", CatProjectName, CatVersion, CatRevision, CatVersionDate);
+          else
+            snprintf(buf, sizeof(buf), "$VER: %s.catalog %d.%d (%s)", CatProjectName, CatVersion, CatRevision, CatVersionDate);
           CatVersionString = AllocString(buf);
         }
       }
@@ -336,8 +339,20 @@ int ScanPOFile(char *pofile)
             strptime(line, "%Y-%m-%d", &tm);
             strftime(CatVersionDate, sizeof(CatVersionDate), "%d.%m.%Y", &tm);
           }
-          else if(Strnicmp(line, "\"Project-Id-Version: ", 21) == 0)
+          else if(Strnicmp(line, "\"Catalog-Name: ", 15) == 0)
           {
+            char *p;
+
+            line += 15;
+            p = strchr(line, '\\');
+            if(p != NULL)
+              *p = '\0';
+
+            strcpy(CatProjectName, line);
+          }
+          else if(Strnicmp(line, "\"Project-Id-Version: ", 21) == 0 && CatProjectName[0] == '\0')
+          {
+            // fall back to the project ID as catalog name if it is not yet defined
             char *p;
 
             line += 21;
