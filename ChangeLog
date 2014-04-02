@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-04-02 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: fixed in typo for the AmigaOS build.
+
 2014-04-01 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: extract the catalog name for the version tag from the Catalog-Name

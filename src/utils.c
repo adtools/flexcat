@@ -184,7 +184,7 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
 {
   char *result = NULL;
   BOOL fromIsUTF8 = (Stricmp(from_charset, "UTF-8") == 0 || Stricmp(from_charset, "UTF8") == 0);
-  BOOL toIsUTF = (Stricmp(to_charset, "UTF-8") == 0 || Stricmp(to_charset, "UTF8") == 0);
+  BOOL toIsUTF8 = (Stricmp(to_charset, "UTF-8") == 0 || Stricmp(to_charset, "UTF8") == 0);
 
   if(fromIsUTF8 == TRUE && toIsUTF8 == TRUE)
   {

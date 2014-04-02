@@ -203,7 +203,7 @@ ifeq ($(OS), os4)
   CFLAGS   += -mcrt=$(CRT) -D__USE_INLINE__ -D__NEW_TIMEVAL_DEFINITION_USED__ \
               $(REDEFINE) -Wa,-mregnames -DAMIGA
   LDFLAGS  += -mcrt=$(CRT)
-  LDLIBS   += -lauto
+  LDLIBS   += -lauto -lunix
   CDUP     = ../
   CDTHIS   = ./
 
