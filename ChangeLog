@@ -8,6 +8,8 @@ $URL$
 2014-04-02 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: fixed in typo for the AmigaOS build.
+  * scanpo.c: for .po files empty translation strings are really yet missing
+    translations cause the appropriate error message to be shown.
 
 2014-04-01 Thore Böckelmann <tboeckel@gmx.de>
 

@@ -681,7 +681,8 @@ int ScanPOFile(char *pofile)
       {
         if(reallen == 0)
         {
-          ShowWarnQuick(MSG_ERR_EMPTYTRANSLATION, cs->ID_Str);
+          // for .po files empty strings are really missing translations
+          ShowWarnQuick(MSG_ERR_MISSINGTRANSLATION, cs->ID_Str);
 
           // now remove the cs from the list
           cs->NotInCT = TRUE;
