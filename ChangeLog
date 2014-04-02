@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+#### FlexCat 2.14 RELEASE ################################################
+
+2014-04-02  Jens Maus <mail@jens-maus.de>
+
+  * misc: bumped revision for final 2.14 release.
+
 2014-04-02 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: fixed in typo for the AmigaOS build.
