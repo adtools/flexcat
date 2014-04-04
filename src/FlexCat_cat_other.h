@@ -90,5 +90,6 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_EXTRA_CHARACTERS FlexCat_Strings[60]
 #define MSG_ERR_EXTRA_CHARACTERS_ID FlexCat_Strings[61]
 #define MSG_ERR_NON_ASCII_CHARACTER FlexCat_Strings[62]
+#define MSG_ERR_NO_CAT_REVISION FlexCat_Strings[63]
 
 #endif

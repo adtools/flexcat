@@ -81,6 +81,7 @@ struct FC_String FlexCat_Strings[] =
    { "extra characters at the end of the line", 174 },
    { "extra characters at the end of the line for identifier '%s'", 175 },
    { "non-ASCII character 0x%02x found in original string for identifier '%s'", 176 },
+   { "no catalog revision information found, using revision 0", 177 },
    { NULL, 0 }
 };
 

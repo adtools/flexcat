@@ -154,5 +154,7 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_EXTRA_CHARACTERS_ID 61
 #define MSG_ERR_NON_ASCII_CHARACTER (FlexCat_Strings[62].Str)
 #define _MSG_ERR_NON_ASCII_CHARACTER 62
+#define MSG_ERR_NO_CAT_REVISION (FlexCat_Strings[63].Str)
+#define _MSG_ERR_NO_CAT_REVISION 63
 
 #endif

@@ -1,6 +1,6 @@
 # Translation catalog description file (pot-style)
 # $Id$
-# 
+#
 # version 3
 msgid ""
 msgstr ""
@@ -308,3 +308,7 @@ msgctxt "MSG_ERR_NON_ASCII_CHARACTER (176//)"
 msgid ""
 "non-ASCII character 0x%02x found in original string for identifier '%s'"
 msgstr "non-ASCII character 0x%02x found in original string for identifier '%s'"
+
+msgctxt "MSG_ERR_NO_CAT_REVISION (177//)"
+msgid "no catalog revision information found, using revision 0"
+msgstr "no catalog revision information found, using revision 0"

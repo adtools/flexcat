@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-04-04 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: output a warning in case the catalog revision information is
+    missing in the .po file. A revision of 0 (zero) will be used instead.
+
 #### FlexCat 2.14 RELEASE ################################################
 
 2014-04-02  Jens Maus <mail@jens-maus.de>

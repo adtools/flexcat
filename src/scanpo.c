@@ -93,10 +93,14 @@ int ScanPOFile(char *pofile)
 
         // we found the end of the header so lets check if we have all
         // we require to continue
-        if(CatVersion > 0 && CatRevision > 0 && CatVersionDate[0] != '\0' && CatProjectName[0] != '\0' &&
+        if(CatVersion > 0 && CatVersionDate[0] != '\0' && CatProjectName[0] != '\0' &&
            CatVersionString == NULL)
         {
           char buf[255];
+
+          // warn about missing revision information
+          if(CatRevision == 0)
+            ShowWarn(MSG_ERR_NO_CAT_REVISION);
 
           if(strstr(CatProjectName, ".catalog") != NULL)
             snprintf(buf, sizeof(buf), "$VER: %s %d.%d (%s)", CatProjectName, CatVersion, CatRevision, CatVersionDate);
