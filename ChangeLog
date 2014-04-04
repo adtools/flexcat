@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+#### FlexCat 2.15 RELEASE ################################################
+
+2014-04-04  Jens Maus <mail@jens-maus.de>
+
+  * misc: bumped revision for final 2.15 release.
+  
 2014-04-04 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: output a warning in case the catalog revision information is
