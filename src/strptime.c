@@ -148,11 +148,6 @@ char *strptime(const char *string, const char *fmt, struct tm *res)
           fc = *fmt++;
           sc = *string++;
         }
-        else if(sc == ' ')
-        {
-          // ignore any spaces within the day spec
-          sc = *string++;
-        }
         else if(sc >= '0' && sc <= '9')
         {
           // valid number found, add it to the day of month
