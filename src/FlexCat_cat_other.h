@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.15'
+   This file was created automatically by `FlexCat 2.14'
    from "locale/FlexCat.pot".
 
    Do NOT edit by hand!
@@ -91,5 +91,6 @@ void CloseFlexCatCatalog( void );
 #define MSG_ERR_EXTRA_CHARACTERS_ID FlexCat_Strings[61]
 #define MSG_ERR_NON_ASCII_CHARACTER FlexCat_Strings[62]
 #define MSG_ERR_NO_CAT_REVISION FlexCat_Strings[63]
+#define MSG_ERR_CONVERSION_FAILED FlexCat_Strings[64]
 
 #endif

@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-07-21 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: Output an error message in case the UTF8 conversion fails.
+
 2014-07-07 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: fixed the wrong date string scanning by rejecting spaces in the

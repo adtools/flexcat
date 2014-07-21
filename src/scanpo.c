@@ -571,7 +571,10 @@ int ScanPOFile(char *pofile)
             *line = '\0';
 
           if(strlen(line) > 0)
-            cs->CD_Str = ConvertString(line, PoSrcCharset, CatDstCharset);
+          {
+            if((cs->CD_Str = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
+              ShowError(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
+          }
           else
           {
             cs->CD_Str = malloc(1);
@@ -588,7 +591,10 @@ int ScanPOFile(char *pofile)
           line += 8;
 
           if(strlen(line) > 0)
-            cs->CT_Str = ConvertString(line, PoSrcCharset, CatDstCharset);
+          {
+            if((cs->CT_Str = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
+              ShowError(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
+          }
           else
           {
             cs->CT_Str = malloc(1);
@@ -608,9 +614,12 @@ int ScanPOFile(char *pofile)
 
           if(inMsgID == TRUE)
           {
-            char *t = ConvertString(line, PoSrcCharset, CatDstCharset);
+            char *t;
 
-            cs->CD_Str = AddString(cs->CD_Str, t);
+            if((t = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
+              ShowError(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
+            else
+              cs->CD_Str = AddString(cs->CD_Str, t);
 
             //printf("CD_Str2: '%s' '%s'\n", cs->CD_Str, line);
 
@@ -618,9 +627,12 @@ int ScanPOFile(char *pofile)
           }
           else if(inMsgSTR == TRUE)
           {
-            char *t = ConvertString(line, PoSrcCharset, CatDstCharset);
+            char *t;
 
-            cs->CT_Str = AddString(cs->CT_Str, t);
+            if((t = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
+              ShowError(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
+            else
+              cs->CT_Str = AddString(cs->CT_Str, t);
 
             //printf("CT_Str2: '%s' '%s'\n", cs->CT_Str, line);
 

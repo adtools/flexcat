@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.15'
+   This file was created automatically by `FlexCat 2.14'
    from "locale/FlexCat.pot".
 
    Do NOT edit by hand!
@@ -156,5 +156,7 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_NON_ASCII_CHARACTER 62
 #define MSG_ERR_NO_CAT_REVISION (FlexCat_Strings[63].Str)
 #define _MSG_ERR_NO_CAT_REVISION 63
+#define MSG_ERR_CONVERSION_FAILED (FlexCat_Strings[64].Str)
+#define _MSG_ERR_CONVERSION_FAILED 64
 
 #endif

@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.15'
+   This file was created automatically by `FlexCat 2.14'
    from "locale/FlexCat.pot".
 
    Do NOT edit by hand!
@@ -82,6 +82,7 @@ struct FC_String FlexCat_Strings[] =
    { "extra characters at the end of the line for identifier '%s'", 175 },
    { "non-ASCII character 0x%02x found in original string for identifier '%s'", 176 },
    { "no catalog revision information found, using revision 0", 177 },
+   { "UTF8 conversion failed for identifier '%s'", 178 },
    { NULL, 0 }
 };
 
