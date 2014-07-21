@@ -1,17 +1,17 @@
 # Translation catalog description file (pot-style)
 # $Id$
-#
+# 
 # version 3
 # Translators:
-# tboeckel <tboeckel@gmx.de>, 2014
-# tboeckel <tboeckel@gmx.de>, 2014
+# Thore Böckelmann <tboeckel@gmx.de>, 2014
+# Thore Böckelmann <tboeckel@gmx.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2014-04-04 07:24+0000\n"
-"Last-Translator: tboeckel <tboeckel@gmx.de>\n"
+"PO-Revision-Date: 2014-07-21 08:50+0000\n"
+"Last-Translator: Thore Böckelmann <tboeckel@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/flexcat/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -315,3 +315,7 @@ msgstr "nicht-ASCII-Zeichen 0x%02x im Originalstring für Bezeichner '%s' gefund
 msgctxt "MSG_ERR_NO_CAT_REVISION (177//)"
 msgid "no catalog revision information found, using revision 0"
 msgstr "keine Revisionsinformation gefunden, benutze Revision 0"
+
+msgctxt "MSG_ERR_CONVERSION_FAILED (178//)"
+msgid "UTF8 conversion failed for identifier '%s'"
+msgstr "UTF8-Konvertierung für Bezeichner '%s' fehlgeschlagen"

@@ -3,14 +3,15 @@
 # 
 # version 3
 # Translators:
-# pbobbenb <pbobbenb@icloud.com>, 2014
+# Pär Boberg <pbobbenb@icloud.com>, 2014
+# Pär Boberg <pbobbenb@icloud.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2014-04-04 07:24+0000\n"
-"Last-Translator: tboeckel <tboeckel@gmx.de>\n"
+"PO-Revision-Date: 2014-07-21 08:49+0000\n"
+"Last-Translator: Thore Böckelmann <tboeckel@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/flexcat/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -313,4 +314,8 @@ msgstr "icke ASCII tecken 0x%02x hittad i originalsträng för identifierare '%s
 
 msgctxt "MSG_ERR_NO_CAT_REVISION (177//)"
 msgid "no catalog revision information found, using revision 0"
+msgstr "ingen revisionsinformation för katalog hittad, använder revision 0"
+
+msgctxt "MSG_ERR_CONVERSION_FAILED (178//)"
+msgid "UTF8 conversion failed for identifier '%s'"
 msgstr ""

@@ -3,13 +3,15 @@
 # 
 # version 3
 # Translators:
+# Anthony I., 2014
+# Anthony I., 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2014-04-04 07:24+0000\n"
-"Last-Translator: tboeckel <tboeckel@gmx.de>\n"
+"PO-Revision-Date: 2014-07-21 08:49+0000\n"
+"Last-Translator: Thore Böckelmann <tboeckel@gmx.de>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/flexcat/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +48,7 @@ msgid ""
 "  CODESET        Codeset to force in output file (e.g. 'UTF-8')\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr ""
+msgstr "CDFILE Αρχείο καταλόγου περιγραφής για σάρωση\nCTFILE Αρχείο καταλόγου μετάφρασης για σάρωση\nPOFILE Αρχείο καταλόγου μετάφρασης σε μορφή PO\nCATALOG Αρχείο καταλόγου για δημιουργία\nNEWCTFILE Αρχείο καταλόγου μετάφρασης για δημιουργία\nSOURCES Δημιουργία πηγαίου κώδικα. Πρέπει να είναι κάτι όπως SFILE=SDFILE,\nόπου το SFILE είναι το αρχικό αρχείο και το SDFILE είναι ένα αρχικό αρχείο περιγραφής\nWARNCTGAPS Προειδοποίηση για τυχόν απόντα αναγνωριστικά στην μετάφραση\nNOOPTIM Να μη γίνεται παράλειψη αμετάβλητων συμβολοσειρών στην μετάφραση/περιγραφή\nFILL Γέμισμα απόντων αναγνωριστικών με το αρχικό κείμενο\nFLUSH Ανανέωση μνήμης μετά την δημιουργία καταλόγου\nNOBEEP Μη χρησιμοποίηση της DisplayBeep() σε σφάλματα και προειδοποιήσεις\nQUIET Χωρίς προειδοποιήσεις\nNOLANGTOLOWER Αποτροπή του ονόματος #language από το να μετατραπεί σε πεζά γράμματα\nNOBUFFEREDIO Απενεργοποίηση εισόδου/εξόδου προσωρινής μνήμης\nMODIFIED Δημιουργία καταλόγου μόνο όταν η περιγραφή/μετάφραση έχει αλλάξει\nCOPYMSGNEW Αντιγραφή ***ΝΕΩΝ*** δεικτών από την παλαιά μετάφραση\nOLDMSGNEW Τροποποιημένος δείκτης σε παλαιά μετάφραση\nCODESET Εξαναγκασμός κωδικοποίησης σε αρχείο εξόδου (π.χ. \"UTF-8\")\nNOAUTODATE καμία ενέργεια - φυλλάσεται για συμβατότητα\nNOSPACES καμία ενέργεια - φυλλάσεται για συμβατότητα"
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -130,11 +132,11 @@ msgstr "μη επαρκής μνήμη!"
 
 msgctxt "MSG_ERR_NOCATALOGDESCRIPTION (128//)"
 msgid "cannot open catalog description '%s'"
-msgstr "αδυναμία ανοίγματος της περιγραφής καταλόγου '%s'"
+msgstr "αδύνατο το άνοιγμα της περιγραφής καταλόγου '%s'"
 
 msgctxt "MSG_ERR_NOCATALOGTRANSLATION (129//)"
 msgid "cannot open catalog translation '%s'"
-msgstr "αδυναμία ανοίγματος της μετάφρασης καταλόγου '%s'"
+msgstr "αδύνατο το άνοιγμα της μετάφρασης καταλόγου '%s'"
 
 msgctxt "MSG_ERR_NOCTVERSION (130//)"
 msgid ""
@@ -144,11 +146,11 @@ msgstr "απουσία έκδοσης της μετάφρασης καταλόγ
 
 msgctxt "MSG_ERR_NOCATALOG (131//)"
 msgid "cannot open catalog file '%s'"
-msgstr "αδυναμία ανοίγματος του αρχείου καταλόγου '%s'"
+msgstr "αδύνατο το άνοιγμα του αρχείου καταλόγου '%s'"
 
 msgctxt "MSG_ERR_NONEWCTFILE (132//)"
 msgid "cannot create catalog translation '%s'"
-msgstr "αδυναμία δημιουργίας της μετάφρασης καταλόγου '%s'"
+msgstr "αδύνατο το άνοιγμα της μετάφρασης καταλόγου '%s'"
 
 msgctxt "MSG_ERR_NOCTLANGUAGE (133//)"
 msgid "missing catalog translation language"
@@ -156,11 +158,11 @@ msgstr "απουσία γλώσσας της μετάφρασης καταλόγ
 
 msgctxt "MSG_ERR_NOSOURCE (134//)"
 msgid "cannot open source file '%s'"
-msgstr "αδυναμία ανοίγματος του αρχείου πηγής '%s'"
+msgstr "αδύνατο το άνοιγμα του αρχείου πηγής '%s'"
 
 msgctxt "MSG_ERR_NOSOURCEDESCRIPTION (135//)"
 msgid "cannot open source description file '%s'"
-msgstr "αδυναμία ανοίγματος του αρχείου περιγραφής '%s'"
+msgstr "αδύνατο το άνοιγμα του αρχείου περιγραφής '%s'"
 
 msgctxt "MSG_ERR_NOCTARGUMENT (136//)"
 msgid "creating a catalog requires a translation file"
@@ -168,7 +170,7 @@ msgstr "η δημουργία ενός καταλόγου απαιτεί ένα 
 
 msgctxt "MSG_ERR_CANTCHECKDATE (137//)"
 msgid "cannot get datestamp of '%s'"
-msgstr "αδυναμία λήψης ημερομηνίας του '%s'"
+msgstr "αδύνατη η λήψη ημερομηνίας του '%s'"
 
 msgctxt "MSG_ERR_NOCTFILENAME (140//)"
 msgid ""
@@ -312,4 +314,8 @@ msgstr "βρέθηκε ο μη-ASCII χαρακτήρας 0x%02x στην αρχ
 
 msgctxt "MSG_ERR_NO_CAT_REVISION (177//)"
 msgid "no catalog revision information found, using revision 0"
+msgstr "δεν βρέθηκαν πληροφορίες για την αναθεώρηση έκδοσης του καταλόγου, θα χρησιμοποιηθεί η αναθεώρηση εκδοσης 0"
+
+msgctxt "MSG_ERR_CONVERSION_FAILED (178//)"
+msgid "UTF8 conversion failed for identifier '%s'"
 msgstr ""
