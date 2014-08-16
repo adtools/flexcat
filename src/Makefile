@@ -276,7 +276,7 @@ ifeq ($(OS), aros-i386)
   endif
 
   # Compiler/Linker flags
-  OPTFLAGS = -O2 -fomit-frame-pointer
+  OPTFLAGS = -O3 -fomit-frame-pointer
   CFLAGS += -Wno-pointer-sign -DNO_INLINE_STDARG -D__BSD_VISIBLE=1 -DAMIGA
   LDLIBS += -lamiga -larossupport -larosc
 
@@ -300,7 +300,7 @@ ifeq ($(OS), aros-ppc)
   endif
 
   # Compiler/Linker flags
-  OPTFLAGS = -O2 -fomit-frame-pointer
+  OPTFLAGS = -O3 -fomit-frame-pointer
   CFLAGS += -Wno-pointer-sign -DNO_INLINE_STDARG -D__BSD_VISIBLE=1 -DAMIGA
   LDLIBS += -lamiga -larossupport -larosc
 
@@ -324,7 +324,7 @@ ifeq ($(OS), aros-x86_64)
   endif
 
   # Compiler/Linker flags
-  OPTFLAGS = -O2 -fomit-frame-pointer
+  OPTFLAGS = -O3 -fomit-frame-pointer
   CFLAGS += -Wno-pointer-sign -DNO_INLINE_STDARG -D__BSD_VISIBLE=1 -DAMIGA
   LDLIBS += -lamiga -larossupport -larosc
 
@@ -348,7 +348,7 @@ ifeq ($(OS), aros-arm)
   endif
 
   # Compiler/Linker flags
-  OPTFLAGS = -O2 -fomit-frame-pointer
+  OPTFLAGS = -O3 -fomit-frame-pointer
   CFLAGS += -Wno-pointer-sign -DNO_INLINE_STDARG -D__BSD_VISIBLE=1 -DAMIGA
   LDLIBS += -lamiga -larossupport -larosc
 
@@ -373,7 +373,7 @@ ifeq ($(OS), mingw32)
 
   # Compiler/Linker flags
   EXE = .exe
-  OPTFLAGS = -O2 -fomit-frame-pointer
+  OPTFLAGS = -O3 -fomit-frame-pointer
   LDFLAGS =
 
   SYSDEPOBJS = locale_other.o \
@@ -394,9 +394,9 @@ ifeq ($(OS), unix)
   endif
 
   # Compiler/Linker flags
-  OPTFLAGS = -O2 -fomit-frame-pointer
-  CFLAGS += -m32 -D_GNU_SOURCE
-  LDFLAGS = -m32
+  OPTFLAGS = -O3 -fomit-frame-pointer
+  CFLAGS += -D_GNU_SOURCE
+  LDFLAGS = 
 
   SYSDEPOBJS = locale_other.o
 

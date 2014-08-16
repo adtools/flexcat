@@ -5,6 +5,13 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-08-16  Jens Maus <mail@jens-maus.de>
+
+  * src/flexcat.h, Makefile: applied patch to get flexcat correctly compiled on
+    64bit Linux systems. Thanks to Matthias Rustler for the nice patch. In
+    addition the makefile was tuned to not use -m32 anymore to workaround the
+    problem.
+
 2014-07-21 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: Output an error message in case the UTF8 conversion fails.
