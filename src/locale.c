@@ -83,6 +83,11 @@ struct FC_String FlexCat_Strings[] =
    { "non-ASCII character 0x%02x found in original string for identifier '%s'", 176 },
    { "no catalog revision information found, using revision 0", 177 },
    { "UTF8 conversion failed for identifier '%s'", 178 },
+   { "ERROR in CodesetsFind(): unknown source charset '%s'", 179 },
+   { "ERROR in CodesetsFind(): unknown destination charset '%s'", 180 },
+   { "ERROR in CodesetsConvertStr(): %d invalid characters found", 181 },
+   { "ERROR in iconv(): %s", 182 },
+   { "ERROR in iconv_open(): %s", 183 },
    { NULL, 0 }
 };
 

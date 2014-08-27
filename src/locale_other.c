@@ -43,7 +43,7 @@ void OpenFlexCatCatalog( void )
 void CloseFlexCatCatalog( void )
 {}
 
-const char * FlexCat_Strings[65] = {
+const char * FlexCat_Strings[70] = {
     "Usage:",
     "  CDFILE         Catalog description file to scan\n  CTFILE         Catalog translation file to scan\n  POFILE         Catalog translation in PO-style format\n  CATALOG        Catalog file to create\n  NEWCTFILE      Catalog translation file to create\n  SOURCES        Sources to create; must be something like SFILE=SDFILE,\n                 where SFILE is a source file and SDFILE is a source\n                 description file\n  WARNCTGAPS     Warn about identifiers missing in translation\n  NOOPTIM        Do not skip unchanged strings in translation/description\n  FILL           Fill missing identifiers with original text\n  FLUSH          Flush memory after the catalog is created\n  NOBEEP         No DisplayBeep() on errors and warnings\n  QUIET          No warnings\n  NOLANGTOLOWER  Prevent #language name from being lowercased\n  NOBUFFEREDIO   Disable I/O buffers\n  MODIFIED       Create catalog only if description/translation have changed\n  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n  OLDMSGNEW      Custom marker in old translation\n  CODESET        Codeset to force in output file (e.g. 'UTF-8')\n  NOAUTODATE     no operation - kept for compatibility\n  NOSPACES       no operation - kept for compatibility",
     "File '%s' is up to date",
@@ -108,5 +108,10 @@ const char * FlexCat_Strings[65] = {
     "extra characters at the end of the line for identifier '%s'",
     "non-ASCII character 0x%02x found in original string for identifier '%s'",
     "no catalog revision information found, using revision 0",
-    "UTF8 conversion failed for identifier '%s'"
+    "UTF8 conversion failed for identifier '%s'",
+    "ERROR in CodesetsFind(): unknown source charset '%s'",
+    "ERROR in CodesetsFind(): unknown destination charset '%s'",
+    "ERROR in CodesetsConvertStr(): %d invalid characters found",
+    "ERROR in iconv(): %s",
+    "ERROR in iconv_open(): %s"
 };

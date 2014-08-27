@@ -315,3 +315,23 @@ msgstr "no catalog revision information found, using revision 0"
 msgctxt "MSG_ERR_CONVERSION_FAILED (178//)"
 msgid "UTF8 conversion failed for identifier '%s'"
 msgstr "UTF8 conversion failed for identifier '%s'"
+
+msgctxt "MSG_ERR_UNKNOWN_SOURCE_CHARSET (179//)"
+msgid "ERROR in CodesetsFind(): unknown source charset '%s'"
+msgstr "ERROR in CodesetsFind(): unknown source charset '%s'"
+
+msgctxt "MSG_ERR_UNKNOWN_DESTINATION_CHARSET (180//)"
+msgid "ERROR in CodesetsFind(): unknown destination charset '%s'"
+msgstr "ERROR in CodesetsFind(): unknown destination charset '%s'"
+
+msgctxt "MSG_ERR_INVALID_CHARS_FOUND (181//)"
+msgid "ERROR in CodesetsConvertStr(): %d invalid characters found"
+msgstr "ERROR in CodesetsConvertStr(): %d invalid characters found"
+
+msgctxt "MSG_ERR_ICONV_FAILED (182//)"
+msgid "ERROR in iconv(): %s"
+msgstr "ERROR in iconv(): %s"
+
+msgctxt "MSG_ERR_ICONV_OPEN_FAILED (183//)"
+msgid "ERROR in iconv_open(): %s"
+msgstr "ERROR in iconv_open(): %s"

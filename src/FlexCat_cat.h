@@ -158,5 +158,15 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_NO_CAT_REVISION 63
 #define MSG_ERR_CONVERSION_FAILED (FlexCat_Strings[64].Str)
 #define _MSG_ERR_CONVERSION_FAILED 64
+#define MSG_ERR_UNKNOWN_SOURCE_CHARSET (FlexCat_Strings[65].Str)
+#define _MSG_ERR_UNKNOWN_SOURCE_CHARSET 65
+#define MSG_ERR_UNKNOWN_DESTINATION_CHARSET (FlexCat_Strings[66].Str)
+#define _MSG_ERR_UNKNOWN_DESTINATION_CHARSET 66
+#define MSG_ERR_INVALID_CHARS_FOUND (FlexCat_Strings[67].Str)
+#define _MSG_ERR_INVALID_CHARS_FOUND 67
+#define MSG_ERR_ICONV_FAILED (FlexCat_Strings[68].Str)
+#define _MSG_ERR_ICONV_FAILED 68
+#define MSG_ERR_ICONV_OPEN_FAILED (FlexCat_Strings[69].Str)
+#define _MSG_ERR_ICONV_OPEN_FAILED 69
 
 #endif

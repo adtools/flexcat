@@ -24,6 +24,7 @@
   #include <proto/codesets.h>
 #else
   #include <iconv.h>
+  #include <errno.h>
 #endif
 
 #include "flexcat.h"
@@ -203,12 +204,14 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
     {
       ULONG dstLen = 0;
       char *dstText = NULL;
+      int errPtr = 0;
 
       if(fromIsUTF8 == TRUE)
       {
         dstText = CodesetsUTF8ToStr(CSA_Source,      str,
                                     CSA_DestCodeset, dstCodeset,
                                     CSA_DestLenPtr,  &dstLen,
+                                    CSA_ErrPtr,      &errPtr,
                                     TAG_DONE);
       }
       else
@@ -225,15 +228,18 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
                                        CSA_SourceCodeset, srcCodeset,
                                        CSA_DestCodeset,   dstCodeset,
                                        CSA_DestLenPtr,    &dstLen,
+                                       CSA_ErrPtr,        &errPtr,
                                        TAG_DONE);
         }
+        else
+          ShowWarn(MSG_ERR_UNKNOWN_SOURCE_CHARSET, from_charset);
       }
 
-      if(dstText != NULL && dstLen != 0)
+      if(dstText != NULL && dstLen != 0 && errPtr == 0)
       {
         char *buf;
 
-        // copy the converted string into a separate allocated string
+        // copy the converted string into a separately allocated string
         if((buf = malloc(dstLen+1)) != NULL)
         {
           memcpy(buf, dstText, dstLen);
@@ -242,8 +248,21 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
         }
 
         CodesetsFreeA(dstText, NULL);
+
+        if(buf == NULL)
+          MemError();
+      }
+      else
+      {
+        if(errPtr != 0)
+          ShowWarn(MSG_ERR_INVALID_CHARS_FOUND, errPtr);
+
+        if(dstText == NULL)
+          MemError();
       }
     }
+    else
+      ShowWarn(MSG_ERR_UNKNOWN_DESTINATION_CHARSET, to_charset);
   }
 
   return result;
@@ -259,7 +278,7 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
     size_t inleft = strlen(str);
     char *buf;
 
-    if((buf = malloc((inleft+1)*sizeof(char))) != NULL)
+    if((buf = malloc(inleft+1)) != NULL)
     {
       size_t outleft = inleft;
       char *outbuf = buf;
@@ -271,7 +290,7 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
       }
       else
       {
-        printf("ERROR: iconv()\n");
+        printf(MSG_ERR_ICONV_FAILED, strerror(errno));
         free(buf);
       }
     }
@@ -281,7 +300,7 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
     iconv_close(ict);
   }
   else
-    printf("ERROR: iconv_open()\n");
+    printf(MSG_ERR_ICONV_OPEN_FAILED, strerror(errno));
 
   return result;
 }

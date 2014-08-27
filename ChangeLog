@@ -8,6 +8,7 @@ $URL$
 2014-08-27 Thore Böckelmann <tboeckel@gmx.de>
 
   * locale/russian.po: added russian translation.
+  * utils.c: output a sensible error message in case the UTF8 conversion fails.
 
 2014-08-16  Jens Maus <mail@jens-maus.de>
 
