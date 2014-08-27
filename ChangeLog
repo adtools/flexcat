@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-08-27 Thore Böckelmann <tboeckel@gmx.de>
+
+  * locale/russian.po: added russian translation.
+
 2014-08-16  Jens Maus <mail@jens-maus.de>
 
   * src/flexcat.h, Makefile: applied patch to get flexcat correctly compiled on
