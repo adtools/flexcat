@@ -5,6 +5,11 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-09-04 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: added missing comparison against zero. Otherwise the russian
+    catalogs gets the default codeset of 0 instead of 2104.
+
 2014-08-27 Thore Böckelmann <tboeckel@gmx.de>
 
   * locale/russian.po: added russian translation.

@@ -673,7 +673,7 @@ int ScanPOFile(char *pofile)
     CodeSet = 111;
   else if(Stricmp(CatDstCharset, "iso-8859-16") == 0)
     CodeSet = 112;
-  else if(Stricmp(CatDstCharset, "amiga-1251") == 0 || Stricmp(CatDstCharset, "windows-1251"))
+  else if(Stricmp(CatDstCharset, "amiga-1251") == 0 || Stricmp(CatDstCharset, "windows-1251") == 0)
     CodeSet = 2104;
   else
     CodeSet = 0;
