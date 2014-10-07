@@ -257,7 +257,7 @@ int ScanPOFile(char *pofile)
             else if(Stricmp(line, "pl") == 0) // polish
             {
               language = "polski";
-              CatDstCharset = "iso-8859-16";
+              CatDstCharset = "iso-8859-2";
             }
             else if(Stricmp(line, "pt") == 0) // portuguese
               language = "português";
