@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-10-08 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: a failed UTF8 conversion will just cause a warning to be printed
+    instead of an error. This makes it possible to see all failed conversions
+    in one go instead of just single failures.
+
 2014-10-07 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: use ISO-8859-2 instead of ISO-8859-16 for polish translations.

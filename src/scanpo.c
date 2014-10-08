@@ -573,7 +573,7 @@ int ScanPOFile(char *pofile)
           if(strlen(line) > 0)
           {
             if((cs->CD_Str = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
-              ShowError(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
+              ShowWarn(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
           }
           else
           {
@@ -593,7 +593,7 @@ int ScanPOFile(char *pofile)
           if(strlen(line) > 0)
           {
             if((cs->CT_Str = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
-              ShowError(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
+              ShowWarn(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
           }
           else
           {
@@ -617,7 +617,7 @@ int ScanPOFile(char *pofile)
             char *t;
 
             if((t = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
-              ShowError(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
+              ShowWarn(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
             else
               cs->CD_Str = AddString(cs->CD_Str, t);
 
@@ -630,7 +630,7 @@ int ScanPOFile(char *pofile)
             char *t;
 
             if((t = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
-              ShowError(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
+              ShowWarn(MSG_ERR_CONVERSION_FAILED, cs->ID_Str);
             else
               cs->CT_Str = AddString(cs->CT_Str, t);
 
