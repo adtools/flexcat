@@ -290,7 +290,7 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
       }
       else
       {
-        printf(MSG_ERR_ICONV_FAILED, strerror(errno));
+        ShowWarn(MSG_ERR_ICONV_FAILED, strerror(errno));
         free(buf);
       }
     }
@@ -300,7 +300,7 @@ char *ConvertString(char *str, const char *from_charset, const char *to_charset)
     iconv_close(ict);
   }
   else
-    printf(MSG_ERR_ICONV_OPEN_FAILED, strerror(errno));
+    ShowWarn(MSG_ERR_ICONV_OPEN_FAILED, strerror(errno));
 
   return result;
 }
