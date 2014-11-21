@@ -277,6 +277,11 @@ int ScanPOFile(char *pofile)
               language = "srpski";
               CatDstCharset = "iso-8859-16";
             }
+            else if(Stricmp(line, "sk") == 0) // slovakian
+            {
+              language = "slovak";
+              CatDstCharset = "iso-8859-2";
+            }
             else if(Stricmp(line, "sl") == 0) // slovenian
             {
               language = "slovensko";

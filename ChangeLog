@@ -5,6 +5,10 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2014-11-21 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: added support for slovakian translations.
+
 2014-10-08 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: a failed UTF8 conversion will just cause a warning to be printed
