@@ -4,13 +4,14 @@
 # version 3
 # Translators:
 # Johan Banis <j.banis@banis.info>, 2014
+# Thore Böckelmann <tboeckel@gmx.de>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2015-01-27 10:13+0000\n"
-"Last-Translator: Johan Banis <j.banis@banis.info>\n"
+"PO-Revision-Date: 2015-02-06 07:50+0000\n"
+"Last-Translator: Thore Böckelmann <tboeckel@gmx.de>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/flexcat/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -329,7 +330,7 @@ msgstr "Fout in CodesetFind(): onbekende bestemmingscharset '%s'"
 
 msgctxt "MSG_ERR_INVALID_CHARS_FOUND (181//)"
 msgid "ERROR in CodesetsConvertStr(): %d invalid characters found"
-msgstr "Fout in CodesetsConvertStr(): %ld ongeldige karakters gevonden"
+msgstr "Fout in CodesetsConvertStr(): %d ongeldige karakters gevonden"
 
 msgctxt "MSG_ERR_ICONV_FAILED (182//)"
 msgid "ERROR in iconv(): %s"

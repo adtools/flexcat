@@ -5,13 +5,14 @@
 # Translators:
 # Marko Raina <marko.raina@fimnet.fi>, 2014
 # Marko Raina <marko.raina@fimnet.fi>, 2014-2015
+# Thore Böckelmann <tboeckel@gmx.de>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2015-01-26 18:59+0000\n"
-"Last-Translator: Marko Raina <marko.raina@fimnet.fi>\n"
+"PO-Revision-Date: 2015-02-06 07:48+0000\n"
+"Last-Translator: Thore Böckelmann <tboeckel@gmx.de>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/flexcat/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -330,7 +331,7 @@ msgstr "Virhe CodesetsFind()-funktiossa: kohdekirjaimisto '%s' on tuntematon."
 
 msgctxt "MSG_ERR_INVALID_CHARS_FOUND (181//)"
 msgid "ERROR in CodesetsConvertStr(): %d invalid characters found"
-msgstr "Virhe CodesetsConvertStr()-funktiossa: löytyi %d virheellistä kirjainta "
+msgstr "Virhe CodesetsConvertStr()-funktiossa: löytyi %d virheellistä kirjainta"
 
 msgctxt "MSG_ERR_ICONV_FAILED (182//)"
 msgid "ERROR in iconv(): %s"
