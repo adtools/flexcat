@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+#### FlexCat 2.16 RELEASE ################################################
+
+2015-03-21  Jens Maus <mail@jens-maus.de>
+
+  * misc: bumped revision for final 2.16 release.
+
 2014-11-21 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: added support for slovakian translations.
