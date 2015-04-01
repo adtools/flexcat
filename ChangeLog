@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2015-04-01 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: do the check for intenionally empty translations regardless of the
+    length of the original string. This fixes the visible "<EMPTY>" tag with YAM
+    when invoking the online help while using the british english catalog.
+
 #### FlexCat 2.16 RELEASE ################################################
 
 2015-03-21  Jens Maus <mail@jens-maus.de>

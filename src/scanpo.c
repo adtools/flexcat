@@ -595,6 +595,10 @@ int ScanPOFile(char *pofile)
         {
           line += 8;
 
+          // don't search for "<EMPTY>" here, this will be done later
+          // during all other checks. If the string would be erased here
+          // we would be no longer able to tell it apart from really
+          // missing translations.
           if(strlen(line) > 0)
           {
             if((cs->CT_Str = ConvertString(line, PoSrcCharset, CatDstCharset)) == NULL)
@@ -693,7 +697,7 @@ int ScanPOFile(char *pofile)
       size_t reallen;
       size_t cd_len;
 
-      /* Get string length */
+      // get string length
       reallen = strlen(cs->CT_Str);
       cd_len = strlen(cs->CD_Str);
 
@@ -709,12 +713,11 @@ int ScanPOFile(char *pofile)
           cs->NotInCT = TRUE;
           continue;
         }
-        else if(strcmp(cs->CT_Str, "<EMPTY>") == 0)
-        {
-          // string should be intentionally empty
-          cs->CT_Str[0] = '\0';
-        }
       }
+
+      // check for intentionally empty translations
+      if(strncmp(cs->CT_Str, "<EMPTY>", 7) == 0)
+        cs->CT_Str[0] = '\0';
 
       if(cs->MinLen > 0 && reallen < (size_t)cs->MinLen)
         ShowWarnQuick(MSG_ERR_STRING_TOO_SHORT, cs->ID_Str);
@@ -722,7 +725,7 @@ int ScanPOFile(char *pofile)
       if(cs->MaxLen > 0 && reallen > (size_t)cs->MaxLen)
         ShowWarnQuick(MSG_ERR_STRING_TOO_LONG, cs->ID_Str);
 
-      /* Check for trailing ellipsis. */
+      // check for trailing ellipsis
       if(reallen >= 3 && cd_len >= 3)
       {
         if(strcmp(&cs->CD_Str[cd_len - 3], "...") == 0 &&
@@ -738,7 +741,7 @@ int ScanPOFile(char *pofile)
         }
       }
 
-      /* Check for trailing spaces. */
+      // check for trailing spaces
       if(reallen >= 1 && cd_len >= 1)
       {
         if(strcmp(&cs->CD_Str[cd_len - 1], " ") == 0 &&
@@ -756,7 +759,7 @@ int ScanPOFile(char *pofile)
         }
       }
 
-      /* Check for matching placeholders */
+      // check for matching placeholders
       if(reallen >= 1 && cd_len >= 1)
       {
         char *cdP = cs->CD_Str;
