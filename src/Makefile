@@ -374,7 +374,9 @@ ifeq ($(OS), mingw32)
   # Compiler/Linker flags
   EXE = .exe
   OPTFLAGS = -O3 -fomit-frame-pointer
+  CFLAGS += -I./include/mingw32
   LDFLAGS =
+  LDLIBS += -liconv
 
   SYSDEPOBJS = locale_other.o \
                asprintf.o \

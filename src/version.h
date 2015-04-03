@@ -29,8 +29,8 @@
 
 // for setting all necessary version information
 #define EXE_VERSION    2
-#define EXE_REVISION   16
-#define EXE_DATE       "21.03.2015"
+#define EXE_REVISION   17
+#define EXE_DATE       "03.04.2015"
 #define EXE_COPYRIGHT  "Copyright (C) 2002-2015 FlexCat Open Source Team"
 
 // set the EXE_REV_STRING

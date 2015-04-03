@@ -5,6 +5,14 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+#### FlexCat 2.17 RELEASE ################################################
+
+2015-04-03  Jens Maus <mail@jens-maus.de>
+
+  * misc: bumped revision for final 2.17 release.
+  * Makefile, include: added mingw32 libiconv static library and includes
+    to our project so that we can compile windows binaries of flexcat again.
+
 2015-04-01 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: do the check for intenionally empty translations regardless of the
