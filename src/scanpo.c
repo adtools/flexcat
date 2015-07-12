@@ -697,9 +697,9 @@ int ScanPOFile(char *pofile)
       size_t reallen;
       size_t cd_len;
 
-      // get string length
-      reallen = strlen(cs->CT_Str);
-      cd_len = strlen(cs->CD_Str);
+      // get string length, respect UTF8 encoded characters
+      reallen = utf8_strlen(cs->CT_Str);
+      cd_len = utf8_strlen(cs->CD_Str);
 
       // check for empty translations
       if(cd_len > 0)

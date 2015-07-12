@@ -5,6 +5,12 @@ FlexCat Open Source - Changelog
 $Id$
 $URL$
 
+2015-07-12 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c, utils.c: respect UTF8 encoded strings when doing the minimum and
+    maximum length checks. A single UTF8 character might be encoded in up to
+    three ASCII characters.
+
 #### FlexCat 2.17 RELEASE ################################################
 
 2015-04-03  Jens Maus <mail@jens-maus.de>

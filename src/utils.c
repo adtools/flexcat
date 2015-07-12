@@ -143,6 +143,31 @@ int Strnicmp(const char *str1, const char *str2, int len)
 }
 #endif
 ///
+/// utf8_strlen
+
+size_t utf8_strlen(const char *str)
+{
+  size_t i, ix, q;
+
+  for(q=0, i=0, ix=strlen(str); i < ix; i++, q++)
+  {
+    int c = (unsigned char)str[i];
+
+    if(c>=0 && c<=127)
+      i += 0;
+    else if((c & 0xe0) == 0xc0)
+      i += 1;
+    else if((c & 0xf0) == 0xe0)
+      i += 2;
+    else if((c & 0xf8) == 0xf0)
+      i += 3;
+    else
+      return 0; // invalid utf8
+  }
+
+  return q;
+}
+///
 /// AllocString
 
 /* This allocates a string */

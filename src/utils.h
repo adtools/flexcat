@@ -44,6 +44,8 @@ int             Stricmp ( const char *str1, const char *str2 );
 int             Strnicmp ( const char *str1, const char *str2, int len );
 #endif // AMIGA
 
+size_t          utf8_strlen(const char *str);
+
 #if defined(__amigaos3__) || defined(__MORPHOS__)
 char *strptime(const char *string, const char *fmt, struct tm *res);
 #endif
