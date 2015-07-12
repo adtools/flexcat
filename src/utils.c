@@ -147,13 +147,14 @@ int Strnicmp(const char *str1, const char *str2, int len)
 
 size_t utf8_strlen(const char *str)
 {
-  size_t i, ix, q;
+  size_t ix = strlen(str);
+  size_t i, q;
 
-  for(q=0, i=0, ix=strlen(str); i < ix; i++, q++)
+  for(q=0, i=0; i < ix; i++, q++)
   {
     int c = (unsigned char)str[i];
 
-    if(c>=0 && c<=127)
+    if(c >= 0 && c <= 127)
       i += 0;
     else if((c & 0xe0) == 0xc0)
       i += 1;

@@ -695,11 +695,17 @@ int ScanPOFile(char *pofile)
     else
     {
       size_t reallen;
+      size_t reallen_utf8;
       size_t cd_len;
 
-      // get string length, respect UTF8 encoded characters
-      reallen = utf8_strlen(cs->CT_Str);
-      cd_len = utf8_strlen(cs->CD_Str);
+      // get string length for both ASCII and UTF8 encoding
+      // the length check must be done against the UTF8 length,
+      // which might be less than the ASCII length due to certain
+      // UTF8 characters which are encoded with up to 3 ASCII
+      // characters
+      reallen = strlen(cs->CT_Str);
+      reallen_utf8 = utf8_strlen(cs->CT_Str);
+      cd_len = strlen(cs->CD_Str);
 
       // check for empty translations
       if(cd_len > 0)
@@ -719,10 +725,10 @@ int ScanPOFile(char *pofile)
       if(strncmp(cs->CT_Str, "<EMPTY>", 7) == 0)
         cs->CT_Str[0] = '\0';
 
-      if(cs->MinLen > 0 && reallen < (size_t)cs->MinLen)
+      if(cs->MinLen > 0 && reallen_utf8 < (size_t)cs->MinLen)
         ShowWarnQuick(MSG_ERR_STRING_TOO_SHORT, cs->ID_Str);
 
-      if(cs->MaxLen > 0 && reallen > (size_t)cs->MaxLen)
+      if(cs->MaxLen > 0 && reallen_utf8 > (size_t)cs->MaxLen)
         ShowWarnQuick(MSG_ERR_STRING_TOO_LONG, cs->ID_Str);
 
       // check for trailing ellipsis
