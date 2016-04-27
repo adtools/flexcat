@@ -142,7 +142,7 @@ void CreateCTFile(char *NewCTFile)
             if(BaseName != NULL)
               fprintf(fp, "## version %cVER: %s.catalog <ver>.%d (%s)\n", '$', BaseName, CatRevision, dateStr);
             else
-              fprintf(fp, "## version %cVER: <name>.catalog <ver>.%d (%s)\n", '$', dateStr, CatRevision);
+              fprintf(fp, "## version %cVER: <name>.catalog <ver>.%d (%s)\n", '$', CatRevision, dateStr);
           }
           else
           {
