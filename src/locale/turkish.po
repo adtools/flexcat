@@ -1,5 +1,4 @@
 # Translation catalog description file (pot-style)
-# $Id$
 # 
 # version 3
 # Translators:
@@ -7,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
-"Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
+"Report-Msgid-Bugs-To: https://github.com/adtools/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2015-07-15 14:31+0000\n"
-"Last-Translator: İbrahim Alper Sönmez <amithlondestek@gmail.com>\n"
+"PO-Revision-Date: 2016-04-27 14:50+0000\n"
+"Last-Translator: Jens Maus <mail@jens-maus.de>\n"
 "Language-Team: Turkish (http://www.transifex.com/ato/flexcat/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,9 +44,11 @@ msgid ""
 "  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"
 "  OLDMSGNEW      Custom marker in old translation\n"
 "  CODESET        Codeset to force in output file (e.g. 'UTF-8')\n"
+"  VERSION        Force a certain version to be used during catalog generation\n"
+"  REVISION       Force a certain revision to be used during catalog generation\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr "  CDFILE         Taranacak katalog açıklayıcısı\n  CTFILE         Taranacak katalog çevirisi\n  POFILE         PO-Stilinde katalog çevirisi\n  CATALOG        Katalog dosyası oluştur\n  NEWCTFILE      Oluşturulacak katalog çeviri dosyası\n  SOURCES        Oluşturulacak kaynaklar; SFILE=SDFILE biçeminde olmalıdır,\n                 SFILE bir kaynak dosyası ve SDFILE ise bir kaynak\n                 açıklayıcı dosyasıdır\n  WARNCTGAPS     Çeviride eksik olan tanımlayıcılar için uyar\n  NOOPTIM        Çevirideki/açıklayıcıdaki değişmemiş satırları atlama\n  FILL           Eksik tanımlayıcıları özgün metin ile doldur\n  FLUSH          Katalog oluşturulduktan sonra belleği temizle\n  NOBEEP         Hata ve uyarılarda DisplayBeep() kullanma\n  QUIET          Hiçbir uyarı görüntüleme\n  NOLANGTOLOWER  #language (dil) adının küçük harf olmasından kaçın\n  NOBUFFEREDIO   G/Ç tampon belleğini devre dışı bırak\n  MODIFIED       Yalnız açıklayıcı/çeviri değiştiyse katalog oluştur\n  COPYMSGNEW     Eski çeviri üzerinden ***NEW*** işaretçilerini kopyala\n  OLDMSGNEW      Eski çeviride kullanıcı işaretçisi\n  CODESET        Çıkış dosyası için kullanılacak codeset (örn. 'UTF-8')\n  NOAUTODATE     işlevsiz - uyumluluk için\n  NOSPACES       işlevsiz - uyumluluk için"
+msgstr ""
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -338,3 +339,7 @@ msgstr "iconv()'de HATA: %s"
 msgctxt "MSG_ERR_ICONV_OPEN_FAILED (183//)"
 msgid "ERROR in iconv_open(): %s"
 msgstr "iconv_open()'da HATA: %s"
+
+msgctxt "MSG_ERR_NO_CAT_VERSION (184//)"
+msgid "no catalog version information found, using version 0"
+msgstr ""

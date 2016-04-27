@@ -1,5 +1,4 @@
 # Translation catalog description file (pot-style)
-# $Id$
 # 
 # version 3
 # Translators:
@@ -7,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
-"Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
+"Report-Msgid-Bugs-To: https://github.com/adtools/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2014-10-26 17:22+0000\n"
-"Last-Translator: Samir Hawamdeh <s.hawamdeh@teletu.it>\n"
+"PO-Revision-Date: 2016-04-27 14:50+0000\n"
+"Last-Translator: Jens Maus <mail@jens-maus.de>\n"
 "Language-Team: Italian (http://www.transifex.com/ato/flexcat/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,9 +44,11 @@ msgid ""
 "  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"
 "  OLDMSGNEW      Custom marker in old translation\n"
 "  CODESET        Codeset to force in output file (e.g. 'UTF-8')\n"
+"  VERSION        Force a certain version to be used during catalog generation\n"
+"  REVISION       Force a certain revision to be used during catalog generation\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr "CDFILE File descrizione da esaminare\nCTFILE File traduzione da esaminare\nPOFILE File traduzione in formato PO\nCATALOG Crea file catalog\nNEWCTFILE Crea file traduzione\nSOURCES Crea sorgenti; devono essere di tipo SFILE=SDFILE,\ndove SFILE è il file sorgente mentre SDFILE è il sorgente del file descrizione\nWARNCTGAPS Avvisa circa l'assenza di identificatori nella traduzione\nNOOPTIM Non saltare eventuali stringhe invariate nella traduzione/descrizione\nFILL Aggiungi gli identificatori mancanti nel testo originale\nFLUSH Pulisci la memoria dopo aver creato il catalogo\nNOBEEP Nessun DisplayBeep() per gli errori o avvisi\nQUIET Nessun avviso\nNOLANGTOLOWER Previeni minuscole dai nomi #language\nNOBUFFEREDIO Disattiva buffer I/O\nMODIFIED Crea catalogo solo se la descrizione/traduzione è stata modificata\nCOPYMSGNEW Copia marcatori ***NEW*** dalla vecchia traduzione\nOLDMSGNEW Marcatore personalizzato della vecchia traduzione\nCODESET Forza codeset nel file di output (per esempio 'UTF-8')\nNOAUTODATE Nessuna operazione - mantenuto per compatibilità\nNOSPACES Nessuna operazione - mantenuto per compatibilità"
+msgstr ""
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -338,3 +339,7 @@ msgstr "ERRORE in iconv(): %s"
 msgctxt "MSG_ERR_ICONV_OPEN_FAILED (183//)"
 msgid "ERROR in iconv_open(): %s"
 msgstr "ERRORE in iconv_open(): %s"
+
+msgctxt "MSG_ERR_NO_CAT_VERSION (184//)"
+msgid "no catalog version information found, using version 0"
+msgstr ""

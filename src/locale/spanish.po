@@ -1,5 +1,4 @@
 # Translation catalog description file (pot-style)
-# $Id$
 # 
 # version 3
 # Translators:
@@ -8,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
-"Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
+"Report-Msgid-Bugs-To: https://github.com/adtools/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2014-09-02 11:17+0000\n"
-"Last-Translator: Javier de las Rivas <jabierdlr@gmail.com>\n"
+"PO-Revision-Date: 2016-04-27 14:50+0000\n"
+"Last-Translator: Jens Maus <mail@jens-maus.de>\n"
 "Language-Team: Spanish (http://www.transifex.com/ato/flexcat/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,9 +45,11 @@ msgid ""
 "  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"
 "  OLDMSGNEW      Custom marker in old translation\n"
 "  CODESET        Codeset to force in output file (e.g. 'UTF-8')\n"
+"  VERSION        Force a certain version to be used during catalog generation\n"
+"  REVISION       Force a certain revision to be used during catalog generation\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr "  CDFILE         Descripción a comprobar\n  CTFILE         Traducción a comprobar\n  POFILE         Traducción en formato PO a comprobar\n  CATALOG        Catálogo a crear\n  NEWCTFILE      Nuevo fichero de traducción a crear\n  SOURCES        Código fuente a generar (SFILE=SDFILE); donde SFILE es el\n                 código fuente y SDFILE plantilla a usar como descripción\n                 del código fuente\n  WARNCTGAPS     Avisar si faltan cadenas en el fichero de traducción\n  NOOPTIM        Incluir en el catálogo las cadenas que no han cambiado\n  FILL           Rellenar las cadenas que falten con los textos originales\n  FLUSH          Liberar memoria tras generar el catálogo\n  NOBEEP         No usar DisplayBeep() en los errores y avisos\n  QUIET          Suprimir avisos\n  NOLANGTOLOWER  Evitar que '#language <cadena>' se convierta a minúsculas\n  NOBUFFEREDIO   No usar bufers de E/S\n  MODIFIED       Crear catálogo sólo si el fichero de descripción/traducción ha cambiado\n  COPYMSGNEW     Incluir marca ***NEW*** al actualizar el fichero de traducción\n  OLDMSGNEW      Marca utilizada en el antiguo fichero de traducción\n  CODESET        Código de página a forzar en el fichero de salida (ej. 'UTF-8')\n  NOAUTODATE     sin validez; se mantiene por compatibilidad\n  NOSPACES       sin validez; se mantiene por compatibilidad"
+msgstr ""
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -339,3 +340,7 @@ msgstr "ERROR en iconv(): %s"
 msgctxt "MSG_ERR_ICONV_OPEN_FAILED (183//)"
 msgid "ERROR in iconv_open(): %s"
 msgstr "ERROR en iconv_open(): %s"
+
+msgctxt "MSG_ERR_NO_CAT_VERSION (184//)"
+msgid "no catalog version information found, using version 0"
+msgstr ""

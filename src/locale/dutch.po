@@ -1,5 +1,4 @@
 # Translation catalog description file (pot-style)
-# $Id$
 # 
 # version 3
 # Translators:
@@ -8,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
-"Report-Msgid-Bugs-To: http://sf.net/p/flexcat\n"
+"Report-Msgid-Bugs-To: https://github.com/adtools/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2015-02-06 07:50+0000\n"
-"Last-Translator: Thore Böckelmann <tboeckel@gmx.de>\n"
+"PO-Revision-Date: 2016-04-27 14:50+0000\n"
+"Last-Translator: Jens Maus <mail@jens-maus.de>\n"
 "Language-Team: Dutch (http://www.transifex.com/ato/flexcat/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,9 +45,11 @@ msgid ""
 "  COPYMSGNEW     Copy ***NEW*** markers over from old translation\n"
 "  OLDMSGNEW      Custom marker in old translation\n"
 "  CODESET        Codeset to force in output file (e.g. 'UTF-8')\n"
+"  VERSION        Force a certain version to be used during catalog generation\n"
+"  REVISION       Force a certain revision to be used during catalog generation\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr "  CDFILE         Catalogbeschrijving om te scannen\n  CTFILE         Catalogvertaling om te scannen\n  POFILE         Catalogvertaling in PO-stijl formaat\n  CATALOG        Catalog die gemaakt moet worden\n  NEWCTFILE      Catalogvertaling die gemaakt moet worden\n  SOURCES        Bronnen die gemaakt moeten worden. Moet zoiets zijn als: SFILE=SDFILE, waarin SFILE is een bronbestand en SDFILE is een bronbeschrijvingsbestand\n  WARNCTGAPS     Waarschuwing voor ontbrekende identifiers in de vertaling\n  NOOPTIM        Ongewijzigde strings in .ct of .cd niet overslaan\n  FILL           Ontbrekende identifiers aanvullen met originele tekst\n  FLUSH          Geheugen wissen nadat de .catalog gemaakt is\n  NOBEEP         Geen schermflitsje () bij fouten en waarschuwingen\n  QUIET          Geen waarschuwingen\n  NOLANGTOLOWER  Verhinder dat #language naam in kleine letters is\n  NOBUFFEREDIO   I/O buffers uitschakelen\n  MODIFIED       Alleen een .catalog maken als .cd of .ct gewijzigd is\n  COPYMSGNEW     Kopieer ***NEW*** markeringen uit oude vertaling\n  OLDMSGNEW      Custom markering in oude vertaling\n  CODESET        Codeset in uitvoerbestand (bv 'UTF-8')\n  NOAUTODATE     niets doen - alleen voor overeenkomsten\n  NOSPACES       niets doen - alleen voor overeenkomsten"
+msgstr ""
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -339,3 +340,7 @@ msgstr "Fout in iconv(): %s"
 msgctxt "MSG_ERR_ICONV_OPEN_FAILED (183//)"
 msgid "ERROR in iconv_open(): %s"
 msgstr "Fout in iconv_open(): %s"
+
+msgctxt "MSG_ERR_NO_CAT_VERSION (184//)"
+msgid "no catalog version information found, using version 0"
+msgstr ""
