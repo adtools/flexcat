@@ -367,9 +367,9 @@ ifeq ($(OS), mingw32)
   # Windows (mingw32)
 
   ifneq ($(HOST), Windows)
-    CC      = i586-mingw32msvc-gcc
-    STRIP   = i586-mingw32msvc-strip
-    OBJDUMP = i586-mingw32msvc-objdump
+    CC      = i686-w64-mingw32-gcc
+    STRIP   = i686-w64-mingw32-strip
+    OBJDUMP = i686-w64-mingw32-objdump
   endif
 
   # Compiler/Linker flags
