@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.15'
+   This file was created automatically by `FlexCat 2.18'
    from "locale/FlexCat.pot".
 
    Do NOT edit by hand!
@@ -168,5 +168,7 @@ extern struct FC_String FlexCat_Strings[];
 #define _MSG_ERR_ICONV_FAILED 68
 #define MSG_ERR_ICONV_OPEN_FAILED (FlexCat_Strings[69].Str)
 #define _MSG_ERR_ICONV_OPEN_FAILED 69
+#define MSG_ERR_NO_CAT_VERSION (FlexCat_Strings[70].Str)
+#define _MSG_ERR_NO_CAT_VERSION 70
 
 #endif

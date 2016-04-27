@@ -124,6 +124,7 @@ CC      = gcc
 STRIP   = strip
 OBJDUMP = objdump
 MAKEINFO= makeinfo
+TX      = tx
 
 # path definitions
 CDUP  = /
@@ -519,10 +520,19 @@ FlexCat_cat_other.h: locale/FlexCat.pot sd/Hardcode_h.sd
 
 locale/%.catalog: locale/%.po
 	@echo "  MK $@"
-	@$(FLEXCAT) POFILE $< CATALOG $@
+	@$(FLEXCAT) REVISION $(shell git rev-list --all --count $<) POFILE $< CATALOG $@
+
+## TRANSIFEX ##########################
+
+.PHONY: txpull
+txpull:
+	@$(TX) pull -a -f
+
+.PHONY: txpush
+txpush:
+	@$(TX) push -t
 
 .IGNORE: $(CATALOGS)
-
 catalogs: $(CATALOGS)
 
 .PHONY: clean

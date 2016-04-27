@@ -24,7 +24,7 @@
 #define  FLEXCAT_SCANPO_H
 
 /* Functions */
-int ScanPOFile(char *pofile);
+int ScanPOFile(char *pofile, int verwarning);
 
 /* Variables */
 

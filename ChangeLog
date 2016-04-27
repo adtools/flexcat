@@ -2,8 +2,13 @@
 FlexCat Open Source - Changelog
 -------------------------------
 
-$Id$
-$URL$
+2016-04-27  Jens Maus <mail@jens-maus.de>
+
+  * scanpo.c, main.c, misc: implemented a VERSION/N and REVISION/N option to
+    allow to override the catalog version and revision numbers. This is e.g.
+    the case if the ct/po files don't contain parseable $Id$ specifiers in case
+    git is used as revision control. For these cases the revision can now be
+    specified on the command-line as well.
 
 2015-07-12 Thore Böckelmann <tboeckel@gmx.de>
 

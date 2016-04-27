@@ -1,2 +1,7 @@
-.dep_*/
-.obj_*/
+src/.dep_*/
+src/.obj_*/
+src/bin_*/
+src/locale/*.catalog
+release/
+/*.lha
+/*.readme

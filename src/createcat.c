@@ -260,7 +260,7 @@ void CreateCat(char *CatFile)
       name = (char *)"";
     }
 
-    if(asprintf(&verStr, "%cVER: %s %d.%d(%d.%d.%d)", '$', name, version, revision, day, month, year) != -1)
+    if(asprintf(&verStr, "%cVER: %s %d.%d (%d.%d.%d)", '$', name, version, revision, day, month, year) != -1)
     {
       verChunk.ID = MAKE_ID('F', 'V', 'E', 'R');
       verChunk.ID = SwapLong(verChunk.ID);

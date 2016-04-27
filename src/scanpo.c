@@ -57,13 +57,12 @@ char *strptime(const char *string, const char *fmt, struct tm *res);
    Inputs: pofile - name of the description/translation file to scan.
    Result: TRUE if successful, FALSE otherwise.
 */
-int ScanPOFile(char *pofile)
+int ScanPOFile(char *pofile, int verwarning)
 {
   FILE *fp;
   char *newline, *line;
   int Result = TRUE;
   int CodeSet_checked = FALSE;
-  int revision_found = FALSE;
   int inHeader = TRUE;
   int NextID = 0;
   const char *PoSrcCharset = "utf-8";
@@ -91,21 +90,36 @@ int ScanPOFile(char *pofile)
       {
         inHeader = FALSE;
 
+        // check that we have a valid verson
+        if(CatVersion == -1)
+        {
+          if(verwarning)
+            ShowWarn(MSG_ERR_NO_CAT_VERSION);
+
+          CatVersion = 0;
+        }
+
         // we found the end of the header so lets check if we have all
         // we require to continue
-        if(CatVersion > 0 && CatVersionDate[0] != '\0' && CatProjectName[0] != '\0' &&
+        if(CatVersionDate[0] != '\0' && CatProjectName[0] != '\0' &&
            CatVersionString == NULL)
         {
           char buf[255];
 
           // warn about missing revision information
-          if(CatRevision == 0)
-            ShowWarn(MSG_ERR_NO_CAT_REVISION);
+          if(CatRevision == -1)
+          {
+            if(verwarning)
+              ShowWarn(MSG_ERR_NO_CAT_REVISION);
+
+            CatRevision = 0;
+          }
 
           if(strstr(CatProjectName, ".catalog") != NULL)
             snprintf(buf, sizeof(buf), "$VER: %s %d.%d (%s)", CatProjectName, CatVersion, CatRevision, CatVersionDate);
           else
             snprintf(buf, sizeof(buf), "$VER: %s.catalog %d.%d (%s)", CatProjectName, CatVersion, CatRevision, CatVersionDate);
+
           CatVersionString = AllocString(buf);
         }
       }
@@ -119,20 +133,19 @@ int ScanPOFile(char *pofile)
           while(*line == '#' || *line == ' ' || *line == '\t')
             ++line;
 
-          if(Strnicmp(line, "version", 7) == 0)
+          if(CatVersion == -1 && Strnicmp(line, "version", 7) == 0)
           {
             line += 8;
             OverSpace(&line);
             CatVersion = strtol(line, &line, 0);
           }
-          else if(Strnicmp(line, "revision", 8) == 0)
+          else if(CatRevision == -1 && Strnicmp(line, "revision", 8) == 0)
           {
             line += 9;
             OverSpace(&line);
             CatRevision = strtol(line, &line, 0);
-            revision_found = TRUE;
           }
-          else if(revision_found == FALSE &&
+          else if(CatRevision == -1 &&
                   Strnicmp(line, "$Id: ", 5) == 0)
           {
             char *p;
@@ -148,7 +161,7 @@ int ScanPOFile(char *pofile)
               CatRevision = strtol(p, &p, 0);
             }
           }
-          else if(revision_found == FALSE &&
+          else if(CatRevision == -1 &&
                   Strnicmp(line, "$Revision: ", 11) == 0)
           {
             line += 12;

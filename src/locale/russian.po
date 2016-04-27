@@ -4,6 +4,7 @@
 # version 3
 # Translators:
 # Michael Malyshev, 2014
+# Michael Malyshev, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
