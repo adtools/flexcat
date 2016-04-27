@@ -2,8 +2,11 @@
 FlexCat Open Source - Changelog
 -------------------------------
 
+#### FlexCat 2.18 RELEASE ################################################
+
 2016-04-27  Jens Maus <mail@jens-maus.de>
 
+  * misc: final 2.18 release preparations.
   * scanpo.c, main.c, misc: implemented a VERSION/N and REVISION/N option to
     allow to override the catalog version and revision numbers. This is e.g.
     the case if the ct/po files don't contain parseable $Id$ specifiers in case
