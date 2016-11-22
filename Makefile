@@ -1,7 +1,5 @@
 #/***************************************************************************
 #
-# $Id$
-#
 # Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
 # Copyright (C) 2002-2015 FlexCat Open Source Team
 #
@@ -21,33 +19,21 @@
 #
 #***************************************************************************/
 
-.PHONY: all
-all: src
+# List targets defined in this file
+TARGETS_SELF :=
 
-.PHONY: src
-src:
-	@$(MAKE) -C src --no-print-directory
+# Exclude targets defined in this file
+TARGETS_OTHER := $(filter-out $(TARGETS_SELF), $(MAKECMDGOALS))
 
-.PHONY: catalogs
-catalogs:
-	@$(MAKE) -C src --no-print-directory catalogs
+# Call all targets using `Makefile` in src directory in one `make` command. It
+# can depend on targets defined in this file, e.g., depending on a target to
+# create the Makefile.
+#
+# If no targets are specified, use the dummy `all` target
+$(or $(lastword $(TARGETS_OTHER)),all):
+	@$(MAKE) -C src $(TARGETS_OTHER)
+.PHONY: $(TARGETS_OTHER) all
 
-.PHONY: clean
-clean:
-	@$(MAKE) -C src --no-print-directory clean
-
-.PHONY: cleanall
-cleanall:
-	@$(MAKE) -C src --no-print-directory cleanall
-
-.PHONY: install
-install:
-	@$(MAKE) -C src --no-print-directory install
-
-.PHONY: bumprev
-bumprev:
-	@sh tools/bumprev.sh all
-
-.PHONY: release
-release:
-	@sh tools/mkrelease.sh
+# Do nothing for all targets but last. Also quiet the message "Noting to be done on xxx"
+$(filter-out $(lastword $(TARGETS_OTHER)), $(TARGETS_OTHER)):
+	@cd .
