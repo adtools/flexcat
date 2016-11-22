@@ -32,7 +32,7 @@
 #include <proto/codesets.h>
 
 #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
-#if defined(__AROS__)
+#if defined(__AROS__) || defined(__amigaos3__)
 struct UtilityBase *UtilityBase = NULL;
 #else
 struct Library *UtilityBase = NULL;
@@ -55,7 +55,7 @@ BOOL OpenLibs(void)
 {
   #if defined(__amigaos3__) || defined(__MORPHOS__) || defined(__AROS__)
   if(
-     #if defined(__AROS__)
+     #if defined(__AROS__) || defined(__amigaos3__)
      (UtilityBase = (struct UtilityBase *)OpenLibrary("utility.library", 37)) != NULL &&
      #else
      (UtilityBase = OpenLibrary("utility.library", 37)) != NULL &&
