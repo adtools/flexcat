@@ -227,8 +227,8 @@ ifeq ($(OS), os3)
 
   # Compiler/Linker flags
   CPU     = -m68020-60 -msoft-float
-  CFLAGS  += -I./include/netinclude -DNO_INLINE_STDARG -D__amigaos3__ -DAMIGA
-  LDFLAGS += -noixemul
+  CFLAGS  += -mcrt=clib2 -I./include/netinclude -DNO_INLINE_STDARG -D__amigaos3__ -DAMIGA
+  LDFLAGS += -mcrt=clib2
   LDLIBS  += -lamiga
   GCCVER  = 2
 
