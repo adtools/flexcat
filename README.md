@@ -1,4 +1,4 @@
-# FlexCat (Flexible Translation Catalogs for Amiga systems)
+# FlexCat (Flexible Catalogs for Amiga systems)
 
 [![Build Status](https://travis-ci.org/adtools/flexcat.svg?branch=master)](https://travis-ci.org/adtools/flexcat)
 [![Code Climate](https://codeclimate.com/github/adtools/flexcat/badges/gpa.svg)](https://codeclimate.com/github/adtools/flexcat)
@@ -33,8 +33,10 @@ FlexCat is distributed and license under the GNU General Public License Version 
 
 ## Authors
 
+* David Rey
 * Jens Maus
 * Jochen Wiedmann
+* Jörg Strohmayer
 * Marcin Orlowski
 * Pavel Fedin
 * Thore Böckelmann
