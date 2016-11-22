@@ -1,4 +1,4 @@
-# FlexCat
+# FlexCat (Flexible Translation Catalogs for Amiga systems)
 
 [![Build Status](https://travis-ci.org/adtools/flexcat.svg?branch=master)](https://travis-ci.org/adtools/flexcat)
 [![Code Climate](https://codeclimate.com/github/adtools/flexcat/badges/gpa.svg)](https://codeclimate.com/github/adtools/flexcat)
