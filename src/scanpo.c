@@ -86,7 +86,7 @@ int ScanPOFile(char *pofile, int verwarning)
   {
     if(inHeader == TRUE)
     {
-      if(*line == '\0')
+      if(line[0] == '\0')
       {
         inHeader = FALSE;
 
@@ -576,7 +576,7 @@ int ScanPOFile(char *pofile, int verwarning)
           memmove(p, p+1, strlen(p));
 
         // unquote the string
-        if(line[strlen(line)-1] == '"')
+        if(line[0] != '\0' && line[strlen(line)-1] == '"')
           line[strlen(line)-1] = '\0';
 
         if(Strnicmp(line, "msgid \"", 7) == 0)
@@ -586,7 +586,7 @@ int ScanPOFile(char *pofile, int verwarning)
           // if the string starts with <EMPTY> we out to remove
           // the rest of the string!
           if(strncmp(line, "<EMPTY>", 7) == 0)
-            *line = '\0';
+            line[0] = '\0';
 
           if(strlen(line) > 0)
           {

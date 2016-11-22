@@ -2,6 +2,11 @@
 FlexCat Open Source - Changelog
 -------------------------------
 
+2016-11-22 Thore Böckelmann <tboeckel@gmx.de>
+
+  * scanpo.c: fixed a potential buffer access beyond valid limits. Thanks to
+    Neil Cafferkey for the hint. This closes #1.
+
 #### FlexCat 2.18 RELEASE ################################################
 
 2016-04-27  Jens Maus <mail@jens-maus.de>
