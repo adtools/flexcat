@@ -2,7 +2,7 @@
  * $Id$
  *
  * Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
- * Copyright (C) 2002-2015 FlexCat Open Source Team
+ * Copyright (C) 2002-2017 FlexCat Open Source Team
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@
 #define EXE_VERSION    2
 #define EXE_REVISION   18
 #define EXE_DATE       "27.04.2016"
-#define EXE_COPYRIGHT  "Copyright (C) 2002-2016 FlexCat Open Source Team"
+#define EXE_COPYRIGHT  "Copyright (C) 2002-2017 FlexCat Open Source Team"
 
 // set the EXE_REV_STRING
 #define EXE_REV_STRING STR(EXE_VERSION) "." STR(EXE_REVISION)

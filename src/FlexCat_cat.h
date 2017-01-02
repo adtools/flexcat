@@ -1,7 +1,7 @@
 
 /****************************************************************
 
-   This file was created automatically by `FlexCat 2.18'
+   This file was created automatically by `FlexCat 2.17'
    from "locale/FlexCat.pot".
 
    Do NOT edit by hand!
