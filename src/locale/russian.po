@@ -3,14 +3,14 @@
 # version 3
 # Translators:
 # Michael Malyshev, 2014
-# Michael Malyshev, 2014
+# Michael Malyshev, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: https://github.com/adtools/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2016-04-27 14:50+0000\n"
-"Last-Translator: Jens Maus <mail@jens-maus.de>\n"
+"PO-Revision-Date: 2016-09-13 17:27+0000\n"
+"Last-Translator: Michael Malyshev\n"
 "Language-Team: Russian (http://www.transifex.com/ato/flexcat/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +49,7 @@ msgid ""
 "  REVISION       Force a certain revision to be used during catalog generation\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr ""
+msgstr "CDFILE         Файл описания каталога для сканирования\nCTFILE         Файл перевода каталога для сканирования\nPOFILE         Файл перевода каталога в формате PO\nCATALOG        Файл создаваемого каталога\nNEWCTFILE      Файл создаваемого перевода\nSOURCES        Исходники для создания; должны быть типа SFILE=SDFILE,\n               где SFILE - исходный файл\n               и SDFILE - файл описания исходника\nWARNCTGAPS     Уведомлять об отсутствии идентификаторов в переводе\nNOOPTIM        Не пропускать не изменённые строки в переводе/описание\nFILL           Заполнять отсутствующие идентификаторы оригинальным текстом\nFLUSH          Очистить память после создания каталога\nNOBEEP         Без DisplayBeep() при ошибках и уведомлениях\nQUIET          Без уведомлений\nNOLANGTOLOWER  Предотвратить #имя языка от нижнего регистра\nNOBUFFEREDIO   Отключить буферы В/В\nMODIFIED       Создавать каталог, если изменились описание/перевод\nCOPYMSGNEW     Копировать ***NEW*** метки из старых переводов\nOLDMSGNEW      Свои метки в старом переводе\nCODESET        Кодировка для создаваемого файла (к примеру. 'UTF-8')\nVERSION        Форсировать установку определенной версии при создание каталога\nREVISION       Форсировать установку определенной ревизии при создание каталога\nNOAUTODATE     бездействует - оставлено для совместимости\nNOSPACES       бездействует - оставлено для совместимости"
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -343,4 +343,4 @@ msgstr "ОШИБКА в iconv_open(): %s"
 
 msgctxt "MSG_ERR_NO_CAT_VERSION (184//)"
 msgid "no catalog version information found, using version 0"
-msgstr ""
+msgstr "нет информации о версии каталога, используется версия 0"

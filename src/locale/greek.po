@@ -4,14 +4,14 @@
 # Translators:
 # Anthony I., 2014
 # Anthony I., 2014
-# Anthony I., 2014
+# Anthony I., 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: https://github.com/adtools/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2016-04-27 14:50+0000\n"
-"Last-Translator: Jens Maus <mail@jens-maus.de>\n"
+"PO-Revision-Date: 2016-04-27 19:39+0000\n"
+"Last-Translator: Anthony I.\n"
 "Language-Team: Greek (http://www.transifex.com/ato/flexcat/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgid ""
 "  REVISION       Force a certain revision to be used during catalog generation\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr ""
+msgstr "CDFILE Αρχείο καταλόγου περιγραφής για σάρωση\nCTFILE Αρχείο καταλόγου μετάφρασης για σάρωση POFILE Αρχείο καταλόγου μετάφρασης σε μορφή PO\nCATALOG Αρχείο καταλόγου για δημιουργία\nNEWCTFILE Αρχείο καταλόγου μετάφρασης για δημιουργία\nSOURCES Δημιουργία πηγαίου κώδικα. Πρέπει να είναι κάτι όπως SFILE=SDFILE, όπου το SFILE είναι το αρχικό αρχείο και το SDFILE είναι ένα αρχικό αρχείο περιγραφής\nWARNCTGAPS Προειδοποίηση για τυχόν απόντα αναγνωριστικά στην μετάφραση\nNOOPTIM Να μη γίνεται παράλειψη αμετάβλητων συμβολοσειρών στην μετάφραση/περιγραφή\nFILL Γέμισμα απόντων αναγνωριστικών με το αρχικό κείμενο\nFLUSH Ανανέωση μνήμης μετά την δημιουργία καταλόγου\nNOBEEP Μη χρησιμοποίηση της DisplayBeep() σε σφάλματα και προειδοποιήσεις\nQUIET Χωρίς προειδοποιήσεις\nNOLANGTOLOWER Αποτροπή του ονόματος #language από το να μετατραπεί σε πεζά γράμματα NOBUFFEREDIO Απενεργοποίηση εισόδου/εξόδου προσωρινής μνήμης\nMODIFIED Δημιουργία καταλόγου μόνο όταν η περιγραφή/μετάφραση έχει αλλάξει\nCOPYMSGNEW Αντιγραφή ***ΝΕΩΝ*** δεικτών από την παλαιά μετάφραση\nOLDMSGNEW Τροποποιημένος δείκτης σε παλαιά μετάφραση\nCODESET Εξαναγκασμός κωδικοποίησης σε αρχείο εξόδου (π.χ. \"UTF-8\")\nVERSION Εξαναγκασμός συγκεκριμένης έκδοσης για χρήση κατά την δημιουργία καταλόγου\nREVISION Εξαναγκασμός συγκεκριμένης επανέκδοσης για χρήση κατά την δημιουργία καταλόγου\nNOAUTODATE καμία ενέργεια - φυλλάσεται για συμβατότητα\nNOSPACES καμία ενέργεια - φυλλάσεται για συμβατότητα"
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -344,4 +344,4 @@ msgstr "ΣΦΑΛΜΑ στο iconv_open(): %s"
 
 msgctxt "MSG_ERR_NO_CAT_VERSION (184//)"
 msgid "no catalog version information found, using version 0"
-msgstr ""
+msgstr "δεν βρέθηκε πληροφορία έκδοσης καταλόγου, θα χρησιμοποιηθεί η έκδοση 0"

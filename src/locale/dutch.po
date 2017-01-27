@@ -2,15 +2,15 @@
 # 
 # version 3
 # Translators:
-# Johan Banis <j.banis@banis.info>, 2014
+# Johan Banis <j.banis@banis.info>, 2014,2016
 # Thore Böckelmann <tboeckel@gmx.de>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: https://github.com/adtools/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2016-04-27 14:50+0000\n"
-"Last-Translator: Jens Maus <mail@jens-maus.de>\n"
+"PO-Revision-Date: 2016-06-13 19:28+0000\n"
+"Last-Translator: Johan Banis <j.banis@banis.info>\n"
 "Language-Team: Dutch (http://www.transifex.com/ato/flexcat/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +49,7 @@ msgid ""
 "  REVISION       Force a certain revision to be used during catalog generation\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr ""
+msgstr "  CDFILE         Scan bestaand catalog beschrijvingsbestand\n  CTFILE         Scan bestaand catalog vertalingsbestand\n  POFILE         Catalog vertgalingsbestand in PO-stijl formaat\n  CATALOG        Nieuw te maken catalogbestand\n  NEWCTFILE      Nieuw te maken catalog vertalingsbestand\n  SOURCES        Te maken bronbestand; moet zoiets zijn als SFILE=SDFILE,\n                 waarin SFILE een bronbestand is en SDFILE een beschrijvingsbestand\n  WARNCTGAPS     Waarschuwing over ontbrekende identifiers in de vertaling\n  NOOPTIM        Ongewijzigde strings in vertaling/beschrijving niet overslaan\n  FILL           Ontbrekende identifiers invullen met oorspronkelijke tekst\n  FLUSH          Geheugen wissen nadat de catalog is gemaakt\n  NOBEEP         Geen schermflits() bij fouten en waarschuwingen\n  QUIET          Geen waarschuwingen\n  NOLANGTOLOWER  Voorkom dat #taalnamen in kleine letters komen\n  NOBUFFEREDIO   I/O buffers ujitschakelen\n  MODIFIED       Alleen catalog maken als beschrijving/veraling gewijzigd is\n  COPYMSGNEW     Kopieer ***NEW*** markers uit oude vertaling\n  OLDMSGNEW      Custom marker in oude vertaling\n  CODESET        Codeset bepalen in uitvoerbestand (zoals 'UTF-8')\n  VERSION        Versienummer bepalen bij het maken van een catalog\n  REVISION       Revisienummer bepalen bij het maken van een catalog\n  NOAUTODATE     geen bewerking - gereserveerd voor compatabiliteit\n  NOSPACES       geen bewerking - gereserveerd voor compatabiliteit"
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -343,4 +343,4 @@ msgstr "Fout in iconv_open(): %s"
 
 msgctxt "MSG_ERR_NO_CAT_VERSION (184//)"
 msgid "no catalog version information found, using version 0"
-msgstr ""
+msgstr "Kan geen revisie-info voor .catalog vinden, gebruik daarom revisie 0"
