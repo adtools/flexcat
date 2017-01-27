@@ -10,6 +10,10 @@ FlexCat Open Source - Changelog
     which left the "line" variable uninitialized before. This refs #2.
   * createcatsrc.c: use the standard PRIx32 definition to insert the correct
     system-dependent placeholder for 32bit integers.
+  * scanct.c: changed the type of the Codeset variable to "unsigned long int"
+    to match the return type of strtoul() and the implied semantics for the
+    check against ULONG_MAX. This fixes the warning about "comparison is always
+    false due to limited range of data type".
 
 2016-11-22 Thore Böckelmann <tboeckel@gmx.de>
 
