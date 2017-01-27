@@ -338,7 +338,7 @@ int ScanPOFile(char *pofile, int verwarning)
           {
             char *p;
 
-            line += 16;
+            line += 15;
             p = strstr(line, "charset=");
             if(p != NULL)
             {

@@ -14,6 +14,7 @@ FlexCat Open Source - Changelog
     to match the return type of strtoul() and the implied semantics for the
     check against ULONG_MAX. This fixes the warning about "comparison is always
     false due to limited range of data type".
+  * scanpo.c: fixed a wrong skip of a keyword.
 
 2016-11-22 Thore Böckelmann <tboeckel@gmx.de>
 
