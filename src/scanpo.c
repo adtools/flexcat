@@ -60,7 +60,7 @@ char *strptime(const char *string, const char *fmt, struct tm *res);
 int ScanPOFile(char *pofile, int verwarning)
 {
   FILE *fp;
-  char *line;
+  char *readLineBuffer;
   int Result = TRUE;
   int CodeSet_checked = FALSE;
   int inHeader = TRUE;
@@ -82,11 +82,15 @@ int ScanPOFile(char *pofile, int verwarning)
   if(!NoBufferedIO)
     setvbuf(fp, NULL, _IOFBF, buffer_size);
 
-  // initialize "line" ahead of the loop
+  // initialize "readLineBuffer" ahead of the loop
   // the loop will bail out early for empty files
-  line = NULL;
-  while(!feof(fp) && (line = ReadLine(fp, TRUE)) != NULL)
+  readLineBuffer = NULL;
+  while(!feof(fp) && (readLineBuffer = ReadLine(fp, TRUE)) != NULL)
   {
+    // the buffer pointer will be modified all the way down, so better work with a copy,
+    // otherwise the free() call after the loop will free the wrong pointer
+    char *line = readLineBuffer;
+
     if(inHeader == TRUE)
     {
       if(line[0] == '\0')
@@ -668,7 +672,7 @@ int ScanPOFile(char *pofile, int verwarning)
     }
   }
 
-  free(line);
+  free(readLineBuffer);
   fclose(fp);
 
   /*

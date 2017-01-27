@@ -15,6 +15,9 @@ FlexCat Open Source - Changelog
     check against ULONG_MAX. This fixes the warning about "comparison is always
     false due to limited range of data type".
   * scanpo.c: fixed a wrong skip of a keyword.
+  * scanpo.c: the pointer returned by ReadLine() must not be modified during the
+    scan process, otherwise the wrong pointer will be free()'d after the loop.
+    This closes #2.
 
 2016-11-22 Thore Böckelmann <tboeckel@gmx.de>
 
