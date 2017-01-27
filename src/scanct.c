@@ -79,7 +79,10 @@ int ScanCTFile(char *ctfile)
     if(!NoBufferedIO)
         setvbuf(fp, NULL, _IOFBF, buffer_size);
 
-
+    // initialize "line" ahead of the loop
+    // the loop will bail out early for empty files
+    line = NULL;
+    newline = NULL;
     while(!feof(fp) && (line = newline = ReadLine(fp, TRUE)) != NULL)
     {
         switch(*line)

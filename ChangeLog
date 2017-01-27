@@ -2,6 +2,13 @@
 FlexCat Open Source - Changelog
 -------------------------------
 
+2017-01-27 Thore Böckelmann <tboeckel@gmx.de>
+
+  * createcatsrc.c, scancd.c, scanct.c, scanpo.c: added some explicit
+    initializations of a pointer to be freed after the ReadLine() loop. Empty
+    files will cause the loop to terminate even before the first ReadLine() call
+    which left the "line" variable uninitialized before. This refs #2.
+
 2016-11-22 Thore Böckelmann <tboeckel@gmx.de>
 
   * scanpo.c: fixed a potential buffer access beyond valid limits. Thanks to

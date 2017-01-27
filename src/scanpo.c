@@ -60,7 +60,7 @@ char *strptime(const char *string, const char *fmt, struct tm *res);
 int ScanPOFile(char *pofile, int verwarning)
 {
   FILE *fp;
-  char *newline, *line;
+  char *line;
   int Result = TRUE;
   int CodeSet_checked = FALSE;
   int inHeader = TRUE;
@@ -82,7 +82,10 @@ int ScanPOFile(char *pofile, int verwarning)
   if(!NoBufferedIO)
     setvbuf(fp, NULL, _IOFBF, buffer_size);
 
-  while(!feof(fp) && (line = newline = ReadLine(fp, TRUE)) != NULL)
+  // initialize "line" ahead of the loop
+  // the loop will bail out early for empty files
+  line = NULL;
+  while(!feof(fp) && (line = ReadLine(fp, TRUE)) != NULL)
   {
     if(inHeader == TRUE)
     {
@@ -665,6 +668,9 @@ int ScanPOFile(char *pofile, int verwarning)
     }
   }
 
+  free(line);
+  fclose(fp);
+
   /*
   printf("CatVersion: %d.%d\n", CatVersion, CatRevision);
   printf("CatVersionDate: '%s'\n", CatVersionDate);
@@ -861,11 +867,6 @@ int ScanPOFile(char *pofile, int verwarning)
       }
     }
   }
-
-  if(line != NULL)
-    free(line);
-
-  fclose(fp);
 
   if(WarnCTGaps)
   {

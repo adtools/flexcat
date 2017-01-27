@@ -478,6 +478,9 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
   if(!NoBufferedIO)
     setvbuf(fpout, NULL, _IOFBF, buffer_size);
 
+  // initialize "line" ahead of the loop
+  // the loop will bail out early for empty files
+  line = NULL;
   while(!feof(fpin) && (line = ReadLine(fpin, FALSE)) != NULL)
   {
     struct CatString *cs;
