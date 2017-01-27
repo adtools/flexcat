@@ -8,6 +8,8 @@ FlexCat Open Source - Changelog
     initializations of a pointer to be freed after the ReadLine() loop. Empty
     files will cause the loop to terminate even before the first ReadLine() call
     which left the "line" variable uninitialized before. This refs #2.
+  * createcatsrc.c: use the standard PRIx32 definition to insert the correct
+    system-dependent placeholder for 32bit integers.
 
 2016-11-22 Thore Böckelmann <tboeckel@gmx.de>
 

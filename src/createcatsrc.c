@@ -29,6 +29,7 @@
 #include "createcat.h"
 #include "globals.h"
 #include "utils.h"
+#include <inttypes.h>
 
 enum StringTypes
 {
@@ -651,7 +652,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
                     char *start;
                     char _StrLen[20 + 1];
 
-                    snprintf(_StrLen, sizeof(_StrLen), "%020lx", (uint32)cs->ID);
+                    snprintf(_StrLen, sizeof(_StrLen), "%020" PRIx32, (uint32)cs->ID);
                     start = &_StrLen[20 - _len * 2];
                     while(_len > 0)
                     {
@@ -666,7 +667,7 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
                     char *start;
                     char _StrLen[20 + 1];
 
-                    snprintf(_StrLen, sizeof(_StrLen), "%020lx", (uint32)((CalcRealLength(cs->CD_Str) + 1) & 0xfffffe));
+                    snprintf(_StrLen, sizeof(_StrLen), "%020" PRIx32, (uint32)((CalcRealLength(cs->CD_Str) + 1) & 0xfffffe));
                     start = &_StrLen[20 - _len * 2];
                     while(_len > 0)
                     {
