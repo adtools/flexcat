@@ -469,6 +469,11 @@ release:
 	make OS=mingw32 clean
 	make OS=mingw32 DEBUG=
 
+# ensure timestamps are correct after fresh git clone, so build can
+# work without already having flexcat installed
+bootstrap:
+	@touch $(CATFILES)
+
 # make the object directories
 $(OBJDIR):
 	@echo "  MK $@"
