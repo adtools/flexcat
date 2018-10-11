@@ -65,7 +65,7 @@
 #endif
 
 // identify the CPU model
-#if defined(__PPC__) || defined(__powerpc__)
+#if defined(__PPC__) || defined(__ppc__) || defined(__powerpc__)
   #define CPU "PPC"
 #elif defined(_M68060) || defined(__M68060) || defined(__mc68060)
   #define CPU "m68060"
