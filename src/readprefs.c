@@ -107,7 +107,7 @@ char ReadPrefs(void)
 
       if((rda = AllocDosObject(DOS_RDARGS, TAG_DONE)) != NULL)
       {
-        rda->RDA_Source.CS_Buffer = prefs;
+        rda->RDA_Source.CS_Buffer = (UBYTE *)prefs;
         rda->RDA_Source.CS_Length = strlen(prefs);
         rda->RDA_Source.CS_CurChr = 0;
         rda->RDA_Flags |= RDAF_NOPROMPT;
