@@ -107,6 +107,7 @@ char ReadPrefs(void)
 
       if((rda = AllocDosObject(DOS_RDARGS, TAG_DONE)) != NULL)
       {
+        // cast string pointer to 'void *' to avoid warnings due to different definitions of CS_Buffer in different SDKs
         rda->RDA_Source.CS_Buffer = (void *)prefs;
         rda->RDA_Source.CS_Length = strlen(prefs);
         rda->RDA_Source.CS_CurChr = 0;
@@ -138,7 +139,7 @@ char ReadPrefs(void)
 
           if(Results[VERSION])
             CatVersion = Results[VERSION];
-          
+
           if(Results[REVISION])
             CatRevision = Results[REVISION];
 
