@@ -2,6 +2,11 @@
 FlexCat Open Source - Changelog
 -------------------------------
 
+2019-02-13 Thore Böckelmann <tboeckel@gmx.de>
+
+  * sd/RexCat.sd: fixed a CloseCatalog call at the wrong position. This closes
+    #8.
+
 2017-01-27 Thore Böckelmann <tboeckel@gmx.de>
 
   * createcatsrc.c, scancd.c, scanct.c, scanpo.c: added some explicit
