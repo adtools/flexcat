@@ -5,7 +5,7 @@
 # $Id$
 #
 # Copyright (C) 1993-1999 by Jochen Wiedmann and Marcin Orlowski
-# Copyright (C) 2002-2017 FlexCat Open Source Team
+# Copyright (C) 2002-2019 FlexCat Open Source Team
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -75,7 +75,7 @@ releasever=`grep "#define EXE_VERSION" src/version.h | awk '{ print $3 }'`
 releaserev=`grep "#define EXE_REVISION" src/version.h | awk '{ print $3 }'`
 
 echo "  MK FlexCat-$releasever.$releaserev.lha"
-find release -nowarn -name ".svn" -or -name ".AppleDouble" -exec rm -rf {} \; 2>/dev/null
+find release -nowarn -name ".git" -or -name ".AppleDouble" -exec rm -rf {} \; 2>/dev/null
 cd release
 rm -f ../FlexCat-$releasever.$releaserev.lha
 lha -ao5q ../FlexCat-$releasever.$releaserev.lha *

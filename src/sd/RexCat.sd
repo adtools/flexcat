@@ -31,11 +31,10 @@ gettlstext: PROCEDURE EXPOSE tlstext.
 
   cat = OPENCATALOG("%b.catalog","%l",%v)
   IF cat = 0 THEN DO
-    CALL CLOSECATALOG(cat)
     RETURN 0
   END
 
- tlstext.%i=GETCATALOGSTR(cat,%d,"")
+  tlstext.%i=GETCATALOGSTR(cat,%d,"")
+  CALL CLOSECATALOG(cat)
 
   RETURN 1
-
