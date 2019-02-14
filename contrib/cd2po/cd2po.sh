@@ -852,6 +852,9 @@ identifyCharset()
     norwegian)
       charset="iso-8859-15"
     ;;
+    persian)
+      charset="iso-8859-6"
+    ;;
     polish)
       charset="iso-8859-16"
     ;;
@@ -927,7 +930,7 @@ identifyCodeset()
       codeset="111"
     ;;
     persian)
-      codeset="0"
+      codeset="9"
     ;;
     polish)
       codeset="112"
