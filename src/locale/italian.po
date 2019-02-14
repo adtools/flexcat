@@ -2,14 +2,14 @@
 # 
 # version 3
 # Translators:
-# Samir Hawamdeh <s.hawamdeh@teletu.it>, 2014
+# Samir Hawamdeh <s.hawamdeh@teletu.it>, 2014,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexCat\n"
 "Report-Msgid-Bugs-To: https://github.com/adtools/flexcat\n"
 "POT-Creation-Date: 2014-02-18 11:52+0100\n"
-"PO-Revision-Date: 2016-04-27 14:50+0000\n"
-"Last-Translator: Jens Maus <mail@jens-maus.de>\n"
+"PO-Revision-Date: 2019-01-13 18:09+0000\n"
+"Last-Translator: Samir Hawamdeh <s.hawamdeh@teletu.it>\n"
 "Language-Team: Italian (http://www.transifex.com/ato/flexcat/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgid ""
 "  REVISION       Force a certain revision to be used during catalog generation\n"
 "  NOAUTODATE     no operation - kept for compatibility\n"
 "  NOSPACES       no operation - kept for compatibility"
-msgstr ""
+msgstr "NCDFILE         File descrizione da scansionare\nCTFILE         File traduzione da scansionare\nPOFILE         Catalogo traduzione nello stile formato PO\nCATALOG        File catalogo da creare\nNEWCTFILE      Traduzione file catalogo da creare\nSOURCES        Sorgenti da creare; devono essere di tipo SFILE=SDFILE,\n               dove SFILE è il file sorgente e SDFILE è il sorgente\n               del file descrizione\nWARNCTGAPS     Avvisa su identificatori mancanti nella traduzione \nNOOPTIM        Non saltare le stringhe non modificate sulla traduzione/descrizione\nFILL           Riempi identificatori mancanti con il testo originale\nFLUSH         Libera memoria dopo la creazione del catalogo\nNOBEEP         No DisplayBeep() su errori e avvisi\nQUIET          No avvisi\nNOLANGTOLOWER  Previeni nome #language dall'apparire in minuscolo\nNOBUFFEREDIO   Disattiva buffers I/O\nMODIFIED       Crea catalogo solo se la traduzione/descrizione è stata modificata\nCOPYMSGNEW     Copia ***NUOVI*** marcatori sopra la vecchia traduzione\nOLDMSGNEW      Marcatore personalizzato nella vecchia traduzione\nCODESET        Forza codeset nel file di output (a.e. 'UTF-8')\nVERSION        Forza l'uso di una certa versione durante la generazione del catalogo\nREVISION       Forza l'uso di una certa revisione durante la generazione del catalogo\nNOAUTODATE     Nessuna operazione - mantenuto per compatibilità\nNOSPACES       Nessuna operazione - mantenuto per compatibilità"
 
 msgctxt "MSG_FILEUPTODATE (2//)"
 msgid "File '%s' is up to date"
@@ -72,7 +72,7 @@ msgstr "atteso carattere ottale (compreso tra [0-7])"
 
 msgctxt "MSG_ERR_NOLENGTHBYTES (104//)"
 msgid "lengthbytes cannot be larger than %d (sizeof long)"
-msgstr "LengthBytes non può essere più largo di %d (sizeof long)"
+msgstr "Le LengthBytes non possono essere più larghe di %d (dimensione)"
 
 msgctxt "MSG_ERR_UNKNOWNCDCOMMAND (105//)"
 msgid "unknown catalog description command"
@@ -88,7 +88,7 @@ msgstr "identificatore mancante"
 
 msgctxt "MSG_ERR_MISSINGSTRING (115//)"
 msgid "unexpected end of file (missing catalog strings)"
-msgstr "inattesa fine del file (stringhe catalog mancanti)"
+msgstr "inattesa fine del file (stringhe catalogo mancanti)"
 
 msgctxt "MSG_ERR_UNKNOWNCTCOMMAND (118//)"
 msgid "unknown command in translation"
@@ -108,7 +108,7 @@ msgstr "fine linea inattesa. ( ')' mancante)"
 
 msgctxt "MSG_ERR_NOBINCHARS (122//)"
 msgid "binary characters in string type None"
-msgstr "non ci sono caratteri binari in stringtype"
+msgstr "non sono presenti caratteri binari nel tipo di stringa"
 
 msgctxt "MSG_ERR_CTGAP (123//)"
 msgid "'%s' missing in catalog translation"
@@ -116,11 +116,11 @@ msgstr "'%s' mancante nel file traduzione .CT"
 
 msgctxt "MSG_ERR_DOUBLECTLANGUAGE (124//)"
 msgid "catalog language declared twice"
-msgstr "lingua del catalog dichiarata due volte"
+msgstr "lingua del catalogo dichiarata due volte"
 
 msgctxt "MSG_ERR_DOUBLECTVERSION (125//)"
 msgid "catalog version declared twice"
-msgstr "versione del catalog dichiarata due volte"
+msgstr "versione del catalogo dichiarata due volte"
 
 msgctxt "MSG_ERR_WRONGRCSID (126//)"
 msgid "incorrect RCS Id"
@@ -146,7 +146,7 @@ msgstr "numero di versione mancante nel file traduzione.\nUsa '## version' o '##
 
 msgctxt "MSG_ERR_NOCATALOG (131//)"
 msgid "cannot open catalog file '%s'"
-msgstr "Impossibile aprire il file catalog '%s'"
+msgstr "Impossibile aprire il file catalogo '%s'"
 
 msgctxt "MSG_ERR_NONEWCTFILE (132//)"
 msgid "cannot create catalog translation '%s'"
@@ -166,7 +166,7 @@ msgstr "Impossibile aprire il file sorgente della descrizione '%s'"
 
 msgctxt "MSG_ERR_NOCTARGUMENT (136//)"
 msgid "creating a catalog requires a translation file"
-msgstr "La creazione di un catalog richiede un file traduzione come argomento"
+msgstr "La creazione del file catalogo richiede un file traduzione come argomento"
 
 msgctxt "MSG_ERR_CANTCHECKDATE (137//)"
 msgid "cannot get datestamp of '%s'"
@@ -176,13 +176,13 @@ msgctxt "MSG_ERR_NOCTFILENAME (140//)"
 msgid ""
 "Catalog translation file name not specified at command line or as basename "
 "in description"
-msgstr "Nome file catalog della traduzione non specificato nella riga di comando o come basename nella descrizione"
+msgstr "Nome del file catalogo della traduzione non specificato nella linea di comando o come nome base nella descrizione"
 
 msgctxt "MSG_ERR_NOCATFILENAME (141//)"
 msgid ""
 "catalog file name not specified at command line or as basename in "
 "description"
-msgstr "nome file catalog non specificato nella riga di comando o come basename nella descrizione"
+msgstr "Nome file catalogo non specificato nella linea di comando o come nome base nella descrizione"
 
 msgctxt "MSG_ERR_BADPREFS (142//)"
 msgid ""
@@ -198,7 +198,7 @@ msgstr "Lingua non valida nel file della traduzione\nLa lingua DEVE essere una s
 
 msgctxt "MSG_ERR_DOUBLECTCODESET (146//)"
 msgid "catalog codeset declared twice"
-msgstr "codeset del catalog dichiarato due volte"
+msgstr "codeset del catalogo dichiarato due volte"
 
 msgctxt "MSG_ERR_BADCTCODESET (147//)"
 msgid ""
@@ -220,7 +220,7 @@ msgid ""
 "Version should be something like\n"
 "## version $VER: name version.revision (date)\n"
 "without any spaces in the name"
-msgstr "Stringa di versione non valida nel file della traduzione\nIl Version deve essere impostato in questo modo\n## version $VER: name version.revision (date)\nsenza nessuno spazio all'interno del nome"
+msgstr "Stringa di versione non valida nel file della traduzione\nLa versione deve essere impostata in questo modo\n## version $VER: name version.revision (date)\nsenza nessuno spazio all'interno del nome"
 
 msgctxt "MSG_ERR_WARNING_QUICK (154//)"
 msgid "%s - Warning:"
@@ -269,7 +269,7 @@ msgstr "la stringa originale non contiene spazi finali per l'identificatore '%s'
 
 msgctxt "MSG_ERR_MISMATCHING_PLACEHOLDERS (166//)"
 msgid "mismatching placeholders for identifier '%s'"
-msgstr "placeholder non corrispondente per l'identificatore '%s'"
+msgstr "placeholder non corrispondenti per l'identificatore '%s'"
 
 msgctxt "MSG_ERR_MISSING_PLACEHOLDERS (167//)"
 msgid "missing placeholders for identifier '%s'"
@@ -314,7 +314,7 @@ msgstr "trovato carattere non-ASCII 0x%02x nella stringa originale per l'identif
 
 msgctxt "MSG_ERR_NO_CAT_REVISION (177//)"
 msgid "no catalog revision information found, using revision 0"
-msgstr "informazioni sulla revision del catalog non trovate, usa revision 0"
+msgstr "informazioni sulla revisione del catalogo non trovata, usa revision 0"
 
 msgctxt "MSG_ERR_CONVERSION_FAILED (178//)"
 msgid "UTF8 conversion failed for identifier '%s'"
@@ -342,4 +342,4 @@ msgstr "ERRORE in iconv_open(): %s"
 
 msgctxt "MSG_ERR_NO_CAT_VERSION (184//)"
 msgid "no catalog version information found, using version 0"
-msgstr ""
+msgstr "non è stata trovata alcuna informazione sulla versione del catalogo, usando la versione 0"
