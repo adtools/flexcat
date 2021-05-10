@@ -1,5 +1,5 @@
 ;
-; $VER: Install 1.1 (30.06.2010)
+; $VER: Install 1.3 (10.05.2021)
 ;
 ; $Id$
 ;
@@ -8,6 +8,8 @@
 ;   1.0   29.06.2010: initial release
 ;   1.1   30.06.2010: ask the user whether the *.sd files should be installed
 ;   1.2   20.12.2012: added 3.x to MorphOS install decription
+;   1.3   10.05.2021: added italian translation kindly provided by Samir
+;                     Hawamdeh.
 
 ;----------------------------------------------------------------------------
 ; /// language bit definition, do not change these!!
@@ -108,7 +110,28 @@
                                  @app-name " wurde erfolgreich installiert."))
     )
 )
+
 ; ///
+; /// ***** Italiano
+(if (= #language "italiano")
+    (
+        (set #acknowledgeOS (cat "Per favore conferma il rilevamento\n"
+                                 "automatico del sistema operativo in uso:"))
+        (set #FlexCat_dir  (cat "Per favore seleziona una directory per FlexCat\n"
+                                "(Non verrà creata alcuna cartella extra!)"))
+        (set #installSDFiles (cat "Si desidera installare i file #?.sd ?\n"
+                                  "\n"
+                                  "Sono necessari solo nel caso si voglia usare\n"
+                                  "FlexCat per generare del codice sorgente.\n"
+                                  "\n"
+                                  "In genere i traduttori non hanno bisogno di questi file."))
+        (set #done          (cat "\n"
+                                 @app-name " è stato installato correttamente."))
+    )
+)
+
+; ///
+
 ;----------------------------------------------------------------------------
 ; /// Checking environment
 (set EXEC_ver (getversion "exec.library" (resident)))
