@@ -1,9 +1,7 @@
 # FlexCat (Flexible Catalogs for Amiga systems)
 
-[![Build Status](https://travis-ci.org/adtools/flexcat.svg?branch=master)](https://travis-ci.org/adtools/flexcat)
-[![Code Climate](https://codeclimate.com/github/adtools/flexcat/badges/gpa.svg)](https://codeclimate.com/github/adtools/flexcat)
+[![Build](https://github.com/adtools/flexcat/workflows/CI/badge.svg)](https://github.com/adtools/flexcat/actions)
 [![License](http://img.shields.io/:license-gpl2-blue.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
-[![Github Issues](http://githubbadges.herokuapp.com/adtools/flexcat/issues.svg)](https://github.com/adtools/flexcat/issues)
 
 FlexCat is a tool to create Amiga localization catalogs (*.catalog files) similar to what the good-old CatComp tool does. However, it can also create source and header files for developers and can be used on other platforms (Unix, Windows, etc.), thus is cross-platform aware. The difference between FlexCat and KitCat, CatComp and some others is, that FlexCat is designed to produce any source you want:  any programming language, any individual needs should be satisfied. However, FlexCat is not more difficult to use. This sounds like a contradiction. FlexCat's solution is to use template files, the so called "source descriptions". Ready to use examples for Assembler, C, C++, E, Oberon and Modula-2 are distributed, additionally an example for supporting catalogs on Workbench 2.0. Any other examples are welcome.
 
