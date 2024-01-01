@@ -1,0 +1,101 @@
+##rem $Id$
+##shortstrings
+##stringtype pascal
+{$mode objfpc}
+unit %blocale;
+
+interface
+
+{****************************************************************
+
+   This file was created automatically by '%fv'
+   from "%f0".
+
+   Do NOT edit by hand!
+
+****************************************************************}
+
+uses
+  Exec, Locale, Utility;
+
+const
+  %i = %d;\n  %i_STR = %s;\n
+
+procedure CloseCatalog;
+procedure OpenCatalog(Loc: PLocale);
+function GetLocString(Num: LongInt): STRPTR;
+
+implementation
+
+const
+  Builtinlanguage = %l;
+  Version = %v;
+  Catalog: PCatalog = NIL;
+
+type
+  TAppString = record
+     id: LongInt;
+     str: STRPTR;
+  end;
+
+  TAppStringArray = array[0..%n] of TAppString;
+
+const
+  AppStrings: TAppStringArray = (
+    (id: %i; str: %i_STR ),
+    (id: 0; str: '' )
+  );
+
+procedure CloseCatalog;
+begin
+  if assigned(LocaleBase) and assigned(Catalog) then
+    begin
+      Locale.CloseCatalog(Catalog);
+      Catalog := nil;
+    end;
+end;
+
+procedure OpenCatalog(loc: PLocale);
+var
+  tags: array[0..7] of PtrUInt;
+begin
+  CloseCatalog;
+  if not assigned(Catalog) and assigned(LocaleBase) then
+    begin
+      tags[0] := OC_BuiltInLanguage;
+      tags[1] := 0; //AsTag(PChar(builtinlanguage));
+      tags[2] := OC_Version;
+      tags[3] := Version;
+      tags[4] := TAG_END;
+
+      Catalog := Locale.OpenCatalogA(loc, PChar('%b.catalog'), @tags);
+    end;
+end;
+
+function GetLocString(Num: LongInt): STRPTR;
+var
+  i: LongInt;
+  Default: STRPTR;
+begin
+  Default:=nil;
+
+  for i := 0 to High(Appstrings)-1 do
+    begin
+      if AppStrings[i].id = Num then
+        begin
+          Default:=AppStrings[i].str;
+          break;
+        end;
+    end;
+
+  if assigned(LocaleBase) then
+    GetLocString := Locale.GetCatalogStr(Catalog, Num, Default)
+  else
+    GetLocString := Default;
+end;
+
+initialization
+  OpenCatalog(nil);
+finalization
+  CloseCatalog;
+end.

@@ -38,6 +38,7 @@ enum StringTypes
   TYPE_OBERON,        /* Produce Oberon strings */
   TYPE_E,           /* Produce E strings. (Oops, thought
                    it allows only 32 bit integers? ;-) */
+  TYPE_PASCAL,        /* Produce Pascal strings */
   TYPE_NONE           /* Simple strings */
 };
 
@@ -94,6 +95,7 @@ int CalcRealLength(char *source)
          TYPE_ASSEMBLER  create Assembler strings
          TYPE_OBERON   create Oberon strings
          TYPE_E      create E strings
+         TYPE_PASCAL   create Pascal strings
          TYPE_NONE     create simple strings */
 
 void InitCatStringOutput(FILE *fp)
@@ -111,6 +113,7 @@ void InitCatStringOutput(FILE *fp)
       break;
 
     case TYPE_E:
+    case TYPE_PASCAL:
       putc('\'', fp);
 
     case TYPE_ASSEMBLER:
@@ -137,6 +140,7 @@ void SeparateCatStringOutput(void)
       break;
 
     case TYPE_E:
+    case TYPE_PASCAL:
       if(!LongStrings)
       {
         fputs("\' +\n\t\'", OutputFile);
@@ -220,6 +224,11 @@ void WriteBinChar(int c)
       ++OutputLen;
       OutputMode = OutputMode_Bin;
       break;
+    case TYPE_PASCAL:
+      fprintf(OutputFile, "'#%d'", c);
+      ++OutputLen;
+      OutputMode = OutputMode_Bin;
+      break;
 
     case TYPE_ASSEMBLER:
       switch(OutputMode)
@@ -271,6 +280,7 @@ void WriteAsciiChar(int c)
       break;
 
     case TYPE_E:
+    case TYPE_PASCAL:
       switch(c)
       {
         case '\'':
@@ -332,6 +342,7 @@ void TerminateCatStringOutput(void)
       break;
 
     case TYPE_E:
+    case TYPE_PASCAL:
       putc('\'', OutputFile);
       break;
 
@@ -529,6 +540,11 @@ void CreateSourceFile(char *SourceFile, char *TemplateFile, char *CDFile)
           {
             OutputType = TYPE_E;
             ++currentline;
+          }
+          else if(Strnicmp(currentline, "pascal", 6) == 0)
+          {
+            OutputType = TYPE_PASCAL;
+            currentline += 6;
           }
           else if(Strnicmp(currentline, "none", 4) == 0)
           {
