@@ -23,7 +23,7 @@ const
 
 procedure CloseCatalog;
 procedure OpenCatalog(Loc: PLocale);
-function GetLocString(Num: LongInt): PChar;
+function GetLocString(Num: LongInt): STRPTR;
 
 implementation
 
